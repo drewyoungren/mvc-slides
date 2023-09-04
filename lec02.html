@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Points and Vectors</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-auto-animate>
+          <h1>Welcome to</h1>
+          <h2>APMA E2000</h2>
+          <h3>
+            <span class="fragment">Multivariable Calculus </span>
+            <span class="fragment">for Engineers</span>
+            <span class="fragment">and Applied Scientists</span>
+          </h3>
+          <p>Drew Youngren <code>dcy2@columbia.edu</code></p>
+        </section>
+        <section data-auto-animate>
+          <h1>Welcome to</h1>
+          <h2>APMA E2000</h2>
+          <h3>MVC</h3>
+          <p>Drew Youngren <code>dcy2@columbia.edu</code></p>
+        </section>
+        <section data-auto-animate>
+          <h1>Welcome to</h1>
+          <h2>APMA E2000</h2>
+          <h3>Multi</h3>
+          <p>Drew Youngren <code>dcy2@columbia.edu</code></p>
+        </section>
+        <section>
+          <section>
+            <h1>Logistics</h1>
+          </section>
+          <section>
+            <h2>Courseworks</h2>
+            <p>aka Canvas</p>
+            <p>
+              <a
+                href="https://courseworks2.columbia.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><code>courseworks2.columbia.edu</code></a
+              >
+            </p>
+            <ul>
+              <li class="fragment">Syllabus</li>
+              <li class="fragment">Assignments</li>
+              <li class="fragment">Links</li>
+              <li class="fragment">Grades</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Gradescope</h2>
+            <p>
+              <a
+                href="https://gradescope.com /"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <code>gradescope.com </code>
+              </a>
+            </p>
+            <ul>
+              <li class="fragment">Submit HW</li>
+              <li class="fragment">Take quizzes</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Ed Discussions</h2>
+            <p>
+              <a
+                href="https://edstem.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><code>edstem.org</code></a
+              >
+            </p>
+            <ul>
+              <li class="fragment">Announcements</li>
+              <li class="fragment">Discussion</li>
+              <li class="fragment">Q&amp;A</li>
+            </ul>
+          </section>
+          <section>
+            <h2>JupyterHub</h2>
+            <p>
+              <a
+                href="https://apma-e2000-youngren-01.columbiajupyter2.org/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fdrewyoungren%2Fmvc&urlpath=lab%2Ftree%2Fmvc%2F&branch=main"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Use link on Courseworks
+              </a>
+            </p>
+            <ul>
+              <li class="fragment">Computational environment</li>
+              <li class="fragment">Extra resources</li>
+            </ul>
+          </section>
+          <section>
+            <img src="/assets/3demos-logo.svg" alt="3Demos Logo" srcset="" />
+            <!-- <h2>3Demos</h2>  -->
+            <p>
+              <a
+                href="https://3demos.ctl.columbia.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><code>3demos.ctl.columbia.edu</code></a
+              >
+            </p>
+            <ul>
+              <li class="fragment">Visualization</li>
+              <li class="fragment">Interaction</li>
+              <li class="fragment">Bells &amp; Whistles</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Spaces</h1>
+          </section>
+          <section>
+            <h3>$\mathbb{R}$ &nbsp;&nbsp; The Real Numbers</h3>
+
+            <p>aka "scalars". The complete, ordered field.</p>
+          </section>
+          <section>
+            <h3>$\mathbb{R}^2$ &nbsp;&nbsp; The Cartesian Plane</h3>
+            \[ \mathbb{R}^2 = \{ (x,y) \mid x,y \in \mathbb{R} \} \]
+          </section>
+          <section>
+            <h3>$\mathbb{R}^3$ &nbsp;&nbsp; 3-space</h3>
+            \[ \mathbb{R}^3 = \{ (x,y,z) \mid x,y,z \in \mathbb{R} \} \]
+          </section>
+          <section>
+            <h3>$\mathbb{R}^n$ &nbsp;&nbsp; $n$-space</h3>
+            \[ \mathbb{R}^n = \{ (x_1, \ldots, x_n) \mid x_i \in \mathbb{R} \}
+            \]
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Distance</h3>
+            <p>
+              Let $P = (p_1, \ldots, p_n)$ and $Q = (q_1, \ldots, q_n)$ be two
+              points in $\mathbb{R}^n$. The
+              <strong>distance formula</strong> is:
+            </p>
+
+            \[ d(P, Q) = \sqrt{\sum_{i = 1}^n (p_i - q_i)^2} \]
+          </section>
+
+          <section>
+            <h1>Vectors</h1>
+            <div class="r-frame">
+              <h5>Definition</h5>
+
+              <p>
+                A <strong>vector</strong> is a directed line segment in
+                \(\mathbb{R}^n\) <span class="fragment"> modulo location.</span>
+              </p>
+            </div>
+            <div style="padding-bottom: 40%"></div>
+          </section>
+          <section>
+            <h3>Vector notation</h3>
+
+            <p>
+              \[ \mathbf v = \vec v = \langle v_1, v_2, \ldots, v_n \rangle =
+              \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \]
+            </p>
+            <p>
+              The $v_i$'s are the <strong>components</strong> of $\mathbf{v}$,
+              the displacements in each dimension.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Vector Operations</h1>
+          </section>
+          <section>
+            <h3>Magnitude</h3>
+
+            \[|\mathbf{v}| = \sqrt {\sum_{i=1}^n v_i^2}\]
+
+            <p>
+              The <strong>magnitude</strong> or <strong>length</strong> of a
+              vector is a nonnegative scalar.
+            </p>
+
+            <div class="fragment">
+              It is <strong>non-degenerate</strong> which just means \[ \mathbf
+              v = \mathbf 0 \iff |\mathbf v| = 0.\]
+            </div>
+          </section>
+          <section>
+            <h3>Scaling</h3>
+            <p>
+              <strong>Scalar multiplication</strong>, or really scalar-vector
+              multiplication, simply scales each component by a common factor.
+            </p>
+
+            \[ c\mathbf v = \left\langle c v_1, c v_2, \ldots, c v_n
+            \right\rangle \]
+
+            <div class="fragment r-frame">
+              <h4>Question</h4>
+              <p>
+                What happens to the magnitude when of a vector when scaling?
+              </p>
+
+              $ |c \mathbf{v} | = $
+              <span class="fragment">$ |c||\mathbf v| $ </span>
+            </div>
+          </section>
+          <section>
+            <h3>Addition</h3>
+            <p>
+              <strong>Vector addition</strong> works exactly how one thinks it
+              would.
+            </p>
+
+            \[ \mathbf v + \mathbf w = \left\langle v_1 + w_1, \ldots, v_n + w_n
+            \right\rangle \]
+
+            <div class="fragment">
+              Geometrically, we refer to this as
+              <strong>tip-to-tail</strong> addition.
+            </div>
+          </section>
+          <section>
+            <div class="container">
+              <div class="col">
+                <p style="font-size: smaller">
+                  A sum of scaled vectors is called a
+                  <strong>linear combination</strong> and is the fundamental
+                  vector expression.
+                </p>
+                \[ a \mathbf v + b \mathbf w \] \[ \sum_{i = 1}^m c_i\mathbf
+                v_i\]
+              </div>
+              <div class="col">
+                <div
+                  id="box-lin-combo"
+                  class="jxgbox"
+                  style="width: 400px; height: 400px"
+                ></div>
+                <script type="text/javascript">
+                  const b1 = JXG.JSXGraph.initBoard('box-lin-combo', {
+                    boundingbox: [-5, 5, 5, -5],
+                    axis: true,
+                  });
+
+                  const projab = function (b, a) {
+                    const [ax, ay] = [a.X(), a.Y()];
+                    const [bx, by] = [b.X(), b.Y()];
+
+                    const c = (ax * bx + ay * by) / (bx * bx + by * by);
+                    return [c * bx, c * by];
+                  };
+
+                  const butt = b1.create('button', [
+                    -4,
+                    4,
+                    'Change base',
+                    function () {
+                      butt.value = !butt.value;
+                    },
+                  ]);
+
+                  // Set initial value for the button
+                  if (!JXG.exists(butt.value)) {
+                    butt.value = false;
+                  }
+
+                  var v = b1.create('point', [2, 2], { size: 3, name: 'v' });
+                  var w = b1.create('point', [-2, 1], { size: 3, name: 'w' });
+                  var va = b1.create('line', [[0, 0], v], {
+                    straightFirst: false,
+                    straightLast: false,
+                    lastArrow: true,
+                    isDraggable: false,
+                  });
+                  var wa = b1.create('line', [[0, 0], w], {
+                    straightFirst: false,
+                    straightLast: false,
+                    lastArrow: true,
+                    isDraggable: false,
+                  });
+                  var vc = b1.create(
+                    'line',
+                    [
+                      [0, 0],
+                      () => {
+                        return projab(v, w);
+                      },
+                    ],
+                    {
+                      visible: () => butt.value,
+                      color: 'orange',
+                      straightFirst: false,
+                      straightLast: false,
+                      lastArrow: true,
+                      isDraggable: false,
+                      withLabel: true,
+                      label: {
+                        color: 'orange',
+                      },
+                      name: 'proj_v w',
+                    }
+                  );
+                  var wc = b1.create(
+                    'line',
+                    [
+                      [0, 0],
+                      () => {
+                        return projab(w, v);
+                      },
+                    ],
+                    {
+                      visible: () => !butt.value,
+                      color: 'green',
+                      straightFirst: false,
+                      straightLast: false,
+                      lastArrow: true,
+                      isDraggable: false,
+                      withLabel: true,
+                      label: {
+                        color: 'green',
+                      },
+                      name: 'proj_w v',
+                    }
+                  );
+                  var wdrop = b1.create(
+                    'line',
+                    [
+                      v,
+                      () => {
+                        return projab(w, v);
+                      },
+                    ],
+                    {
+                      visible: () => !butt.value,
+                      color: 'gray',
+                      opacity: 0.3,
+                      straightFirst: false,
+                      straightLast: false,
+                      lastArrow: false,
+                      isDraggable: false,
+                      dash: 2,
+                    }
+                  );
+                  var vdrop = b1.create(
+                    'line',
+                    [
+                      w,
+                      () => {
+                        return projab(v, w);
+                      },
+                    ],
+                    {
+                      visible: () => butt.value,
+                      color: 'gray',
+                      opacity: 0.3,
+                      straightFirst: false,
+                      straightLast: false,
+                      lastArrow: false,
+                      isDraggable: false,
+                      dash: 2,
+                    }
+                  );
+
+                  va.isDraggable = false;
+                  wa.isDraggable = false;
+                  vc.isDraggable = false;
+                  wc.isDraggable = false;
+
+                  // var compwv = JXG.Math.innerProduct(v, w) ;
+                  var t1 = b1.create(
+                    'text',
+                    [
+                      -4,
+                      -2,
+                      () => {
+                        return (
+                          'comp_w v = ' +
+                          (
+                            (v.X() * w.X() + v.Y() * w.Y()) /
+                            Math.sqrt(w.X() * w.X() + w.Y() * w.Y())
+                          ).toFixed(2)
+                        );
+                      },
+                    ],
+                    {
+                      visible: () => !butt.value,
+                      color: 'green',
+                      fontsize: 20,
+                    }
+                  );
+                  var t2 = b1.create(
+                    'text',
+                    [
+                      -4,
+                      -2,
+                      () => {
+                        return (
+                          'comp_v w = ' +
+                          (
+                            (v.X() * w.X() + v.Y() * w.Y()) /
+                            Math.sqrt(v.X() * v.X() + v.Y() * v.Y())
+                          ).toFixed(2)
+                        );
+                      },
+                    ],
+                    {
+                      visible: () => butt.value,
+                      color: 'orange',
+                      fontsize: 20,
+                    }
+                  );
+                </script>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+
+  <style>
+    .container {
+      display: flex;
+    }
+    .col {
+      flex: 1;
+      margin: 20px;
+    }
+  </style>
+</html>
