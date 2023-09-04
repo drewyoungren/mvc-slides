@@ -160,8 +160,6 @@
             \[ \mathbb{R}^n = \{ (x_1, \ldots, x_n) \mid x_i \in \mathbb{R} \}
             \]
           </section>
-        </section>
-        <section>
           <section>
             <div class="r-frame">
               <h6 class="framelabel">Definition</h6>
@@ -176,9 +174,13 @@
               </div>
             </div>
           </section>
+        </section>
+        <section>
 
           <section>
             <h1>Vectors</h1>
+            </section>
+            <section>
             <div class="r-frame">
               <h6 class="framelabel">Definition</h6>
 
@@ -193,6 +195,9 @@
               <strong>magnitude</strong> and <strong>direction</strong>.
             </p>
             <div class="r-stretch"></div>
+            <aside class="notes">
+              Use <code>one-vector.json</code>.
+            </aside>
           </section>
           <section>
             <h3>Vector Notation</h3>
@@ -506,8 +511,11 @@
           </section>
         </section>
         <section>
+          <section>
+            <h1>Using Vectors</h1>
+          </section>
           <section >
-            <h3>Points or Vectors</h3>
+            <h3>Points or Vectors?</h3>
 
             <div class="fragment">
               \[(22, 3) \leftrightarrow \left\langle 22, 3 \right\rangle\]
@@ -523,22 +531,23 @@
           </section>
 
          
-          <section>
-            <h3>Why use [position] vectors?</h3>
-            <p class="fragment">Because we can use vector operations to describe space.</p> 
-
-
-
-            
-          </section>
-          <section>
+          <section data-background-image="assets/midtown.png" data-background-opacity="0.34" >            
             <div class="r-frame" data-id="boxframe">
               <h6 class="framelabel" data-id="boxframe2">Question</h6>
               <p data-id="boxframe3">What location   is halfway between 22nd St &amp; 3rd Ave and 42nd &amp; 5th?</p>
             </div>
+            <div class="r-stretch"></div>
+
+          </section>
+          <section data-background-image="assets/midtown.png" >  </section>
+          <section data-background-image="assets/midtown.png" data-background-opacity="0.34" >            
+            <div class="r-frame" data-id="boxframe">
+              <h6 class="framelabel" data-id="boxframe2">Question</h6>
+              <p data-id="boxframe3">What location   is halfway between 22nd St &amp; 3rd Ave and 42nd &amp; 5th?</p>
+            </div>
+            \[ \mathbf p = \left\langle 22, 3 \right\rangle \qquad \mathbf q = \left\langle 42, 5 \right\rangle\ \]
 
             <div class="fragment">
-              \[ \mathbf p = \left\langle 22, 3 \right\rangle \qquad \mathbf q = \left\langle 42, 5 \right\rangle\ \]
 
               \[ \mathbf m = \mathbf p + \frac12 (\mathbf q - \mathbf p) \]
 
@@ -549,15 +558,15 @@
 
             <div class="r-stretch"></div>
             
-          </section>
+          </section> 
           <section>
             <div class="r-frame" data-id="boxframe">
               <h6 class="framelabel" data-id="boxframe2">Question</h6>
               <p data-id="boxframe3">What location is $\frac34$ of the way from 22nd St &amp; 3rd Ave to 42nd &amp; 5th?</p>
             </div>
 
+ 
             <div class="fragment">
-              \[ \mathbf p = \left\langle 22, 3 \right\rangle \qquad \mathbf q = \left\langle 42, 5 \right\rangle\ \]
 
               \[ \mathbf x = \mathbf p + \frac34 (\mathbf q - \mathbf p) \]
 
