@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+}
+.col {
+  flex: 1;
+  margin: 20px;
+}
+.framelabel {
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 10px;
+}
