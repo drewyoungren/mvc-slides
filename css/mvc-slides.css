@@ -10,3 +10,21 @@
   padding-left: 10px;
   padding-top: 10px;
 }
+
+ul.squarelist {
+  list-style-type: square;
+}
+ul.squarelist > li::before {
+  content: '';
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+ul.nonelist {
+  list-style-type: none;
+}
+ul.nonelist > li::before {
+  content: '';
+  padding-top: 5%;
+  padding-bottom: 5%;
+}

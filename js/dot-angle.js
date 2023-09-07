@@ -16,8 +16,6 @@
     }
   );
 
-  console.log(c1);
-
   const v = b1.create('point', [2, 2], {
     size: 3,
     name: 'v',
@@ -25,6 +23,7 @@
     opacity: 0,
     isDraggable: true,
   });
+
   const b = b1.create(
     'slider',
     [
@@ -32,7 +31,7 @@
       [1, -3.5],
       [0, Math.PI / 6, 2 * Math.PI],
     ],
-    { name: '$\\theta$' }
+    { name: 'θ' }
   );
   const w = b1.create(
     'point',
@@ -78,15 +77,17 @@
   const a = b1.create('angle', [[6, 0], [0, 0], v], {
     name: '$\\alpha$',
     color: 'blue',
-    radius: 0.5,
+    radius: 0.4,
   });
   const th = b1.create('angle', [v, [0, 0], w], {
     name: '$\\theta$',
     color: 'red',
-    radius: 0.4,
+    radius: 0.5,
   });
   b1.on('update', function () {
-    document.getElementById('dot-output').innerHTML =
-      ' = ' + Math.round(15 * 100 * Math.cos(b.Value())) / 100;
+    const el = document.getElementById('dot-output');
+    const s = ' ' + Math.round(15 * 100 * Math.cos(b.Value())) / 100;
+    // console.log(katex.render);
+    el.innerHTML = s;
   });
 }

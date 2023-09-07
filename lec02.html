@@ -36,9 +36,10 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Set up standard katex macros -->
+        <!-- Set up standard LaTeX macros -->
         $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
 
         <section>
           <section data-auto-animate>
@@ -161,6 +162,36 @@
             </p>
           </section>
           <section>
+            <h3>Properties</h3>
+            <ul class="squarelist">
+              <li class="fragment">
+                positive definite: \[\vec v \cdot \vec v = |\vec v|^2\]
+              </li>
+              <li class="fragment">
+                symmetric: \[\vec v \cdot \vec w = \vec w \cdot\vec v\]
+              </li>
+              <li class="fragment">
+                bilinear: \[ \vec u \cdot (c\vec v + d\vec w) = c \vec u \cdot
+                \vec v + d \vec u \cdot \vec w\]
+              </li>
+            </ul>
+          </section>
+          <section
+            data-background="assets/Pitfall-gif.gif"
+            data-background-opacity="0.34"
+          >
+            <h2 style="color: orangered">Pitfall Warning</h2>
+            \[ \vec v \cdot \vec a = \vec v \cdot \vec b \]
+
+            <p>
+              <span class="fragment">does </span
+              ><span class="fragment"><strong>NOT</strong> </span
+              ><span class="fragment">mean </span>
+            </p>
+
+            \[\vec a = \vec b \]
+          </section>
+          <section>
             <h2>Meaning</h2>
             <h3>What does $\vec v \cdot \vec w$ measure?</h3>
 
@@ -171,18 +202,56 @@
             </div>
           </section>
           <section>
-            <h3>$\vec v \cdot \vec w $ <span id="dot-output"></span></h3>
-            <div
-              id="box-dot-angle"
-              class="jxgbox"
-              style="width: 500px; height: 500px"
-            ></div>
+            <div class="container">
+              <div class="col">
+                <h3>$\vec v \cdot \vec w =$</h3>
+                <h3>
+                  <span id="dot-output" style="text-align: left"></span>
+                </h3>
+              </div>
+              <div class="col">
+                <div
+                  id="box-dot-angle"
+                  class="jxgbox"
+                  style="width: 500px; height: 500px"
+                ></div>
+              </div>
+            </div>
             <script src="js/dot-angle.js" type="text/javascript"></script>
+          </section>
+          <section>
+            <h3>Geometric formula</h3>
+            <h3 class="r-frame">
+              \[ \vec v \cdot \vec w = |\vec v ||\vec w | \cos \theta \]
+            </h3>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              What is the angle between $ \langle 2, 2 , 1 \rangle$ and $\langle
+              -3, 2, 6 \rangle$ ?
+            </p>
+            <div class="fragment">
+              \[ \theta = \cos^{-1} \left( \frac{4}{21}\right) \approx 79^\circ
+              \]
+            </div>
           </section>
         </section>
         <section>
           <section>
             <h1>Projection</h1>
+          </section>
+          <section>
+            <h4 class="framelabel">Question</h4>
+            <p>Which multiple of $\vec w$ gets closest to $\vec v$?</p>
+
+            <div
+              id="box-proj-start"
+              class="jxgbox"
+              style="width: 600px; height: 400px"
+            ></div>
+            <script src="js/proj-start.js" type="text/javascript"></script>
           </section>
           <section>
             <h4>Formulas</h4>
@@ -203,7 +272,101 @@
               </div>
             </div>
           </section>
+          <section>
+            <h6 class="framelabel">Examples</h6>
+
+            <ul class="nonelist">
+              <li>
+                $\proj_{\vec w}(c \vec w) = $
+                <span class="fragment">$c\vec w$</span>
+              </li>
+              <li>
+                $\comp_{\vec j}\left\langle 2, -13, 5 \right\rangle = $
+                <span class="fragment">$-13 $</span>
+              </li>
+              <li>
+                $\proj_{\vec w}(\vec cu + d\vec v)= $
+                <span class="fragment">
+                  $c\proj_{\vec w}\vec u + d\proj_{\vec w}\vec v$
+                </span>
+              </li>
+            </ul>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Show that for every $\vec w \neq \vec 0$, $\vec v - \proj_{\vec w}
+              \vec v$ is orthogonal to the base $\vec w$.
+            </p>
+
+            <p class="fragment">
+              \[ \begin{align*} (\vec v - \proj_{\vec w} \vec v)\cdot \vec w &=
+              (\vec v - \frac{\vec v \cdot \vec w}{\vec w \cdot \vec w} \vec
+              w)\cdot \vec w \\ &= \vec v \cdot \vec w - \frac{\vec v \cdot \vec
+              w}{\vec w \cdot \vec w} (\vec w\cdot \vec w) \end{align*} \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+
+            <p>
+              Suppose one wants to walk to another town that is a mile east and
+              3 miles north from their current location but can only walk
+              exactly northeast or northwest. How long is the most efficient
+              walk?
+            </p>
+            <div class="r-stretch"></div>
+          </section>
         </section>
+        <section>
+          <section>
+            <h1>The Cross Product</h1>
+          </section>
+          <section>
+            <p>
+              There is a special <strong>vector product</strong>, or <strong>cross product</strong> in
+              <strong>$\RR^3$ only</strong>. \[\vec v \times \vec w = \vec u\]
+              "A vector cross a vector is a vector."
+            </p>
+          </section>
+          <section>
+            <div class="r-stretch"></div>
+
+            <h3 class="framelabel">Defining properties</h6>
+            <ul class="squarelist">
+              <li class="fragment">
+                bilinearity: $ \vec u \times (c\vec v + d\vec w) = c \vec u
+                \times \vec v + d \vec u \times \vec w$
+              </li>
+              <li class="fragment">
+                skew-symmetry: $\vec v \times \vec w = - \vec w \times \vec v$
+              </li>
+              <li class="fragment">
+                $\vec i \times \vec j = \vec k, \qquad \vec j \times \vec k =
+                \vec i, \qquad \vec k \times \vec i = \vec j$
+              </li>
+            </ul>
+            <div class="r-stretch"></div>
+          </section>
+          <section><h3>Formula</h3>
+          <div class="fragment">
+
+          </div></section>
+        </section>
+        <section><h3>Properties</h3>
+  
+          <ul class="nonelist">
+            <li class="fragment">$\vec v \times \vec w \cdot \vec v = \vec v \times \vec w \cdot \vec w = \vec 0$ </li>
+            <li class="fragment">The direction of $\vec v \times \vec w$ follow the Right Hand Rule (RHR).</li>
+            <li class="fragment">$|\vec v \times \vec w| = |\vec v ||\vec w| \sin \theta$</li>
+          </ul>
+        
+          <p style="font-size: smaller;"><a href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=vector&obj0_color=%230d0887&obj0_params_a=2+&obj0_params_b=2&obj0_params_c=-1&obj0_params_x=1+&obj0_params_y=1&obj0_params_z=1&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_params_a=%281+-n%29+*1+%2F+sqrt%285%29+*+sin%28t%29*3+%2B+n*%28-0.59628479+*+sin%28t%29+%2B+2+*+cos%28t%29+%2F+3%29&obj1_params_b=n+*+%280.74535599+*+sin%28t%29+%2B+2+*+cos%28t%29+%2F+3%29&obj1_params_c=%281+-n%29+*+2+%2F+sqrt%285%29+*+sin%28t%29*3+%2B+n*+%280.2981424+*+sin%28t%29+-+cos%28t%29+%2F+3%29&obj1_params_x=1&obj1_params_y=1&obj1_params_z=1&obj1_params_t0=-3*pi%2F2&obj1_params_t1=pi+%2F+2&obj1_params_n0=0&obj1_params_n1=1">3Demos</a></p>
+        </section>
+
+
       </div>
     </div>
 
