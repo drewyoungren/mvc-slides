@@ -107,9 +107,9 @@
               </li>
               <li class="fragment">
                 Special basis vectors in $\mathbb{R}^3$: \[\mathbf i =
-                \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \qquad \mathbf j =
+                \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \qquad \mathbf j =
                 \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \qquad \mathbf k =
-                \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}\]
+                \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\]
                 <div class="fragment">
                   \[ \left\langle a, b, c \right\rangle = a\,\mathbf i +
                   b\,\mathbf j + c\,\mathbf k \]
@@ -285,7 +285,7 @@
                 <span class="fragment">$-13 $</span>
               </li>
               <li>
-                $\proj_{\vec w}(\vec cu + d\vec v)= $
+                $\proj_{\vec w}(c\vec u + d\vec v)= $
                 <span class="fragment">
                   $c\proj_{\vec w}\vec u + d\proj_{\vec w}\vec v$
                 </span>
@@ -355,7 +355,10 @@
             \[\langle a,b,c \rangle\times \langle d,e,f \rangle = (a\vec i + b\vec j + c \vec k)\times(d\vec i + e\vec j + f \vec k) \]
           </div>
           <div class="fragment">
-          \[ = \begin{vmatrix} \vec i & \vec j & \vec k \\a &b &c \\ d & e & f \\ \end{vmatrix}  \]
+          \[ = (bf - ce) \vec i + (cd - af) \vec j + (ae - bc) \vec k \]
+        </div>
+          <div class="fragment">
+          $ = \begin{vmatrix} \vec i & \vec j & \vec k \\a &b &c \\ d & e & f \\ \end{vmatrix}  $ <span class="fragment">$ \begin{matrix} \vec i & \vec j  \\a &b  \\ d & e \\ \end{matrix} $</span>
         </div>
         <div class="r-stretch"></div>
         </section>
