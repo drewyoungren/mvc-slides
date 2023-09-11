@@ -44,7 +44,7 @@
         <section>
           <section data-auto-animate>
             <h3 class="framelabel">Lecture 02</h3>
-            <h1>The Products</h1>
+            <h1>Lines &amp; Planes</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
             <p style="text-align: right">
@@ -55,11 +55,17 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 0 due Friday at noon.</li>
-              <li class="fragment">HW 1 due Tusday at 8am on Gradescope.</li>
+              <li class="fragment">Recitation starts this week.</li>
               <li class="fragment">
-                No recitation this week. Starts Sep 14/15.
+                Quiz 1 (HW1 topics) this week.
+                <ul>
+                  <li>HW1 topics</li>
+                  <li>on Gradescope</li>
+                  <li>open for 24 hours (starting Thurs 7pm)</li>
+                  <li>30 minutes window</li>
+                </ul>
               </li>
+              <li class="fragment">HW2 due next Tues</li>
             </ul>
           </section>
         </section>
@@ -94,284 +100,156 @@
                   $\left\langle v_1 + w_1, \ldots, v_n + w_n \right\rangle$
                 </td>
               </tr>
+              <tr>
+                <td>Dot Product</td>
+                <td>$\mathbf v \cdot \mathbf w$</td>
+                <td>$\sum v_i w_i$</td>
+              </tr>
+              <tr>
+                <td>Cross Product</td>
+                <td>$\mathbf v \times \mathbf w$</td>
+                <td>
+                  $ \langle v_2 w_3 - v_3 w_2, v_3 w_1 - v_1 w_3, v_1 w_2 - v_2
+                  w_1 \rangle $
+                </td>
+              </tr>
             </table>
           </section>
           <section>
             <h3>Odds and ends</h3>
+
+            <div class="container">
+              <div class="col">
+                <script src="js/projection.js"></script>
+              </div>
+              <div class="col">
+                <ul>
+                  <li class="fragment">
+                    $\proj_{\vec w} \vec v = \frac{\vec v \cdot \vec w}{\vec w
+                    \cdot \vec w}\vec w$
+                  </li>
+                  <li class="fragment">
+                    projection breaks vectors into (orthogonal) components
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Properties of $\vec v \times \vec w$</h3>
             <ul>
-              <li class="fragment">
-                $|\mathbf x - \mathbf y|$ is the distance formula.
+              <li>
+                $\vec v \times \vec w$ is perpendicular to
+                <strong>both</strong> $\vec v $ and $\vec w$.
               </li>
-              <li class="fragment">
-                Generally, dimension of solution drops by 1 with each equation.
+              <li>
+                $\vec v \times \vec w$ points in the direction according to the
+                right-hand-rule.
               </li>
-              <li class="fragment">
-                Special basis vectors in $\mathbb{R}^3$: \[\mathbf i =
-                \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \qquad \mathbf j =
-                \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \qquad \mathbf k =
-                \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}\]
-                <div class="fragment">
-                  \[ \left\langle a, b, c \right\rangle = a\,\mathbf i +
-                  b\,\mathbf j + c\,\mathbf k \]
-                </div>
+              <li>
+                $|\vec v \times \vec w| = |\vec v ||\vec w|\sin\theta$ where
+                theta is the (positive) angle between the vectors.
               </li>
             </ul>
+          </section>
+          <section>
+            <h3 class="framelabel">Cross Products and Area</h3>
+            <p>
+              If $\vec v$ and $\vec w$ define adjacent signs of a parallelogram,
+              the area is $|\vec v \times \vec w|$.
+            </p>
+            <div class="r-stretch"></div>
           </section>
         </section>
         <section>
           <section>
-            <h1>The Dot Product</h1>
+            <h1>Lines</h1>
           </section>
-
           <section>
-            <div class="r-frame">
-              <h6 class="framelabel">Definition</h6>
+            <h3 class="framelabel">Parametric Form</h3>
+
+            <p>
+              A line in $\RR^n$ with position $\vec p$ and direction $\vec v$
+              has
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=-1+%2B+t&obj0_params_y=+1%2F2+t&obj0_params_z=-1+%2B+2+t&obj1_kind=vector&obj1_color=%2308870a&obj1_params_a=-1&obj1_params_b=0&obj1_params_c=-1&obj1_params_x=0&obj1_params_y=0&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=vector&obj2_color=%23dc5e66&obj2_params_a=1&obj2_params_b=1%2F2&obj2_params_c=2&obj2_params_x=-1&obj2_params_y=0&obj2_params_z=-1&obj2_params_t0=0&obj2_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >parametric form</a
+                ></strong
+              >
+              \[ \vec r(t) = \vec p + t\,\vec v \]
+            </p>
+
+            <div class="fragment">
+              <h6 class="framelabel">Example</h6>
               <p>
-                Let $\mathbf v = \left\langle v_1, \ldots, v_n \right\rangle$
-                and $\mathbf w = \left\langle w_1, \ldots, w_n \right\rangle$.
-                The
-                <strong>dot product</strong> (or <em>scalar product</em> or
-                <em>inner product</em> ) is:
+                Find a parametric form for the line through $(-1, 0, -1)$ and
+                $(1, 1,1)$.
               </p>
-
-              \[ \vec v \cdot \vec w = \sum_{i=1}^n v_i w_i \]
             </div>
-          </section>
-
-          <section>
-            <h6 class="framelabel">Examples</h6>
-
-            <p class="fragment">
-              $\langle 4,2, -1 \rangle \cdot \langle -2,6, 0 \rangle = -8 + 12 +
-              0 = 4 $
-            </p>
-            <p class="fragment">
-              $\begin{bmatrix} 4 \\ 2 \\ -1 \end{bmatrix} \cdot \begin{bmatrix}
-              -2 \\ 6 \\ 0 \end{bmatrix} = \begin{matrix} -8 \\ +12 \\ \,
-              \end{matrix} = 4 $
-            </p>
-            <p class="fragment">
-              $\vec i\cdot \vec i = \vec j\cdot \vec j = \vec k\cdot \vec k = 1$
-            </p>
-            <p class="fragment">
-              $\vec i\cdot \vec j = \vec j\cdot \vec k = \vec k\cdot \vec i = 0$
-            </p>
-            <p class="fragment">
-              <i class="fa fa-shopping-cart"></i>: $\text{Subtotal} = \text{Qty}
-              \cdot \text{Price}$
-            </p>
-          </section>
-          <section>
-            <h3>Properties</h3>
-            <ul class="squarelist">
-              <li class="fragment">
-                positive definite: \[\vec v \cdot \vec v = |\vec v|^2\]
-              </li>
-              <li class="fragment">
-                symmetric: \[\vec v \cdot \vec w = \vec w \cdot\vec v\]
-              </li>
-              <li class="fragment">
-                bilinear: \[ \vec u \cdot (c\vec v + d\vec w) = c \vec u \cdot
-                \vec v + d \vec u \cdot \vec w\]
-              </li>
-            </ul>
-          </section>
-          <section
-            data-background="assets/Pitfall-gif.gif"
-            data-background-opacity="0.34"
-          >
-            <h2 style="color: orangered">Pitfall Warning</h2>
-            \[ \vec v \cdot \vec a = \vec v \cdot \vec b \]
-
-            <p>
-              <span class="fragment">does </span
-              ><span class="fragment"><strong>NOT</strong> </span
-              ><span class="fragment">mean </span>
-            </p>
-
-            \[\vec a = \vec b \]
-          </section>
-          <section>
-            <h2>Meaning</h2>
-            <h3>What does $\vec v \cdot \vec w$ measure?</h3>
-
-            <div class="fragment">
-              <p>When is this large?</p>
-
-              \[\vec v \cdot \vec w = v_1 w_1 + v_2 w_2 + v_3 w_3 + v_4 w_4 \]
-            </div>
-          </section>
-          <section>
-            <div class="container">
-              <div class="col">
-                <h3>$\vec v \cdot \vec w =$</h3>
-                <h3>
-                  <span id="dot-output" style="text-align: left"></span>
-                </h3>
-              </div>
-              <div class="col">
-                <div
-                  id="box-dot-angle"
-                  class="jxgbox"
-                  style="width: 500px; height: 500px"
-                ></div>
-              </div>
-            </div>
-            <script src="js/dot-angle.js" type="text/javascript"></script>
-          </section>
-          <section>
-            <h3>Geometric formula</h3>
-            <h3 class="r-frame">
-              \[ \vec v \cdot \vec w = |\vec v ||\vec w | \cos \theta \]
-            </h3>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
-
             <p>
-              What is the angle between $ \langle 2, 2 , 1 \rangle$ and $\langle
-              -3, 2, 6 \rangle$ ?
+              Find position and director vectors for the line with parametric
+              equations: \[ \begin{align*} x &= t - 1 \\ y &= t /2 \\ z &= 3 -
+              3t \\ \end{align*} \]
             </p>
-            <div class="fragment">
-              \[ \theta = \cos^{-1} \left( \frac{4}{21}\right) \approx 79^\circ
-              \]
-            </div>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Projection</h1>
-          </section>
-          <section>
-            <h4 class="framelabel">Question</h4>
-            <p>Which multiple of $\vec w$ gets closest to $\vec v$?</p>
-
-            <div
-              id="box-proj-start"
-              class="jxgbox"
-              style="width: 600px; height: 400px"
-            ></div>
-            <script src="js/proj-start.js" type="text/javascript"></script>
-          </section>
-          <section>
-            <h4>Formulas</h4>
-            <div class="container">
-              <div class="col">
-                \[ \text{proj}_{\mathbf b} \mathbf a = \frac{\mathbf a \cdot
-                \mathbf b}{\mathbf b \cdot \mathbf b} \mathbf b \] \[
-                \text{comp}_{\mathbf b} \mathbf a = \frac{\mathbf a \cdot
-                \mathbf b}{|\mathbf b| } \]
-              </div>
-              <div class="col">
-                <div
-                  id="box-lin-combo"
-                  class="jxgbox"
-                  style="width: 400px; height: 400px"
-                ></div>
-                <script src="js/projection.js" type="text/javascript"></script>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h6 class="framelabel">Examples</h6>
-
-            <ul class="nonelist">
-              <li>
-                $\proj_{\vec w}(c \vec w) = $
-                <span class="fragment">$c\vec w$</span>
-              </li>
-              <li>
-                $\comp_{\vec j}\left\langle 2, -13, 5 \right\rangle = $
-                <span class="fragment">$-13 $</span>
-              </li>
-              <li>
-                $\proj_{\vec w}(\vec cu + d\vec v)= $
-                <span class="fragment">
-                  $c\proj_{\vec w}\vec u + d\proj_{\vec w}\vec v$
-                </span>
-              </li>
-            </ul>
-            <div class="r-stretch"></div>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
-
             <p>
-              Show that for every $\vec w \neq \vec 0$, $\vec v - \proj_{\vec w}
-              \vec v$ is orthogonal to the base $\vec w$.
+              Find the intersection of the line through $(0,0)$ and $(2,1)$ and
+              the line with position $\langle 6, -1 \rangle$ and direction
+              $\langle 4, -6 \rangle$.
             </p>
+            <div class="fragment">
+              <p><strong>Solution.</strong></p>
+              \[ t \bv{2 \\ 1} = \bv{6 \\ -1} + s \bv{4 \\ -6} \]
+              <p class="fragment">
+                $t = 2, s = - \frac{1}{2}$ means intersection point is $(4, 2)$.
+              </p>
+            </div>
 
             <p class="fragment">
-              \[ \begin{align*} (\vec v - \proj_{\vec w} \vec v)\cdot \vec w &=
-              (\vec v - \frac{\vec v \cdot \vec w}{\vec w \cdot \vec w} \vec
-              w)\cdot \vec w \\ &= \vec v \cdot \vec w - \frac{\vec v \cdot \vec
-              w}{\vec w \cdot \vec w} (\vec w\cdot \vec w) \end{align*} \]
+              <strong>Follow up.</strong> At what angle do these lines meet?
             </p>
-          </section>
-          <section>
-            <h6 class="framelabel">Exercise</h6>
 
-            <p>
-              Suppose one wants to walk to another town that is a mile east and
-              3 miles north from their current location but can only walk
-              exactly northeast or northwest. How long is the most efficient
-              walk?
-            </p>
             <div class="r-stretch"></div>
           </section>
         </section>
         <section>
+          <section><h1>Planes</h1></section>
           <section>
-            <h1>The Cross Product</h1>
-          </section>
-          <section>
+            <h6 class="framelabel">Forms</h6>
             <p>
-              There is a special <strong>vector product</strong>, or <strong>cross product</strong> in
-              <strong>$\RR^3$ only</strong>. \[\vec v \times \vec w = \vec u\]
-              "A vector cross a vector is a vector."
+              We <em>could</em> define a plane via its
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%23088721&obj0_params_a=-3&obj0_params_b=2&obj0_params_c=-3&obj0_params_d=2&obj0_params_x=1+-+u+%2F+2+%2B+v+%2F+4&obj0_params_y=1+%2B+u+%2B+v&obj0_params_z=1+%2B+v+%2F8&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_params_a=1&obj1_params_b=1&obj1_params_c=1&obj1_params_x=0&obj1_params_y=0&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=vector&obj2_color=%23fbff00&obj2_params_a=-1%2F2&obj2_params_b=1&obj2_params_c=0&obj2_params_x=1&obj2_params_y=1&obj2_params_z=1&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=vector&obj3_color=%23f68e45&obj3_params_a=1%2F4&obj3_params_b=1&obj3_params_c=1%2F8&obj3_params_x=1&obj3_params_y=1&obj3_params_z=1&obj3_params_t0=0&obj3_params_t1=1"
+                target="_blank"
+                >parametric form</a
+              >
+              with a position vector and 2 direction vectors. \[\vec r(s,t)
+              =\vec p + s \vec v + t \vec w\]
+            </p>
+            <p class="fragment">
+              But in $\RR^3$, we can define a plane with a 1 position vector
+              $\vec p$ and one <strong>normal</strong> vector $\vec n$ to define
+              the
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%23088721&obj0_params_a=-3&obj0_params_b=2&obj0_params_c=-3&obj0_params_d=2&obj0_params_x=1+-+u+%2F+2+%2B+v+%2F+4&obj0_params_y=1+%2B+u+%2B+v&obj0_params_z=1+%2B+v+%2F8&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_params_a=1&obj1_params_b=1&obj1_params_c=1&obj1_params_x=0&obj1_params_y=0&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=vector&obj2_color=%23fbff00&obj2_params_a=-1%2F4&obj2_params_b=-1%2F16&obj2_params_c=1&obj2_params_x=1&obj2_params_y=1&obj2_params_z=1&obj2_params_t0=0&obj2_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >plane equation</a
+                ></strong
+              >.
             </p>
           </section>
-          <section>
-            <div class="r-stretch"></div>
-
-            <h3 class="framelabel">Defining properties</h6>
-            <ul class="squarelist">
-              <li class="fragment">
-                bilinearity: $ \vec u \times (c\vec v + d\vec w) = c \vec u
-                \times \vec v + d \vec u \times \vec w$
-              </li>
-              <li class="fragment">
-                skew-symmetry: $\vec v \times \vec w = - \vec w \times \vec v$
-              </li>
-              <li class="fragment">
-                $\vec i \times \vec j = \vec k, \qquad \vec j \times \vec k =
-                \vec i, \qquad \vec k \times \vec i = \vec j$
-              </li>
-            </ul>
-            <div class="r-stretch"></div>
-          </section>
-          <section><h3>Formula</h3>
-          <div class="fragment">
-            \[\langle a,b,c \rangle\times \langle d,e,f \rangle = (a\vec i + b\vec j + c \vec k)\times(d\vec i + e\vec j + f \vec k) \]
-          </div>
-          <div class="fragment">
-          \[ = \begin{vmatrix} \vec i & \vec j & \vec k \\a &b &c \\ d & e & f \\ \end{vmatrix}  \]
-        </div>
-        <div class="r-stretch"></div>
+          <section></section>
         </section>
-        </section>
-        <section><h3>Properties</h3>
-  
-          <ul class="nonelist">
-            <li class="fragment">$\vec v \times \vec w \cdot \vec v = \vec v \times \vec w \cdot \vec w = \vec 0$ </li>
-            <li class="fragment">The direction of $\vec v \times \vec w$ follow the Right Hand Rule (RHR).</li>
-            <li class="fragment">$|\vec v \times \vec w| = |\vec v ||\vec w| \sin \theta$</li>
-          </ul>
-        
-          <p style="font-size: smaller;"><a href="https://tinyurl.com/yck7apuh">3Demos</a></p>
-        </section>
-
-
       </div>
     </div>
 
@@ -388,14 +266,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
