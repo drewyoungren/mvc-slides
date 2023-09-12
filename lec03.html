@@ -43,7 +43,7 @@
 
         <section>
           <section data-auto-animate>
-            <h3 class="framelabel">Lecture 02</h3>
+            <h3 class="framelabel">Lecture 03</h3>
             <h1>Lines &amp; Planes</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
@@ -247,8 +247,76 @@
                 ></strong
               >.
             </p>
+            <div class="fragment">\[\vec n \cdot (\vec x - \vec p) = 0\]</div>
           </section>
-          <section></section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+            <p>
+              What is a normal vector to the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=level&obj0_color=%230d0887&obj0_params_g=x+%2B+2+y+%2B+8+z&obj0_params_k=16&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >plane</a
+              >
+              given by \[ x+2y = 16-8z \,?\] Find a point on this plane.
+            </p>
+            <div class="framelabel"></div>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercises</h6>
+            <ol>
+              <li class="fragment">
+                Find an equation of the plane through $(1,0,0)$, $(0,1,0)$, and
+                $(0,0,1)$.
+                <div class="fragment">\[x + y + z = 1\]</div>
+              </li>
+              <li class="fragment">
+                Find a parametric form for the line of intersection of the
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&shadeUp=true&flipInfo=true&grid=false&obj0_kind=level&obj0_params_g=x+%2B+y+-+z&obj0_params_k=2&obj0_params_a=-4&obj0_params_b=4&obj0_params_c=-4&obj0_params_d=4&obj0_params_e=-4&obj0_params_f=4&obj1_kind=level&obj1_params_g=2*x+-+y+%2B+3*z&obj1_params_k=1&obj1_params_a=-4&obj1_params_b=4&obj1_params_c=-4&obj1_params_d=4&obj1_params_e=-4&obj1_params_f=4"
+                  target="_blank"
+                >
+                  planes
+                </a>
+                given by $x+y-z = 2$ and $2x - y + 3z = 1$.
+              </li>
+            </ol>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <ol start="3">
+              <li>
+                Find an equation of the plane through the origin and the line
+                \[\vec r(t) = \bv{2 - t \\ t \\ 2t + 1}.\]
+              </li>
+            </ol>
+          </section>
+          <section>
+            <h3 class="framelabel">Distances</h3>
+
+            <p>
+              The distance between sets is defined as the minimum of all
+              distances between points in the respective sets. \[
+              \operatorname{dist}(X,Y) = \operatorname{min}\limits_{\vec x \in
+              X, \vec y \in Y} |\vec x - \vec y| \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Point-to-Plane</h6>
+            <p>
+              Find the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=point&obj0_color=%23fd2626&obj0_params_a=1&obj0_params_b=1&obj0_params_c=2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=level&obj1_color=%23270592&obj1_params_g=x+-+y+%2B+4+z&obj1_params_k=0&obj1_params_a=-2&obj1_params_b=3&obj1_params_c=-2&obj1_params_d=3&obj1_params_e=-2&obj1_params_f=2&obj2_kind=vector&obj2_color=%23990d00&obj2_params_a=1&obj2_params_b=-1&obj2_params_c=4&obj2_params_x=0&obj2_params_y=0&obj2_params_z=0&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=vector&obj3_color=%23a200ff&obj3_params_a=1&obj3_params_b=1&obj3_params_c=2&obj3_params_x=0&obj3_params_y=0&obj3_params_z=0&obj3_params_t0=0&obj3_params_t1=1&obj4_kind=vector&obj4_color=%23000000&obj4_params_a=1+*+4%2F+9&obj4_params_b=-1+*+4%2F+9&obj4_params_c=4+*+4%2F+9&obj4_params_x=0&obj4_params_y=0&obj4_params_z=0&obj4_params_t0=0&obj4_params_t1=1&obj5_kind=curve&obj5_color=%23ff00f2&obj5_params_a=0&obj5_params_b=1&obj5_params_x=4%2F9+%2B+%281+-+4%2F9%29*t&obj5_params_y=-4%2F9+%2B+%281+%2B+4%2F9%29*t&obj5_params_z=16%2F9+%2B+%282+-+16%2F9%29*t"
+                target="_blank"
+                rel="noopener noreferrer"
+                >distance</a
+              >
+              from a position $\vec y$ to a plane with normal $\vec n$ and
+              position $\vec p$.
+            </p>
+            <div class="fragment">\[ |\proj_{\vec n} (\vec y - \vec p)| \]</div>
+          </section>
         </section>
       </div>
     </div>
