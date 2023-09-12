@@ -1,5 +1,5 @@
 {
-  const b1 = JXG.JSXGraph.initBoard('box-lin-combo', {
+  const b1 = JXG.JSXGraph.initBoard("box-lin-combo", {
     boundingbox: [-5, 5, 5, -5],
     axis: true,
   });
@@ -12,10 +12,10 @@
     return [c * bx, c * by];
   };
 
-  const butt = b1.create('button', [
+  const butt = b1.create("button", [
     -4,
     4,
-    'Change base',
+    "Change base",
     function () {
       butt.value = !butt.value;
     },
@@ -26,22 +26,22 @@
     butt.value = false;
   }
 
-  var v = b1.create('point', [2, 2], { size: 3, name: 'v', opacity: 0.4 });
-  var w = b1.create('point', [-2, 1], { size: 3, name: 'w', opacity: 0.4 });
-  var va = b1.create('line', [[0, 0], v], {
+  var v = b1.create("point", [2, 2], { size: 3, name: "v", opacity: 0.4 });
+  var w = b1.create("point", [-2, 1], { size: 3, name: "w", opacity: 0.4 });
+  var va = b1.create("line", [[0, 0], v], {
     straightFirst: false,
     straightLast: false,
     lastArrow: true,
     isDraggable: false,
   });
-  var wa = b1.create('line', [[0, 0], w], {
+  var wa = b1.create("line", [[0, 0], w], {
     straightFirst: false,
     straightLast: false,
     lastArrow: true,
     isDraggable: false,
   });
   var vc = b1.create(
-    'line',
+    "line",
     [
       [0, 0],
       () => {
@@ -50,20 +50,20 @@
     ],
     {
       visible: () => butt.value,
-      color: 'orange',
+      color: "orange",
       straightFirst: false,
       straightLast: false,
       lastArrow: true,
       isDraggable: false,
       withLabel: true,
       label: {
-        color: 'orange',
+        color: "orange",
       },
-      name: 'proj_v w',
+      name: "proj_v w",
     }
   );
   var wc = b1.create(
-    'line',
+    "line",
     [
       [0, 0],
       () => {
@@ -72,20 +72,20 @@
     ],
     {
       visible: () => !butt.value,
-      color: 'green',
+      color: "green",
       straightFirst: false,
       straightLast: false,
       lastArrow: true,
       isDraggable: false,
       withLabel: true,
       label: {
-        color: 'green',
+        color: "green",
       },
-      name: 'proj_w v',
+      name: "proj_w v",
     }
   );
   var wdrop = b1.create(
-    'line',
+    "line",
     [
       v,
       () => {
@@ -94,7 +94,7 @@
     ],
     {
       visible: () => !butt.value,
-      color: 'gray',
+      color: "gray",
       opacity: 0.3,
       straightFirst: false,
       straightLast: false,
@@ -104,7 +104,7 @@
     }
   );
   var vdrop = b1.create(
-    'line',
+    "line",
     [
       w,
       () => {
@@ -113,7 +113,7 @@
     ],
     {
       visible: () => butt.value,
-      color: 'gray',
+      color: "gray",
       opacity: 0.3,
       straightFirst: false,
       straightLast: false,
@@ -130,13 +130,13 @@
 
   // var compwv = JXG.Math.innerProduct(v, w) ;
   var t1 = b1.create(
-    'text',
+    "text",
     [
       -4,
       -2,
       () => {
         return (
-          'comp_w v = ' +
+          "comp_w v = " +
           (
             (v.X() * w.X() + v.Y() * w.Y()) /
             Math.sqrt(w.X() * w.X() + w.Y() * w.Y())
@@ -146,18 +146,18 @@
     ],
     {
       visible: () => !butt.value,
-      color: 'green',
+      color: "green",
       fontsize: 20,
     }
   );
   var t2 = b1.create(
-    'text',
+    "text",
     [
       -4,
       -2,
       () => {
         return (
-          'comp_v w = ' +
+          "comp_v w = " +
           (
             (v.X() * w.X() + v.Y() * w.Y()) /
             Math.sqrt(v.X() * v.X() + v.Y() * v.Y())
@@ -167,7 +167,7 @@
     ],
     {
       visible: () => butt.value,
-      color: 'orange',
+      color: "orange",
       fontsize: 20,
     }
   );
