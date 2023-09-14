@@ -28,3 +28,13 @@ ul.nonelist > li::before {
   padding-top: 5%;
   padding-bottom: 5%;
 }
+
+.flexy {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flexy>img {
+  margin: 3px;
+  width: 150px;
+  height: 150px;
+}

@@ -119,13 +119,16 @@
             <!-- <h3 class="framelabel">Distances</h3> -->
             <div class="container">
               <div class="col">
-                <p>
-                  The <strong>distance</strong> between sets is defined as the
-                  minimum of all distances between points in the respective
-                  sets. \[ \operatorname{dist}(X,Y) =
-                  \operatorname{min}\limits_{\vec x \in X, \vec y \in Y} |\vec x
-                  - \vec y| \]
-                </p>
+                <div class="r-frame">
+                  <h6 class="framelabel">Definition</h6>
+                  <p style="font-size: smaller">
+                    The <strong>distance</strong> between sets is defined as the
+                    minimum of all distances between points in the respective
+                    sets. \[ \operatorname{dist}(X,Y) =
+                    \operatorname{min}\limits_{\vec x \in X, \vec y \in Y} |\vec
+                    x - \vec y| \]
+                  </p>
+                </div>
               </div>
               <div class="col">
                 <img
@@ -217,7 +220,7 @@
                 text-justify: left;
               }
             </style>
-
+            <h6 class="framelabel">Exercise</h6>
             <p>
               Which
               <a
@@ -229,28 +232,113 @@
               is which?
             </p>
 
-            <table>
-              <tr>
-                <td class="stewex">
-                  A. \[\langle t \cos t, t, t\sin t\rangle\]
-                </td>
-                <td class="stewex">
-                  B. \[\langle \cos t, \sin t, 1/(1+t^2)\rangle\]
-                </td>
-                <td class="stewex">C. \[\langle t, 1/(1+t^2),t^2\rangle\]</td>
-              </tr>
-              <tr>
-                <td class="stewex">
-                  D. \[\langle \cos t, \sin t, \cos 2t\rangle\]
-                </td>
-                <td class="stewex">
-                  E. \[\langle \cos 8t, \sin 8t, e^{0.8t}\rangle\]
-                </td>
-                <td class="stewex">
-                  F. \[\langle \cos^2 t, \sin^2 t, t\rangle\]
-                </td>
-              </tr>
-            </table>
+            <div class="container">
+              <div class="col">
+                <table>
+                  <tr>
+                    <td class="stewex">
+                      A. $\langle t \cos t, t, t\sin t\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      B. $\langle \cos t, \sin t, 1/(1+t^2)\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">C. $\langle t, 1/(1+t^2),t^2\rangle$</td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      D. $\langle \cos t, \sin t, \cos 2t\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      E. $\langle \cos 8t, \sin 8t, e^{0.8t}\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      F. $\langle \cos^2 t, \sin^2 t, t\rangle$
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col flexy">
+                <img
+                  src="assets/curve-example-2.png"
+                  alt="curve example"
+                  width="250px"
+                  height="250px"
+                />
+                <img src="assets/curve-example-1.png" alt="curve example" />
+                <img src="assets/curve-example-4.png" alt="curve example" />
+                <img src="assets/curve-example-6.png" alt="curve example" />
+                <img src="assets/curve-example-5.png" alt="curve example" />
+                <img src="assets/curve-example-3.png" alt="curve example" />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find a parametrization of the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=level&obj0_color=%233232ff&obj0_params_g=x%5E2+%2B+y%5E2&obj0_params_k=4&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=level&obj1_color=%23ff3333&obj1_params_g=x+-+2+y+%2B+4+z&obj1_params_k=2&obj1_params_a=-2&obj1_params_b=2&obj1_params_c=-2&obj1_params_d=2&obj1_params_e=-2&obj1_params_f=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >intersection</a
+              >
+              of the cylinder $x^2 + y^2 = 4$ and the plane $x - 2y +4z = 2$.
+            </p>
+
+            <p class="fragment">
+              <strong>Solution</strong>. Parametrize the circle of radius 2 to
+              get $x(t) = 2 \cos t$ and $y = 2 \sin t$. Then solve for $z$ in
+              the plane equation. \[\vec r(t) = \langle 2 \cos t, y = 2 \sin t,
+              \frac14(2-2\cos t + 4\sin t) \rangle.\]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Calculus</h1>
+            <p class="fragment">Finally.</p>
+          </section>
+          <section>
+            <h3 class="framelabel">Limits</h3>
+            \[\lim_{t \to a} \vec r(t) = \bv{\lim_{t \to a} x(t) \\ \lim_{t \to
+            a} y(t) \\ \lim_{t \to a} z(t) \\ }\]
+          </section>
+
+          <section>
+            <h3 class="framelabel">Derivatives</h3>
+
+            <p>
+              The <strong>derivative</strong> of a vector-valued function is
+              defined exactly as in one-variable calculus, as a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2&obj0_params_x=t&obj0_params_y=t%5E2&obj0_params_z=t%5E3&obj1_kind=vector&obj1_color=%23dc5e66&obj1_params_a=%281+-+n%29*1+%2B+n*%28t+-+1%29&obj1_params_b=%281+-+n%29*%28t+%2B+1%29+%2B+n*%28t%5E2+-+1%29&obj1_params_c=%281+-+n%29*%28t%5E2+%2B+t+%2B+1%29+%2B+n*%28t%5E3+-+1%29&obj1_params_x=1&obj1_params_y=1&obj1_params_z=1&obj1_params_t0=0&obj1_params_t1=2&obj1_params_n0=0&obj1_params_n1=1"
+                target="_blank"
+                >limit of a difference quotient</a
+              >.
+            </p>
+            \[\vec r'(a) = \lim_{t \to a} \frac{\vec r(t) - \vec r(a)}{t - a} \]
+            <div class="fragment">\[= \bv{x'(t) \\ y'(t) \\ z'(t)}\]</div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Where does the tangent line to the curve $\langle t, t^2, t^3
+              \rangle$ at $(1,1,1)$ intersect the $xy$-plane?
+            </p>
+            <p class="fragment">
+              <strong>Solution</strong>. First, note $\vec r(1) = \langle 1,1,1
+              \rangle$ and $\vec r'(1) = \langle 1,2,3 \rangle$ are position and
+              direction vectors for the tangent line. We therefore solve \[\bv{1
+              + s \\ 1 + 2s \\ 1 + 3s} = \bv{x \\ y \\ 0}.\]
+            </p>
           </section>
         </section>
       </div>
@@ -269,14 +357,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
