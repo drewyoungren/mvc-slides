@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Motion in Space</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Set up standard LaTeX macros -->
+        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
+
+        <section>
+          <section data-auto-animate>
+            <h3 class="framelabel">Lecture 04</h3>
+            <h1>Motion in Space</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Recitation 03 this week.</li>
+              <li class="fragment">Quiz 2 (HW2 topics) this week.</li>
+              <li class="fragment">HW3 due next Tues</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Curves</h6>
+
+            <p>
+              A line in $\RR^n$ with position $\vec p$ and direction $\vec v$
+              has
+              <strong>
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=-1+%2B+t&obj0_params_y=+1%2F2+t&obj0_params_z=-1+%2B+2+t&obj1_kind=vector&obj1_color=%2308870a&obj1_params_a=-1&obj1_params_b=0&obj1_params_c=-1&obj1_params_x=0&obj1_params_y=0&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=vector&obj2_color=%23dc5e66&obj2_params_a=1&obj2_params_b=1%2F2&obj2_params_c=2&obj2_params_x=-1&obj2_params_y=0&obj2_params_z=-1&obj2_params_t0=0&obj2_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  parametric form
+                </a>
+              </strong>
+              \[ \vec r(t) = \vec p + t\,\vec v \]
+            </p>
+
+            <div class="fragment">
+              <h6 class="framelabel">Planes</h6>
+
+              <p>
+                A plane in $\RR^3$ with position vector $\vec p$ and normal
+                vector $\vec n$ has
+                <strong
+                  ><a
+                    href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%23088721&obj0_params_a=-3&obj0_params_b=2&obj0_params_c=-3&obj0_params_d=2&obj0_params_x=1+-+u+%2F+2+%2B+v+%2F+4&obj0_params_y=1+%2B+u+%2B+v&obj0_params_z=1+%2B+v+%2F8&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_params_a=1&obj1_params_b=1&obj1_params_c=1&obj1_params_x=0&obj1_params_y=0&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=vector&obj2_color=%23fbff00&obj2_params_a=-1%2F4&obj2_params_b=-1%2F16&obj2_params_c=1&obj2_params_x=1&obj2_params_y=1&obj2_params_z=1&obj2_params_t0=0&obj2_params_t1=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >plane equation</a
+                  ></strong
+                >
+                \[ \vec n \cdot (\vec x - \vec p) = 0.\]
+              </p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Distances</h1>
+          </section>
+          <section>
+            <!-- <h3 class="framelabel">Distances</h3> -->
+            <div class="container">
+              <div class="col">
+                <div class="r-frame">
+                  <h6 class="framelabel">Definition</h6>
+                  <p style="font-size: smaller">
+                    The <strong>distance</strong> between sets is defined as the
+                    minimum of all distances between points in the respective
+                    sets. \[ \operatorname{dist}(X,Y) =
+                    \operatorname{min}\limits_{\vec x \in X, \vec y \in Y} |\vec
+                    x - \vec y| \]
+                  </p>
+                </div>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/mnh_si_map.png"
+                  alt="Manhattan to Staten Island Map"
+                  srcset=""
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Point-to-Plane</h6>
+            <p>
+              Find the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=point&obj0_color=%23fd2626&obj0_params_a=1&obj0_params_b=1&obj0_params_c=2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=level&obj1_color=%23270592&obj1_params_g=x+-+y+%2B+4+z&obj1_params_k=0&obj1_params_a=-2&obj1_params_b=3&obj1_params_c=-2&obj1_params_d=3&obj1_params_e=-2&obj1_params_f=2&obj2_kind=vector&obj2_color=%23990d00&obj2_params_a=1&obj2_params_b=-1&obj2_params_c=4&obj2_params_x=0&obj2_params_y=0&obj2_params_z=0&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=vector&obj3_color=%23a200ff&obj3_params_a=1&obj3_params_b=1&obj3_params_c=2&obj3_params_x=0&obj3_params_y=0&obj3_params_z=0&obj3_params_t0=0&obj3_params_t1=1&obj4_kind=vector&obj4_color=%23000000&obj4_params_a=1+*+4%2F+9&obj4_params_b=-1+*+4%2F+9&obj4_params_c=4+*+4%2F+9&obj4_params_x=0&obj4_params_y=0&obj4_params_z=0&obj4_params_t0=0&obj4_params_t1=1&obj5_kind=curve&obj5_color=%23ff00f2&obj5_params_a=0&obj5_params_b=1&obj5_params_x=4%2F9+%2B+%281+-+4%2F9%29*t&obj5_params_y=-4%2F9+%2B+%281+%2B+4%2F9%29*t&obj5_params_z=16%2F9+%2B+%282+-+16%2F9%29*t"
+                target="_blank"
+                rel="noopener noreferrer"
+                >distance</a
+              >
+              from a position $\vec y$ to a plane with normal $\vec n$ and
+              position $\vec p$.
+            </p>
+            <div class="fragment">\[ |\proj_{\vec n} (\vec y - \vec p)| \]</div>
+          </section>
+          <section>
+            <h6 class="framelabel">Skew Lines</h6>
+            <p>
+              Find the distance between
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=curve&obj0_color=%234133ff&obj0_params_a=-3&obj0_params_b=3&obj0_params_x=-t&obj0_params_y=t&obj0_params_z=1&obj0_params_tau=0&obj0_params_color=%2390a700&obj1_kind=curve&obj1_color=%23cc0000&obj1_params_a=-3&obj1_params_b=3&obj1_params_x=1+-+t&obj1_params_y=1+%2B+2+t&obj1_params_z=2+%2B+t&obj1_params_tau=0&obj1_params_color=%23a73f00"
+                target="_blank"
+                rel="noopener noreferrer"
+                >skew lines</a
+              >
+              \[\bv{ - t \\ t \\ 1 } \text{ and } \bv{ 1 - t \\ 1 + 2t \\ 2 +
+              t}.\]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section><h1>Space Curves</h1></section>
+          <section>
+            <div class="r-frame">
+              <h6 class="framelabel">Definition</h6>
+              <p>
+                A <strong>curve</strong> in $\RR^n$ is the image of a
+                <em>vector-valued function</em> <br />$\vec r: \RR \to \RR^n$.
+              </p>
+              <p>
+                It has the form \[ \vec r(t) = \left\langle x(t), y(t), z(t)
+                \right\rangle. \]
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Examples</h3>
+            <ul>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=t&obj0_params_y=t%5E2&obj0_params_z=t%5E3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Twisted Cubic</a
+                >: $\left\langle t, t^2, t^3 \right\rangle$
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-2+pi&obj0_params_b=2+pi&obj0_params_x=cos%28t%29&obj0_params_y=sin%28t%29&obj0_params_z=t+%2F+4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Helix</a
+                >: $\left\langle \cos(t), \sin(t), t \right\rangle$
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=6&obj0_params_x=cos%288*pi*t+%2F3%29&obj0_params_y=sin%283*pi*t+%2F+3%29&obj0_params_z=sin%287*pi*t+%2F+3%29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Wacky</a
+                >: $\left\langle \cos(8 t), \sin(3 t), \sin(7 t) \right\rangle$
+              </li>
+            </ul>
+          </section>
+          <section>
+            <style>
+              td.stewex {
+                font-size: 1.5rem;
+                text-justify: left;
+              }
+            </style>
+            <h6 class="framelabel">Exercise</h6>
+            <p>
+              Which
+              <a
+                href="https://tinyurl.com/mr4bd3e4"
+                target="_blank"
+                rel="noopener noreferrer"
+                >curve</a
+              >
+              is which?
+            </p>
+
+            <div class="container">
+              <div class="col">
+                <table>
+                  <tr>
+                    <td class="stewex">
+                      A. $\langle t \cos t, t, t\sin t\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      B. $\langle \cos t, \sin t, 1/(1+t^2)\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">C. $\langle t, 1/(1+t^2),t^2\rangle$</td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      D. $\langle \cos t, \sin t, \cos 2t\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      E. $\langle \cos 8t, \sin 8t, e^{0.8t}\rangle$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="stewex">
+                      F. $\langle \cos^2 t, \sin^2 t, t\rangle$
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col flexy">
+                <img
+                  src="assets/curve-example-2.png"
+                  alt="curve example"
+                  width="250px"
+                  height="250px"
+                />
+                <img src="assets/curve-example-1.png" alt="curve example" />
+                <img src="assets/curve-example-4.png" alt="curve example" />
+                <img src="assets/curve-example-6.png" alt="curve example" />
+                <img src="assets/curve-example-5.png" alt="curve example" />
+                <img src="assets/curve-example-3.png" alt="curve example" />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find a parametrization of the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=level&obj0_color=%233232ff&obj0_params_g=x%5E2+%2B+y%5E2&obj0_params_k=4&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=level&obj1_color=%23ff3333&obj1_params_g=x+-+2+y+%2B+4+z&obj1_params_k=2&obj1_params_a=-2&obj1_params_b=2&obj1_params_c=-2&obj1_params_d=2&obj1_params_e=-2&obj1_params_f=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >intersection</a
+              >
+              of the cylinder $x^2 + y^2 = 4$ and the plane $x - 2y +4z = 2$.
+            </p>
+
+            <p class="fragment">
+              <strong>Solution</strong>. Parametrize the circle of radius 2 to
+              get $x(t) = 2 \cos t$ and $y = 2 \sin t$. Then solve for $z$ in
+              the plane equation. \[\vec r(t) = \langle 2 \cos t, y = 2 \sin t,
+              \frac14(2-2\cos t + 4\sin t) \rangle.\]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Calculus</h1>
+            <p class="fragment">Finally.</p>
+          </section>
+          <section>
+            <h3 class="framelabel">Limits</h3>
+            \[\lim_{t \to a} \vec r(t) = \bv{\lim_{t \to a} x(t) \\ \lim_{t \to
+            a} y(t) \\ \lim_{t \to a} z(t) \\ }\]
+          </section>
+
+          <section>
+            <h3 class="framelabel">Derivatives</h3>
+
+            <p>
+              The <strong>derivative</strong> of a vector-valued function is
+              defined exactly as in one-variable calculus, as a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2&obj0_params_x=t&obj0_params_y=t%5E2&obj0_params_z=t%5E3&obj1_kind=vector&obj1_color=%23dc5e66&obj1_params_a=%281+-+n%29*1+%2B+n*%28t+-+1%29&obj1_params_b=%281+-+n%29*%28t+%2B+1%29+%2B+n*%28t%5E2+-+1%29&obj1_params_c=%281+-+n%29*%28t%5E2+%2B+t+%2B+1%29+%2B+n*%28t%5E3+-+1%29&obj1_params_x=1&obj1_params_y=1&obj1_params_z=1&obj1_params_t0=0&obj1_params_t1=2&obj1_params_n0=0&obj1_params_n1=1"
+                target="_blank"
+                >limit of a difference quotient</a
+              >.
+            </p>
+            \[\vec r'(a) = \lim_{t \to a} \frac{\vec r(t) - \vec r(a)}{t - a} \]
+            <div class="fragment">\[= \bv{x'(t) \\ y'(t) \\ z'(t)}\]</div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Where does the tangent line to the curve $\langle t, t^2, t^3
+              \rangle$ at $(1,1,1)$ intersect the $xy$-plane?
+            </p>
+            <p class="fragment">
+              <strong>Solution</strong>. First, note $\vec r(1) = \langle 1,1,1
+              \rangle$ and $\vec r'(1) = \langle 1,2,3 \rangle$ are position and
+              direction vectors for the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&grid=true&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2&obj0_params_x=t&obj0_params_y=t%5E2&obj0_params_z=t%5E3&obj1_kind=curve&obj1_color=%23dc5e66&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=1+%2B+t&obj1_params_y=1+%2B+2+t&obj1_params_z=1+%2B+3+t&obj2_kind=point&obj2_color=%23000000&obj2_params_a=2%2F3&obj2_params_b=1%2F3&obj2_params_c=0&obj2_params_t0=0&obj2_params_t1=1"
+                >tangent line</a
+              >. We therefore solve \[\bv{1 + s \\ 1 + 2s \\ 1 + 3s} = \bv{x \\
+              y \\ 0}.\]
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
