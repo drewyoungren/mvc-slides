@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Motion in Space</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Set up standard LaTeX macros -->
+        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
+
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 05</h3>
+            <h1>Motion in Space</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Recitation 03 this week.</li>
+              <li class="fragment">Quiz 2 (HW2 topics) this week.</li>
+              <li class="fragment">HW3 due next Tues</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Curves</h6>
+
+            \[\lim_{t \to a} \vec r(t) = \bv{\lim\limits_{t \to a} x(t)
+            \\\lim\limits_{t \to a} y(t) \\ \lim\limits_{t \to a} z(t)} \qquad
+            \text{and} \qquad \vec r'(t) = \bv{x'(t) \\ y'(t) \\ z'(t) } \]
+          </section>
+          <section>
+            <h3 class="framelabel">Properties</h3>
+            <p class="r-fit-text">
+              \[\begin{align*} &\frac{d}{dt} (c\vec r(t)) = c \vec r'(t) \\
+              &\frac{d}{dt} (\vec q(t) + \vec r(t)) = \vec q'(t) + \vec r'(t) \\
+              &\frac{d}{dt} (f(t) \vec r(t)) = f'(t)\vec r(t) + f(t) \vec r'(t)
+              \\ &\frac{d}{dt} (\vec q(t) \cdot \vec r(t)) = \vec q'(t)\cdot\vec
+              r(t) + \vec q(t) \cdot \vec r'(t) \\ &\frac{d}{dt} (\vec q(t)
+              \times \vec r(t)) = \vec q'(t)\times\vec r(t) + \vec q(t) \times
+              \vec r'(t) \\ &\frac{d}{dt} \vec r(f(t)) = f'(t)\vec r'(f(t)) \\
+              \end{align*}\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Let $\vec r(t)$ parameterize a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&grid=true&obj0_kind=level&obj0_color=%233232ff&obj0_params_g=x%5E2+%2B+y%5E2+%2B+z%5E2&obj0_params_k=1&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=curve&obj1_color=%23FFDD33&obj1_params_a=0&obj1_params_b=3*pi&obj1_params_x=cos%289+%2F+10+*+t%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_y=-sin%28t%29%5E2+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_z=sin%284.2*t+%2B+1+%2F+20%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_tau=0&obj1_params_color=%23e1ff00"
+                >curve</a
+              >
+              on the surface of a sphere centered at the origin. Show that the
+              tangent vector is orthogonal to the position vector at every
+              point.
+            </p>
+          </section>
+          <section>
+            <video src="assets/curvature_anim.mp4" controls></video>
+          </section>
+        </section>
+        <section></section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
