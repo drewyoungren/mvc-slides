@@ -5,7 +5,7 @@
     <title>Thruster Game</title>
   </head>
   <body>
-    <h6>MVC HW #3.4 - A Bad Video Game</h6>
+    <h6>MVC HW #3.3 - A Bad Video Game</h6>
     <p>
       <strong>Instructions.</strong> Navigate your ship in to the opposite
       corner of the 50 by 30 field. Accelerate in the <kbd id="ikey">i</kbd> or
@@ -15,8 +15,15 @@
     <button onclick="reset()">Reset</button>
     <canvas id="canvas" width="600" height="400"></canvas>
     <div id="headline"></div>
+    <!-- 
+    <div style="background-color: blue">
+      <img src="assets/rocket.png" alt="" srcset="" />
+    </div> -->
 
     <script>
+      const rocket = new Image();
+      rocket.src = 'assets/rocket.png';
+      let rocketman = false;
       const pos = [0, 0];
       const vel = [0, 0];
       const acc = [0, 0];
@@ -45,6 +52,9 @@
         ion = false;
         jon = false;
 
+        ikey.classList.remove('active');
+        jkey.classList.remove('active');
+
         ctx.clearRect(0, 0, 600, 400);
         ctx.fillStyle = 'black';
         ctx.strokeStyle = 'gray';
@@ -52,28 +62,36 @@
 
         ctx.strokeRect(50, 50, 500, 300);
 
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(50 + 10 * pos[0], 350 - 10 * pos[1]);
-        ctx.lineTo(50 + 10 * pos[0] + 15, 350 - 10 * pos[1]);
-        ctx.arc(
-          50 + 10 * pos[0],
-          350 - 10 * pos[1],
-          15,
-          0,
-          (3 * Math.PI) / 2,
-          true
-        );
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
+        if (rocketman) {
+          ctx.drawImage(
+            rocket,
+            50 + 10 * pos[0],
+            350 - 10 * pos[1] - 25,
+            15,
+            25
+          );
+        } else {
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(50 + 10 * pos[0], 350 - 10 * pos[1]);
+          ctx.lineTo(50 + 10 * pos[0] + 15, 350 - 10 * pos[1]);
+          ctx.arc(
+            50 + 10 * pos[0],
+            350 - 10 * pos[1],
+            15,
+            0,
+            (3 * Math.PI) / 2,
+            true
+          );
+          ctx.closePath();
+          ctx.fill();
+          ctx.restore();
+        }
         div.innerText = '';
         last = null;
         t = 0;
         dt = 0;
       }
-
-      reset();
 
       function clock(tick) {
         if (!last) {
@@ -84,13 +102,13 @@
         last = tick;
         // console.log(last, dt, t);
 
-        if (ion) {
+        if (ion && pos[0] < 50) {
           pos[0] = pos[0] + vel[0] * dt + (dt * dt) / 2;
           vel[0] = vel[0] + dt;
         } else {
           pos[0] = pos[0] + vel[0] * dt;
         }
-        if (jon) {
+        if (jon && pos[1] < 30) {
           pos[1] = pos[1] + vel[1] * dt + (dt * dt) / 2;
           vel[1] = vel[1] + dt;
         } else {
@@ -116,21 +134,31 @@
 
         ctx.strokeRect(50, 50, 500, 300);
 
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(50 + 10 * pos[0], 350 - 10 * pos[1]);
-        ctx.lineTo(50 + 10 * pos[0] + 15, 350 - 10 * pos[1]);
-        ctx.arc(
-          50 + 10 * pos[0],
-          350 - 10 * pos[1],
-          15,
-          0,
-          (3 * Math.PI) / 2,
-          true
-        );
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
+        if (rocketman) {
+          ctx.drawImage(
+            rocket,
+            50 + 10 * pos[0],
+            350 - 10 * pos[1] - 25,
+            15,
+            25
+          );
+        } else {
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(50 + 10 * pos[0], 350 - 10 * pos[1]);
+          ctx.lineTo(50 + 10 * pos[0] + 15, 350 - 10 * pos[1]);
+          ctx.arc(
+            50 + 10 * pos[0],
+            350 - 10 * pos[1],
+            15,
+            0,
+            (3 * Math.PI) / 2,
+            true
+          );
+          ctx.closePath();
+          ctx.fill();
+          ctx.restore();
+        }
 
         ctx.save();
         // i thruster
@@ -138,7 +166,7 @@
           ctx.beginPath();
           ctx.strokeStyle = '#FFFF00';
           ctx.fillStyle = '#FFAA00';
-          ctx.lineWidth = 4;
+          ctx.lineWidth = 3;
           ctx.moveTo(50 + 10 * pos[0], 350 - 10 * pos[1] - 2);
           ctx.lineTo(45 + 10 * pos[0], 350 - 10 * pos[1] - 8);
           ctx.lineTo(50 + 10 * pos[0], 350 - 10 * pos[1] - 13);
@@ -165,33 +193,70 @@
           2.25
         ) {
           div.innerText += '\nCLOSE ENOUGH!';
+          last = null;
+          return;
         } else if (pos[0] > 50) {
+          jon = false;
+          ion = false;
           div.innerText += '\nTOO FAR';
-          return;
+          if (pos[0] > 55) {
+            last = null;
+            return;
+          }
         } else if (pos[1] > 30) {
+          jon = false;
+          ion = false;
           div.innerText += '\nTOO HIGH';
-          return;
-        } else {
-          window.requestAnimationFrame(clock);
+          if (pos[1] > 35) {
+            last = null;
+            return;
+          }
         }
+        window.requestAnimationFrame(clock);
       }
 
-      addEventListener('keydown', (e) => {
-        if (e.key == 'i') {
+      ikey.addEventListener('pointerdown', (e) => {
+        ion = true;
+        ikey.classList.add('active');
+        if (!last) {
+          window.requestAnimationFrame(clock);
+        }
+      });
+      ikey.addEventListener('pointerup', (e) => {
+        ion = false;
+        ikey.classList.remove('active');
+      });
+      jkey.addEventListener('pointerdown', (e) => {
+        jon = true;
+        jkey.classList.add('active');
+        if (!last) {
+          window.requestAnimationFrame(clock);
+        }
+      });
+      jkey.addEventListener('pointerup', (e) => {
+        jon = false;
+        jkey.classList.remove('active');
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key == 'i' && !e.repeat) {
           ion = true;
           ikey.classList.add('active');
           if (!last) {
             window.requestAnimationFrame(clock);
           }
-        } else if (e.key == 'j') {
+        } else if (e.key == 'j' && !e.repeat) {
           jon = true;
           jkey.classList.add('active');
           if (!last) {
             window.requestAnimationFrame(clock);
           }
+        } else if (e.key == 'v') {
+          rocketman = !rocketman;
+          if (!last) reset();
         }
       });
-      addEventListener('keyup', (e) => {
+      window.addEventListener('keyup', (e) => {
         if (e.key == 'i') {
           ion = false;
           ikey.classList.remove('active');
@@ -200,6 +265,8 @@
           jkey.classList.remove('active');
         }
       });
+
+      setTimeout(reset, 10);
     </script>
   </body>
 </html>
@@ -209,9 +276,28 @@
     border: 1px solid black;
     border-radius: 3px;
     padding: 2px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
   }
   kbd.active {
     background-color: blueviolet;
     color: white;
+  }
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  }
+  body {
+    background-color: lightblue;
   }
 </style>
