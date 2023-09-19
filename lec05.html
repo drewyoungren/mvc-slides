@@ -100,11 +100,122 @@
               point.
             </p>
           </section>
+        </section>
+        <section>
+          <section>
+            <h1>Integration</h1>
+          </section>
+          <section>
+            Integrals are limits of sums. Vectors can be added and scaled, so
+            this definition also goes right through, though the interpretation
+            is less clear. \[\int_a^b \vec r(t)\,dt = \lim_{N\to\infty}
+            \sum_{i=1}^N \vec r(t_i^*) \,\Delta t\]
+
+            <div class="fragment">
+              \[ = \left\langle \int_a^b x(t)\,dt, \int_a^b y(t)\,dt ,\int_a^b
+              z(t)\,dt \right\rangle. \]
+            </div>
+            <p class="fragment"><strong>Note:</strong> this is not an area.</p>
+          </section>
+          <section>
+            <h3>The Fundamental Theorem</h3>
+
+            <div class="r-stack">
+              <div class="fragment current-visible">
+                \[f(b) - f(a) = \int_a^b f'(x)\,dx\]
+              </div>
+              <div class="fragment current-visible">
+                \[\vec r(t) - \vec r(t_0) = \int_{t_0}^t \vec r'(u)\,du \]
+              </div>
+              <div class="fragment">
+                \[\vec r(t) = \vec r(t_0) + \int_{t_0}^t \vec r'(u)\,du \]
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Motion</h1>
+          </section>
+          <section>
+            <h3>
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_x=t&obj0_params_y=t%5E2&obj0_params_z=t%5E3"
+                target="_blank"
+                >Position, Velocity, Acceleration</a
+              >
+            </h3>
+
+            <div class="r-fit-text">
+              Suppose the <strong>position</strong> of a particle in space at
+              time $t$ is given by $\vec r(t)$. Its derivative $\vec r'(t) =
+              \vec v(t)$ is called the <strong>velocity</strong>, and its second
+              derivative $\vec r''(t) = \vec a(t)$ is the
+              <strong>acceleration</strong>. \[\vec a(t) = \vec v'(t) = \vec
+              r''(t) \]
+
+              <div class="fragment">
+                <strong>Speed</strong> is the magnitude of velocity $v = |\vec
+                v(t)|$.
+              </div>
+              <div class="fragment">
+                You are likely familiar with Newton's Second Law of motion
+                \[\vec F = m \,\vec a.\]
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Quick exercises</h6>
+            <p class="fragment text-right">
+              1. Show that a particle that changes direction has nonzero
+              acceleration.
+            </p>
+            <p class="fragment text-right">2. Is the converse true?</p>
+            <p class="fragment text-right">
+              3. Find an expression for the <strong>range formula</strong>,
+              i.e., the distance a projectile fired from the ground at angle
+              $\alpha$ will travel before landing.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Example</h3>
+            <p class="r-fit-text">
+              A particle initially at rest at the origin is subjected to an
+              acceleration \[\vec a(t) = \begin{cases} \vec i - t\,\vec j, &
+              t\leq 6 \\ \vec 0, & t > 6 \end{cases}. \] Find its position at
+              $t=10$.
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+            <video
+              src="assets/offswitch.mp4"
+              width="500px"
+              height="500px"
+              autoplay
+              controls
+            ></video>
+          </section>
+          <section>
+            <h3 class="framelabel">Rocketing</h3>
+            <p>HW #3.3 asks you define a piecewise acceleration function.</p>
+
+            <div class="r-stretch">
+              <a href="thrustergame.html"
+                ><img src="assets/rocketwfire.png" alt="" srcset=""
+              /></a>
+            </div>
+          </section>
+        </section>
+        <!-- <section>
+          <section>
+            <h1>Curvature</h1>
+          </section>
           <section>
             <video src="assets/curvature_anim.mp4" controls></video>
           </section>
-        </section>
-        <section></section>
+        </section> -->
       </div>
     </div>
 
