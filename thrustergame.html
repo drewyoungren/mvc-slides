@@ -98,7 +98,7 @@
           last = tick;
         }
         dt = (tick - last) / 1000;
-        t += dt;
+        if (pos[0] < 50 && pos[1] < 30) t += dt;
         last = tick;
         // console.log(last, dt, t);
 
@@ -179,7 +179,7 @@
           ctx.beginPath();
           ctx.strokeStyle = '#FFFF00';
           ctx.fillStyle = '#FFAA00';
-          ctx.lineWidth = 4;
+          ctx.lineWidth = 3;
           ctx.moveTo(50 + 10 * pos[0] + 2, 350 - 10 * pos[1]);
           ctx.lineTo(50 + 10 * pos[0] + 8, 350 - 10 * pos[1] + 5);
           ctx.lineTo(50 + 10 * pos[0] + 13, 350 - 10 * pos[1]);
@@ -253,7 +253,12 @@
           }
         } else if (e.key == 'v') {
           rocketman = !rocketman;
-          if (!last) reset();
+          if (
+            pos[0] >= 55 ||
+            pos[1] >= 35 ||
+            (pos[0] - 50) * (pos[0] - 50) + (pos[1] - 30) * (pos[1] - 30) < 2.25
+          )
+            reset();
         }
       });
       window.addEventListener('keyup', (e) => {
