@@ -151,8 +151,8 @@
             <p>
               A <strong>level set</strong> for a scalar field $f$ is the set of
               all input values that give a particular output, $k$. \[
-              f^{-1}(\{k\}) = \{ (x_1, \ldots,x_n) \in \RR^n : f(x_1,
-              \ldots,x_n) = k\}\]
+              f^{-1}(\{k\}) = \{ \vec x \in \operatorname{dom} f : f(\vec x) =
+              k\}\]
             </p>
 
             <div class="fragment">
@@ -169,7 +169,7 @@
             <p>
               Find the domain, image, and sketch a few
               <a
-                href="https://3demos.ctl.columbia.edu/"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-5&obj0_params_b=5&obj0_params_c=-5&obj0_params_d=5&obj0_params_z=x+sin%28y%29+%2F+2+%2B+y+cos%282+x%29+%2F+2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=graph&obj1_color=%23870808&obj1_params_a=-4&obj1_params_b=4&obj1_params_c=-4&obj1_params_d=4&obj1_params_z=%28x%5E2+%2B+2+x+y+%2B+y%5E2%29+%2F+9&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=graph&obj2_color=%2301a733&obj2_params_a=-4&obj2_params_b=4&obj2_params_c=-4&obj2_params_d=4&obj2_params_z=exp%28-x%5E2+-+y%5E2%29&obj2_params_t0=0&obj2_params_t1=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 >level curves</a
@@ -177,7 +177,7 @@
               for each function below.
             </p>
             <ul>
-              <li class="fragment">$f(x,y) = x^2 + 2 x y + y^2$</li>
+              <li class="fragment">$f(x,y) = (x^2 + 2 x y + y^2)/9$</li>
               <li class="fragment">$g(x,y) = e^{-x^2 - y^2}$</li>
               <li class="fragment">
                 $h(x,y) = x \sin(y) / 2 + y\cos(2 x) / 2$
@@ -233,17 +233,36 @@
             <h3 class="framelabel">Continuity</h3>
 
             <p>
-              Each of the following functions is continuous
-              <em>on its domain</em>.
+              Every elementary functions is continuous
+              <em>on its domain</em>. That includes:
             </p>
             <ul>
+              <li class="fragment">power functions $x^p$</li>
+              <li class="fragment">absolute value $|x|$</li>
+              <li class="fragment">exponents $a^{x}$</li>
               <li class="fragment">
-                polynomials $p(x, y) = x^4 - 3 x^3y - y^4$
+                trigonometric functions $\sin(x), \cos(x)$
               </li>
-              <li class="fragment">rational functions $r(x) =</li>
-              <li class="fragment"></li>
-              <li class="fragment"></li>
+              <li class="fragment">
+                inverses of the above $\ln x$, $\arctan(x)$, etc.
+              </li>
+              <li class="fragment">
+                and all sums, differences, products, quotients, and compositions
+                thereof.
+              </li>
             </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              \[ f(x,y,z) = \frac{\sin(x^2) - 3yz + \log \frac{12 x z^2 - 2
+              y}{\sqrt[3]{y^2 + z^2 + 7}}}{\tan^{-1}(|x|) + y^4z^2 + 4} \]
+            </p>
+
+            <p class="fragment">
+              \[ \lim\limits_{(x,y,z) \to (0,-1,0)} f(x,y,z) \]
+              <span class="fragment"> \[ = 4\]</span>
+            </p>
           </section>
           <section>
             <h3 class="framelabel" style="color: pink">Bad News</h3>
@@ -253,10 +272,108 @@
               <h6 class="framelabel">Key Example</h6>
 
               <p>
-                Compute the following limit or show it does not exist.
-                \[\lim\limits_{(x,y) \to (0,0)}\frac{xy}{x^2 + y^2} \]
+                Compute the following
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2.01&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x+y+%2F+%28x%5E2+%2B+y%5E2%29+&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >limit</a
+                >
+                or show it does not exist. \[\lim\limits_{(x,y) \to
+                (0,0)}\frac{xy}{x^2 + y^2} \]
               </p>
             </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+
+            <p>The limit does not exist.</p>
+            <div class="fragment">
+              \[\lim\limits_{x \to 0} f(x,0) = \lim\limits_{x \to 0}\frac{x
+              (0)}{x^2 + 0^2} = 0\]
+            </div>
+            <div class="fragment">
+              \[\lim\limits_{y \to 0}f(0,y) = \lim\limits_{y \to 0}\frac{0y}{0^2
+              + y^2} = 1\] but...
+            </div>
+            <div class="fragment">
+              \[\lim\limits_{x \to 0} f(x,x) = \lim\limits_{x \to
+              0}\frac{x(x)}{x^2 + x^2} = \frac12 \]
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Showing Existence</h6>
+
+            What if all paths suggest the limit exists?
+
+            <div class="fragment">
+              <h6 class="framelabel">Key Example</h6>
+
+              <p>
+                Compute the following
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%23f20d0d&obj0_params_a=-2&obj0_params_b=2.1&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x%5E2+y+%2F+%28x%5E2+%2B+y%5E2%29&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  limit
+                </a>
+                or show it does not exist. \[\lim\limits_{(x,y) \to
+                (0,0)}\frac{x^2y}{x^2 + y^2} \]
+              </p>
+            </div>
+            <p class="fragment">Solution...</p>
+          </section>
+          <section>
+            <h3 class="framelabel">Polar coordinates</h3>
+
+            <p>
+              By substitutin $x = r \cos \theta$, $y = r\sin \theta$ we make the
+              limit \[ \lim\limits_{(x,y) \to (0,0)} f(x,y) \] becomes
+            </p>
+            <p class="fragment">
+              \[\lim\limits_{r \to 0^+} f(r \cos \theta, r \sin \theta). \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              \[\lim\limits_{(x,y) \to (0,0)}\frac{x^2y}{x^2 + y^2} =
+              \lim\limits_{r \to 0^+} \frac{(r^2 \cos^2 \theta)r
+              \sin\theta}{r^2\cos^2\theta + r^2 \sin^2 \theta}\]
+            </p>
+            <p class="fragment">\[-1 \leq \cos^2 \theta \sin \theta \leq 1\]</p>
+            <p class="fragment">
+              \[\lim\limits_{r \to 0^+} -r \leq \lim\limits_{r \to 0^+}
+              \frac{r^3 \cos^2 \theta \sin\theta}{r^2} \leq \lim\limits_{r \to
+              0^+} r\]
+            </p>
+            <p class="fragment">
+              \[ \lim\limits_{r \to 0^+} r \cos^2 \theta \sin \theta = 0 \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Rough Plan for Limits</h3>
+
+            <ol>
+              <li class="fragment">
+                Check continuity.
+                <em class="fragment">Try plugging in.</em>
+              </li>
+              <li class="fragment">
+                Check a few paths.
+                <em class="fragment">If any differ, limit DNE.</em>
+              </li>
+              <li class="fragment">
+                Try polar coordinates.
+                <em class="fragment">May need to translate to origin.</em>
+              </li>
+              <li class="fragment">
+                Try something else.
+                <em class="fragment">Squeezing, etc.</em>
+              </li>
+            </ol>
           </section>
         </section>
       </div>
@@ -275,14 +392,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
