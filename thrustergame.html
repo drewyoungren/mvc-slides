@@ -70,6 +70,7 @@
             15,
             25
           );
+          ctx.restore();
         } else {
           ctx.save();
           ctx.beginPath();
@@ -135,13 +136,14 @@
         ctx.strokeRect(50, 50, 500, 300);
 
         if (rocketman) {
-          ctx.drawImage(
-            rocket,
-            50 + 10 * pos[0],
-            350 - 10 * pos[1] - 25,
-            15,
-            25
-          );
+          ctx.save();
+          norm = Math.sqrt(vel[0] * vel[0] + vel[1] * vel[1]);
+          ctx.translate(50 + 10 * pos[0], 350 - 10 * pos[1] - 25);
+          if (norm > 0) ctx.rotate(Math.PI / 2 - Math.acos(vel[0] / norm));
+
+          // console.log(norm, vel, Math.acos(vel[0] / norm));
+          ctx.drawImage(rocket, 8, -25, 15, 25);
+          ctx.restore();
         } else {
           ctx.save();
           ctx.beginPath();

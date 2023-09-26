@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Scalar Fields</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Set up standard LaTeX macros -->
+        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
+
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 07</h3>
+            <h1>Scalar Fields</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Recitation 04 this week.</li>
+              <li class="fragment">Quiz 3 (HW3 topics) this week.</li>
+              <li class="fragment">HW4 due next Tues</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Curves</h6>
+
+            <p>
+              Let $\vec r(t), a \leq t \leq b$ be a smooth parametrization of a
+              curve $\mathcal C$.
+            </p>
+            \[\begin{align*} \text{tangent vector}&:& \vec r'(t) \\ \text{unit
+            tangent vector} &:& \vec T(t) = \frac{\vec r'(t)}{|\vec r'(t)|}
+            \end{align*} \]
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Curves</h6>
+
+            <p>
+              Let $\vec r(t), a \leq t \leq b$ be a smooth parametrization of a
+              curve $\mathcal C$.
+            </p>
+            \[\begin{align*} \\ \text{arc length} &:& s = \int_a^t |\vec
+            r'(u)|\,du \\ \text{curvature} &:& \kappa = \left| \frac{d\vec
+            T}{ds} \right| = \frac{|\vec T'(t)|}{|\vec r'(t)|} \end{align*}\]
+          </section>
+          <section>
+            <video src="assets/curvature_anim.mp4" controls></video>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Scalar Fields</h1>
+          </section>
+          <section>
+            <div class="alert alert-block alert-info shadow r-frame">
+              <h6 class="framelabel">Definitions</h6>
+
+              <p>
+                A <strong>scalar field</strong> (or
+                <strong>function of several variables</strong>) is simply a
+                function of the type \[f:\RR^n \to \RR.\]
+              </p>
+
+              <p>
+                \[\operatorname{dom} f = \{(x,y)\in \RR^2: f(x,y)\in \RR\}.\]
+              </p>
+
+              <p>
+                \[\operatorname{im} f = \{f(x,y)\in \RR: (x,y)\in
+                \operatorname{dom} f\}.\]
+              </p>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Examples</h6>
+            <ul>
+              <li class="fragment">
+                <img
+                  src="https://i.pinimg.com/originals/1e/3a/55/1e3a5538e45ae81e3ead4c403b3637c0.png"
+                  style="float: right; width: 150px; margin: 5px"
+                />
+                <strong>elevation:</strong> $f(x,y)$ is the height in feet above
+                sea level for point at longitude $x$ and latitude $y$.
+              </li>
+              <li class="fragment">
+                <img
+                  src="assets/thermalscan.JPG"
+                  style="float: right; width: 150px; margin: 5px"
+                />
+                <strong>temperature:</strong> $u(x,y,z)$ is the temperature in
+                the room at position $\langle x, y, z\rangle$.
+              </li>
+              <li class="fragment">
+                <img
+                  src="assets/coherentstate.JPG"
+                  style="float: right; width: 150px; margin: 5px"
+                />
+                $|\Psi(\vec x, t)|^2$ gives the
+                <strong>probability density</strong> of finding a particle with
+                wave function $\Psi$ at position $\vec x$ at time $t$.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3 class="framelabel">Level Sets</h3>
+            <p>
+              A <strong>level set</strong> for a scalar field $f$ is the set of
+              all input values that give a particular output, $k$. \[
+              f^{-1}(\{k\}) = \{ \vec x \in \operatorname{dom} f : f(\vec x) =
+              k\}\]
+            </p>
+
+            <div class="fragment">
+              <h6 class="framelabel">Example</h6>
+              <p>
+                The level sets of $f(x,y) = x^2 + y^2$ are
+                <span class="fragment">circles</span>.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Examples</h6>
+
+            <p>
+              Find the domain, image, and sketch a few
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-5&obj0_params_b=5&obj0_params_c=-5&obj0_params_d=5&obj0_params_z=x+sin%28y%29+%2F+2+%2B+y+cos%282+x%29+%2F+2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=graph&obj1_color=%23870808&obj1_params_a=-4&obj1_params_b=4&obj1_params_c=-4&obj1_params_d=4&obj1_params_z=%28x%5E2+%2B+2+x+y+%2B+y%5E2%29+%2F+9&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=graph&obj2_color=%2301a733&obj2_params_a=-4&obj2_params_b=4&obj2_params_c=-4&obj2_params_d=4&obj2_params_z=exp%28-x%5E2+-+y%5E2%29&obj2_params_t0=0&obj2_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >level curves</a
+              >
+              for each function below.
+            </p>
+            <ul>
+              <li class="fragment">$f(x,y) = (x^2 + 2 x y + y^2)/9$</li>
+              <li class="fragment">$g(x,y) = e^{-x^2 - y^2}$</li>
+              <li class="fragment">
+                $h(x,y) = x \sin(y) / 2 + y\cos(2 x) / 2$
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercises</h6>
+
+            <p>
+              Find the domain, image, and sketch a few
+              <a
+                href="https://3demos.ctl.columbia.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >level curves</a
+              >
+              for each function below.
+            </p>
+            <ol>
+              <li>$\displaystyle xy$</li>
+              <li>$\displaystyle x \sin y$</li>
+              <li>$\displaystyle \sqrt{4-x^2-y^2}$</li>
+              <li>$\displaystyle \ln (x^2 + y^2)$</li>
+              <li>$\displaystyle 2^{x-y}$</li>
+            </ol>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Limits</h1>
+          </section>
+          <section>
+            <h3 class="framelabel" style="color: lightgreen">Good News</h3>
+
+            <p>
+              The definition of <strong>limit</strong> for a function of several
+              variables needs barely be changed.
+            </p>
+            <div class="r-stack">
+              <div class="fragment current-visible">
+                \[\lim\limits_{x \to a} f(x) = L\] means $|f( x) - L|$ can be
+                made arbitrarily small by making $|x - a|$ sufficiently small.
+              </div>
+              <div class="fragment">
+                \[\lim\limits_{\vec x \to \vec p} f(\vec x) = L\] means $|f(\vec
+                x) - L|$ can be made arbitrarily small by making $|\vec x - \vec
+                p|$ sufficiently small.
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Continuity</h3>
+
+            <p>
+              Every elementary functions is continuous
+              <em>on its domain</em>. That includes:
+            </p>
+            <ul>
+              <li class="fragment">power functions $x^p$</li>
+              <li class="fragment">absolute value $|x|$</li>
+              <li class="fragment">exponents $a^{x}$</li>
+              <li class="fragment">
+                trigonometric functions $\sin(x), \cos(x)$
+              </li>
+              <li class="fragment">
+                inverses of the above $\ln x$, $\arctan(x)$, etc.
+              </li>
+              <li class="fragment">
+                and all sums, differences, products, quotients, and compositions
+                thereof.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              \[ f(x,y,z) = \frac{\sin(x^2) - 3yz + \log \frac{12 x z^2 - 2
+              y}{\sqrt[3]{y^2 + z^2 + 7}}}{\tan^{-1}(|x|) + y^4z^2 + 4} \]
+            </p>
+
+            <p class="fragment">
+              \[ \lim\limits_{(x,y,z) \to (0,-1,0)} f(x,y,z) \]
+              <span class="fragment"> \[ = 4\]</span>
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel" style="color: pink">Bad News</h3>
+
+            <p>Weird things can happen in several variables.</p>
+            <div class="fragment">
+              <h6 class="framelabel">Key Example</h6>
+
+              <p>
+                Compute the following
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2.01&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x+y+%2F+%28x%5E2+%2B+y%5E2%29+&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >limit</a
+                >
+                or show it does not exist. \[\lim\limits_{(x,y) \to
+                (0,0)}\frac{xy}{x^2 + y^2} \]
+              </p>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+
+            <p>The limit does not exist.</p>
+            <div class="fragment">
+              \[\lim\limits_{x \to 0} f(x,0) = \lim\limits_{x \to 0}\frac{x
+              (0)}{x^2 + 0^2} = 0\]
+            </div>
+            <div class="fragment">
+              \[\lim\limits_{y \to 0}f(0,y) = \lim\limits_{y \to 0}\frac{0y}{0^2
+              + y^2} = 1\] but...
+            </div>
+            <div class="fragment">
+              \[\lim\limits_{x \to 0} f(x,x) = \lim\limits_{x \to
+              0}\frac{x(x)}{x^2 + x^2} = \frac12 \]
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Showing Existence</h6>
+
+            What if all paths suggest the limit exists?
+
+            <div class="fragment">
+              <h6 class="framelabel">Key Example</h6>
+
+              <p>
+                Compute the following
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%23f20d0d&obj0_params_a=-2&obj0_params_b=2.1&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x%5E2+y+%2F+%28x%5E2+%2B+y%5E2%29&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  limit
+                </a>
+                or show it does not exist. \[\lim\limits_{(x,y) \to
+                (0,0)}\frac{x^2y}{x^2 + y^2} \]
+              </p>
+            </div>
+            <p class="fragment">Solution...</p>
+          </section>
+          <section>
+            <h3 class="framelabel">Polar coordinates</h3>
+
+            <p>
+              By substitutin $x = r \cos \theta$, $y = r\sin \theta$ we make the
+              limit \[ \lim\limits_{(x,y) \to (0,0)} f(x,y) \] becomes
+            </p>
+            <p class="fragment">
+              \[\lim\limits_{r \to 0^+} f(r \cos \theta, r \sin \theta). \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              \[\lim\limits_{(x,y) \to (0,0)}\frac{x^2y}{x^2 + y^2} =
+              \lim\limits_{r \to 0^+} \frac{(r^2 \cos^2 \theta)r
+              \sin\theta}{r^2\cos^2\theta + r^2 \sin^2 \theta}\]
+            </p>
+            <p class="fragment">\[-1 \leq \cos^2 \theta \sin \theta \leq 1\]</p>
+            <p class="fragment">
+              \[\lim\limits_{r \to 0^+} -r \leq \lim\limits_{r \to 0^+}
+              \frac{r^3 \cos^2 \theta \sin\theta}{r^2} \leq \lim\limits_{r \to
+              0^+} r\]
+            </p>
+            <p class="fragment">
+              \[ \lim\limits_{r \to 0^+} r \cos^2 \theta \sin \theta = 0 \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Rough Plan for Limits</h3>
+
+            <ol>
+              <li class="fragment">
+                Check continuity.
+                <em class="fragment">Try plugging in.</em>
+              </li>
+              <li class="fragment">
+                Check a few paths.
+                <em class="fragment">If any differ, limit DNE.</em>
+              </li>
+              <li class="fragment">
+                Try polar coordinates.
+                <em class="fragment">May need to translate to origin.</em>
+              </li>
+              <li class="fragment">
+                Try something else.
+                <em class="fragment">Squeezing, etc.</em>
+              </li>
+            </ol>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
