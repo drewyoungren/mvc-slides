@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Partial Derivatives</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Set up standard LaTeX macros -->
+        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
+
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 08</h3>
+            <h1>Partial Derivatives</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Recitation 04 this week.</li>
+              <li class="fragment">Quiz 3 (HW3 topics) this week.</li>
+              <li class="fragment">HW4 due next Tues</li>
+              <li class="fragment">
+                <strong>Early warning</strong>: Midterm 1 Thursday, 10/05.
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section
+            data-background-image="assets/oldforgetopo.jpeg"
+            data-background-opacity="0.4"
+          >
+            <h6 class="framelabel">Scalar Fields</h6>
+
+            <p>
+              A <strong>scalar field</strong> $f:\RR^n \to \RR$ is a function on
+              a multidimensional vector space. <strong>Level sets</strong> are
+              the sets of all input points with a particular output.
+            </p>
+          </section>
+          <section>
+            <p>
+              The definition of <strong>limit</strong> for a function of several
+              variables needs barely be changed.
+            </p>
+            <div class="r-stack">
+              <div>
+                \[\lim\limits_{\vec x \to \vec p} f(\vec x) = L\] means $|f(\vec
+                x) - L|$ can be made arbitrarily small by making $|\vec x - \vec
+                p|$ sufficiently small.
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Showing Existence</h6>
+
+            What if all paths suggest the limit exists?
+
+            <div class="fragment">
+              <h6 class="framelabel">Key Example</h6>
+
+              <p>
+                Compute the following
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%23f20d0d&obj0_params_a=-2&obj0_params_b=2.1&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x%5E2+y+%2F+%28x%5E2+%2B+y%5E2%29&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  limit
+                </a>
+                or show it does not exist. \[\lim\limits_{(x,y) \to
+                (0,0)}\frac{x^2y}{x^2 + y^2} \]
+              </p>
+            </div>
+            <p class="fragment">Solution...</p>
+          </section>
+          <section>
+            <h3 class="framelabel">Polar coordinates</h3>
+
+            <p>
+              By substitutin $x = r \cos \theta$, $y = r\sin \theta$ we make the
+              limit \[ \lim\limits_{(x,y) \to (0,0)} f(x,y) \] becomes
+            </p>
+            <p class="fragment">
+              \[\lim\limits_{r \to 0^+} f(r \cos \theta, r \sin \theta). \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              \[\lim\limits_{(x,y) \to (0,0)}\frac{x^2y}{x^2 + y^2} =
+              \lim\limits_{r \to 0^+} \frac{(r^2 \cos^2 \theta)r
+              \sin\theta}{r^2\cos^2\theta + r^2 \sin^2 \theta}\]
+            </p>
+            <p class="fragment">\[-1 \leq \cos^2 \theta \sin \theta \leq 1\]</p>
+            <p class="fragment">
+              \[\lim\limits_{r \to 0^+} -r \leq \lim\limits_{r \to 0^+}
+              \frac{r^3 \cos^2 \theta \sin\theta}{r^2} \leq \lim\limits_{r \to
+              0^+} r\]
+            </p>
+            <p class="fragment">
+              \[ \lim\limits_{r \to 0^+} r \cos^2 \theta \sin \theta = 0 \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Rough Plan for Limits</h3>
+
+            <ol>
+              <li class="fragment">
+                Check continuity.
+                <em class="fragment">Try plugging in.</em>
+              </li>
+              <li class="fragment">
+                Check a few paths.
+                <em class="fragment">If any differ, limit DNE.</em>
+              </li>
+              <li class="fragment">
+                Try polar coordinates.
+                <em class="fragment">May need to translate to origin.</em>
+              </li>
+              <li class="fragment">
+                Try something else.
+                <em class="fragment">Squeezing, etc.</em>
+              </li>
+            </ol>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Differentiation</h1>
+          </section>
+          <section data-auto-animate>
+            <h3 class="framelabel">First Attempt</h3>
+            <p>
+              We could try to naïvely define a derivative of a multivariable
+              function. \[ f'(\vec a) = \lim\limits_{\vec x \to \vec a}
+              \frac{f(\vec x) - f(\vec a)}{\vec x - \vec a}\]
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h3 class="framelabel" style="color: pink">Don't do this!</h3>
+            <p style="color: red">
+              We could try to naïvely define a derivative of a multivariable
+              function. \[ f'(\vec a) = \lim\limits_{\vec x \to \vec a}
+              \frac{f(\vec x) - f(\vec a)}{\vec x - \vec a}\]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Reset</h3>
+            <p>Better to start with a question a derivative can answer.</p>
+            <p class="fragment">
+              Walking along a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=exp%28-4*%28y-sin%28x%29%29%5E2%29*%281-abs%28x%2Bpi%2F2%29%2F5%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=1&obj0_params_color=%233232ff&obj1_kind=curve&obj1_color=%23FFDD33&obj1_params_a=-2&obj1_params_b=2&obj1_params_x=t&obj1_params_y=t%2Fpi+-+1%2F2+-+t*%28t%5E2-pi%5E2%2F4%29%2F5&obj1_params_z=exp%28-4*%28%28t%2Fpi+-+1%2F2+-+t*%28t%5E2-pi%5E2%2F4%29%2F5%29-sin%28t%29%29%5E2%29*%281-abs%28t%2Bpi%2F2%29%2F5%29&obj1_params_tau=0.10747779902746808&obj1_params_color=%23FFDD33"
+                target="_blank"
+                rel="noopener noreferrer"
+                >route</a
+              >
+              $\langle x(t), y(t) \rangle$ through a field with elevation
+              $f(x,y)$, what slope do you encounter at each $t$?
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <div class="r-frame">
+              <h6 class="framelabel">Definition</h6>
+
+              <p>
+                Let $f(x,y)$ be a scalar field. The
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=exp%28-4*%28y-sin%28x%29%29%5E2%29*%281-abs%28x%2Bpi%2F2%29%2F5%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=1&obj0_params_color=%233232ff&obj1_kind=curve&obj1_color=%2344ff00&obj1_params_a=-2&obj1_params_b=2&obj1_params_x=t&obj1_params_y=1&obj1_params_z=exp%28-4*%281-sin%28t%29%29%5E2%29*%281-abs%28t%2Bpi%2F2%29%2F5%29&obj2_kind=curve&obj2_color=%23ff6a00&obj2_params_a=-2&obj2_params_b=2&obj2_params_x=1&obj2_params_y=t&obj2_params_z=exp%28-4*%28t-sin%281%29%29%5E2%29*%281-abs%281%2Bpi%2F2%29%2F5%29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >partial derivative</a
+                >
+                of $f$ with respect to <span data-id="var-name">$x$</span>
+                is
+              </p>
+              \[f_x(a,b) = \lim\limits_{h \to 0} \frac{f(a + h, b) -
+              f(a,b)}{h}.\]
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div class="r-frame">
+              <h6 class="framelabel">Definition</h6>
+
+              <p>
+                Let $f(x,y)$ be a scalar field. The
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=exp%28-4*%28y-sin%28x%29%29%5E2%29*%281-abs%28x%2Bpi%2F2%29%2F5%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=1&obj0_params_color=%233232ff&obj1_kind=curve&obj1_color=%2344ff00&obj1_params_a=-2&obj1_params_b=2&obj1_params_x=t&obj1_params_y=1&obj1_params_z=exp%28-4*%281-sin%28t%29%29%5E2%29*%281-abs%28t%2Bpi%2F2%29%2F5%29&obj2_kind=curve&obj2_color=%23ff6a00&obj2_params_a=-2&obj2_params_b=2&obj2_params_x=1&obj2_params_y=t&obj2_params_z=exp%28-4*%28t-sin%281%29%29%5E2%29*%281-abs%281%2Bpi%2F2%29%2F5%29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >partial derivative</a
+                >
+                of $f$ with respect to <span data-id="var-name">$y$</span>
+                is
+              </p>
+              \[f_y(a,b) = \lim\limits_{h \to 0} \frac{f(a, b+h) - f(a,b)}{h}.\]
+            </div>
+          </section>
+          <section>
+            <div class="r-frame">
+              <h6 class="framelabel">Notation</h6>
+              <p>All of these are equivalent.</p>
+
+              \[f_x = \frac{\partial f}{\partial x} = \partial_x f = f^{(1,0)}\]
+
+              <p>and there are many more.</p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Examples</h3>
+
+            <p>Compute:</p>
+            <div class="r-stack">
+              <p class="fragment current-visible">
+                $\displaystyle \frac{\partial}{\partial x} \left( x^2y -
+                \sin(x-2y) \right)$
+              </p>
+              <p class="fragment current-visible">
+                $\displaystyle \frac{\partial}{\partial y} \left( x^2y -
+                \sin(x-2y) \right)$
+              </p>
+              <p class="fragment current-visible">
+                $\displaystyle \frac{\partial}{\partial z} \left( \frac{z^2
+                \tan^{-1}(\sqrt{x^2+1})}{\cosh(xy)} \right)$
+              </p>
+            </div>
+            <div class="r-stretch"></div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Higher Order Derivatives</h1>
+          </section>
+          <section>
+            <h3 class="framelabel">2nd Order Derivatives</h3>
+
+            <p>
+              Since the partial derivative of a function is a function, we can
+              iterate the process. \[f_{xx} = \frac{\partial^2 f}{\partial
+              x^2}\] \[f_{xy} = \frac{\partial^2 f}{\partial y \partial x}\]
+              etc.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">PDEs</h3>
+            <p>
+              Tbe <strong>heat equation</strong> gives a relation on the
+              temperature $u$ as a function of position $x$ and time $t$. \[u_t
+              = u_{xx}\]
+            </p>
+            <div class="fragment">
+              <video
+                src="assets/heat_eq_plot.mp4"
+                width="600px"
+                controls
+              ></video>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Mixed Partials</h3>
+
+            <p>
+              A quantity like $\frac{\partial^2 f}{\partial x \partial y}$ is a
+              little harder to wrap ones head around.
+            </p>
+
+            <p>Compute all mixed partials of the following funtions:</p>
+
+            <div class="r-stack">
+              <p class="fragment current-visible">$f(x,y) = xy^3 - y \sin x$</p>
+              <p class="fragment current-visible">$r(x,t) = \frac{x}{x+t}$</p>
+              <p class="fragment current-visible">$u(p,q) = e^{-p\sqrt{q}}$</p>
+            </div>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <h3 class="framelabel">Clairaut's Theorem</h3>
+
+            <p>
+              If the relevant mixed partials exist
+              <em>and are continuous</em> in the neighborhood of a particular
+              position $\vec x_0$, then \[ \frac{\partial^2}{\partial x_i
+              \partial x_j} f(\vec x_0) = \frac{\partial^2}{\partial x_j
+              \partial x_i} f(\vec x_0) \] for all $i,j$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Compute the partial derivative $g_{zzxw}$ for \[g(w,x,y,z) =
+              w^2x^3yz^2 + \sin\left(\frac{xy}{z^2}\right).\]
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Estimating Partials</h1>
+          </section>
+          <section>
+            <p>
+              We can estimate values of partial derivatives even when lacking a
+              formula for the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=-3&obj0_params_b=3&obj0_params_c=-3&obj0_params_d=3&obj0_params_z=%281.5%5Ey*y+-+x%29+%2F+sqrt%281+%2B+x%5E2+%2By%5E2%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=1&obj0_params_color=%233232ff&obj1_kind=point&obj1_color=%23ffff00&obj1_params_a=-2&obj1_params_b=-.8&obj1_params_c=0.5986079249447717&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=point&obj2_color=%23ffff00&obj2_params_a=-1&obj2_params_b=2.17&obj2_params_c=2.40561572511505&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=point&obj3_color=%23ffff00&obj3_params_a=.57&obj3_params_b=1&obj3_params_c=0.6099311442189206&obj3_params_t0=0&obj3_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >underlying function</a
+              >.
+            </p>
+
+            <img
+              src="assets/contour_sparse.png"
+              alt="A contour plot with sparsely plotted level sets"
+              class="r-stretch"
+            />
+          </section>
+          <section>
+            <p>
+              Does the following increase or decrease the accuracy of the
+              estimates?
+            </p>
+
+            <img
+              src="assets/contour_dense.png"
+              alt="A contour plot with densely plotted level sets"
+              class="r-stretch"
+            />
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
