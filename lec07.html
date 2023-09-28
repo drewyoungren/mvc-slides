@@ -58,6 +58,9 @@
               <li class="fragment">Recitation 04 this week.</li>
               <li class="fragment">Quiz 3 (HW3 topics) this week.</li>
               <li class="fragment">HW4 due next Tues</li>
+              <li class="fragment">
+                <strong>Early warning</strong>: Midterm 1 Thursday, 10/05.
+              </li>
             </ul>
           </section>
         </section>
@@ -150,9 +153,8 @@
             <h3 class="framelabel">Level Sets</h3>
             <p>
               A <strong>level set</strong> for a scalar field $f$ is the set of
-              all input values that give a particular output, $k$. \[
-              f^{-1}(\{k\}) = \{ \vec x \in \operatorname{dom} f : f(\vec x) =
-              k\}\]
+              all input values that give a particular output, $k$. \[ f^{-1}(k)
+              = \{ \vec x \in \operatorname{dom} f : f(\vec x) = k\}\]
             </p>
 
             <div class="fragment">
@@ -205,6 +207,9 @@
               <li>$\displaystyle 2^{x-y}$</li>
             </ol>
           </section>
+          <section
+            data-background-iframe="https://embed.polleverywhere.com/multiple_choice_polls/bzpVWzez7C1rtelvVUi08?controls=none&short_poll=true"
+          ></section>
         </section>
         <section>
           <section>
@@ -261,7 +266,7 @@
 
             <p class="fragment">
               \[ \lim\limits_{(x,y,z) \to (0,-1,0)} f(x,y,z) \]
-              <span class="fragment"> \[ = 4\]</span>
+              <span class="fragment"> \[ = 0 \]</span>
             </p>
           </section>
           <section>
@@ -392,14 +397,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
