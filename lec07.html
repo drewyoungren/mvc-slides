@@ -299,7 +299,7 @@
             </div>
             <div class="fragment">
               \[\lim\limits_{y \to 0}f(0,y) = \lim\limits_{y \to 0}\frac{0y}{0^2
-              + y^2} = 1\] but...
+              + y^2} = 0\] but...
             </div>
             <div class="fragment">
               \[\lim\limits_{x \to 0} f(x,x) = \lim\limits_{x \to
@@ -397,14 +397,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
