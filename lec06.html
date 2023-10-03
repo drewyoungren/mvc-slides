@@ -115,18 +115,17 @@ The second derivative $\vec r''(t)$ is the **acceleration**.
           </section>
 
           <section>
-            <h3>The Fundamental Theorem</h3>
+            <h6 class="framelabel">Arc Length Formula</h6>
 
-            <div class="r-stack">
-              <div class="fragment current-visible">
-                \[f(b) - f(a) = \int_a^b f'(x)\,dx\]
-              </div>
-              <div class="fragment current-visible">
-                \[\vec r(t) - \vec r(t_0) = \int_{t_0}^t \vec r'(u)\,du \]
-              </div>
-              <div class="fragment">
-                \[\vec r(t) = \vec r(t_0) + \int_{t_0}^t \vec r'(u)\,du \]
-              </div>
+            <p>So a reasonable approximation is</p>
+
+            \[\sum_{i=1}^n |\vec r(a + i \Delta t) - \vec r(a+(i-1)\Delta t)|\]
+            <div class="fragment">
+              \[ = \sum_{i=1}^n \left|\frac{\vec r(a + i \Delta t) - \vec
+              r(a+(i-1)\Delta t)}{\Delta t}\right| \Delta t \]
+            </div>
+            <div class="fragment">
+              \[ \longrightarrow \int_a^b |\vec r'(t)|\,dt\]
             </div>
           </section>
         </section>
@@ -235,14 +234,14 @@ The second derivative $\vec r''(t)$ is the **acceleration**.
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
