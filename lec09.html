@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Linearization</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Set up standard LaTeX macros -->
+        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
+
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 09</h3>
+            <h1>Linearization</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">
+                Review Session Wednesday (see Ed Discussions)
+              </li>
+              <li class="fragment">Midterm 1 Thursday, 10/05.</li>
+              <li class="fragment">Recitation Optional this week</li>
+              <li class="fragment">No quiz this week</li>
+              <li class="fragment">HW5 (short) due next Tues</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Partial $\partial$erivatives</h6>
+
+            <p>
+              The <strong>partial derivative</strong> of a function
+              $f(x_1,\ldots,x_n)$ with respect to $x_i$ is \[\frac{\partial
+              f}{\partial x_i}(x_1,\ldots,x_n) = \lim_{h\to 0}
+              \frac{f(x_1,\ldots,x_{i-1},x_i+h,\ldots,x_n) -
+              f(x_1,\ldots,x_n)}{h}.\]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1 class="r-stretch">Linear Functions &amp; Differentiability</h1>
+          </section>
+          <section>
+            <p>
+              A <strong>linear function</strong> on $\RR^n$ has the form
+              \[L(x_1, \ldots, x_n) = a_0 + \sum_{i=1}^n a_i x_i\] where the
+              $a_i$'s are constants.
+            </p>
+            <div class="r-stretch"></div>
+            <p class="fragment"><sup>*</sup>really <em>affine</em> linear</p>
+          </section>
+          <section>
+            <h6 class="framelabel">Key Example</h6>
+
+            <p>
+              In one variable, a linear function $L(x)$ is one whose graph is a
+              <em>line</em>\[y = ax + b.\]
+            </p>
+
+            <p class="fragment">
+              In two variables, a linear function is one whose graph is a
+              <em>plane</em> \[z = ax + by + c. \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Differentiability</h3>
+
+            <p>
+              In one dimension, a function $f(x)$ is differentiable at $a$ if
+              $f'(a)$ exists.
+            </p>
+            <div class="fragment">
+              <div class="container">
+                <div class="col">
+                  <p>
+                    Graphically, this means the graph resembles a line at small
+                    scales.
+                  </p>
+                </div>
+                <div class="col">
+                  <div
+                    id="box-diffy"
+                    class="jxgbox"
+                    style="width: 500px; height: 500px"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <script src="js/diffy-curve.js" type="text/javascript"></script>
+          </section>
+          <section>
+            <h3 class="framelabel">Differentiability</h3>
+
+            <p>
+              In 2-D, a function $f(x,y)$ is differentiable at a point if its
+              graph looks like a plane close-up.
+            </p>
+            <h6 class="framelable fragment">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=%28x%5E2+%2B+y%5E2%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Smooth example</a
+              >
+            </h6>
+            <h6 class="framelable fragment">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2&obj0_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=2&obj1_kind=graph&obj1_color=%233232ff&obj1_params_a=-2&obj1_params_b=0&obj1_params_c=0&obj1_params_d=2&obj1_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj1_params_tau=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=graph&obj2_color=%233232ff&obj2_params_a=0&obj2_params_b=2&obj2_params_c=-2&obj2_params_d=0&obj2_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj2_params_tau=0&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=graph&obj3_color=%233232ff&obj3_params_a=-2&obj3_params_b=0&obj3_params_c=-2&obj3_params_d=0&obj3_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj3_params_tau=0&obj3_params_t0=0&obj3_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Nonsmooth example</a
+              >
+            </h6>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              A scalar field $f(x_1, \ldots, x_n)$ is
+              <strong>differentiable</strong> at $(p_1, \ldots, p_n)$ provided
+              there is a linear function $L(x_1, \ldots, x_n)$ such that
+              \[f(x_1, \ldots, x_n) - L(x_1, \ldots, x_n) = \sum_{i=1}^n
+              \epsilon_i (x_i - p_i)\] where each $\epsilon_i \to 0$ as $\vec x
+              \to \vec p$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>Show $f(x) = x^3$ is differentiable at $x=1$.</p>
+
+            <p class="fragment">
+              <strong>Solution</strong>. Let $L(x) = 3x - 2$.
+              <span class="fragment">
+                Then, \[ f(x) - L(x) = x^3 - 3x + 2 \]
+              </span>
+              <span class="fragment">\[ = (x^2 + x - 2)(x - 1) \] </span>
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
