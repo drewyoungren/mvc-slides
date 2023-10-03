@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Linearization</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Set up standard LaTeX macros -->
+        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
+
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 09</h3>
+            <h1>Linearization</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">
+                Review Session Wednesday (see Ed Discussions)
+              </li>
+              <li class="fragment">Midterm 1 Thursday, 10/05.</li>
+              <li class="fragment">Recitation Optional this week</li>
+              <li class="fragment">No quiz this week</li>
+              <li class="fragment">HW5 (short) due next Tues</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Partial $\partial$erivatives</h6>
+
+            <p>
+              The <strong>partial derivative</strong> of a function
+              $f(x_1,\ldots,x_n)$ with respect to $x_i$ is \[\frac{\partial
+              f}{\partial x_i} = \lim_{h\to 0}
+              \frac{f(x_1,\ldots,x_i+h,\ldots,x_n) - f(x_1,\ldots,x_n)}{h}.\]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Linear Functions &amp; Differentiability</h2>
+          </section>
+          <section>
+            <p>
+              A <strong>linear function</strong> on $\RR^n$ has the form
+              \[L(x_1, \ldots, x_n) = a_0 + \sum_{i=1}^n a_i x_i\] where the
+              $a_i$'s are constants.
+            </p>
+            <div class="r-stretch"></div>
+            <p class="fragment"><sup>*</sup>really <em>affine</em> linear</p>
+          </section>
+          <section>
+            <h6 class="framelabel">Key Example</h6>
+
+            <p>
+              In one variable, a linear function $L(x)$ is one whose graph is a
+              <em>line</em>\[y = ax + b.\]
+            </p>
+
+            <p class="fragment">
+              In two variables, a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=1%2F2+x+-+3%2F4+y+%2B+1%2F3&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >linear function</a
+              >
+              is one whose graph is a <em>plane</em> \[z = ax + by + c. \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Differentiability</h3>
+
+            <div>
+              <div class="container">
+                <div class="col">
+                  <p>
+                    In one dimension, a function $f(x)$ is differentiable at $a$
+                    if $f'(a)$ exists.
+                  </p>
+                  <p class="fragment">
+                    Graphically, this means the graph resembles a line at small
+                    scales.
+                  </p>
+                </div>
+                <div class="col">
+                  <div
+                    id="box-diffy"
+                    class="jxgbox"
+                    style="width: 500px; height: 500px"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <script src="js/diffy-curve.js" type="text/javascript"></script>
+          </section>
+          <section>
+            <h3 class="framelabel">Differentiability</h3>
+
+            <p>
+              In 2-D, a function $f(x,y)$ is differentiable at a point if its
+              graph looks like a plane close-up.
+            </p>
+            <h6 class="framelable fragment">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=%28x%5E2+%2B+y%5E2%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Smooth example</a
+              >
+            </h6>
+            <h6 class="framelable fragment">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2&obj0_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=2&obj1_kind=graph&obj1_color=%233232ff&obj1_params_a=-2&obj1_params_b=0&obj1_params_c=0&obj1_params_d=2&obj1_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj1_params_tau=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=graph&obj2_color=%233232ff&obj2_params_a=0&obj2_params_b=2&obj2_params_c=-2&obj2_params_d=0&obj2_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj2_params_tau=0&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=graph&obj3_color=%233232ff&obj3_params_a=-2&obj3_params_b=0&obj3_params_c=-2&obj3_params_d=0&obj3_params_z=%28abs%28x%29+%2B+abs%28y%29%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj3_params_tau=0&obj3_params_t0=0&obj3_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Nonsmooth example</a
+              >
+            </h6>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              A scalar field $f(x_1, \ldots, x_n)$ is
+              <strong>differentiable</strong> at $(p_1, \ldots, p_n)$ provided
+              there is a linear function $L(x_1, \ldots, x_n)$ such that
+              \[f(x_1, \ldots, x_n) - L(x_1, \ldots, x_n) = \sum_{i=1}^n
+              \epsilon_i (x_i - p_i)\] where each $\epsilon_i \to 0$ as $\vec x
+              \to \vec p$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>Show $f(x) = x^3$ is differentiable at $x=1$.</p>
+
+            <p class="fragment">
+              <strong>Solution</strong>. Let $L(x) = 3x - 2$.
+              <span class="fragment">
+                Then, \[ f(x) - L(x) = x^3 - 3x + 2 \]
+              </span>
+              <span class="fragment">\[ = (x^2 + x - 2)(x - 1) \] </span>
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Tangent Plane</h1>
+          </section>
+          <section>
+            <h3 class="framelabel">Key example</h3>
+            <p>
+              We start with the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=3&obj0_params_c=0&obj0_params_d=3&obj0_params_z=log%28+x+%2B+2+y+%2B+1%29&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >graph</a
+              >
+              of a smooth 2-D function \[ z = f(x,y) = \ln(x + 2y + 1) \] and
+              calculate the tangent plane at $(1,2, \ln 6)$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Program for Tangent Plane</h6>
+            <ol>
+              <li class="fragment">
+                Construct curve in $x$-direction $\langle t, 2, \ln(t + 5)
+                \rangle$
+              </li>
+              <li class="fragment">
+                Take derivative at $t=1$, $\langle 1, 0, \frac{1}{6} \rangle$.
+              </li>
+              <li class="fragment">
+                Construct curve in $y$-direction $\langle 1, t, \ln(2 + 2t)
+                \rangle$
+              </li>
+              <li class="fragment">
+                Take derivative at $t=2$, $\langle 0, 1, \frac{1}{3} \rangle$.
+              </li>
+              <li class="fragment">Cross tangent vectors to get normal.</li>
+              <li class="fragment">
+                Form
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=3&obj0_params_c=0&obj0_params_d=3&obj0_params_z=log%28+x+%2B+2+y+%2B+1%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%230d0887&obj1_params_a=0&obj1_params_b=3&obj1_params_x=t&obj1_params_y=2&obj1_params_z=log%28+t++%2B+5%29&obj2_kind=curve&obj2_color=%23dbdd64&obj2_params_a=0&obj2_params_b=3&obj2_params_x=1+&obj2_params_y=t&obj2_params_z=log%282++%2B+2t%29&obj3_kind=point&obj3_color=%23000000&obj3_params_a=1&obj3_params_b=2&obj3_params_c=log%286%29&obj3_params_t0=0&obj3_params_t1=1&obj4_kind=vector&obj4_color=%236e6e6e&obj4_params_a=-1%2F6&obj4_params_b=-1%2F3&obj4_params_c=1&obj4_params_x=1&obj4_params_y=2&obj4_params_z=log%286%29&obj4_params_t0=0&obj4_params_t1=1&obj5_kind=level&obj5_color=%239310a2&obj5_params_g=-+x+%2F+6+-+y+%2F+3+%2B+z&obj5_params_k=log%286%29+-+5%2F6&obj5_params_a=0&obj5_params_b=3&obj5_params_c=0&obj5_params_d=3&obj5_params_e=0&obj5_params_f=5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >plane equation</a
+                >
+                $-\frac{x}{6} -\frac{y}{3} + z = \ln 6 - \frac56$.
+              </li>
+              <li class="fragment">Profit.</li>
+            </ol>
+          </section>
+          <section>
+            <h6 class="framelabel">Tangent Plane at $(a, b, f(a,b))$.</h6>
+            <ol>
+              <li class="fragment">
+                Construct curve in $x$-direction $\langle t, b, f(t,b) \rangle$
+              </li>
+              <li class="fragment">
+                Take derivative at $t=a$, $\langle 1, 0, f_x(a,b) \rangle$.
+              </li>
+              <li class="fragment">
+                Construct curve in $y$-direction $\langle a, t, f(a,t) \rangle$
+              </li>
+              <li class="fragment">
+                Take derivative at $t=b$, $\langle 0, 1, f_y(a,b) \rangle$.
+              </li>
+              <li class="fragment">
+                Cross tangent vectors to get normal $\vec n = \langle -f_x(a,b),
+                -f_y(a,b), 1 \rangle$.
+              </li>
+              <li class="fragment">Form plane equation.</li>
+              <li class="fragment">
+                Profit. \[ z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b). \]
+              </li>
+            </ol>
+          </section>
+          <section>
+            <div class="r-frame">
+              <h6 class="framelabel">Normal vector</h6>
+
+              \[ \vec n = \left\langle -f_x(a,b), -f_y(a,b), 1 \right\rangle \]
+
+              <div class="fragment">
+                <h6 class="framelabel">Tangent Plane</h6>
+
+                \[ z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b) \]
+                <div class="fragment">
+                  \[ = L(x,y) \] This is the <strong>linearization</strong> of
+                  $f$ at the point $(a,b)$.
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section><h1>Linearization</h1></section>
+          <section>
+            <div class="r-frame">
+              <h6 class="framelabel">Definition</h6>
+
+              The lineariztion of a function $f$ at $\vec p = \langle p_1,
+              \ldots, p_n \rangle$ is a linear function \[L(\vec x) = f(\vec p)
+              + \sum_{i=1}^n \frac{\partial f}{\partial x_i}(\vec p)(x_i - p_i)
+              \]
+            </div>
+          </section>
+          <section>
+            <p>
+              Use linearization to estimate values of a function nearby known
+              points.
+            </p>
+            <div class="fragment">
+              <h6 class="framelabel">Example</h6>
+              <p>
+                \[f(x,y,z) = e^{-x^2 + 3y + 3z}\] Estimate $f(3.01, 2.03,
+                0.99)$.
+              </p>
+              <div class="r-stretch">$\ $</div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>Estimate $\sqrt{2/7}$.</p>
+            <div class="r-stretch">
+              <ol>
+                <li class="fragment">
+                  Use $f(x)= \sqrt{\frac{2}{x}}$ around $x = 8$.
+                  <span class="fragment"
+                    >\[\sqrt{\frac27} = f(7) \approx f(8) + f'(8)(-1) =
+                    \frac{17}{32}\]
+                  </span>
+                </li>
+                <li class="fragment">
+                  Use $g(x,y) = \sqrt{\frac{x}{y}}$ around $(9, 36)$.<span
+                    class="fragment"
+                    >\[\sqrt{\frac{10}{35}} \approx \frac12 + g_x(9,36)(1) +
+                    g_y(9,36)(-1) = \frac{77}{144}\]
+                  </span>
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Differentials</h3>
+            <p>
+              An alternative, compact approach to the same concept is to
+              estimate changes in functions using
+              <strong>differentials</strong>.
+            </p>
+            <p class="fragment">
+              We write $\Delta f = f(x,y) - f(a,b) \approx $ \[df = f_x(a,b)dx +
+              f_y(a,b)dy\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              A
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=cyl&obj0_params_a=0&obj0_params_b=3+%2F+2+pi&obj0_params_c=0&obj0_params_d=3.02+%2F+5&obj0_params_e=-2.52+%2F+5&obj0_params_f=2.52+%2F+5&obj1_kind=solid&obj1_color=%23dc5e66&obj1_params_coords=cyl&obj1_params_a=-3+%2F4+pi&obj1_params_b=pi+%2F2&obj1_params_c=0&obj1_params_d=2.98+%2F+5&obj1_params_e=-2.48+%2F+5&obj1_params_f=2.48+%2F+5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >cylindrical aluminum can</a
+              >
+              is is 5cm high with a diameter of 6cm and is 0.4mm thick. Estimate
+              the volume of the aluminum.
+            </p>
+
+            <p class="fragment">
+              <strong>Solution</strong>. Let $V = \pi r^2 h$. The volume of the
+              aluminum is approximately \[ dV = 2\pi r h\, dr + \pi r^2 \,dh =
+              \pi(30\times0.04 + 9\times 0.08) \]
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
