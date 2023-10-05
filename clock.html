@@ -17,9 +17,9 @@
 
     #clockiclock {
       position: absolute;
-      top:  0px;
+      top: 0px;
       left: 300px;
-      background-color: #be6800;
+      background-color: #00a274;
       color: aliceblue;
       width: 50%;
       padding: 1rem;
@@ -32,7 +32,7 @@
 
     #status {
       display: none;
-      position:absolute;
+      position: absolute;
       right: 0;
       bottom: 0;
       color: aliceblue;
@@ -51,43 +51,58 @@
     let signLR = 1;
     let signUD = 1;
 
-    function moveClock(){
+    function moveClock() {
       let [h, w] = [window.innerHeight, window.innerWidth];
       const rect = el.getBoundingClientRect();
-      let [x, y, wh, ww] = [rect.left, rect.top, rect.height, rect.width].map(Math.round);
+      let [x, y, wh, ww] = [rect.left, rect.top, rect.height, rect.width].map(
+        Math.round
+      );
 
-      statWindow.innerText = el.style.top + '\n' + rect.top + '\n';
+      statWindow.innerText = el.style.top + "\n" + rect.top + "\n";
 
-      y = Number(String(el.style.top).slice(0,-2));
+      y = Number(String(el.style.top).slice(0, -2));
       // console.log(y)
 
       if (x + ww + signLR >= w) {
-        el.style.left = (w - ww - 1) + 'px' ;
+        el.style.left = w - ww - 1 + "px";
         signLR = -1;
-      } else {if (x + signLR < 0) {
+      } else {
+        if (x + signLR < 0) {
           el.style.left = 0;
-          signLR = 1
+          signLR = 1;
         } else {
-          el.style.left = x + signLR + 'px';
+          el.style.left = x + signLR + "px";
         }
       }
 
-      statWindow.innerText += ' - y' + y;
+      statWindow.innerText += " - y" + y;
 
       if (y + wh + signUD >= h) {
-        el.style.top = (h - wh - 1) + 'px';
+        el.style.top = h - wh - 1 + "px";
         signUD = -1;
-        statWindow.innerText += ' ^ ';
-      } else {if (y + signUD < 0) {
+        statWindow.innerText += " ^ ";
+      } else {
+        if (y + signUD < 0) {
           el.style.top = 0;
           signUD = 1;
-          statWindow.innerText += ' v ';
+          statWindow.innerText += " v ";
         } else {
-          el.style.top = y + signUD + 'px';
-          statWindow.innerText += ' - y' + y;
+          el.style.top = y + signUD + "px";
+          statWindow.innerText += " - y" + y;
         }
       }
-      statWindow.innerText += "ud" + signUD + " | y" + y + " | wh" + wh + " | h" + h + ' |top' + el.style.top + "\n" ;
+      statWindow.innerText +=
+        "ud" +
+        signUD +
+        " | y" +
+        y +
+        " | wh" +
+        wh +
+        " | h" +
+        h +
+        " |top" +
+        el.style.top +
+        "\n";
     }
 
     setInterval(moveClock, 50);
@@ -95,10 +110,9 @@
     function update() {
       const d = new Date();
 
-      el.innerText = d.toLocaleTimeString()
+      el.innerText = d.toLocaleTimeString();
       setTimeout(update, (Math.PI / 2) * 1000);
-
-  }
+    }
     setTimeout(update, 0);
   </script>
 </html>
