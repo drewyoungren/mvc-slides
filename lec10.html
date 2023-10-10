@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Chain Rule</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Set up standard LaTeX macros -->
+        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
+        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
+        $\gdef\comp{\operatorname{comp}}$
+
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 09</h3>
+            <h1>Chain Rule</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Quiz 4 (on HW 5) this week</li>
+              <li class="fragment">HW6 due 10/17</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Linearization</h6>
+
+            <p>
+              The <strong>linearization</strong> of a differentiable function
+              $f(x,y)$ about a point $(a,b)$ is the linear function \[f(x, y)
+              \approx L(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b). \] Its
+              graph is tangent to the graph of $f$.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Theorem</h3>
+
+            <p>
+              If all partial derivatives of a function of several variables $f$
+              exist <em>and are continuous</em> in a neighborhood of a position
+              $\vec a$, then $f(\vec x)$ is differentiable at $\vec a$.
+            </p>
+          </section>
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2.1&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x+y+%2F+%28sqrt%28x%5E2+%2B+y%5E2%29%29+&obj0_params_t0=0&obj0_params_t1=1"
+          >
+            <h6 class="framelabel">Non-example</h6>
+            <p>\[ f(x,y) = \frac{xy}{\sqrt{x^2 + y^2}} \]</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>The Chain Rule</h1>
+          </section>
+          <section
+            data-background-video="assets/chain_rule_1d.mp4"
+            data-background-opacity="0.3  "
+          >
+            <h6 class="framelabel">1-D Chain Rule</h6>
+
+            <div class="r-stack">
+              <p class="fragment current-visible fade-out">
+                \[ \frac{d}{dx} (f\circ g)(x) = f'(g(x))g'(x) \]
+              </p>
+              <p class="fragment fade">
+                \[ \frac{d}{dx} (f\circ g)(x) = \frac{df}{du} \frac{du}{dx} \]
+              </p>
+            </div>
+            <p class="fragment">where $u = g(x)$.</p>
+          </section>
+          <section>
+            <h6 class="framelabel">Main problem</h6>
+
+            <p>
+              A smooth curve $\left\langle x(t), y(t) \right\rangle$ moves
+              through a domain of a differentiable function $f(x,y)$. What is
+              $\frac{df}{dt} \Big\vert_{t = t_0}$?
+            </p>
+
+            <p class="fragment">
+              <em>Hint:</em>
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%233232ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=1-%28x+-+1%29%5E2%2F6+-+%28y+%2B+1%29%5E2+%2F+10&obj0_params_tau=0&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23FFDD33&obj1_params_a=0&obj1_params_b=2*pi&obj1_params_x=cos%28t%29&obj1_params_y=sin%28t%29&obj1_params_z=1-%28cos%28t%29+-+1%29%5E2%2F6+-+%28sin%28t%29+%2B+1%29%5E2+%2F+10&obj1_params_tau=0&obj2_kind=curve&obj2_color=%23FFDD33&obj2_params_a=-pi%2F6&obj2_params_b=pi%2F6&obj2_params_x=cos%28t%29&obj2_params_y=sin%28t%29&obj2_params_z=9%2F10+-+%28sin%28t%29%29%2F5&obj2_params_tau=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Replace</a
+              >
+              $f$ with $L$.
+            </p>
+          </section>
+          <section>
+            <p>
+              Let $L(x,y)$ be the linearization of $f$ around $\left\langle a, b
+              \right\rangle = \left\langle x(t_0), y(t_0) \right\rangle$.
+            </p>
+            <p class="fragment">
+              \[ \frac{df}{dt} \Big\vert_{t = t_0} = \frac{dL }{dt} \Big\vert_{t
+              = t_0} L(x(t), y(t)) = \]
+            </p>
+            <p class="fragment">
+              \[ \frac{d}{dt} \Big\vert_{t_0}(f(a, b) + f_x(a,b)(x(t) - a) +
+              f_y(a,b)(y(t) - b)) \]
+            </p>
+            <p class="fragment">\[ = f_x(a,b) x'(t_0) + f_y(a,b) y(t_0) \]</p>
+          </section>
+          <section>
+            <div class="r-frame">
+              <h3 class="framelabel">Multivariable Chain Rule</h3>
+              <p>
+                If $f(x_1, \ldots, x_n)$ is a differntiable function and each
+                $x_i$ depends smoothly on $t$, then \[ \frac{df}{dt} =
+                \sum_{i=1}^n \frac{\partial f}{\partial x_i} \frac{d x_i}{dt} \]
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Notation</h3>
+
+            <p>
+              We write \[\nabla f = \left\langle \frac{\partial f}{\partial
+              x_1}, \ldots, \frac{\partial f}{\partial x_n} \right\rangle \]
+            </p>
+            <p class="fragment">
+              Thus, the chain rule becomes \[ \frac{d}{dt} f ( \vec x(t)) =
+              \nabla f(\vec x(t)) \cdot \vec x'(t) \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Other Forms</h6>
+
+            <p>
+              Other cases can be handled by extrapolating from the case above.
+              \[\frac{\partial}{\partial t} f(x(s,t),y(s,t),z(s,t)) =\]\[
+              \frac{\partial f}{\partial x} \frac{\partial x}{\partial t} +
+              \frac{\partial f}{\partial y}\frac{\partial y}{\partial t}
+              +\frac{\partial f}{\partial z}\frac{\partial z}{\partial t} \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Examples</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Elevation change</h6>
+
+            <p>
+              A particle circles the $z$-axis
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=point&obj0_color=%23bd000d&obj0_params_a=cos%282+pi+t%29&obj0_params_b=sin%282+pi+t%29&obj0_params_c=cos%282+pi+t%29+sin%282+pi+t%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=graph&obj1_color=%23b17dde&obj1_params_a=-3%2F2&obj1_params_b=3%2F2&obj1_params_c=-3%2F2&obj1_params_d=3%2F2&obj1_params_z=x+y&obj1_params_t0=0&obj1_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >every second</a
+              >
+              at a distance of 1 unit. If it is confined to the surface $z=xy$,
+              find the maximum of $\frac{dz}{dt}$.
+            </p>
+          </section>
+          <section>
+            <strong>Solution</strong>.
+            <p class="fragment">
+              $z = xy$ and $\left\langle x(t), y(t) \right\rangle = \left\langle
+              \cos(2 \pi t, \sin (2 \pi t)) \right\rangle $. \[\frac{dz}{dt} =
+              \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial
+              z}{\partial y} \frac{dy}{dt} \]
+            </p>
+            <p class="fragment">
+              \[ = y (-2\pi\sin (2\pi t)) + x(2\pi \cos(2\pi t)) \] \[ =
+              -2\pi\sin^2 (2\pi t) + 2\pi \cos^2(2\pi t) \] \[ = 2\pi \cos(4\pi
+              t) \] which has a maximum of $2\pi$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Related Rates</h6>
+
+            <p>
+              The base radius of a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%232c27d3&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%28.4+%2B+.1+t%29+u+cos%28v%29&obj0_params_y=%28.4+%2B+.1+t%29+u+sin%28v%29+&obj0_params_z=%28.8+-+2+t+%2F+10%29+%281+-+u%29&obj0_params_t0=-1&obj0_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >right cone</a
+              >
+              is increasing at a rate of 1 cm/min, and its height is decreasing
+              at 2cm/min. When the base has radius 4 cm and the height is 8 cm,
+              is the volume increasing or decreasing?
+            </p>
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%232c27d3&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%28.4+%2B+.1+t%29+u+cos%28v%29&obj0_params_y=%28.4+%2B+.1+t%29+u+sin%28v%29+&obj0_params_z=%28.8+-+2+t+%2F+10%29+%281+-+u%29&obj0_params_t0=-1&obj0_params_t1=1"
+              frameborder="0"
+              width="600px"
+              height="400px"
+            ></iframe>
+          </section>
+          <section>
+            <strong>Solution</strong>.
+
+            <p class="fragment">
+              $V = \frac\pi3 r^2 h$ and thus \[ \frac{dV}{dt} = \frac{\partial
+              V}{\partial r}\frac{dr}{dt} + \frac{\partial V}{\partial
+              h}\frac{dh}{dt} \] \[ = \frac23 \pi r h \frac{dr}{dt} + \frac13
+              \pi r^2 \frac{dh}{dt} \] \[ = \frac23 \pi (4) (8) (1) + \frac13
+              \pi 4^2 (-2) = \frac{32 \pi}{3} > 0 \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Polar Coordinates</h6>
+
+            <p>
+              Suppose $f(x,y)$ has continuous derivatives of all order. Express
+              $\frac{\partial^2 f}{\partial r\partial \theta}$ in terms of the
+              partial derivatives of $f$.
+            </p>
+            <p>$r$ and $\theta$ are the usual polar coordinates.</p>
+          </section>
+          <section>
+            <p><strong>Solution</strong>.</p>
+            <p class="fragment">
+              \[\frac{\partial f}{\partial r} = f_x \frac{\partial x}{\partial
+              r} + f_y \frac{\partial y}{\partial r} = f_x \cos \theta + f_y
+              \sin \theta \]
+            </p>
+            <p class="fragment r-stretch">
+              \[\frac{\partial^2 f}{\partial \theta \partial r } = \left(f_{xx}
+              \frac{\partial x}{\partial \theta} + f_{xy} \frac{\partial
+              y}{\partial \theta}\right)\cos \theta - f_x \sin \theta \]\[+
+              \left(f_{yx} \frac{\partial x}{\partial \theta} + f_{yy}
+              \frac{\partial y}{\partial \theta}\right)\sin \theta + f_y \cos
+              \theta \] \[ = (f_{yy} - f_{xx})r\sin\theta \cos \theta + f_{xy} r
+              \cos (2\theta) + f_y \cos \theta - f_x \sin\theta \]
+            </p>
+          </section>
+          <section></section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
