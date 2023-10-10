@@ -36,11 +36,6 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Set up standard LaTeX macros -->
-        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
-        $\gdef\comp{\operatorname{comp}}$
-
         <section>
           <section>
             <h3 class="framelabel">Lecture 09</h3>
@@ -52,6 +47,10 @@
             </p>
           </section>
           <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
             <h2>Announcements</h2>
 
             <ul>
@@ -70,8 +69,8 @@
 
             <p>
               The <strong>linearization</strong> of a differentiable function
-              $f(x,y)$ about a point $(a,b)$ is the linear function \[f(x, y)
-              \approx L(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b). \] Its
+              $f(x,y)$ about a point $(a,b)$ is the linear function \[ L(x,y) =
+              f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b) \] $ \approx f(x,y)$. Its
               graph is tangent to the graph of $f$.
             </p>
           </section>
@@ -92,8 +91,25 @@
           </section>
         </section>
         <section>
-          <section>
+          <section data-background-image="assets/PatchedCabinets.jpeg">
             <h1>The Chain Rule</h1>
+            <p
+              class="fragment"
+              style="
+                position: absolute;
+                right: 2px;
+                bottom: 2px;
+                font-size: x-small;
+              "
+            >
+              Photo credit:
+              <a
+                href="http://paradiso.media.mit.edu/synth.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Joe Paradiso</a
+              >
+            </p>
           </section>
           <section
             data-background-video="assets/chain_rule_1d.mp4"
@@ -106,7 +122,7 @@
                 \[ \frac{d}{dx} (f\circ g)(x) = f'(g(x))g'(x) \]
               </p>
               <p class="fragment fade">
-                \[ \frac{d}{dx} (f\circ g)(x) = \frac{df}{du} \frac{du}{dx} \]
+                \[ \frac{d}{dx} f(g(x)) = \frac{df}{du} \frac{du}{dx} \]
               </p>
             </div>
             <p class="fragment">where $u = g(x)$.</p>
@@ -273,7 +289,115 @@
               \cos (2\theta) + f_y \cos \theta - f_x \sin\theta \]
             </p>
           </section>
-          <section></section>
+          <section>
+            <h6 class="framelabel">Chain chain chain</h6>
+
+            <p>
+              Suppose \[ \begin{align*} z &= z(x,y) \\ x &= x(u,v) \\ y &=
+              y(u,v) \\ u &= u(s,t) \\ v &= v(s,t) \\ \end{align*}\] are all
+              differentiable. Find an expression for $\frac{\partial z}{\partial
+              s}$.
+            </p>
+          </section>
+          <section>
+            <p><strong>Solution</strong>.</p>
+            <p class="fragment">
+              \[ \begin{align*} \frac{\partial z}{\partial s} =& \frac{\partial
+              z}{\partial x}\frac{\partial x}{\partial u}\frac{\partial
+              u}{\partial s} + \frac{\partial z}{\partial x}\frac{\partial
+              x}{\partial v}\frac{\partial v}{\partial s} \\ &+ \frac{\partial
+              z}{\partial y}\frac{\partial y}{\partial u}\frac{\partial
+              u}{\partial s} + \frac{\partial z}{\partial y}\frac{\partial
+              y}{\partial v}\frac{\partial v}{\partial s} \\ \end{align*} \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Implicit Differentiation</h1>
+          </section>
+          <section>
+            <h3>Implicit Relationships</h3>
+
+            <p>
+              Every implicit relationship among variables $x$ and $y$ can be
+              expressed as a level set \[ F(x,y) = c. \]
+            </p>
+
+            <div class="fragment">
+              <h6 class="framelabel">Examples</h6>
+              <ul>
+                <li class="fragment">
+                  The circle
+                  <span class="r-stack">
+                    <span class="fragment current-visible"
+                      >$y = \pm\sqrt{R^2 - x^2}$</span
+                    >
+                    <span class="fragment fade-in">$ x^2 + y^2 = R^2$</span>
+                  </span>
+                </li>
+                <li class="fragment">
+                  <a
+                    href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=cos%28x+y%29+%2B+x+-+exp%28-x%29+y+-+1&obj0_params_t0=0&obj0_params_t1=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Something</a
+                  >
+                  else
+                  <span class="r-stack">
+                    <span class="fragment current-visible"
+                      >$\cos(xy) + x - 1 = e^{-x}y$</span
+                    >
+                    <span class="fragment fade-in"
+                      >$\cos(xy) + x - e^{-x}y = 1$</span
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Main Problem</h6>
+            Given $y$ implicitly defined as a function of $x$ via $F(x,y) = c$,
+            find an expression for $\frac{dy}{dx}$ in terms of derivatives of
+            $F$.
+          </section>
+
+          <section>
+            \[ \frac{d}{dx}F(x,y) = 0\]
+            <div class="fragment">
+              <strong>WARNING</strong> Mind your $d$'s and $\partial$'s.
+            </div>
+
+            <div class="fragment">\[ \frac{d}{dx}F(x,y(x)) = 0 \]</div>
+            <div class="fragment">
+              \[ \frac{\partial F}{\partial x}\frac{dx}{dx} + \frac{\partial
+              F}{\partial y}\frac{dy}{dx} = 0\]
+            </div>
+            <div class="fragment">\[ \frac{dy}{dx} = -\frac{F_x}{F_y} \]</div>
+          </section>
+          <section
+            data-background-image="assets/implicit_example.png"
+            data-background-opacity="0.6"
+          >
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find the slope of the tangent line to \[ x \sin(y) - \frac12 =
+              \sqrt{2} - 2\cos(xy)\] at the point
+              $\left(\frac12,\frac\pi2\right)$.
+            </p>
+          </section>
+          <section>
+            <p><strong>Solution</strong>.</p>
+
+            <p class="fragment">
+              \[F(x,y) = x \sin y + 2\cos(xy) = \frac12 + \sqrt 2 \] \[
+              \frac{dy}{dx} = \left.-\frac{F_x}{F_y} \right\rvert_{(1/2,\pi/2)}
+              = \left.-\frac{\sin y -2\sin(xy)y}{x\cos y -2
+              \sin(xy)x}\right\rvert_{(1/2,\pi/2)} \] \[ = - \frac{1 -
+              \frac{\pi}{\sqrt2}}{-\frac{1}{\sqrt2}} = \sqrt2 - \pi \]
+            </p>
+          </section>
         </section>
       </div>
     </div>
@@ -291,14 +415,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
