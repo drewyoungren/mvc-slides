@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Chain Rule</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 11</h3>
+            <h1>The Gradient</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Quiz 4 (on HW 5) this week</li>
+              <li class="fragment">HW6 due 10/17</li>
+              <li class="fragment">See email for midterm results/solutions.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+          <section>
+            <h3 class="framelabel">The Chain Rule</h3>
+
+            <p>
+              If $f(x_1, \ldots, x_n)$ is a differntiable function and each
+              $x_i$ depends smoothly on $t$, then \[ \frac{df}{dt} =
+              \sum_{i=1}^n \frac{\partial f}{\partial x_i} \frac{d x_i}{dt} \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Notation</h3>
+
+            <p>
+              We write \[\nabla f = \left\langle \frac{\partial f}{\partial
+              x_1}, \ldots, \frac{\partial f}{\partial x_n} \right\rangle \]
+            </p>
+            <p class="fragment">
+              Thus, the chain rule becomes \[ \frac{d}{dt} f ( \vec x(t)) =
+              \nabla f(\vec x(t)) \cdot \vec x'(t) \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Quick Example</h6>
+
+            <p>
+              Show that any function of the form $f(x,y) = g(x^2 + y^2)$ where
+              $g$ is a differentiable function is symmetric in $\theta$. That
+              is, \[ \frac{\partial f}{\partial \theta} = 0.\]
+            </p>
+          </section>
+          <section>
+            <p><strong>Solution</strong>.</p>
+            <p class="fragment">
+              $x = r\cos \theta, y = r\sin \theta$. So, \[\frac{\partial
+              f}{\partial \theta} = \frac{\partial f}{\partial x}\frac{\partial
+              x}{\partial \theta} + \frac{\partial f}{\partial x}\frac{\partial
+              x}{\partial \theta} \] \[ = g'(x^2 + y^2)2x (-r\sin\theta) +
+              g'(x^2 + y^2)2y (r\cos\theta)\] \[ = g'(r^2)2r
+              (-\sin\theta\cos\theta + \cos\theta\sin\theta) = 0\]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section
+            data-background-image="assets/adiron.png"
+            data-background-opacity="0.6"
+          >
+            <h1>Directional Derivatives</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              Let $\vec u$ be a unit vector ($|\vec u | = 1$). The
+              <strong>directional derivative</strong> of $f(\vec x)$ in the
+              direction $\vec u$ is given by. \[D_{\vec u} f(\vec x) = \lim_{h
+              \to 0} \frac{f(\vec x + h \vec u) - f(\vec x)}{h}\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Interpretation</h6>
+            <p>
+              <!-- <a href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=exp%28-%28x+-+y%5E2%29%5E2%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_params_a=cos%28t%29&obj1_params_b=sin%28t%29&obj1_params_c=n+*+%28-0.722572*cos%28t%29+%2B+0.361286*sin%28t%29%29&obj1_params_x=1%2F2&obj1_params_y=1%2F4&obj1_params_z=n+*+%28exp%28-%287%2F16%29%5E2%29%29&obj1_params_t0=0&obj1_params_t1=2+pi&obj1_params_n0=0&obj1_params_n1=1">Graphically</a>, this is just like taking a partial derivative but in
+              <em>any</em> direction instead of just parallel to the axes. -->
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=exp%28-%28x+-+y%5E2%29%5E2%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23000000&obj1_params_a=cos%28t%29&obj1_params_b=sin%28t%29&obj1_params_c=n+*+%28.5%2Fexp%281%2F16%29*cos%28t%29+-+.5%2F+exp%281%2F16%29+*sin%28t%29%29&obj1_params_x=0&obj1_params_y=1%2F2&obj1_params_z=n+*+%28exp%28-1%2F16%29%29&obj1_params_t0=0&obj1_params_t1=2+pi&obj1_params_n0=0&obj1_params_n1=1"
+                >Graphically</a
+              >, this is just like taking a partial derivative but in
+              <em>any</em> direction instead of just parallel to the axes.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Formula</h3>
+            <p class="fragment">
+              Let $\vec r(t) = \vec x + t \vec u$, a line. Then,
+            </p>
+            <p class="fragment">
+              \[ (f\circ\vec r)'(0) = D_{\vec u}f(\vec x)\]
+            </p>
+            <p class="fragment">
+              \[ D_{\vec u}f(\vec x) = \nabla f(\vec x) \cdot \vec u \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Find the directional derivative of the function $f(x,y) =
+              e^{x-y^2}$ at the point $(0, 1)$ in the direction of $\left\langle
+              2, -1 \right\rangle$.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              <strong>Solution.</strong> $\vec u = \left\langle 2/\sqrt5,
+              -1/\sqrt5 \right\rangle$, so we compute \[ \nabla f\cdot \vec u =
+              \left\langle e^{x-y^2}, -2ye^{x-y^2} \right\rangle \cdot
+              \left\langle 2/\sqrt5, -1/\sqrt5 \right\rangle \]
+            </p>
+            <p class="fragmen">At $(0,1)$ gives $\frac{4}{e\sqrt5} $.</p>
+          </section>
+        </section>
+        <section>
+          <section><h1>Properties</h1></section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Some Questions</h6>
+            <p>
+              Must there always be some $\vec u$ such that \[D_{\vec u} f = 0 ?
+              \]
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Some Questions</h6>
+            <p>What can we say about about \[D_{-\vec u} f ? \]</p>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Some Questions</h6>
+            <p>
+              What of a function where $D_{\vec u} f = 1 $ in all directions?
+            </p>
+            <div class="fragment">
+              <iframe
+                src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-sqrt%284+-+x%5E2%29&obj0_params_d=sqrt%284+-+x%5E2%29&obj0_params_z=sqrt%28x%5E2+%2B+y%5E2%29&obj0_params_t0=0&obj0_params_t1=1"
+                frameborder="0"
+                width="666px"
+                height="500px"
+              ></iframe>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1 class="fragment">$\nabla f$</h1>
+            <h2 class="fragment">The Gradient</h2>
+          </section>
+          <section>
+            <h3 class="framelabel">Defining propertis of $\nabla f$</h3>
+
+            <div style="font-size: larger">
+              <ul>
+                <li class="fragment">Orthogonal to level sets.</li>
+                <li class="fragment">
+                  Points in the direction of greatest rate of change.
+                </li>
+                <li class="fragment">Magnitude is greatest rate of change.</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Orthogonal to level sets</h3>
+
+            <p class="fragment">
+              Let $\vec r(t)$ be completely contained in the level set $f(\vec
+              x) = k$.
+            </p>
+            <p class="fragment">
+              Then $\displaystyle \frac{d}{dt} \left(f(\vec r(t))\right) = 0$
+              <span class="fragment">$ = \nabla f \cdot \vec r'(t)$</span>
+            </p>
+            <p class="fragment">
+              So $\nabla f$ is orthogonal to <em>every</em> tangent vector to
+              the level set.
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
