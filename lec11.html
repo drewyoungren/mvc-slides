@@ -228,6 +228,21 @@
             </p>
           </section>
           <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Sketch some
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=field&obj0_color=%230d0887&obj0_params_p=2x&obj0_params_q=2y&obj0_params_r=-2z&obj0_params_nVec=6&obj1_kind=level&obj1_color=%23dc5e66&obj1_params_g=x%5E2+%2B+y%5E2+-+z%5E2&obj1_params_k=1.2&obj1_params_a=0&obj1_params_b=2&obj1_params_c=-2&obj1_params_d=2&obj1_params_e=-2&obj1_params_f=2&obj2_kind=level&obj2_color=%235801a5&obj2_params_g=x%5E2+%2B+y%5E2+-+z%5E2&obj2_params_k=.2&obj2_params_a=0&obj2_params_b=2&obj2_params_c=-2&obj2_params_d=2&obj2_params_e=-2&obj2_params_f=2&obj3_kind=level&obj3_color=%23f68e45&obj3_params_g=x%5E2+%2B++y%5E2+-+z%5E2&obj3_params_k=-0.2&obj3_params_a=0&obj3_params_b=2&obj3_params_c=-2&obj3_params_d=2&obj3_params_e=-2&obj3_params_f=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >level surfaces</a
+              >
+              and gradient vectors of the function \[ f(x,y,z) = x^2 + y^2 -
+              z^2.\]
+            </p>
+          </section>
+          <section>
             <h6 class="framelabel">Exercise</h6>
 
             <p>
@@ -277,6 +292,75 @@
               f|^2}{|\nabla f|} = |\nabla f| \]
             </p>
           </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              What is the steepest part of the graph of $f(x,y) =
+              \frac{\tan^{-1}x}{1 + y^2}$?
+            </p>
+
+            <p class="fragment"></p>
+          </section>
+        </section>
+        <section>
+          <section data-auto-animate="">
+            <h1>Gradient</h1>
+            <h1>Descent</h1>
+          </section>
+          <section data-auto-animate="">
+            <h1>Gradient</h1>
+            <h1>Ascent</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Heat-seeking Dots</h6>
+
+            <p style="font-size: smaller">
+              Consider a scattered array of objects in the domain of a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2&obj0_params_z=5*%28x%2By%29*%28x-2%2F3%29*%28y-2%2F3%29%2F%281%2B7*%28x-1%2F2%29%5E4%2B7*%28y-1%2F2%29%5E4%29&obj0_params_t0=0&obj0_params_t1=1"
+                >scalar field</a
+              >
+              with the simple instructions to "follow the gradient".
+            </p>
+            <video
+              src="assets/gradient_ascent.mp4"
+              type="video/mp4"
+              controls="true"
+              class="r-stretch"
+            ></video>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Find a path in the plane starting from $(2,1)$ that follows the
+              <em>negative</em> gradient of the function \[ f(x,y) = x^2 +
+              \frac{y^2}{4}.\]
+            </p>
+
+            <p class="fragment">
+              <strong>Solution.</strong> We set up the ODE $\vec r'(t) = -\nabla
+              f$ with $\vec r(0) = \langle 2,1 \rangle$.
+            </p>
+          </section>
+          <section>
+            <p>
+              This is a separable system. \[ \begin{align*} x'(t) &= -2 x(t) \\
+              y'(t) &= -\frac{y(t)}{2} \\ \end{align*} \longrightarrow
+              \begin{align*} x(t) &= 2e^{-2t} \\ y(t) &= e^{-t/2} \\
+              \end{align*} \]
+            </p>
+            <p class="fragment">
+              We can see this
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x%5E2+%2B+y%5E2+%2F+4&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=5&obj1_params_x=2+e%5E%28-2+t%29&obj1_params_y=e%5E%28-t%2F2%29&obj1_params_z=%282+e%5E%28-2+t%29%29%5E2+%2B+e%5E%28-t%29+%2F+4&obj2_kind=curve&obj2_color=%235801a5&obj2_params_a=0&obj2_params_b=5&obj2_params_x=2+e%5E%28-2+t%29&obj2_params_y=e%5E%28-t%2F2%29&obj2_params_z=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                >trajectory</a
+              >
+              by relating $x$ and $y$ by $x = 2y^4$.
+            </p>
+          </section>
         </section>
       </div>
     </div>
@@ -294,14 +378,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
