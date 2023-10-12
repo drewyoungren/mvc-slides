@@ -227,6 +227,56 @@
               the level set.
             </p>
           </section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+
+            <p>
+              Find an equation for the tangent plane to the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=level&obj0_color=%230d0887&obj0_params_g=z+%2B+1+-+x+y+%2B+x+exp%28y%29+cos%28z%29&obj0_params_k=pi%2F2&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=point&obj1_color=%23d4ff00&obj1_params_a=1&obj1_params_b=1&obj1_params_c=pi+%2F+2&obj1_params_t0=0&obj1_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >surface</a
+              >
+              \[ z + x e^y cos(z) = x y - 1 + \frac{\pi}{2} \] at the point $(1,
+              1, pi/2)$.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Maximum Rate of Change</h3>
+
+            <p>
+              We seek to evaluate \[ \max \limits_{|\vec u|=1} D_{\vec u} f(\vec
+              x)\]
+            </p>
+            <p class="fragment">
+              \[ = \max \limits_{|\vec u|=1} \nabla f( \vec x)\cdot \vec u \]
+            </p>
+            <div class="r-stack">
+              <p class="fragment current-visible">
+                \[ = \max \limits_{|\vec u|=1} |\nabla f (\vec x)| |\vec u| \cos
+                \theta \]
+              </p>
+              <p class="fragment fade-in">
+                \[ = |\nabla f (\vec x)| \text{ at }\theta = 0.\]
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Maximum Rate of Change</h3>
+
+            <p>$\theta = 0$ means $\vec u = \frac{\nabla f}{|\nabla f|}$</p>
+
+            <p class="fragment">
+              \[ \max \limits_{|\vec u|=1} D_{\vec u} f(\vec x) =
+              D_{\frac{\nabla f}{|\nabla f|}} f = \nabla f \cdot \frac{\nabla
+              f}{|\nabla f|}\]
+            </p>
+            <p class="fragment">
+              \[ \frac{\nabla f \cdot \nabla f}{|\nabla f|} = \frac{|\nabla
+              f|^2}{|\nabla f|} = |\nabla f| \]
+            </p>
+          </section>
         </section>
       </div>
     </div>
