@@ -91,8 +91,9 @@
 
             <p>
               Show that any function of the form $f(x,y) = g(x^2 + y^2)$ where
-              $g$ is a differentiable function is symmetric in $\theta$. That
-              is, \[ \frac{\partial f}{\partial \theta} = 0.\]
+              $g$ is a differentiable function is symmetric in $\theta$ (the
+              usual polar coordinate). That is, \[ \frac{\partial f}{\partial
+              \theta} = 0.\]
             </p>
           </section>
           <section>
@@ -164,7 +165,7 @@
               \left\langle e^{x-y^2}, -2ye^{x-y^2} \right\rangle \cdot
               \left\langle 2/\sqrt5, -1/\sqrt5 \right\rangle \]
             </p>
-            <p class="fragmen">At $(0,1)$ gives $\frac{4}{e\sqrt5} $.</p>
+            <p class="fragment">At $(0,1)$ gives $\frac{4}{e\sqrt5} $.</p>
           </section>
         </section>
         <section>
@@ -256,7 +257,7 @@
                 >surface</a
               >
               \[ z + x e^y cos(z) = x y - 1 + \frac{\pi}{2} \] at the point $(1,
-              1, pi/2)$.
+              1, \pi/2)$.
             </p>
           </section>
           <section>
@@ -290,7 +291,7 @@
               f}{|\nabla f|}\]
             </p>
             <p class="fragment">
-              \[ \frac{\nabla f \cdot \nabla f}{|\nabla f|} = \frac{|\nabla
+              \[ = \frac{\nabla f \cdot \nabla f}{|\nabla f|} = \frac{|\nabla
               f|^2}{|\nabla f|} = |\nabla f| \]
             </p>
           </section>
@@ -305,14 +306,10 @@
           </section> -->
         </section>
         <section>
-          <section data-auto-animate="">
-            <h1>Gradient</h1>
-            <h1>Descent</h1>
+          <section>
+            <h1>Gradient Descent/Ascent</h1>
           </section>
-          <section data-auto-animate="">
-            <h1>Gradient</h1>
-            <h1>Ascent</h1>
-          </section>
+
           <section>
             <h6 class="framelabel">Heat-seeking Dots</h6>
 
@@ -380,14 +377,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
