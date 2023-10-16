@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Local Extrema</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 12</h3>
+            <h1>Local Min/Max</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Quiz 5 (on HW 65) this week</li>
+              <li class="fragment">HW7 due 10/24 ($2^{10}$ Day)</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <p>
+              The <strong>directional derivative</strong> of a differentiable
+              function $f$ in the direction of unit vector $\vec u$ at $\vec x$
+              is \[D_{\vec u} f(\vec x) = \lim_{h\to 0}\frac{f(\vec x+h\vec u) -
+              f(\vec x)}{h} = \nabla f(\vec x)\cdot\vec u.\]
+            </p>
+            <p>3 important properties:</p>
+            <ul>
+              <li class="fragment">$\nabla f$ is orthogonal to level sets.</li>
+              <li class="fragment">
+                $\nabla f$ points in the direction of greatest change.
+              </li>
+              <li class="fragment">
+                $|\nabla f|$ is the amount of greatest change.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section
+            data-background-image="assets/adiron.png"
+            data-background-opacity="0.4"
+          >
+            <h1>$\displaystyle \nabla f = \vec 0$</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              A <strong>local minimum</strong> (resp. <strong>maximum</strong>)
+              of a scalar field $f$ is a value $f(\vec a)$ such that \[f(\vec a)
+              \leq f(\vec x)\] (resp.\ $f(\vec a) \geq f(\vec x)$) for all
+              positions $\vec x$ in some open set containing $\vec a$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              An <strong>absolute minimum</strong> (resp.
+              <strong>maximum</strong>) of a scalar field $f$ on a particular
+              domain $D$ is a value $f(\vec a)$ such that \[f(\vec a) \leq
+              f(\vec x)\] (resp.\ $f(\vec a) \geq f(\vec x)$) for all positions
+              $\vec x \in D$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Main Examples</h6>
+
+            <p class="smaller">
+              Consider
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_z=x%5E2+%2B+y%5E2&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >functions</a
+              >
+              of the form \[ f(x,y) = \pm x^2 \pm y^2. \]
+            </p>
+
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_z=x%5E2+%2B+y%5E2&obj0_params_t0=0&obj0_params_t1=1"
+              frameborder="0"
+              height="400px"
+              width="700px"
+            ></iframe>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              A <strong>critical point</strong> of a function $f$ is a position
+              $a$ such that $f$ is <em>not</em> differentiable or \[\nabla
+              f(\vec a) = \vec 0. \]
+            </p>
+
+            <div class="fragment">
+              <h6 class="framelabel">Main Result</h6>
+
+              <p>
+                Suppose $f$ is differentiable and $f(\vec a)$ is a local
+                extremum, then $\vec a$ is a critical point.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p class="smaller">
+              Identify the critical points from the contour plot below. Do they
+              correspond with a local min or max or neither?
+            </p>
+
+            <p>
+              <img
+                src="./assets/contour_extrema.png"
+                width="500px"
+                height="500px"
+                srcset=""
+              />
+            </p>
+          </section>
+          <section>
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=2*exp%28-%28x%5E2+%2B+y%5E2%29%29+-+1*+exp%28-2+*%28%28x+-+1%29%5E2+%2B+%28y+-+3%2F4%29%5E2%29%29+-+1.3+*exp%28-2+*%28%28x+-+1%29%5E2+%2B+%28y+%2B+1%2F2%29%5E2%29%29&obj0_params_t0=0&obj0_params_t1=1"
+              frameborder="0"
+              width="600px"
+              height="600px"
+            ></iframe>
+          </section>
+        </section>
+        <section></section>
+        <section>
+          <section>
+            <h6 class="framelabel">The Second Derivative Test</h6>
+
+            If all 2nd order partials of $f(x,y)$ are continuous in the
+            neighborhood of a critical point $(a,b)$, let \[ D = f_{xx}f_{yy} -
+            f_{xy}f_{yx} = \begin{vmatrix} \frac{\partial ^2 f}{\partial x^2} &
+            \frac{\partial ^2 f}{\partial y \partial x} \\ \frac{\partial ^2
+            f}{\partial x \partial y} & \frac{\partial ^2 f}{\partial y^2}
+            \end{vmatrix}.\]
+            <ul class="fragment">
+              <li>if $D>0$ and $f_{xx} < 0$, $f(a,b)$ is a local maximum.</li>
+              <li>if $D>0$ and $f_{xx} > 0$, $f(a,b)$ is a local minimum.</li>
+              <li>if $D<0$, $(a,b)$ is a saddle point.</li>
+            </ul>
+            <p class="fragment">Otherwise, the test is inconclusive.</p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>

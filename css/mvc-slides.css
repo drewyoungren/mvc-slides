@@ -41,3 +41,7 @@ ul.nonelist > li::before {
 .text-right {
   text-align: left;
 }
+
+smaller {
+  font-size: smaller;
+}
