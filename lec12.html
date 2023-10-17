@@ -175,9 +175,48 @@
               height="600px"
             ></iframe>
           </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find all critical points of the function \[ f(x,y) = x^4 + y^4 + 4
+              x y - 1.\]
+            </p>
+
+            <p>
+              <span class="fragment">Solution.</span>
+              <span class="fragment">
+                \[\nabla f = \bv{4x^3 + 4y \\ 4 y^3 + 4x} = \bv{0 \\ 0}\]
+              </span>
+            </p>
+          </section>
+          <section>
+            <p>
+              Substituting $y = -x^3$,\[ x^9 - x = \]\[ x(x - 1)(x + 1)(x^2 +
+              1)(x^4 +1) = 0 \] has roots $x = 0, \pm 1$.
+            </p>
+            <p class="fragment">
+              This gives 3 critical points: $(-1,1)$, $(0,0)$, and $(1, -1)$.
+            </p>
+          </section>
         </section>
-        <section></section>
         <section>
+          <section>
+            <h1>Classifying Critical Points</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Recall</h6>
+
+            <p>
+              In 1-D, the second-derivative determines classification at
+              critical points.
+            </p>
+
+            <img
+              src="assets/second_deriv_1d.png"
+              alt="A graph with a min a max and a saddle point in 1-D."
+              class="r-stretch"
+            />
+          </section>
           <section>
             <h6 class="framelabel">The Second Derivative Test</h6>
 
@@ -193,6 +232,57 @@
               <li>if $D<0$, $(a,b)$ is a saddle point.</li>
             </ul>
             <p class="fragment">Otherwise, the test is inconclusive.</p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Classify the critical points of the function \[ f(x,y) = x^4 + y^4
+              + 4xy - 1 \] above.
+            </p>
+          </section>
+          <section>
+            <table>
+              <tr>
+                <th>$(x,y)$</th>
+                <th>$f_{xx}$</th>
+                <th>$f_{yy}$</th>
+                <th>$f_{xy}$</th>
+                <th>$D$</th>
+                <th>class</th>
+              </tr>
+              <tr>
+                <td>$(0,0)$</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>-16</td>
+                <td>saddle</td>
+              </tr>
+              <tr>
+                <td>$(1,-1)$</td>
+                <td>12</td>
+                <td>12</td>
+                <td>4</td>
+                <td>128</td>
+                <td>min</td>
+              </tr>
+              <tr>
+                <td>$(-1,1)$</td>
+                <td>12</td>
+                <td>12</td>
+                <td>4</td>
+                <td>128</td>
+                <td>min</td>
+              </tr>
+            </table>
+            <p class="fragment smaller">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-3%2F2&obj0_params_b=3%2F2&obj0_params_c=-3%2F2&obj0_params_d=3%2F2&obj0_params_z=x%5E4+%2B+y%5E4+%2B+4+x+y+-+1&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >graph</a
+              >
+            </p>
           </section>
         </section>
       </div>
