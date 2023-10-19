@@ -148,16 +148,16 @@
 
             <ul>
               <li class="fragment">
-                The <strong>target function</strong> or <em>deideratum</em> $f$
+                The <em>target function</em> or <em>desideratum</em> $f$
               </li>
               <li class="fragment">
-                The <strong>control variables</strong> $x, y, \ldots$
-                <ul class="fragment">
+                The <em>control variables</em> $x, y, \ldots$
+                <ul class="">
                   <li>Give description and units where appropriate</li>
                 </ul>
               </li>
               <li class="fragment">
-                The <strong>domain</strong> $D$ of admissible values
+                The <em>domain</em> $D$ of admissible values
               </li>
             </ul>
           </section>
@@ -174,6 +174,12 @@
               >
               \[z = x - 2y + 3.\]
             </p>
+
+            <p class="fragment">
+              We will choose $x$ and $y$ freely (so $D = \RR^2$, open) and
+              minimize the distance to $(x,y,x - 2y + 3)$. \[f(x,y) = x^2 + y^2
+              + (x - 2y + 3)^2\]
+            </p>
           </section>
         </section>
         <section>
@@ -181,28 +187,164 @@
             <h1>Lagrange Multipliers</h1>
           </section>
           <section>
+            <h6 class="framelabel">Constraint Function</h6>
             <p>
               In most real applications, we cannot choose out control variables
               freely, but rather they are subject to a
               <strong>constraint</strong>.
             </p>
-            <p class="fragment">Often, we express this by specifying</p>
+            <p class="fragment">
+              Often, we express this by specifying this as a
+              <strong>level set</strong>
+              \[g(x,y,\ldots) = k \]
+            </p>
+            <p class="fragment">
+              e.g., a fixed budget or a set proportion of ingredients for a
+              recipe.
+            </p>
+          </section>
+          <section>
+            <p class="smaller">
+              What does the gradient tell us at local extremes on constrained
+              sets?
+            </p>
+
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=Intro&shadeUp=false&flipInfo=true&obj0_kind=curve&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=t%2F2%2Bsin%282*t%29&obj0_params_y=.2%2B.9*t+%2B+.2*cos%287*t%29+-+%28abs%28t%29+-+t%29%5E2%2F48&obj0_params_z=1*exp%28-2*%28%28t%2F2%2Bsin%282*t%29%29%5E2%2B%28.2%2B.9*t+%2B+.2*cos%287*t%29+-+%28abs%28t%29+-+t%29%5E2%2F48%29%5E2%29%29+%2B+3.2%2F2*exp%28-1*%28%28%28t%2F2%2Bsin%282*t%29%29-1%29%5E2%2B%28%28.2%2B.9*t+%2B+.2*cos%287*t%29+-+%28abs%28t%29+-+t%29%5E2%2F48%29-1.2%29%5E2%29%29&obj0_params_tau=0&obj1_kind=curve&obj1_params_a=-2&obj1_params_b=2&obj1_params_x=t%2F2%2Bsin%282*t%29&obj1_params_y=.2%2B.9*t+%2B+.2*cos%287*t%29+-+%28abs%28t%29+-+t%29%5E2%2F48&obj1_params_z=0&obj1_params_tau=0&obj2_kind=graph&obj2_params_a=-2&obj2_params_b=2&obj2_params_c=-2&obj2_params_d=2&obj2_params_z=1*exp%28-2*%28x%5E2%2By%5E2%29%29+%2B+3.2%2F2*exp%28-1*%28%28x-1%29%5E2%2B%28y-1.2%29%5E2%29%29&obj2_params_tau=0&obj2_params_t0=0&obj2_params_t1=1"
+              frameborder="0"
+              class="r-stretch"
+            ></iframe>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
 
-            <p>
+            <p style="font-size: smaller">
               Identify the local minima of the distance to the Sun from a body
-              restricte to the drawn "orbit".
+              restricted to the drawn "orbit".
             </p>
 
-            <div
+            <iframe
+              src="./lagrange-2d.html"
+              height="600px"
+              width="600px"
+              frameborder="0"
+            ></iframe>
+
+            <!-- <div
               id="lagbox"
               class="jxgbox"
-              style="width: 700px; height: 700px"
-            ></div>
+              style="width: 600px; height: 600px"
+            ></div> -->
 
             <script type="text/javascript" src="./js/attractor.js"></script>
+          </section>
+          <section>
+            <h6 class="framelabel">Theorem - Lagrange Multipliers</h6>
+            <p>
+              A local minimum (or maximum) of $f(\vec x)$ subject to the
+              constraint $g(\vec x = k)$ occurs at $\vec a$ only if $\nabla g(a)
+              = \vec 0$ or \[\nabla f(\vec a) = \lambda \nabla g(\vec a)\] for
+              some scalar $\lambda$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example (Reprise)</h6>
+
+            <p>
+              Find the closest point to the origin on the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=field&obj0_color=%230d0887&obj0_params_p=x&obj0_params_q=y&obj0_params_r=z&obj0_params_nVec=6&obj1_kind=level&obj1_color=%23dc5e66&obj1_params_g=z+-+x+%2B+2+y&obj1_params_k=3&obj1_params_a=-2&obj1_params_b=2&obj1_params_c=-2&obj1_params_d=2&obj1_params_e=-2&obj1_params_f=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >plane</a
+              >
+              \[z = x - 2y + 3.\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example &ndash; Cobb-Douglass</h6>
+
+            <div class="container">
+              <div class="col">
+                <p style="font-size: smaller">
+                  By investing $x$ units of labor and $y$ units of capital, a
+                  low-end watch manufacturer can produce $x^{0.4}y^{0.6}$
+                  watches. Find the maximum number of watches that can be
+                  produced with a budget of $\$20000$ if labor costs $\$100$ per
+                  unit and capital costs $\$200$ per unit.
+                </p>
+              </div>
+              <div class="col fragment">
+                <img
+                  src="./assets/cobb-doug-contours.png"
+                  alt=""
+                  class="fragment"
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example &ndash; 3D</h6>
+
+            <p>
+              Find the minimum surface area of a lidless shoebox with volume $32
+              \text{ L}$.
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>XVT</h1>
+            <h3 class="fragment">Extreme Value Theorem</h3>
+          </section>
+          <section>
+            <div class="r-frame">
+              <h6 class="framelabel">Theorem</h6>
+
+              <p>
+                A
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=curve&obj0_color=%23ff3333&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=1%2F2+%2B+3%2F2%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29&obj0_params_y=3%2F2%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29&obj0_params_z=0&obj0_params_tau=0&obj1_kind=curve&obj1_color=%23ff3333&obj1_params_a=0&obj1_params_b=2*pi&obj1_params_x=1%2F2+%2B+3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29&obj1_params_y=3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29&obj1_params_z=%28%281%2F2+%2B+3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29%29%5E4+%2B+%283%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29%29%5E4+-+4*%281%2F2+%2B+3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29%29*%283%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29%29+-+1%29+%2F10+%2B+.5&obj1_params_tau=0&obj2_kind=graph&obj2_color=%233232ff&obj2_params_a=-1&obj2_params_b=2&obj2_params_c=-3%2F2&obj2_params_d=3%2F2&obj2_params_z=%28x%5E4+%2B+y%5E4+-+4*x*y+-+1%29+%2F10+%2B+.5&obj2_params_tau=0&obj2_params_t0=0&obj2_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >continuous function</a
+                >
+                on a <em>closed and bounded</em> set $D$ must achieve its
+                absolute minimum and maximum.
+              </p>
+            </div>
+            <div class="fragment">
+              The upshot is:
+              <ul>
+                <li class="fragment">
+                  Find critical points on interior of $D$.
+                </li>
+                <li class="fragment">
+                  Find Lagrange points on boundary of $D$.
+                </li>
+                <li class="fragment">
+                  Choose least/greatest value of $f$ on combined list.
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <div class="container">
+              <div class="col">
+                <p>
+                  Suppose the temperature distribution on the closed half-disk
+                  $0 \leq y \leq \sqrt{16-x^2}$ is given by \[u(x,y) = x^2 - 6x
+                  + 4y^2 - 8y. \] Find the hottest and coldest points.
+                </p>
+              </div>
+              <div class="col">
+                <img src="assets/half-disk-lagrange.png" alt="" />
+              </div>
+            </div>
+            <p></p>
           </section>
         </section>
       </div>
@@ -221,14 +363,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
