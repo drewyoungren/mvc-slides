@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Integrals</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 14</h3>
+            <h1>Integrals</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">Happy $2^{10} day$!</li>
+              <li class="fragment">
+                Quiz 6 this week
+                <ul class="fragment">
+                  <li>Local Extrema</li>
+                  <li>Optimization</li>
+                </ul>
+              </li>
+              <li class="fragment">HW8 due 10/31</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <div class="r-frame">
+              <h6 class="framelabel">Theorem</h6>
+
+              <p>
+                A
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=curve&obj0_color=%23ff3333&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=1%2F2+%2B+3%2F2%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29&obj0_params_y=3%2F2%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29&obj0_params_z=0&obj0_params_tau=0&obj1_kind=curve&obj1_color=%23ff3333&obj1_params_a=0&obj1_params_b=2*pi&obj1_params_x=1%2F2+%2B+3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29&obj1_params_y=3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29&obj1_params_z=%28%281%2F2+%2B+3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29%29%5E4+%2B+%283%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29%29%5E4+-+4*%281%2F2+%2B+3%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+cos%28t%29%29*%283%2F2*%28t+%3E+pi%2F2+%26+t+%3C+pi+%3F+%282%2F3%2B1%2F3*cos%282*t%29%5E2%29+%3A+1%29*+sin%28t%29%29+-+1%29+%2F10+%2B+.5&obj1_params_tau=0&obj2_kind=graph&obj2_color=%233232ff&obj2_params_a=-1&obj2_params_b=2&obj2_params_c=-3%2F2&obj2_params_d=3%2F2&obj2_params_z=%28x%5E4+%2B+y%5E4+-+4*x*y+-+1%29+%2F10+%2B+.5&obj2_params_tau=0&obj2_params_t0=0&obj2_params_t1=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >continuous function</a
+                >
+                on a <em>closed and bounded</em> set $D$ must achieve its
+                absolute minimum and maximum.
+              </p>
+            </div>
+            <div class="fragment">
+              The upshot is:
+              <ul>
+                <li class="fragment">
+                  Find critical points on interior of $D$.
+                </li>
+                <li class="fragment">
+                  Find Lagrange points on boundary of $D$.
+                </li>
+                <li class="fragment">
+                  Choose least/greatest value of $f$ on combined list.
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Definite Integrals</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Recall</h6>
+            <p class="smaller">
+              \[\int_a^b f(x)\,dx = \lim_{N\to \infty} \sum_{i=1}^{N}
+              f(x_i^*)\,\Delta x \] where $x_i^*$ is a sample point in the $i$th
+              interval and $\Delta x = \frac{b - a}{N}$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <div
+              id="box-def-int"
+              class="jxgbox"
+              style="width: 600px; height: 600px"
+            ></div>
+
+            <script type="text/javascript" src="./js/def-int.js"></script>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Multiple Integration</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">What questions can integrals answer?</h6>
+            <ul>
+              <li class="fragment">
+                What is the volume of air in a circus tent?
+              </li>
+              <li class="fragment">
+                What are the chances a dart thrown at a bullseye lands on
+                triple-20?
+              </li>
+              <li class="fragment">
+                What is the average temperature in this room?
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Poll</h6>
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfsEyemJZJI5KmdNEaNWLQAt1CbggmU5QJNRBWDosmsnj9Vmg/viewform?embedded=true"
+              width="640"
+              height="419"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+            <p>
+              A <strong>double integral</strong> over a region $\mathcal R
+              \subset \RR^2$ of a scalar field $f(x,y)$ is a limit of Riemann
+              sums \[\iint\limits_{\mathcal R} f\,dA = \lim\limits_{M,N \to
+              \infty} \sum_{i = 1}^M \sum_{j=1}^N f(x_{ij}^*, y_{ij}^*)\,\Delta
+              A_{ij} \] where $(x_{ij}^*, y_{ij}^*)$ is a sample point in, and $
+              \Delta A_{ij}$ the area of, the $(i,j)$th subrectangle inside
+              $\mathcal R$.
+            </p>
+          </section>
+          <section>
+            <p>
+              Graphically, this is the signed volume under the graph of the
+              function.
+            </p>
+            <a
+              href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=2+%2F+4+*+cos%283*x+%2B+2*y%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj0_params_t0=0&obj0_params_t1=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img
+                src="assets/int-boxes.png"
+                alt="Cuboids approximating volume under a graph."
+                srcset=""
+                width="852px"
+                height="462px"
+            /></a>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Iterated Integrals</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Poll</h6>
+            <iframe
+              src="https://embed.polleverywhere.com/multiple_choice_polls/VPhMfFgnG9NEmb7rdTce6?controls=none&short_poll=true"
+              width="800px"
+              height="600px"
+            ></iframe>
+          </section>
+          <section>
+            <h6 class="framelabel">Iterated Integrals</h6>
+
+            <p>
+              Over a rectangle $[a,b]\times [c,d] \subset \RR^2$, we define the
+              <strong>iterated integral</strong> \[ \int_a^b \int_c^d
+              f(x,y)\,dy\,dx = \int_a^b \left(\int_c^d f(x,y)\,dy\right)\,dx\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Iterated Integrals</h6>
+            <a
+              href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=2+%2F+4+*+cos%283*x+%2B+2*y%29%2F%281+%2B+x%5E2+%2B+y%5E2%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=-2&obj1_params_b=2&obj1_params_c=0&obj1_params_d=1&obj1_params_x=u&obj1_params_y=t&obj1_params_z=v+*+2+%2F+4+*+cos%283*u+%2B+2*t%29%2F%281+%2B+u%5E2+%2B+t%5E2%29&obj1_params_t0=-2&obj1_params_t1=2&obj2_kind=surface&obj2_color=%2314a701&obj2_params_a=-2&obj2_params_b=2&obj2_params_c=0&obj2_params_d=1&obj2_params_x=t&obj2_params_y=u&obj2_params_z=v+*+2+%2F+4+*+cos%283*t+%2B+2*u%29%2F%281+%2B+u%5E2+%2B+t%5E2%29&obj2_params_t0=-2&obj2_params_t1=2"
+              ><img
+                src="assets/int-slices.png"
+                alt="Slices of graph parallel to axes"
+                srcset=""
+                width="852px"
+                height="462px"
+            /></a>
+          </section>
+          <section>
+            <h6 class="framelabel">Fubini's Theorem</h6>
+
+            <p>
+              If $f$ is continuous on rectangle $\mathcal R = [a,b]\times
+              [c,d]$, then \[ \iint\limits_{\mathcal R} f\,dA =\int_a^b \int_c^d
+              f(x,y)\,dy\,dx = \int_c^d \int_a^b f(x,y)\,dx\,dy. \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Let $\mathcal{R} = [0,\pi]\times[0,2\pi]$. Evaluate
+              \[\iint_\mathcal{R} x \cos(xy)\,dA\] as an iterated integral.
+            </p>
+            <div class="fragment">
+              \[\int_0^{2\pi} x \cos (xy)\,dy = \sin (xy)\Big\vert_{0}^{2\pi} =
+              \sin 2\pi x \] \[\int_0^{\pi} \sin 2\pi x \,dx = \frac{1}{2\pi}
+              \left( 1 - \cos (2\pi^2) \right) \]
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Non-rectangular domains</h6>
+            <p>
+              A region in $\RR^2$ that is bounded by graphs of functions (of one
+              variable) can be integrated over as interated integrals.
+            </p>
+            <p>
+              Suppose $\mathcal{D} = \{(x,y) \mid g(x) \leq y \leq h(x) \}$.
+              Then
+            </p>
+            <p class="fragment">
+              \[\iint_\mathcal{R} f(x,y) \,dA = \int_a^b \int_{g(x)}^{h(x)}
+              f(x,y)\,dy\,dx\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Let $\mathcal D$ be the region bounded by the curves $y =
+              \frac{x^3}{32}$ and $y = \sqrt{x}$. Write $\iint\limits_{\mathcal
+              D} f\,dA$ as an iterated integral.
+            </p>
+            <div
+              id="box-irreg"
+              class="jxgbox"
+              style="width: 500px; height: 300px"
+            ></div>
+
+            <script type="text/javascript" src="./js/irreg-int.js"></script>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find the volume of the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%23c964dd&obj0_params_coords=rect&obj0_params_a=0&obj0_params_b=1&obj0_params_c=1+-+x&obj0_params_d=1+-+x+%5E+2&obj0_params_e=0&obj0_params_f=%2810+-+x+%2B+2+y%29+%2F+10"
+                target="_blank"
+                rel="noopener noreferrer"
+                >solid region</a
+              >
+              under the plane $x-2y+z=10$ and above the region bounded by
+              $x+y=1$ and $x^2+y=1$.
+            </p>
+
+            <ol>
+              <li class="fragment">Sketch region of integration.</li>
+              <li class="fragment">Select order of integration.</li>
+              <li class="fragment">Set up iterated integral.</li>
+            </ol>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Triple Integrals</h1>
+          </section>
+          <section>
+            <h6 class="framelable">Definition</h6>
+            <p>
+              Integrating in three dimensions presents no theoretical challenge.
+              \[\iiint_E f(x,y,z)\,dV = \lim_{M,N,P\to\infty}
+              \sum_{i=1}^M\sum_{j=1}^N\sum_{k=1}^P f(x_i^*,y_j^*,z_k^*)\,\Delta
+              V_{ijk}\]
+            </p>
+            <p class="fragment">
+              Fubini's Theorem applies directly to this case; thus, we can
+              compute using (3) iterated integrals. \[ \iiint_E f(x,y,z)\,dV =
+              \int_a^b \int_{g(x)}^{h(x)} \int_{j(x,y)}^{k(x,y)}
+              f(x,y,z)\,dz\,dy\,dx \]
+            </p>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Set up an iterated integral to find the volume of the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%23dd6464&obj0_params_coords=cyl&obj0_params_a=0&obj0_params_b=pi+%2F+2&obj0_params_c=0&obj0_params_d=2&obj0_params_e=r+%5E+2&obj0_params_f=4"
+                target="_blank"
+                rel="noopener noreferrer"
+                >solid region</a
+              >
+              $E$ in the first octant with \[x^2 + y^2 \leq z \leq 4.\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Bonus</h6>
+            <p>
+              Suppose a point $(x,y,z)$ is selected randomly from $E$ above.
+              What is the probability that $x > 1$?
+            </p>
+            <div class="fragment">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%23dd6464&obj0_params_coords=rect&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=sqrt%284+-+x+%5E+2%29&obj0_params_e=x+%5E+2+%2B+y+%5E+2&obj0_params_f=4&obj1_kind=solid&obj1_color=%230d0887&obj1_params_coords=rect&obj1_params_a=1&obj1_params_b=2&obj1_params_c=0&obj1_params_d=sqrt%284+-+x+%5E+2%29&obj1_params_e=x+%5E+2+%2B+y+%5E+2&obj1_params_f=4"
+                target="_blank"
+              >
+                <img
+                  src="assets/rand_pts_vol.png"
+                  alt="Portion of a solid."
+                  srcset=""
+                  width="714px"
+                  height="404px"
+              /></a>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
