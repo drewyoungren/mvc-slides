@@ -1,2 +1,177 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Changing Coordinates</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 15</h3>
+            <h1>Changing Coordinates</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">
+                Quiz 6 this week
+                <ul class="fragment">
+                  <li>Local Extrema</li>
+                  <li>Optimization</li>
+                </ul>
+              </li>
+              <li class="fragment">HW8 due 10/31</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Double Integrals</h6>
+            <p>
+              \[ \iint\limits_{\mathcal R} f\,dA =\int_a^b \int_{g(x)}^{h(x)}
+              f(x,y)\,dy\,dx. \]
+            </p>
+            <h6 class="framelabel">Tripl Integrals</h6>
+            <p>
+              \[ \iiint\limits_{\mathcal E} f\,dV =\int_a^b \int_{g(x)}^{h(x)}
+              \int_{j(x,y)}^{k(x,y)}f(x,y,z)\,dz\,dy\,dx. \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Properties</h6>
+            <ul class="squarelist">
+              <li class="fragment">
+                $\displaystyle \iint_{\mathcal R} (f + g)\,dA = \iint_{\mathcal
+                R} f\,dA + \iint_{\mathcal R} g\,dA$
+              </li>
+              <li class="fragment">
+                $\displaystyle \iint_{\mathcal R} cf\,dA = c\iint_{\mathcal R}
+                f\,dA$
+              </li>
+              <li class="fragment">
+                $\displaystyle \iint_{\mathcal R} c\,dA =
+                c\operatorname{Area}(\mathcal R)$.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Order of Integration</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Let $\mathcal E$ be the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=rect&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=x+%5E+2&obj0_params_e=0&obj0_params_f=1+-+x"
+                target="_blank"
+                rel="noopener noreferrer"
+                >solid region</a
+              >
+              in the first octant of $\RR^3$ bound by the surfaces $x + z = 1$
+              and $y = x^2$. Write the triple integral \[\iiint\limits_{\mathcal
+              E} f\,dV\] as an iterated integral at least 2 ways.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Polar Coordinates</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Formulas</h6>
+            <p class="smaller">
+              A point in $\mathbb{R}^2$ can be described in
+              <em>rectangular</em> coordinates $(x,y)$ with $-\infty < x,y <
+              \infty$ or <em>polar</em> coordinates $(r, \theta)$ with $0 \leq r
+              < \infty, 0 \leq \theta < 2\pi$. \[ \begin{align*} x &= r \cos
+              \theta \\ y &= r \sin \theta \end{align*}\]
+            </p>
+          </section>
+          <section></section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
 </html>
