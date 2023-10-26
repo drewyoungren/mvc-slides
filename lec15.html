@@ -77,7 +77,7 @@
               \[ \iint\limits_{\mathcal R} f\,dA =\int_a^b \int_{g(x)}^{h(x)}
               f(x,y)\,dy\,dx. \]
             </p>
-            <h6 class="framelabel">Tripl Integrals</h6>
+            <h6 class="framelabel">Triple Integrals</h6>
             <p>
               \[ \iiint\limits_{\mathcal E} f\,dV =\int_a^b \int_{g(x)}^{h(x)}
               \int_{j(x,y)}^{k(x,y)}f(x,y,z)\,dz\,dy\,dx. \]
@@ -99,6 +99,22 @@
                 c\operatorname{Area}(\mathcal R)$.
               </li>
             </ul>
+          </section>
+          <section>
+            <iframe
+              src="https://pollev-embeds.com/multiple_choice_polls/BR0aKp7qR7vI3TEOXzk4G/respond"
+              width="800px"
+              height="500px"
+            ></iframe>
+            <p style="font-size: small">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=rect&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_e=-1&obj0_params_f=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Demo</a
+              >. Use the density feature to visualize the different integrands
+              above.
+            </p>
           </section>
         </section>
         <section>
@@ -124,19 +140,250 @@
         </section>
         <section>
           <section>
-            <h1>Polar Coordinates</h1>
+            <h1>Coordinate Systems</h1>
           </section>
           <section>
-            <h6 class="framelabel">Formulas</h6>
-            <p class="smaller">
-              A point in $\mathbb{R}^2$ can be described in
-              <em>rectangular</em> coordinates $(x,y)$ with $-\infty < x,y <
-              \infty$ or <em>polar</em> coordinates $(r, \theta)$ with $0 \leq r
-              < \infty, 0 \leq \theta < 2\pi$. \[ \begin{align*} x &= r \cos
-              \theta \\ y &= r \sin \theta \end{align*}\]
+            <h3 class="framelabel">Polar Coordinates</h3>
+
+            <div class="container">
+              <div class="col">
+                \[\begin{align*} x &= r \cos \theta \\ y &= r \sin \theta \\
+                \end{align*}\]
+                <p class="fragment" style="font-size: smaller">
+                  \[\begin{align*} 0 &\leq r \leq \infty \\ 0 &\leq \theta <
+                  2\pi \end{align*}\]
+                </p>
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&grid=true&obj0_kind=point&obj0_color=%230d0887&obj0_params_a=1%2F2&obj0_params_b=sqrt%283%29%2F2&obj0_params_c=0&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ff0000&obj1_params_a=0&obj1_params_b=1&obj1_params_x=t%2F2&obj1_params_y=sqrt%283%29+t+%2F+2&obj1_params_z=0&obj2_kind=curve&obj2_color=%23ff0000&obj2_params_a=0&obj2_params_b=pi%2F3&obj2_params_x=cos%28t%29%2F3&obj2_params_y=sin%28t%29%2F3&obj2_params_z=0&obj3_kind=curve&obj3_color=%23000000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=0&obj3_params_y=t%2F2&obj3_params_z=0&obj4_kind=curve&obj4_color=%23000000&obj4_params_a=0&obj4_params_b=1&obj4_params_x=1+%2F+2&obj4_params_y=t+sqrt%283%29+%2F+2&obj4_params_z=0"
+                  frameborder="0"
+                  width="700px"
+                  height="500px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h4 class="framelabel">Areas</h4>
+            <p style="font-size: smaller">
+              Consider a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&grid=true&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=cyl&obj0_params_a=pi%2F8&obj0_params_b=pi%2F3&obj0_params_c=0.5&obj0_params_d=1&obj0_params_e=0&obj0_params_f=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                >region</a
+              >
+              with bounded polar coordinates $r_1 \leq r \leq r_2$ and $\theta_1
+              \leq \theta \leq \theta_2$.
+            </p>
+            <div class="r-stack">
+              <p class="fragment current-visible">
+                \[ \Delta A = \frac12 r_2^2 (\theta_2 - \theta_1) - \frac12
+                r_1^2 (\theta_2 - \theta_1) \]
+              </p>
+              <p class="fragment current-visible">
+                \[ \Delta A = \frac{r_1 + r_2}{2} (r_2 - r_1) (\theta_2 -
+                \theta_1) \]
+              </p>
+              <p class="fragment current-visible">
+                \[ \Delta A = \bar r\,\Delta r\, \Delta \theta \]
+              </p>
+              <p class="fragment current-visible">\[ \longrightarrow \]</p>
+              <p class="fragment current-visible">\[dA = r\,dr\,d\theta\]</p>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Converting Integrals</h6>
+
+            <p style="font-size: smaller">
+              If $\mathcal R \subset \RR^2$ can be described with $\theta_1 \leq
+              \theta \leq \theta_2$ and $g(\theta) \leq r \leq h(\theta)$ in
+              polar coordinates, then \[ \iint\limits_{\mathcal R} f(x,y)\,dA =
+              \int_{\theta_1}^{\theta_2} \int_{g(\theta)}^{h(\theta)} f(r \cos
+              \theta, r\sin \theta)\,r\,dr\,d\theta \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              Remember to convert all parts of the integral:
+            </p>
+
+            <ul>
+              <li class="fragment">
+                <strong>Where?</strong> the limits of integration
+              </li>
+              <li class="fragment"><strong>What?</strong> the integrand</li>
+              <li class="fragment"><strong>How?</strong> the differential</li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Solve the
+              <a
+                href="/lec14.html#/first-volume-example"
+                target="_blank"
+                rel="noopener noreferrer"
+                >volume problem from Lec 14</a
+              >
+              using a polar integral.
+            </p>
+
+            <div class="fragment">
+              <p>
+                <strong>Solution.</strong> \[ V = \int_0^{\pi/2}\int_0^2 (4 -
+                r^2)\,r\,dr\,d\theta = 2\pi \]
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Cylindrical Coordinates</h3>
+
+            <div class="container">
+              <div class="col">
+                \[\begin{align*} x &= r \cos \theta \\ y &= r \sin \theta \\ z
+                &= z \\ \end{align*}\]
+                <p class="fragment" style="font-size: smaller">
+                  \[\begin{align*} 0 &\leq r \leq \infty \\ 0 &\leq \theta <
+                  2\pi \\ -\infty &< z < \infty \end{align*}\]
+                </p>
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=point&obj0_color=%230d0887&obj0_params_a=1%2F2&obj0_params_b=sqrt%283%29%2F2&obj0_params_c=1&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ff0000&obj1_params_a=0&obj1_params_b=1&obj1_params_x=t%2F2&obj1_params_y=sqrt%283%29+t+%2F+2&obj1_params_z=0&obj2_kind=curve&obj2_color=%23ff0000&obj2_params_a=0&obj2_params_b=pi%2F3&obj2_params_x=cos%28t%29%2F3&obj2_params_y=sin%28t%29%2F3&obj2_params_z=0&obj3_kind=curve&obj3_color=%23800000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=1%2F2&obj3_params_y=sqrt%283%29+%2F+2&obj3_params_z=t&obj4_kind=curve&obj4_color=%23000000&obj4_params_a=0&obj4_params_b=1&obj4_params_x=0&obj4_params_y=t%2F2&obj4_params_z=0&obj5_kind=curve&obj5_color=%23000000&obj5_params_a=0&obj5_params_b=1&obj5_params_x=1+%2F+2&obj5_params_y=t+sqrt%283%29+%2F+2&obj5_params_z=0"
+                  frameborder="0"
+                  width="700px"
+                  height="500px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h4 class="framelabel">Volumes</h4>
+            <p style="font-size: smaller">
+              Consider a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=cyl&obj0_params_a=pi%2F8&obj0_params_b=pi%2F3&obj0_params_c=0.5&obj0_params_d=1&obj0_params_e=0&obj0_params_f=1+%2F+2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >region</a
+              >
+              with bounded cylindrical coordinates $r_1 \leq r \leq r_2$,
+              $\theta_1 \leq \theta \leq \theta_2$, and $z_1 \leq z \leq z_2$.
+            </p>
+            <div class="r-stack">
+              <p class="fragment current-visible">
+                \[ \Delta V = \frac12 (r_2^2 - r_1^2) (\theta_2 - \theta_1) (z_2
+                - z_1) \]
+              </p>
+              <p class="fragment current-visible">
+                \[ \Delta V = \bar r\,\Delta r\, \Delta \theta\,\Delta z \]
+              </p>
+              <p class="fragment current-visible">\[ \longrightarrow \]</p>
+              <p class="fragment current-visible">
+                \[dV = r\,dz\,dr\,d\theta\]
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Spherical Coordinates</h3>
+
+            <div class="container">
+              <div class="col">
+                \[\begin{align*} x &= \rho \sin \phi \cos \theta \\ y &= \rho
+                \sin \phi \sin \theta \\ z &= \rho \cos \phi \\ \end{align*}\]
+
+                <p class="fragment" style="font-size: smaller">
+                  \[\begin{align*} 0 &\leq \rho \leq \infty \\ 0 &\leq \theta <
+                  2\pi \\ 0 &\leq \phi \leq \pi \end{align*}\]
+                </p>
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=point&obj0_color=%230d0887&obj0_params_a=1%2F2&obj0_params_b=sqrt%283%29%2F2&obj0_params_c=1&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ff0000&obj1_params_a=0&obj1_params_b=1&obj1_params_x=t%2F2&obj1_params_y=sqrt%283%29+t+%2F+2&obj1_params_z=t&obj2_kind=curve&obj2_color=%23ff0000&obj2_params_a=0&obj2_params_b=pi%2F4&obj2_params_x=sin%28t%29%2F4&obj2_params_y=sqrt%283%29+sin%28t%29%2F4&obj2_params_z=cos%28t%29+%2F+2&obj3_kind=curve&obj3_color=%23800000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=1%2F2&obj3_params_y=sqrt%283%29+%2F+2&obj3_params_z=t&obj4_kind=curve&obj4_color=%23000000&obj4_params_a=0&obj4_params_b=1&obj4_params_x=0&obj4_params_y=t%2F2&obj4_params_z=0&obj5_kind=curve&obj5_color=%23000000&obj5_params_a=0&obj5_params_b=1&obj5_params_x=t+%2F+2&obj5_params_y=t+sqrt%283%29+%2F+2&obj5_params_z=0"
+                  frameborder="0"
+                  width="700px"
+                  height="500px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p style="font-size: smaller">
+              Write the point $(-1, -1, 1)$ in cylindrical and spherical
+              coordinates.
+            </p>
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=point&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=-1&obj0_params_c=1&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%230000ff&obj1_params_a=0&obj1_params_b=1&obj1_params_x=-t&obj1_params_y=-t&obj1_params_z=t&obj2_kind=curve&obj2_color=%230000ff&obj2_params_a=0&obj2_params_b=acos%281%2Fsqrt%283%29%29&obj2_params_x=-sin%28t%29%2Fsqrt%282%29&obj2_params_y=-sin%28t%29%2Fsqrt%282%29&obj2_params_z=cos%28t%29&obj3_kind=curve&obj3_color=%23ff00ff&obj3_params_a=0&obj3_params_b=5+pi%2F4&obj3_params_x=cos%28t%29&obj3_params_y=sin%28t%29&obj3_params_z=0&obj4_kind=curve&obj4_color=%23ff0000&obj4_params_a=0&obj4_params_b=1&obj4_params_x=-1&obj4_params_y=-1&obj4_params_z=t&obj5_kind=curve&obj5_color=%23ff0000&obj5_params_a=0&obj5_params_b=1&obj5_params_x=-t&obj5_params_y=-t&obj5_params_z=0"
+              frameborder="0"
+              width="800px"
+              height="500px"
+            ></iframe>
+          </section>
+          <section>
+            <h4 class="framelabel">Volumes</h4>
+            <p style="font-size: smaller">
+              Consider a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=spher&obj0_params_a=pi%2F8&obj0_params_b=pi%2F3&obj0_params_c=0.5&obj0_params_d=1&obj0_params_e=0.5&obj0_params_f=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >region</a
+              >
+              with bounded spherical coordinates $\rho_1 \leq \rho \leq \rho_2$,
+              $\theta_1 \leq \theta \leq \theta_2$, and $\phi_1 \leq \phi \leq
+              \phi_2$.
+            </p>
+            <div class="r-stack">
+              <p class="fragment current-visible">
+                \[ \Delta V \approx (\Delta \rho)(\rho\Delta\phi)(\rho \sin \phi
+                \Delta \theta) \]
+              </p>
+
+              <p class="fragment current-visible">\[ \longrightarrow \]</p>
+              <p class="fragment current-visible">
+                \[dV = \rho^2 \sin \phi \,d\rho\,d\phi\,d\theta\]
+              </p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Practice</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Sketch the region of integration in the definite integral below
+              and then evaluate it using polar coordinates.
+              \[\int_0^1\int_{\sqrt{1-x^2}}^{\sqrt{4-x^2}} x\,dy\,dx +
+              \int_1^2\int_{0}^{\sqrt{4-x^2}} x\,dy\,dx \]
             </p>
           </section>
-          <section></section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Find the total mass of a solid region that is a right cone with
+              base radius $R$, height $h$, and constant density $\mu$.
+            </p>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Find the average $z$ coordinate of the "half-ball" \[
+              \begin{cases} x^2 + y^2 +z^2 \leq R^2 \\ z \geq 0 \end{cases}. \]
+            </p>
+            <p class="fragment">
+              We define the <strong>average value</strong> of a function $f$ on
+              a region $\mathcal E$ to be \[ f_{\text{avg}} =
+              \frac{\iiint_{\mathcal E} f\,dV}{\iiint_{\mathcal E} \,dV} \]
+            </p>
+          </section>
         </section>
       </div>
     </div>
@@ -154,14 +401,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
