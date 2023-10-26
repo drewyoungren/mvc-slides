@@ -150,8 +150,8 @@
                 \[\begin{align*} x &= r \cos \theta \\ y &= r \sin \theta \\
                 \end{align*}\]
                 <p class="fragment" style="font-size: smaller">
-                  \[\begin{align*} 0 &\leq r \leq \infty \\ 0 &\leq \theta <
-                  2\pi \end{align*}\]
+                  \[\begin{align*} 0 &\leq r \lt \infty \\ 0 &\leq \theta < 2\pi
+                  \end{align*}\]
                 </p>
               </div>
               <div class="col">
@@ -221,7 +221,7 @@
             <p>
               Solve the
               <a
-                href="/lec14.html#/first-volume-example"
+                href="lec14.html#/first-volume-example"
                 target="_blank"
                 rel="noopener noreferrer"
                 >volume problem from Lec 14</a
@@ -244,8 +244,8 @@
                 \[\begin{align*} x &= r \cos \theta \\ y &= r \sin \theta \\ z
                 &= z \\ \end{align*}\]
                 <p class="fragment" style="font-size: smaller">
-                  \[\begin{align*} 0 &\leq r \leq \infty \\ 0 &\leq \theta <
-                  2\pi \\ -\infty &< z < \infty \end{align*}\]
+                  \[\begin{align*} 0 &\leq r \lt \infty \\ 0 &\leq \theta < 2\pi
+                  \\ -\infty &< z < \infty \end{align*}\]
                 </p>
               </div>
               <div class="col">
@@ -294,13 +294,13 @@
                 \sin \phi \sin \theta \\ z &= \rho \cos \phi \\ \end{align*}\]
 
                 <p class="fragment" style="font-size: smaller">
-                  \[\begin{align*} 0 &\leq \rho \leq \infty \\ 0 &\leq \theta <
+                  \[\begin{align*} 0 &\leq \rho \lt \infty \\ 0 &\leq \theta <
                   2\pi \\ 0 &\leq \phi \leq \pi \end{align*}\]
                 </p>
               </div>
               <div class="col">
                 <iframe
-                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=point&obj0_color=%230d0887&obj0_params_a=1%2F2&obj0_params_b=sqrt%283%29%2F2&obj0_params_c=1&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ff0000&obj1_params_a=0&obj1_params_b=1&obj1_params_x=t%2F2&obj1_params_y=sqrt%283%29+t+%2F+2&obj1_params_z=t&obj2_kind=curve&obj2_color=%23ff0000&obj2_params_a=0&obj2_params_b=pi%2F4&obj2_params_x=sin%28t%29%2F4&obj2_params_y=sqrt%283%29+sin%28t%29%2F4&obj2_params_z=cos%28t%29+%2F+2&obj3_kind=curve&obj3_color=%23800000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=1%2F2&obj3_params_y=sqrt%283%29+%2F+2&obj3_params_z=t&obj4_kind=curve&obj4_color=%23000000&obj4_params_a=0&obj4_params_b=1&obj4_params_x=0&obj4_params_y=t%2F2&obj4_params_z=0&obj5_kind=curve&obj5_color=%23000000&obj5_params_a=0&obj5_params_b=1&obj5_params_x=t+%2F+2&obj5_params_y=t+sqrt%283%29+%2F+2&obj5_params_z=0"
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=point&obj0_color=%230d0887&obj0_params_a=1%2F2&obj0_params_b=sqrt%283%29%2F2&obj0_params_c=1&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ff0000&obj1_params_a=0&obj1_params_b=1&obj1_params_x=t%2F2&obj1_params_y=sqrt%283%29+t+%2F+2&obj1_params_z=t&obj2_kind=curve&obj2_color=%23ff0000&obj2_params_a=0&obj2_params_b=pi%2F4&obj2_params_x=sin%28t%29%2F4&obj2_params_y=sqrt%283%29+sin%28t%29%2F4&obj2_params_z=cos%28t%29+%2F+2&obj3_kind=curve&obj3_color=%23000000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=1%2F2&obj3_params_y=sqrt%283%29+%2F+2&obj3_params_z=t&obj4_kind=curve&obj4_color=%23000000&obj4_params_a=0&obj4_params_b=1&obj4_params_x=t+%2F+2&obj4_params_y=t+sqrt%283%29+%2F+2&obj4_params_z=0&obj5_kind=curve&obj5_color=%23ff0000&obj5_params_a=0&obj5_params_b=pi+%2F+3&obj5_params_x=cos%28t%29%2F2&obj5_params_y=sin%28t%29%2F2&obj5_params_z=0"
                   frameborder="0"
                   width="700px"
                   height="500px"
@@ -369,6 +369,13 @@
               Find the total mass of a solid region that is a right cone with
               base radius $R$, height $h$, and constant density $\mu$.
             </p>
+
+            <p class="fragment" style="font-size: smaller">
+              <strong>Solution.</strong>
+              \[ \int_0^{2\pi} \int_0^R \int_0^{h - \frac{h}{R}r} \mu r
+              \,dz\,dr\,d\theta = 2 \pi (hr^2/2 - h r^3/(3R))\Big\vert_0^R =
+              \frac13 \pi R^2 h\]
+            </p>
           </section>
 
           <section>
@@ -383,6 +390,22 @@
               a region $\mathcal E$ to be \[ f_{\text{avg}} =
               \frac{\iiint_{\mathcal E} f\,dV}{\iiint_{\mathcal E} \,dV} \]
             </p>
+          </section>
+          <section>
+            <p><strong>Solution.</strong></p>
+            <p class="fragment">
+              We know the total volume is $\frac23 \pi R^3$.
+            </p>
+            <p class="fragment">
+              \[ \iiint\limits_{\mathcal E} z\,dV = \int_0^{2\pi}\int_0^{\pi/2}
+              \int_0^R (\rho \cos \phi)\rho^2 \sin \phi
+              \,d\rho\,d\phi\,d\theta\]
+            </p>
+            <p class="fragment">
+              \[ = 2\pi \frac{R^4}{4} \int_0^{\pi/2}\sin\phi \cos\phi\,d\phi =
+              \frac14 \pi R^4 \]
+            </p>
+            <p class="fragment">Dividing, we get $z_\text{avg} = \frac38 R$.</p>
           </section>
         </section>
       </div>
