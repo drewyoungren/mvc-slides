@@ -61,7 +61,9 @@
                   <li class="fragment">New seat assignments</li>
                   <li class="fragment">
                     Not cumulative in the narrow sense
-                    <span class="fragment">—all math is cumulative.</span>
+                    <span class="fragment"
+                      >&mdash; all math is cumulative.</span
+                    >
                   </li>
                 </ul>
               </li>
@@ -76,27 +78,46 @@
             <h1>1-minute review</h1>
           </section>
 
-          <section>
+          <section data-auto-animate>
             <h6 class="framelabel">Other Coordinates</h6>
 
-            <ul>
-              <li class="fragment">
-                Polar coordinates $(r,\theta)$ \[ \iint_\mathcal R f(x,y)\,dxdy
-                = \iint_\mathcal R f(r\cos \theta, r \sin
-                \theta)\,r\,dr\,d\theta \]
-              </li>
-              <li class="fragment">
-                Cylindrical coordinates $(r,\theta, z)$\[ \iiint_\mathcal E
-                f(x,y,z)\,dxdydz = \iiint_\mathcal E f(r\cos \theta, r \sin
-                \theta,z)\,r\,dz\,dr\,d\theta \]
-              </li>
-              <li class="fragment">
-                Spherical coordinates $(\rho, \phi, \theta)$ \[ \iiint_\mathcal
-                E f(x,y,z)\,dxdydz $$ $$= \iiint_\mathcal E f(\rho \sin \phi
-                \cos \theta, \rho \sin \phi \sin \theta, \rho \cos \phi ) \,
-                \rho^2 \sin \phi \, d\rho \, d\phi \, d\theta \]
-              </li>
-            </ul>
+            <div style="font-size: smaller">
+              <ul>
+                <li>
+                  Polar coordinates $(r,\theta)$ \[ \iint_\mathcal R
+                  f(x,y)\,dxdy = \iint_\mathcal R f(r\cos \theta, r \sin
+                  \theta)\,r\,dr\,d\theta \]
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Other Coordinates</h6>
+
+            <div style="font-size: smaller">
+              <ul>
+                <li>
+                  Cylindrical coordinates $(r,\theta, z)$\[ \iiint_\mathcal E
+                  f(x,y,z)\,dxdydz = \iiint_\mathcal E f(r\cos \theta, r \sin
+                  \theta,z)\,r\,dz\,dr\,d\theta \]
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Other Coordinates</h6>
+
+            <div style="font-size: smaller">
+              <ul>
+                <li>
+                  Spherical coordinates $(\rho, \phi, \theta)$ \[
+                  \iiint_\mathcal E f(x,y,z)\,dxdydz = \]\[\iiint_\mathcal E
+                  f(\rho \sin \phi \cos \theta, \rho \sin \phi \sin \theta, \rho
+                  \cos \phi ) \, \rho^2 \sin \phi \, d\rho \, d\phi \, d\theta
+                  \]
+                </li>
+              </ul>
+            </div>
 
             <p class="fragment">
               where the bounds of integration for $\mathcal R$ or $\mathcal E$
@@ -180,8 +201,233 @@
               </ul>
             </div>
           </section>
-          <section></section>
         </section>
+        <section>
+          <section
+            data-background-image="https://culinarylore.com/wp-content/uploads/2014/02/waiter-drinks-tray.jpg"
+            data-background-opacity="0.6"
+          >
+            <h1>Center of Mass</h1>
+          </section>
+          <section data-auto-animate="">
+            <h3 class="framelabel">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=level&obj0_color=%230d0887&obj0_params_g=%28x+%2B+1%29%5E2+%2B+%28y+-+1%29%5E2+%2B++%28z+-+1%29%5E2&obj0_params_k=1%2F16&obj0_params_a=-2&obj0_params_b=0&obj0_params_c=0&obj0_params_d=2&obj0_params_e=0&obj0_params_f=2&obj1_kind=level&obj1_color=%230d0887&obj1_params_g=%28x+-+1%29%5E2+%2B+%28y+-+1%29%5E2+%2B++%28z+-+1%29%5E2&obj1_params_k=1%2F4&obj1_params_a=0&obj1_params_b=2&obj1_params_c=0&obj1_params_d=2&obj1_params_e=0&obj1_params_f=2&obj2_kind=surface&obj2_color=%235801a5&obj2_params_a=-1&obj2_params_b=1&obj2_params_c=0&obj2_params_d=2+pi&obj2_params_x=u&obj2_params_y=1+%2B+.02+cos%28v%29&obj2_params_z=1+-+.02+sin%28v%29&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=surface&obj3_color=%23f68e45&obj3_params_a=0&obj3_params_b=2*+pi&obj3_params_c=0&obj3_params_d=1&obj3_params_x=t+%2B+%281+-+v%29+cos%28u%29%2F8&obj3_params_y=1+%2B+%281+-+v%29+sin%28u%29%2F8&obj3_params_z=v&obj3_params_t0=-1&obj3_params_t1=1"
+                target="_blank"
+                >Discrete Mass Distribution</a
+              >
+            </h3>
+            <p>
+              Suppose point masses $m_1$ and $m_2$ are located at positions
+              $x_1$ and $x_2$, resp., along a line. The
+              <strong>center of mass</strong> $\bar x$ is the position that
+              balances the "moments".
+            </p>
+            <p>\[m_1 (x_1 - \bar x) + m_2(x_2 - \bar x) = 0\]</p>
+          </section>
+          <section data-auto-animate="">
+            <h3 class="framelabel">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=level&obj0_color=%230d0887&obj0_params_g=%28x+%2B+1%29%5E2+%2B+%28y+-+1%29%5E2+%2B++%28z+-+1%29%5E2&obj0_params_k=1%2F16&obj0_params_a=-2&obj0_params_b=0&obj0_params_c=0&obj0_params_d=2&obj0_params_e=0&obj0_params_f=2&obj1_kind=level&obj1_color=%230d0887&obj1_params_g=%28x+-+1%29%5E2+%2B+%28y+-+1%29%5E2+%2B++%28z+-+1%29%5E2&obj1_params_k=1%2F4&obj1_params_a=0&obj1_params_b=2&obj1_params_c=0&obj1_params_d=2&obj1_params_e=0&obj1_params_f=2&obj2_kind=surface&obj2_color=%235801a5&obj2_params_a=-1&obj2_params_b=1&obj2_params_c=0&obj2_params_d=2+pi&obj2_params_x=u&obj2_params_y=1+%2B+.02+cos%28v%29&obj2_params_z=1+-+.02+sin%28v%29&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=surface&obj3_color=%23f68e45&obj3_params_a=0&obj3_params_b=2*+pi&obj3_params_c=0&obj3_params_d=1&obj3_params_x=t+%2B+%281+-+v%29+cos%28u%29%2F8&obj3_params_y=1+%2B+%281+-+v%29+sin%28u%29%2F8&obj3_params_z=v&obj3_params_t0=-1&obj3_params_t1=1"
+                target="_blank"
+                >Discrete Mass Distribution</a
+              >
+            </h3>
+
+            <p>
+              Suppose point masses $m_1$ and $m_2$ are located at positions
+              $x_1$ and $x_2$, resp., along a line. The
+              <strong>center of mass</strong> $\bar x$ is the position that
+              balances the "moments".
+            </p>
+            <p>\[\bar x = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2}\]</p>
+          </section>
+          <section data-auto-animate="">
+            <h3 class="framelabel">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=level&obj0_color=%230d0887&obj0_params_g=%28x+%2B+1%29%5E2+%2B+%28y+-+1%29%5E2+%2B++%28z+-+1%29%5E2&obj0_params_k=1%2F16&obj0_params_a=-2&obj0_params_b=0&obj0_params_c=0&obj0_params_d=2&obj0_params_e=0&obj0_params_f=2&obj1_kind=level&obj1_color=%230d0887&obj1_params_g=%28x+-+1%29%5E2+%2B+%28y+-+1%29%5E2+%2B++%28z+-+1%29%5E2&obj1_params_k=1%2F4&obj1_params_a=0&obj1_params_b=2&obj1_params_c=0&obj1_params_d=2&obj1_params_e=0&obj1_params_f=2&obj2_kind=surface&obj2_color=%235801a5&obj2_params_a=-1&obj2_params_b=1&obj2_params_c=0&obj2_params_d=2+pi&obj2_params_x=u&obj2_params_y=1+%2B+.02+cos%28v%29&obj2_params_z=1+-+.02+sin%28v%29&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=surface&obj3_color=%23f68e45&obj3_params_a=0&obj3_params_b=2*+pi&obj3_params_c=0&obj3_params_d=1&obj3_params_x=t+%2B+%281+-+v%29+cos%28u%29%2F8&obj3_params_y=1+%2B+%281+-+v%29+sin%28u%29%2F8&obj3_params_z=v&obj3_params_t0=-1&obj3_params_t1=1"
+                target="_blank"
+                >Discrete Mass Distribution</a
+              >
+            </h3>
+            <p>
+              Suppose point masses $m_1$ and $m_2$ are located at positions
+              $x_1$ and $x_2$, resp., along a line. The
+              <strong>center of mass</strong> $\bar x$ is the position that
+              balances the "moments".
+            </p>
+            <p>
+              \[\bar x = \frac{m_1}{m_1 + m_2} x_1 + \frac{m_2}{m_1 + m_2} x_2\]
+            </p>
+            <p class="fragment">
+              aka, a <em>weighted average</em> of the positions.
+            </p>
+          </section>
+          <section data-auto-animate="">
+            <h3 class="framelabel">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%235801a5&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u&obj0_params_y=1+%2B+.2+*+exp%28-%28u+-+1%2F3%29%5E2%29+*+cos%28v%29&obj0_params_z=1+-+.2+*+exp%28-%28u+-+1%2F3%29%5E2%29+*+sin%28v%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=surface&obj1_color=%23f68e45&obj1_params_a=0&obj1_params_b=2*+pi&obj1_params_c=0&obj1_params_d=1&obj1_params_x=t+%2B+%281+-+v%29+cos%28u%29%2F8&obj1_params_y=1+%2B+%281+-+v%29+sin%28u%29%2F8&obj1_params_z=v&obj1_params_t0=-1&obj1_params_t1=1"
+                target="_blank"
+                >Continuous Mass Distribution</a
+              >
+            </h3>
+            <p>
+              Suppose mass is distributed continuously along the interval $a
+              \leq x \leq b$ with density $\mu(x)$. The
+              <strong>center of mass</strong> $\bar x$ is the position that
+              balances the "moments".
+            </p>
+            <p>\[\int_a^b (x - \bar x) \mu(x)\,dx = 0\]</p>
+          </section>
+          <section data-auto-animate="">
+            <h3 class="framelabel">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%235801a5&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u&obj0_params_y=1+%2B+.2+*+exp%28-%28u+-+1%2F3%29%5E2%29+*+cos%28v%29&obj0_params_z=1+-+.2+*+exp%28-%28u+-+1%2F3%29%5E2%29+*+sin%28v%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=surface&obj1_color=%23f68e45&obj1_params_a=0&obj1_params_b=2*+pi&obj1_params_c=0&obj1_params_d=1&obj1_params_x=t+%2B+%281+-+v%29+cos%28u%29%2F8&obj1_params_y=1+%2B+%281+-+v%29+sin%28u%29%2F8&obj1_params_z=v&obj1_params_t0=-1&obj1_params_t1=1"
+                target="_blank"
+                >Continuous Mass Distribution</a
+              >
+            </h3>
+            <p>
+              Suppose mass is distributed continuously along the interval $a
+              \leq x \leq b$ with density $\mu(x)$. The
+              <strong>center of mass</strong> $\bar x$ is the position that
+              balances the "moments".
+            </p>
+            <p>
+              \[\bar x = \frac{\int_a^b x \mu(x)\,dx}{\int_a^b \mu(x)\,dx} \]
+            </p>
+            <p class="fragment">
+              aka, a <em>weighted average</em> of the positions.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Higher Dimensions</h6>
+
+            <p style="font-size: smaller">
+              A solid region $\mathcal E$ with continuously varying density
+              (mass per unit volume) $\mu(x,y,z)$ has
+              <strong>total mass</strong> \[M = \iiint_\mathcal E
+              \mu(x,y,z)\,dV.\]
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              The <strong>center of mass</strong> $(\bar{x},\bar y,\bar z)$ is
+              the <em>(weighted) average position</em> of the mass in the
+              object. More concisely, \[\bv{\bar{x} \\ \bar{y} \\ \bar{z}} =
+              \frac1M \bv{\iiint_\mathcal E x \mu(x,y, z)\,dV \\ \iiint_\mathcal
+              E y \mu(x,y, z)\,dV \\ \iiint_\mathcal E z \mu(x,y, z)\,dV}\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              The nose of a race car is modeled by half of a right cone with
+              height $h$ and radius $R$. Assuming uniform density, how high is
+              the center of mass from the bottom.
+            </p>
+
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=pi&obj0_params_x=u&obj0_params_y=cos%28v%29+*+%281+-+u%29+%2F+3&obj0_params_z=sin%28v%29+*+%281+-+u%29+%2F+3&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=surface&obj1_color=%230d0887&obj1_params_a=0&obj1_params_b=1&obj1_params_c=0&obj1_params_d=pi&obj1_params_x=-1&obj1_params_y=cos%28v%29*u+%2F+3+*+2&obj1_params_z=sin%28v%29*u+%2F+3+*+2&obj1_params_t0=0&obj1_params_t1=1"
+              frameborder="0"
+              height="400px"
+              width="600px"
+            ></iframe>
+          </section>
+        </section>
+
+        <section>
+          <section
+            data-background-image="http://giphygifs.s3.amazonaws.com/media/RmuN3xF9sBpL2/giphy.gif"
+            data-background-opacity="0.8"
+          >
+            <h1>Moment of Inertia</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Concept</h6>
+
+            <p style="font-size: smaller">
+              C.o.m. measures <em>where</em> mass is located on average. It
+              can't measure how far it is spread out.
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              The <strong>moment of intertia</strong> does this. For a mass
+              distribution $\mu(x,y,z$ and a particular axis of rotation, \[ I =
+              \iiint\limits_{\mathcal E} (\text{distance to axis})^2
+              \mu(x,y,z)\,dV \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Find the center of mass and the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=1&obj0_params_x=u&obj0_params_y=cos%28t+%2F+0.566%29+v&obj0_params_z=sin%28t+%2F+0.566%29+v&obj0_params_t0=0&obj0_params_t1=2+pi+*+0.566&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=1&obj1_params_c=0&obj1_params_d=1&obj1_params_x=cos%28t+%2F+1.039%29+*+u+%2B+sin%28t+%2F+1.039%29+*+v&obj1_params_y=-sin%28t+%2F+1.039%29+*+u+%2B+cos%28t+%2F+1.039%29+*+v&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=2+pi+*+1.039&obj2_kind=surface&obj2_color=%232a8708&obj2_params_a=0&obj2_params_b=1&obj2_params_c=0&obj2_params_d=1&obj2_params_x=cos%28t+%2F+.472%29+*+u+&obj2_params_y=v&obj2_params_z=sin%28+t+%2F+.472+%29+*+u&obj2_params_t0=0&obj2_params_t1=2+pi+*+.472"
+                target="_blank"
+                >moments of intertia</a
+              >
+              about the standard axes for a mass distribution $\mu$ on the unit
+              square in $xy$.
+            </p>
+
+            <div class="fragment container">
+              <div class="col" style="font-size: smaller">
+                <p>\[\mu(x,y) = x + 2 y^2 \] in units of mass/area.</p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/nonuniform_density_square.png"
+                  alt="Density plot of square above"
+                  srcset=""
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">MoI Examples</h6>
+            <p>
+              Find an expression for the moment of inertia $I$ (about a central
+              axis) in terms of the total mass $M$ (with uniform density) for
+              the following shapes:
+            </p>
+
+            <ul>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=rect&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_e=-1&obj0_params_f=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Cube</a
+                >
+                with side $2R$.
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=cyl&obj0_params_a=-pi&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=1&obj0_params_e=0&obj0_params_f=2+-+2+r"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Right cone</a
+                >
+                with base radius $R$ and height $h$.
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=spher&obj0_params_a=-pi&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=pi+%2F+2&obj0_params_e=0&obj0_params_f=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Half-ball</a
+                >
+                with radius $R$.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <!-- <section>
+          <section>
+            <h1>Probability</h1>
+          </section>
+        </section> -->
       </div>
     </div>
 
@@ -198,14 +444,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
