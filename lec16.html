@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Applications of Integration</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 16</h3>
+            <h1>Applications of Integration</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">
+                Exam 2 this Thursday (11/02)
+                <ul>
+                  <li class="fragment">Same format as last time</li>
+                  <li class="fragment">New seat assignments</li>
+                  <li class="fragment">
+                    Not cumulative in the narrow sense
+                    <span class="fragment">—all math is cumulative.</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment">No quiz this week.</li>
+              <li class="fragment">Recitation optional</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Other Coordinates</h6>
+
+            <ul>
+              <li class="fragment">
+                Polar coordinates $(r,\theta)$ \[ \iint_\mathcal R f(x,y)\,dxdy
+                = \iint_\mathcal R f(r\cos \theta, r \sin
+                \theta)\,r\,dr\,d\theta \]
+              </li>
+              <li class="fragment">
+                Cylindrical coordinates $(r,\theta, z)$\[ \iiint_\mathcal E
+                f(x,y,z)\,dxdydz = \iiint_\mathcal E f(r\cos \theta, r \sin
+                \theta,z)\,r\,dz\,dr\,d\theta \]
+              </li>
+              <li class="fragment">
+                Spherical coordinates $(\rho, \phi, \theta)$ \[ \iiint_\mathcal
+                E f(x,y,z)\,dxdydz $$ $$= \iiint_\mathcal E f(\rho \sin \phi
+                \cos \theta, \rho \sin \phi \sin \theta, \rho \cos \phi ) \,
+                \rho^2 \sin \phi \, d\rho \, d\phi \, d\theta \]
+              </li>
+            </ul>
+
+            <p class="fragment">
+              where the bounds of integration for $\mathcal R$ or $\mathcal E$
+              are translated appropriately.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Find the volume of the "stadium" defined as the region outside a
+              sphere of radius 2, inside a cylinder of radius 4, and under the
+              cone $x^2 + y^2 = z^2$.
+            </p>
+
+            <div class="r-stretch">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=spher&obj0_params_a=pi+%2F+2&obj0_params_b=2+pi&obj0_params_c=pi+%2F+4&obj0_params_d=pi+%2F+2&obj0_params_e=2&obj0_params_f=4+%2F+sin%28phi%29"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="assets/stadium.png"
+                  alt="A 'stadium' region defined by the above surfaces."
+                  srcset=""
+                />
+              </a>
+            </div>
+          </section>
+          <section>
+            <strong>Solution.</strong>
+
+            <p class="fragment">
+              \[ \int_{\pi/2}^{2\pi} \int_{\pi/4}^{\pi/2}\int_2^{4\csc \phi}
+              \rho^2 \sin\phi \,d\rho\,d\phi\,d\theta \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>\[ \spadesuit = \int d\spadesuit \]</h1>
+          </section>
+          <section>
+            <h3 class="framelabel">Applied Integration</h3>
+            <div class="fragment">\[ \spadesuit = \int d\spadesuit \]</div>
+
+            <p class="fragment"><em>The whole is the sum of its parts.</em></p>
+          </section>
+          <section>
+            <h3 class="framelabel">Density</h3>
+            <p>
+              <strong>Density</strong>, a rate of
+              $\frac{\text{mass}}{\text{folume}}$ can vary continuously as a
+              function of location $\mu(x,y,z)$. \[ \text{mass}_{\text{total}} =
+              \iiint\limits_{\mathcal E} dm = \iiint\limits_{\mathcal E} \mu
+              \,dV \]
+            </p>
+            <p class="fragment">
+              but density can be more general:
+              <span class="fragment">$\frac{\text{stuff}}{\text{space}}$.</span>
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Examples</h6>
+
+            <div class="r-stretch" style="font-size: smaller">
+              <ul>
+                <li class="fragment">
+                  Resistivity $\mu(x)$ along a wire, $\frac{\Omega}{{\rm m}}$.
+                  \[\Omega = \int_0^\ell \mu(x)\, dx\]
+                </li>
+                <li class="fragment">
+                  Probability density function $\mu(x,y)$ of two random
+                  variables. \[P(E) = \iint\limits_E \mu(x,y)\, dA\]
+                </li>
+                <li class="fragment">
+                  Concentration of chemicals, like $[\text{H}_2\text{CO}_3] =
+                  \mu(x,y,z)$. \[\text{total carbonic acid} = \iiint\limits_D
+                  \mu(x,y,z)\,dV\]
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section></section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
