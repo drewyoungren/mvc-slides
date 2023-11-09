@@ -1,1 +1,2 @@
 Disallow: /jpg/*.jpg
+Disallow: /sts/*

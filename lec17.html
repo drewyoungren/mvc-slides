@@ -66,7 +66,10 @@
             <h1>1-minute review</h1>
           </section>
 
-          <section data-auto-animate>
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.5&showPanel=false&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=spher&obj0_params_a=0&obj0_params_b=2+pi&obj0_params_c=0&obj0_params_d=pi&obj0_params_e=0&obj0_params_f=1&obj1_kind=level&obj1_color=%23dc5e66&obj1_params_g=%28x+%2B+3%29%5E2+%2B++y%5E2+%2B+z%5E2&obj1_params_k=1&obj1_params_a=-4&obj1_params_b=-1&obj1_params_c=-1&obj1_params_d=1&obj1_params_e=-1&obj1_params_f=1&obj2_kind=curve&obj2_color=%235801a5&obj2_params_a=0&obj2_params_b=2*pi&obj2_params_x=cos%28t%29+%2B+3&obj2_params_y=sin%28t%29&obj2_params_z=0"
+            data-background-opacity="0.5"
+          >
             <h6 class="framelabel">MoI Integrals</h6>
 
             <p>
@@ -106,32 +109,350 @@
               </li>
             </ul>
 
-            <p class="fragment">
+            <!-- <p class="fragment">
               We'll be seeing a lot of different integrals in vector calculus,
               you can keep yourself oriented by thinking about each of these for
               every integral we encounter.
-            </p>
+            </p> -->
           </section>
           <section>
             <h6 class="framelabel">We Need a New Integral</h6>
-            <p>
-              In the question above, $C$ is a 1-dimensional object in
-              3-dimensional space. We cannot do a triple integral $\iiint_C
-              f\,dV$ as we would get 0 for any $f$.
+            <p class="fragment" style="font-size: smaller">
+              Let $C$ be the (1-dimensional) ring above object \[\iiint_C f\,dV
+              = C\] for <em>any</em> $f$.
             </p>
 
-            <p>
-              If the mass $M$ is distributed evenly, that would mean a
+            <p class="fragment" style="font-size: smaller">
+              Assume a constant
               <em>linear density</em> of $\frac{M}{2\pi R} \frac{\text{unit of
               mass}}{\text{unit of length}}$.
             </p>
 
-            <p>
-              We thus need an integral \[ \int_C (\text{distance to axis})^2
-              \times (\text{linear density})\,d(\text{length}). \] This requires
-              a new integral called a <strong>line integral</strong> or
+            <p class="fragment" style="font-size: smaller">
+              \[ \int_C (\text{distance to axis})^2 \times (\text{linear
+              density})\,d(\text{length}). \] This requires a new integral
+              called a <strong>line integral</strong> or
               <strong>path integral</strong>.
             </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Path Integrals</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Taxonomy</h6>
+
+            <p>
+              A <strong>line integral</strong>, also called a
+              <strong>path integral</strong>, is an integral whose domain of
+              integration is $C$, the <em>image</em> of a curve parametrized by
+              $\vec r(t)$.
+            </p>
+
+            <p>
+              They come in different "flavors" based on the integrand and the
+              differential, but all have a domain of integration that is a path
+              in space.
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              Go to
+              <a
+                href="https://3demos.ctl.columbia.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >3Demos</a
+              >
+              &rarr; Story &rarr; Path Integrals for a demo of the flavors.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">w/ respect to arc length</h3>
+
+            \[ \int\limits_{\mathcal C} f\,ds \]
+
+            <ul>
+              <li class="fragment">
+                <em>Where</em>? path in space $\mathcal C$
+                <ul>
+                  <li class="fragment">
+                    given by $\vec r(t) = \langle x(t), y(t),\ldots \rangle$, $a
+                    \leq t \leq b$
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment">
+                <em>What</em>? scalar field $f(x,y,\ldots)$
+              </li>
+              <li class="fragment"><em>How</em>? w.r.t. arc length $ds$</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+
+            <div>
+              \[ \int\limits_{\mathcal C} f\,ds \approx \sum_{i= 1}^N f(x_i^*,
+              y_i^*) \sqrt{\Delta x_i^2 + \Delta y_i^2} \]
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+
+            <div>
+              \[ \int\limits_{\mathcal C} f\,ds \approx \sum_{i= 1}^N
+              f(x(t_i^*), y(t_i^*)) \sqrt{\frac{\Delta x_i^2}{\Delta t^2} +
+              \frac{\Delta y_i^2}{\Delta t^2}}\, \Delta t \]
+            </div>
+
+            <div class="fragment">
+              \[ \longrightarrow \int_a^b f(x(t), y(t)) \sqrt{x'(t)^2 +
+              y'(t)^2}\,dt \]
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+
+            <div>
+              \[ \int\limits_{\mathcal C} f\,ds = \int_a^b f(x(t), y(t))
+              \sqrt{x'(t)^2 + y'(t)^2}\,dt \]
+            </div>
+
+            <div>\[ = \int_a^b f(\vec r(t)) |\vec r'(t)|\,dt \]</div>
+          </section>
+          <section>
+            <h6 class="framelabel">Interpretation</h6>
+
+            <p>
+              If $f$ is the height of a wall whose base runs along $\mathcal C$,
+              then $\int_{\mathcal C} f\,ds$ would be the area of the wall.
+            </p>
+
+            <p class="fragment">
+              <strong>N.B.</strong> Though $\int_C ds$ is always positive, $f$
+              could yield negative values, so $\int_C f\,ds$ can be negative.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">w/ respect to a coordinate</h3>
+
+            \[ \int\limits_{\mathcal C} f\,dx \]
+
+            <ul>
+              <li class="fragment">
+                <em>Where</em>? <strong>oriented</strong> path in space
+                $\mathcal C$
+                <ul>
+                  <li class="fragment">
+                    given by $\vec r(t) = \langle x(t), y(t),\ldots \rangle$, $a
+                    \leq t \leq b$
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment">
+                <em>What</em>? scalar field $f(x,y,\ldots)$
+              </li>
+              <li class="fragment"><em>How</em>? w.r.t. $x$</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+
+            <div>
+              \[ \int\limits_{\mathcal C} f\,dx \approx \sum_{i= 1}^N f(x_i^*,
+              y_i^*) \Delta x_i \]
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+
+            <div>
+              \[ \int\limits_{\mathcal C} f\,dx \approx \sum_{i= 1}^N
+              f(x(t_i^*), y(t_i^*)) \frac{\Delta x_i}{\Delta t} \, \Delta t \]
+            </div>
+
+            <div class="fragment">
+              \[ \longrightarrow \int_a^b f(x(t), y(t)) \,x'(t)^2\,dt \]
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+
+            <div>
+              \[ \int\limits_{\mathcal C} f\,dx = \int_a^b f(x(t), y(t))
+              x'(t)\,dt \]
+            </div>
+
+            <div>\[ = \int_a^b f(\vec r(t)) \,x'(t) \,dt \]</div>
+          </section>
+          <section>
+            <h6 class="framelabel">Interpretation</h6>
+
+            <p>
+              These integrals are certainly more abstract. They are most often
+              the building blocks of vector field integrals.
+            </p>
+
+            <p class="fragment">
+              <strong>N.B.</strong> Orientation of path matters here. Reversing
+              the direction negates the integral.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Let $C$ be the piece of the parabola $y=(x-1)^2$ from $(0,1)$ to
+              $(3,4)$, and let $f(x,y) = x+y$.
+            </p>
+
+            <p>
+              Compare the line integrals $\int_C f\, dx$, $\int_C f\, dy$, and
+              $\int_C f\, ds$.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Vector Fields</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              A <strong>vector field</strong> is simply a function \[ \vec F:
+              \RR^n \to \RR^n. \]
+            </p>
+
+            <div class="container fragment">
+              <div class="col">
+                <p style="font-size: smaller">
+                  We plot them by drawing arrows at regularly-spaces points in
+                  the domain. Here is:
+                </p>
+
+                \[\vec F(x,y) = \bv{\sin y \\ \cos x} \]
+              </div>
+              <div class="col">
+                <div
+                  id="box-vf"
+                  class="jxgbox"
+                  style="width: 500px; height: 500px"
+                ></div>
+
+                <script src="js/vf-examples.js" type="text/javascript"></script>
+              </div>
+            </div>
+          </section>
+          <!-- <section>
+            <h6 class="framelabel">More Examples</h6>
+
+            <div
+              id="box-vf-more"
+              class="jxgbox"
+              style="width: 700px; height: 700px"
+            ></div>
+
+            <script
+              src="js/vf-more-examples.js"
+              type="text/javascript"
+            ></script>
+          </section> -->
+          <section>
+            <h3 class="framelabel">Line Integral of a Vector Field</h3>
+
+            \[ \int\limits_{\mathcal C} \vec F \cdot\,d\vec r \]
+
+            <div style="font-size: smaller">
+              <ul>
+                <li class="fragment">
+                  <em>Where</em>? <strong>oriented</strong> path in space
+                  $\mathcal C$
+                  <ul>
+                    <li>
+                      given by $\vec r(t) = \langle x(t), y(t),\ldots \rangle$,
+                      $a \leq t \leq b$
+                    </li>
+                  </ul>
+                </li>
+                <li class="fragment">
+                  <em>What</em>? vector field $\vec F$
+                  <ul>
+                    <li>
+                      $\vec F(x,y,\ldots) = \langle P(x,y, \ldots), Q(x,y,
+                      \ldots), \ldots \rangle$
+                    </li>
+                  </ul>
+                </li>
+                <li class="fragment"><em>How</em>? along the path $d\vec r$</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Formula</h6>
+
+            <div style="font-size: smaller">
+              \[ \int\limits_{\mathcal C} \vec F\cdot d\vec r = \int_a^b \langle
+              P(x(t), y(t)), Q(x(t), y(t)) \rangle \cdot \langle x'(t), y'(t)
+              \rangle\,dt \]
+            </div>
+
+            <div>\[ = \int_a^b \vec F(\vec r(t)) \cdot \vec r'(t)\,dt \]</div>
+          </section>
+          <section>
+            <h6 class="framelabel">Interpretation</h6>
+
+            <p>
+              $\int_C \vec F\cdot d\vec r$ measures how much a vector field
+              $\vec F$ <em>pushes along</em> a path $C$.
+            </p>
+
+            <img
+              src="assets/work-int-ex1.png"
+              alt="Two paths with common endpoints plotted over a vector field."
+              srcset=""
+              class="r-stretch"
+            />
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Interpretation</h6>
+
+            <p>
+              $\int_C \vec F\cdot d\vec r$ measures how much a vector field
+              $\vec F$ <em>pushes along</em> a path $C$.
+            </p>
+
+            <img
+              src="assets/work-int-ex1.png"
+              alt="Two paths with common endpoints plotted over a vector field."
+              srcset=""
+              class="r-stretch"
+            />
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Interpretation</h6>
+
+            <p>
+              $\int_C \vec F\cdot d\vec r$ measures how much a vector field
+              $\vec F$ <em>pushes along</em> a path $C$.
+            </p>
+
+            <ul>
+              <li class="fragment">
+                If $\vec F$ is a force, and $C$ is the path of an object, the
+                line integral is the <strong>work</strong> done by the force on
+                the object.
+              </li>
+              <li class="fragment">
+                Consider the
+                <a
+                  href="https://en.wikipedia.org/wiki/Wind_assistance#Road_running"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >question</a
+                >
+                of whether a marathon run was "wind-assisted."
+              </li>
+            </ul>
           </section>
         </section>
       </div>
@@ -150,14 +471,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
