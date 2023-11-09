@@ -150,11 +150,7 @@
               $\vec r(t)$.
             </p>
 
-            <p>
-              They come in different "flavors" based on the integrand and the
-              differential, but all have a domain of integration that is a path
-              in space.
-            </p>
+            <p>They come in different "flavors" ...</p>
 
             <p class="fragment" style="font-size: smaller">
               Go to
@@ -162,9 +158,9 @@
                 href="https://3demos.ctl.columbia.edu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                >3Demos</a
-              >
-              &rarr; Story &rarr; Path Integrals for a demo of the flavors.
+                >3Demos &rarr; Story &rarr; Path Integrals
+              </a>
+              for a demo of the flavors.
             </p>
           </section>
           <section>
@@ -174,18 +170,18 @@
 
             <ul>
               <li class="fragment">
-                <em>Where</em>? path in space $\mathcal C$
-                <ul>
-                  <li class="fragment">
+                <em>Where?</em> path in space $\mathcal C$
+                <ul class="nonelist">
+                  <li>
                     given by $\vec r(t) = \langle x(t), y(t),\ldots \rangle$, $a
                     \leq t \leq b$
                   </li>
                 </ul>
               </li>
               <li class="fragment">
-                <em>What</em>? scalar field $f(x,y,\ldots)$
+                <em>What?</em> scalar field $f(x,y,\ldots)$
               </li>
-              <li class="fragment"><em>How</em>? w.r.t. arc length $ds$</li>
+              <li class="fragment"><em>How?</em> w.r.t. arc length: $ds$</li>
             </ul>
           </section>
           <section data-auto-animate>
@@ -240,19 +236,21 @@
 
             <ul>
               <li class="fragment">
-                <em>Where</em>? <strong>oriented</strong> path in space
+                <em>Where?</em> <strong>oriented</strong> path in space
                 $\mathcal C$
-                <ul>
-                  <li class="fragment">
+                <ul class="nonelist">
+                  <li>
                     given by $\vec r(t) = \langle x(t), y(t),\ldots \rangle$, $a
                     \leq t \leq b$
                   </li>
                 </ul>
               </li>
               <li class="fragment">
-                <em>What</em>? scalar field $f(x,y,\ldots)$
+                <em>What?</em> scalar field $f(x,y,\ldots)$
               </li>
-              <li class="fragment"><em>How</em>? w.r.t. $x$</li>
+              <li class="fragment">
+                <em>How</em>? w.r.t. the change in the $x$-direction: $dx$.
+              </li>
             </ul>
           </section>
           <section data-auto-animate>
@@ -272,14 +270,14 @@
             </div>
 
             <div class="fragment">
-              \[ \longrightarrow \int_a^b f(x(t), y(t)) \,x'(t)^2\,dt \]
+              \[ \longrightarrow \int_a^b f(x(t), y(t)) \,x'(t)\,dt \]
             </div>
           </section>
           <section data-auto-animate>
             <h6 class="framelabel">Formula</h6>
 
             <div>
-              \[ \int\limits_{\mathcal C} f\,dx = \int_a^b f(x(t), y(t))
+              \[ \int\limits_{\mathcal C} f\,dx = \int_a^b f(x(t), y(t))\,
               x'(t)\,dt \]
             </div>
 
@@ -306,8 +304,24 @@
             </p>
 
             <p>
-              Compare the line integrals $\int_C f\, dx$, $\int_C f\, dy$, and
-              $\int_C f\, ds$.
+              Compare the line integrals: \[\int_C f\, dx, \int_C f\, dy, \text{
+              and } \int_C f\, ds \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+
+            <p class="fragment">
+              \[ \int_C f\,dx = \int_0^3 (1 + (t - 1)^2)\,dt = 7.5\]
+            </p>
+
+            <p class="fragment">
+              \[ \int_C f\,dy = \int_0^3 (1 + (t - 1)^2) 2(t-1)\,dt = 16.5\]
+            </p>
+
+            <p class="fragment">
+              \[ \int_C f\,ds = \int_0^3 (1 + (t - 1)^2)\sqrt{1 + 4(t-1)^2}\,dt
+              \approx 20.1 \]
             </p>
           </section>
         </section>
@@ -365,9 +379,9 @@
             <div style="font-size: smaller">
               <ul>
                 <li class="fragment">
-                  <em>Where</em>? <strong>oriented</strong> path in space
+                  <em>Where?</em> <strong>oriented</strong> path in space
                   $\mathcal C$
-                  <ul>
+                  <ul class="nonelist">
                     <li>
                       given by $\vec r(t) = \langle x(t), y(t),\ldots \rangle$,
                       $a \leq t \leq b$
@@ -375,7 +389,7 @@
                   </ul>
                 </li>
                 <li class="fragment">
-                  <em>What</em>? vector field $\vec F$
+                  <em>What?</em> vector field $\vec F$
                   <ul>
                     <li>
                       $\vec F(x,y,\ldots) = \langle P(x,y, \ldots), Q(x,y,
@@ -383,7 +397,9 @@
                     </li>
                   </ul>
                 </li>
-                <li class="fragment"><em>How</em>? along the path $d\vec r$</li>
+                <li class="fragment">
+                  <em>How?</em> along the path: $d\vec r$
+                </li>
               </ul>
             </div>
           </section>
@@ -413,21 +429,7 @@
               class="r-stretch"
             />
           </section>
-          <section data-auto-animate>
-            <h6 class="framelabel">Interpretation</h6>
 
-            <p>
-              $\int_C \vec F\cdot d\vec r$ measures how much a vector field
-              $\vec F$ <em>pushes along</em> a path $C$.
-            </p>
-
-            <img
-              src="assets/work-int-ex1.png"
-              alt="Two paths with common endpoints plotted over a vector field."
-              srcset=""
-              class="r-stretch"
-            />
-          </section>
           <section data-auto-animate>
             <h6 class="framelabel">Interpretation</h6>
 
@@ -453,6 +455,85 @@
                 of whether a marathon run was "wind-assisted."
               </li>
             </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Work Integrals</h1>
+          </section>
+          <section
+            data-background-image="assets/spring.gif"
+            data-background-opacity="0.6"
+            data-background-size="cover"
+          >
+            <h6 class="framelabel">Work = Force &times; Distance</h6>
+
+            <p class="fragment">
+              Hooke's Law: force of a spring is proportional to displacement. $F
+              = -k x$.
+            </p>
+
+            <p class="fragment">
+              Compute the work done by spring moving an object from position
+              $x_0$ to $x_1$.
+            </p>
+          </section>
+          <section
+            data-background-image="assets/ball_ramp.gif"
+            data-background-size="contain"
+            data-background-opacity="0.7"
+          >
+            <h6 class="framelabel">Example - Rolling rolling rolling</h6>
+
+            <p>
+              A ball falls down a parabolic ramp $y=x^2$ from $(-2,4)$ to the
+              origin. How much work was done by gravity?
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Alternate Forms</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">In Components</h6>
+
+            <div class="fragment" style="font-size: smaller">
+              \[ \vec F(x,y) = \langle P(x,y), Q(x,y) \rangle \text{ and } \vec
+              r(t) = \langle x(t), y(t) \rangle, a \leq t \leq b\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[\int\limits_C \vec F\cdot d\vec r = \int_a^b \langle
+              P(x(t),y(t)), Q(x(t),y(t)) \rangle\cdot \langle x'(t),
+              y'(t)\rangle \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[ = \int_a^b P(x(t),y(t)) \, x'(t)\,dt + Q(x(t),y(t))\, y'(t)
+              \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[ = \int\limits_C P\,dx + Q\,dy\]
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Per Arc Length</h6>
+
+            <div class="fragment" style="font-size: smaller">
+              \[\int\limits_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec
+              r(t))\cdot \vec r'(t) \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[= \int_a^b \vec F(\vec r(t))\cdot \frac{ \vec r'(t) }{|\vec
+              r'(t)|} |\vec r'(t)| \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[ = \int\limits_C \vec F \cdot \vec T\,ds \]
+            </div>
           </section>
         </section>
       </div>

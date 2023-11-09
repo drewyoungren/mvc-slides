@@ -12,5 +12,8 @@
     [fx, fy], // Defining function
     [-5, 25, 5], // Horizontal mesh
     [-5, 20, 5], // Vertical mesh
+    {
+      scale: () => 0.5, // Scaling of vectors
+    },
   ]);
 }
