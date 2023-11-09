@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Vector Fields &amp; Path Integrals</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 17</h3>
+            <h1>Vector Fields & Path Integrals</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">HW 9 due 11/14</li>
+              <li class="fragment">No quiz this week.</li>
+              <li class="fragment">Recitation as usual</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section data-auto-animate>
+            <h6 class="framelabel">MoI Integrals</h6>
+
+            <p>
+              Suppose the same mass $M$ were distributed evenly over the
+              following regions in space:
+            </p>
+            <ul>
+              <li>$B$ a solid ball of radius $R$.</li>
+              <li>$S$ a (hollow) sphere of radius $R$.</li>
+              <li>$C$ a ring (circle) of radius $R$.</li>
+            </ul>
+
+            <p>Which has the greatest moment of intertia about its center?</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Other Integrals</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Framework</h6>
+
+            <p>
+              Every integral has three essential parts, summarized as the
+              <em>where</em>, the <em>what</em>, and the <em>how</em>.
+            </p>
+
+            \[ \int\limits_D F\,d\omega \]
+
+            <ul>
+              <li class="fragment">
+                <strong>Where?</strong> the domain of integration $D$
+              </li>
+              <li class="fragment"><strong>What?</strong> the integrand $F$</li>
+              <li class="fragment">
+                <strong>How?</strong> the differential (form) $d\omega$
+              </li>
+            </ul>
+
+            <p class="fragment">
+              We'll be seeing a lot of different integrals in vector calculus,
+              you can keep yourself oriented by thinking about each of these for
+              every integral we encounter.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">We Need a New Integral</h6>
+            <p>
+              In the question above, $C$ is a 1-dimensional object in
+              3-dimensional space. We cannot do a triple integral $\iiint_C
+              f\,dV$ as we would get 0 for any $f$.
+            </p>
+
+            <p>
+              If the mass $M$ is distributed evenly, that would mean a
+              <em>linear density</em> of $\frac{M}{2\pi R} \frac{\text{unit of
+              mass}}{\text{unit of length}}$.
+            </p>
+
+            <p>
+              We thus need an integral \[ \int_C (\text{distance to axis})^2
+              \times (\text{linear density})\,d(\text{length}). \] This requires
+              a new integral called a <strong>line integral</strong> or
+              <strong>path integral</strong>.
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
