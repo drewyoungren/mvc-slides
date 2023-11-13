@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Conservative Vector Fields &amp; FTLI</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 18</h3>
+            <h1>FTLI</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">HW 10 due 11/14</li>
+              <li class="fragment">
+                Quiz 7 this week
+                <ul class="fragment">
+                  <li>Moment of Inertia</li>
+                  <li>Path Integrals</li>
+                </ul>
+              </li>
+              <li class="fragment">Recitation as usual</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Path Integral</h6>
+            <p style="font-size: smaller">
+              Let $C$ be a smooth curve parametrized by $\vec r(t) = \langle
+              x(t), y(t) \rangle, a \leq t \leq b$ and $\vec F(x,y) = \langle
+              P(x,y), Q(x,y) \rangle$.
+            </p>
+
+            <div class="fragment">
+              \[ \int\limits_C \vec F\cdot d\vec r = \int\limits_C P\,dx + Q\,dy
+              = \int\limits_C \vec F\cdot\vec T\,ds \]
+            </div>
+            <div class="fragment">
+              \[ = \int_a^b (P(x(t), y(t)) x'(t)+ Q(x(t), y(t)) y'(t))\,dt \]
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <div class="container">
+              <div class="col">
+                <p>
+                  Compute \[\int\limits_C (x-y)\,dx + xy\,dy\] where $C$ is the
+                  portion of the clockwise-oriented unit circle from $(1,0)$ to
+                  $(0, 1)$.
+                </p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/line_int_example.png"
+                  alt="Plot of vector field with oriented curve."
+                  class="fragment"
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Work Integral</h6>
+            <p style="font-size: smaller">
+              A wagon is pulled across the floor by a rope 5 meters away and 1
+              meter up with a force of 7 N. Find the work done. (The wagon
+              weighs more than 7 N.)
+            </p>
+            <img
+              src="assets/wagon.gif"
+              alt="GIF of wagon being pulled with force vectors plotted."
+              srcset=""
+              class="fragment"
+            />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Conservative Vector Fields</h1>
+          </section>
+          <section>
+            <h3 class="framelabel">Definition</h3>
+            <p>
+              A vector field $F$ is <strong>conservative</strong> if there is a
+              scalar field $f$ (called a <em>potential</em>) where \[\vec F =
+              \nabla f.\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <div class="container">
+              <div class="col">
+                <p>
+                  The radial vector field $x \,\vec i + y\, \vec j$ is
+                  conservative. Its potential is
+                </p>
+                <p class="fragment">\[f(x,y) = \frac{x^2 + y ^2}{2}\]</p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/conservative_field_1.png"
+                  alt="A radial vector field."
+                  srcset=""
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <div class="container">
+              <div class="col">
+                <p>
+                  The vector field \[ -y\,\vec i + x\,\vec j \] is
+                  <em>not</em> conservative.
+                </p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/nonconservative_field_1.png"
+                  alt="A circular vector field."
+                  srcset=""
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Test for Conservativeness</h6>
+            <p>
+              If $\vec F = \langle P, Q \rangle$ is a conservative vector field
+              \[P_y = Q_x.\]
+            </p>
+            <p class="fragment">
+              <em>Proof.</em> Suppose $\vec F = \langle P, Q \rangle = \nabla
+              f$. \[P_y = f_{xy} = f_{yx} = Q_x .\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p style="font-size: smaller">
+              Determine whether each of the following is conservative, and if
+              so, find a potential function.
+            </p>
+
+            <ul>
+              <li>
+                $\displaystyle \vec F(x,y) = \langle y e^{xy}, x e^{xy} + y^3
+                \rangle $
+              </li>
+              <li>$\displaystyle \vec F(x,y) = \langle xy, xy \rangle $</li>
+              <li>
+                $\displaystyle \vec F(x,y) = \langle y + z, x + z, x + y + z
+                \rangle $
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>A Fundamental Theorem</h1>
+          </section>
+          <section>
+            <p>
+              Let's compute a path integral of a conservative vectorn field.
+            </p>
+            <div>\[ \int\limits_C \nabla f \cdot d\vec r\]</div>
+            <p class="fragment" style="font-size: smaller">
+              with the usual definitions, \[ = \int_a^b \nabla f(\vec r(t)\cdot
+              \vec r'(t)\,dt \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              \[ = \int_a^b \frac{d}{dt}(f\circ \vec r )'(t)\,dt = f(\vec r(b))
+              - f(\vec r(a)) \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Fundamental Theorem of Line Integrals</h6>
+
+            <p>
+              If $\vec F = \nabla f$ and $C$ is a continuous path from $P_0$ to
+              $P_1$, then \[\int\limits_C \vec F\cdot d\vec r = f(P_1) -
+              f(P_0).\]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              <strong>Corollary.</strong> If $C$ is a closed curve, \[
+              \oint\limits_C \nabla f\cdot d\vec r = 0 \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Escape Velocity</h6>
+
+            <p style="font-size: smaller">
+              The Gravitational force from a mass $M$ at the origin on a mass
+              $m$ at position $\vec x$ is \[ \vec G = -\frac{GMm \vec x}{|\vec
+              x|^3}. \] Find the work done moving an object from the surface of
+              the earth to the end of the universe.
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
