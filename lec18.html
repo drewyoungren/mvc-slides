@@ -54,7 +54,7 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 10 due 11/14</li>
+              <li class="fragment">HW 10 due 11/21</li>
               <li class="fragment">
                 Quiz 7 this week
                 <ul class="fragment">
@@ -109,6 +109,16 @@
             </div>
           </section>
           <section>
+            <p>
+              <em>Solution.</em> $\vec r(t) = \langle \cos t, -\sin t \rangle, 0
+              \leq t \leq \frac{3\pi}{2}$. We compute
+            </p>
+            <p>
+              \[ \int_0^{3\pi/2} (\cos t + \sin t)(-\sin t) + (\cos t)(\sin
+              t)\cos t\,dt \]\[ = -\frac{1}{6}-\frac{3 \pi }{4}\]
+            </p>
+          </section>
+          <section>
             <h6 class="framelabel">Work Integral</h6>
             <p style="font-size: smaller">
               A wagon is pulled across the floor by a rope 5 meters away and 1
@@ -121,6 +131,15 @@
               srcset=""
               class="fragment"
             />
+          </section>
+          <section>
+            <p>
+              <em>Solution.</em> $\vec r(t) = \langle t, 0 \rangle, 0 \leq t
+              \leq 5$. \[\vec F(x,y) = 7\frac{\langle 5, 1 \rangle - \langle x,
+              y \rangle}{|\langle 5, 1 \rangle - \langle x, y \rangle|} \] \[ W
+              = \int_0^5 7\frac{5 - t}{\sqrt{1 + (5 - t)^2}}\,dt \approx 28.7\,
+              \text{N}\text{m} \]
+            </p>
           </section>
         </section>
         <section>
@@ -209,13 +228,11 @@
             <h1>A Fundamental Theorem</h1>
           </section>
           <section>
-            <p>
-              Let's compute a path integral of a conservative vectorn field.
-            </p>
+            <p>Let's compute a path integral of a conservative vector field.</p>
             <div>\[ \int\limits_C \nabla f \cdot d\vec r\]</div>
             <p class="fragment" style="font-size: smaller">
-              with the usual definitions, \[ = \int_a^b \nabla f(\vec r(t)\cdot
-              \vec r'(t)\,dt \]
+              with the usual definitions, \[ = \int_a^b \nabla f(\vec r(t))
+              \cdot \vec r'(t)\,dt \]
             </p>
             <p class="fragment" style="font-size: smaller">
               \[ = \int_a^b \frac{d}{dt}(f\circ \vec r )'(t)\,dt = f(\vec r(b))
@@ -242,7 +259,7 @@
               <div class="col">
                 <p>
                   Compute the work done against gravity carrying a 15 lbs
-                  bowling bowl up a helical ramp 70 ft high.
+                  bowling ball up a helical ramp 70 ft high.
                 </p>
               </div>
               <div class="col">
@@ -334,7 +351,7 @@
               \[\begin{align*}G &= 6.674 \times 10^{-11}
               \frac{\text{N}\text{m}^2}{\text{kg}^2} \\ M &= 5.97\times10^{24}
               \text{kg} \\ R &= 6.371\times 10^{6} \text{m} \end{align*}\]
-              Escape velocity is $\sqrt{\frac{GM}{R}} = 7903
+              Escape velocity is $\sqrt{\frac{2GM}{R}} = 11183.9
               \frac{\text{m}}{\text{s}}$.
             </div>
           </section>
