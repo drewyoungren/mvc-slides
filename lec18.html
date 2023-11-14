@@ -235,6 +235,89 @@
               \oint\limits_C \nabla f\cdot d\vec r = 0 \]
             </p>
           </section>
+
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <div class="container">
+              <div class="col">
+                <p>
+                  Compute the work done against gravity carrying a 15 lbs
+                  bowling bowl up a helical ramp 70 ft high.
+                </p>
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=.2+cos%283+t%29&obj0_params_y=.2+sin%283+t%29&obj0_params_z=.7*t+%2F+%282+*+pi%29&obj1_kind=field&obj1_color=%23870808&obj1_params_p=0&obj1_params_q=0&obj1_params_r=-.01&obj1_params_nVec=6"
+                  frameborder="0"
+                  height="600px"
+                  width="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <div class="container">
+              <div class="col">
+                <p style="font-size: smaller">
+                  Compute the line integral \[\int_C (x^2 - xy)\,dx + (y-
+                  \frac{x^2}{2} + 2)\,dy \] where $C$ is the polygonal path from
+                  $(2,0)$ to $(0,0)$ to $(2,1)$ to $(0,1)$.
+                </p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/zpath.png"
+                  alt="Z-shaped path in a vector field"
+                  srcset=""
+                  class="r-stretch"
+                />
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \text{W} = \int\limits_C \vec F\cdot d\vec r\]
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \text{W} = \int\limits_C \vec F\cdot d\vec r = f(\vec r(a)) -
+            f(\vec r(b))\]
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \text{W} = \int_a^b m\vec r''(t)\cdot \vec r'(t)\,dt = \frac12 m
+            |\vec r'(b)|^2 - \frac12 m |\vec r'(a)|^2\]
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \frac12 m |\vec r'(b)|^2 + f(\vec r(b)) = \frac12 m |\vec
+            r'(a)|^2 + f(\vec r(a)) \]
+          </section>
           <section>
             <h6 class="framelabel">Escape Velocity</h6>
 
@@ -244,6 +327,16 @@
               x|^3}. \] Find the work done moving an object from the surface of
               the earth to the end of the universe.
             </p>
+          </section>
+          <section>
+            <h6 class="framelabel">On Earth</h6>
+            <div class="fragment" style="font-size: smaller">
+              \[\begin{align*}G &= 6.674 \times 10^{-11}
+              \frac{\text{N}\text{m}^2}{\text{kg}^2} \\ M &= 5.97\times10^{24}
+              \text{kg} \\ R &= 6.371\times 10^{6} \text{m} \end{align*}\]
+              Escape velocity is $\sqrt{\frac{GM}{R}} = 7903
+              \frac{\text{m}}{\text{s}}$.
+            </div>
           </section>
         </section>
       </div>
