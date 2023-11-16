@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Green's Theorem</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script> -->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 19</h3>
+            <h1>Green's Theorem</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">HW 10 due 11/21</li>
+              <li class="fragment">
+                Quiz 7 this week
+                <ul class="fragment">
+                  <li>Moment of Inertia</li>
+                  <li>Path Integrals</li>
+                </ul>
+              </li>
+              <li class="fragment">Recitation as usual</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h3 class="framelabel">Fundamental Theorem of Line Integrals</h3>
+
+            \[ \int\limits_C \nabla f \cdot d\vec r = f(C_\text{end}) -
+            f(C_\text{start}) \]
+          </section>
+          <section>
+            <h6 class="framelabel">Potential Difference</h6>
+            <p style="font-size: smaller">
+              Compute the path integral $\int\limits_C (x - y^2)\,dx - 2xy\,dy$
+              over the the path below.
+            </p>
+
+            <img
+              src="assets/spiral_vector_field.png"
+              alt="Spiral path in conservative vector field"
+              srcset=""
+              class="r-stretch"
+            />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Green's Theorem</h1>
+          </section>
+          <section
+            data-background-image="assets/comma_region.png"
+            data-background-size="contain "
+            data-background-opacity="0.6"
+          >
+            <h3 class="framelabel">Simple Closed Curve</h3>
+
+            <p>
+              A <strong>simple closed curve</strong> $C$ is a curve with a
+              parametrization $\vec r(t), a\leq t \leq b$ such that
+            </p>
+            <ul>
+              <li>$\vec r(a) = \vec r(b)$, and</li>
+              <li>it does not cross itself.</li>
+            </ul>
+
+            <p class="fragment">
+              In $\RR^2$, such a curve surrounds a region $D$. We right \[C =
+              \partial D\] meaning "$C$ is the <em>boundary</em> of $D$."
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Green's Theorem</h3>
+
+            \[\oint_{\partial D} P\,dx + Q\,dy = \iint_\mathcal{D}
+            \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
+            \right)\,dA \]
+
+            <!-- <img src="../img/swirlyD.png" width="33%" style="float: right; right: 100px;" /> -->
+
+            <div style="font-size: smaller">
+              where:
+              <ul>
+                <li class="thm fragment">
+                  $D$ is a (simply connected) region in the plane,
+                </li>
+
+                <li class="thm fragment">
+                  $\partial D$ is an counterclockwise-oriented, simple, closed
+                  curve forming the boundary of $\mathcal D$, and
+                </li>
+
+                <li class="thm fragment">
+                  $\vec F(x,y) = \langle P(x,y),Q(x,y) \rangle$ is a
+                  continuously differentiable vector field.
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <div class="container">
+              <div class="col">
+                <p style="font-size: smaller">
+                  Compute the line integral of \[\vec F(x,y) =\langle (xy - y^2)
+                  , x^2\rangle\] on the triangular curve connecting $(0,0)$,
+                  $(2,0)$, and $(3,2)$ counterclockwise.
+                </p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/tri_circ_int.png"
+                  alt="Triangular path in vector field"
+                  srcset=""
+                  class="r-stretch"
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Justification</h6>
+
+            <div class="container">
+              <div class="col">
+                <p>
+                  <!-- It is sufficient to show the two identities  -->
+                  \[\oint_C P\,dx = \iint_\mathcal D -\partial_y P \,dA \] \[
+                  \oint_C Q\,dy = \iint_\mathcal D \partial_x Q \,dA \]
+                </p>
+                <p class="fragment" style="font-size: smaller">
+                  Consider only the first case and that $\mathcal D$ is the
+                  region \[ \begin{align*} g(x) &\leq y \leq f(x) \\ a &\leq x
+                  \leq b \\ \end{align*}\]
+                </p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/bounded_by_functions.png"
+                  alt="Region bounded by 2 functions of 1 variable"
+                  class="r-stretch"
+                />
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Areas</h1>
+          </section>
+          <section
+            data-background-image="assets/reservoir_plain.png"
+            data-background-opacity="0.7"
+          >
+            <h6 class="framelabel">Question</h6>
+
+            <p>
+              Can we determine the surface area of the Jackie Onassis Reservoir
+              if it's fenced off?
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section
+            data-background-image="assets/reservoir.png"
+            data-background-opacity="0.6"
+          >
+            <h6 class="framelabel">Answer</h6>
+
+            <p class="fragment">Yes, with a GPS watch.</p>
+            <p class="fragment">
+              Consider the vector field $\vec F(x,y) = \langle 0, x \rangle$.
+            </p>
+            <p class="fragment">
+              \[ \oint_{\partial R} \vec F\cdot d\vec r = \oint_R x\,dy =
+              \iint_R 1\,dA = \text{Area}(R) \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Alternatives</h6>
+
+            \[\text{Area}(D) = \iint_D \,dA \]
+            <div class="fragment">\[ = \oint_{\partial D} x\,dy \]</div>
+            <div class="fragment">\[ = \oint_{\partial D} (-y)\,dx \]</div>
+            <div class="fragment">
+              \[ = \oint_{\partial D} \frac{x}{2}\,dy - \frac{y}{2}\,dx \]
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Notes on a Theorem</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Compare to FTLI</h6>
+
+            <p>
+              In what case do both Green's and the FTLI apply to a line integral
+              $\int_C \vec F\cdot d\vec r$?
+            </p>
+
+            <p class="fragment">$C$ is closed, and $\vec F$ is conservative.</p>
+
+            <div class="fragment">
+              \[\oint_{\partial D} \nabla f\cdot d\vec r = 0 \]
+            </div>
+          </section>
+          <section
+            data-background-image="assets/holey_domain.png"
+            data-background-opacity="0.3"
+          >
+            <h6 class="framelabel">Hole-y Domains</h6>
+
+            <p>
+              Green's Theorem works for non-simply-connected domains, provided
+              the boundary components are oriented correctly.
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <h6 class="framelabel">Flux Form</h6>
+            <p>
+              Let $\vec N$ be the outward-oriented unit normal vector to a
+              closed curve.
+            </p>
+
+            <p class="fragment">
+              $\vec T\,ds = x'(t)\,dx + y'(t)\,dy$, and $\vec N\,ds = -y'(t)\,dx
+              + x'(t)\,dy$
+            </p>
+
+            <p class="fragment">
+              \[ \oint_{\partial D} \vec F \cdot \vec N\,ds = \oint_{\partial D}
+              (-Q)\,dx + P\,dy \]
+            </p>
+
+            <p class="fragment">\[ = \iint\limits_D (P_x + Q_y)\,dA \]</p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
