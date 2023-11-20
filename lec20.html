@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Surfaces</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script> -->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 20</h3>
+            <h1>Surfaces &amp; Areas</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">HW 11 due 11/28</li>
+              <li class="fragment">No quiz/recitation this week</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h3 class="framelabel">Green's Theorem</h3>
+
+            \[\oint_{\partial D} P\,dx + Q\,dy = \iint_\mathcal{D}
+            \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
+            \right)\,dA \]
+
+            <!-- <img src="../img/swirlyD.png" width="33%" style="float: right; right: 100px;" /> -->
+
+            <div style="font-size: smaller">
+              where:
+              <ul>
+                <li class="thm fragment">
+                  $D$ is a (simply connected) region in the plane,
+                </li>
+
+                <li class="thm fragment">
+                  $\partial D$ is an counterclockwise-oriented, simple, closed
+                  curve forming the boundary of $\mathcal D$, and
+                </li>
+
+                <li class="thm fragment">
+                  $\vec F(x,y) = \langle P(x,y),Q(x,y) \rangle$ is a
+                  continuously differentiable vector field.
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Parametric Surfaces</h1>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Parametrization</h6>
+            <div class="container">
+              <div class="col r-frame">
+                <h6 class="framelabel">Curves</h6>
+                \[ \vec r: \RR \to \RR^n \]
+                <div style="width: 500px; height: 400px"></div>
+              </div>
+              <div class="col r-frame">
+                <h6 class="framelabel">Surfaces</h6>
+                \[ \vec r: \RR^2 \to \RR^n \]
+                <div style="width: 500px; height: 400px"></div>
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Parametrization</h6>
+            <div class="container">
+              <div class="col r-frame">
+                <h6 class="framelabel">Curves</h6>
+                \[ \vec r: \RR \to \RR^3 \]
+                <div class="r-stretch fragment">
+                  \[ \vec r(t) = \bv{ x(t) \\ y(t) \\ z(t)} \]
+                </div>
+              </div>
+              <div class="col r-frame">
+                <h6 class="framelabel">Surfaces</h6>
+                \[ \vec r: \RR^2 \to \RR^3 \]
+                <div class="r-stretch fragment">
+                  \[ \vec r(u,v) = \bv{ x(u,v) \\ y(u,v) \\ z(u,v)} \]
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Kinds of Surfaces</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Graphs of Functions</h6>
+
+            <p>
+              The
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_x=u&obj0_params_y=v&obj0_params_z=u%5E2%2F2+-+v%5E2+%2F+3+%2B+u+v+%2F+2+%2B+1%2F3&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  >graph</a
+                ></strong
+              >
+              of a function $z = f(x,y)$ over domain $D$ can be parametrized by
+            </p>
+
+            <div class="container">
+              <div class="col">
+                \[\vec r(u,v) = \bv{ u \\ v \\ f(u,v) } \] with $(u,v) \in D$.
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_x=u&obj0_params_y=v&obj0_params_z=u%5E2%2F2+-+v%5E2+%2F+3+%2B+u+v+%2F+2+%2B+1%2F3&obj0_params_t0=0&obj0_params_t1=1"
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Surfaces of Revolution</h6>
+
+            <p>
+              A
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%2388ad00&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u&obj0_params_y=%281+-+u%5E2%2F2%29*cos%28v%29&obj0_params_z=%281+-+u%5E2%2F2%29*sin%28v%29&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  >surface of revolution</a
+                ></strong
+              >
+              of a graph $y = g(x), a \leq x \leq b,$ revolved about the
+              $x$-axis is given by
+            </p>
+
+            <div class="container">
+              <div class="col">
+                \[\vec r(u,v) = \bv{ u \\ g(u) cos(v) \\ g(u) sin(v) } \] with
+                $(u,v) \in [a,b]\times [0, 2\pi]$.
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%2388ad00&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u&obj0_params_y=%281+-+u%5E2%2F2%29*cos%28v%29&obj0_params_z=%281+-+u%5E2%2F2%29*sin%28v%29&obj0_params_t0=0&obj0_params_t1=1"
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Piece of Sphere</h6>
+
+            <p>
+              We can use spherical coordinates to parametrize a
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%230c00ad&obj0_params_a=0&obj0_params_b=pi%2F2&obj0_params_c=pi+%2F+2&obj0_params_d=7+pi+%2F+4&obj0_params_x=sin%28u%29+cos%28v%29&obj0_params_y=sin%28u%29+sin%28v%29&obj0_params_z=cos%28u%29&obj0_params_t0=0&obj0_params_t1=1"
+                  target="_blank"
+                  >piece of a sphere</a
+                ></strong
+              >
+            </p>
+
+            <div class="container">
+              <div class="col" style="font-size: smaller">
+                \[\vec r(u,v) = \bv{ R \sin(u) \cos(v) \\ R \sin(u) \sin(v) \\ R
+                \cos(u) } \] with angles $u,v$ restricted appropriately.
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%230c00ad&obj0_params_a=0&obj0_params_b=pi%2F2&obj0_params_c=pi+%2F+2&obj0_params_d=7+pi+%2F+4&obj0_params_x=sin%28u%29+cos%28v%29&obj0_params_y=sin%28u%29+sin%28v%29&obj0_params_z=cos%28u%29&obj0_params_t0=0&obj0_params_t1=1"
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+
+            <p>Find a parametrization to model a chocolate kiss.</p>
+            <div class="container">
+              <div class="col" style="font-size: smaller">
+                <img
+                  src="https://economycandy.com/wp-content/uploads/2022/03/1fde8a48-823a-4133-a68f-2e5550af2e42.jpeg"
+                  alt="Heshey's Kiss"
+                  srcset=""
+                  width="500px"
+                  height="400px"
+                />
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.46&showPanel=false&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-pi+%2F+4&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%28cos%28u%29+%2B+1%29+sin%28v%29&obj0_params_y=%28cos%28u%29+%2B+1%29+cos%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1"
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+
+            <p>Find a parametrization to model a corrugated roof.</p>
+            <div class="container">
+              <div class="col" style="font-size: smaller">
+                <img
+                  src="assets/Corrugated_iron_cottage.jpg"
+                  alt="Hut with corrugated roof"
+                  srcset=""
+                  width="500px"
+                  height="400px"
+                />
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_x=u&obj0_params_y=v&obj0_params_z=%281+-+abs%28u%29%29+%2B+1%2F20+*+sin%2820+*+v%29&obj0_params_t0=0&obj0_params_t1=1"
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
