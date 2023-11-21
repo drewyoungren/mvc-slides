@@ -275,6 +275,57 @@
             </div>
           </section>
         </section>
+        <section>
+          <section>
+            <h1>Surface Area</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Recall</h6>
+
+            <p>
+              We defined $ds$ to measure arc length for curves. \[ ds = |\vec
+              r'(t)| \,dt \]
+            </p>
+
+            <p class="fragment">
+              We look for an analogous way to measure area along surfaces.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Piece of tangent</h6>
+
+            <p style="font-size: smaller">
+              We can use a parametrization $\vec r(u,v)$ to approximate the
+              surface with a piece of the tangent plane.
+            </p>
+            <div class="container">
+              <div class="col">
+                <p class="fragment" style="font-size: smaller">
+                  Tangent vectors \[\begin{align*}\vec r_u\,\Delta u &=
+                  \left\langle x_u, y_u, z_u \right\rangle\Delta u \\ \vec
+                  r_v\,\Delta v &= \left\langle x_v, y_v, z_v
+                  \right\rangle\Delta v \\ \end{align*} \]
+                </p>
+              </div>
+              <div class="col">
+                <p class="fragment">
+                  The area of a parallelogram defined by these is \[\Delta S =
+                  |\vec r_u \times \vec r_v| \, \Delta u \,\Delta v \]
+                </p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Surface Area</h6>
+
+            <p>
+              If $D\subset \RR^2$ is a domain in $uv$-space and $\vec r: D \to
+              \RR^3$ a parametrization of a smooth surface $\Omega$, then
+              \[\text{SA} = \iint\limits_\Omega dS = \iint\limits_D |\vec r_u
+              \times \vec r_v|\,du\,dv \]
+            </p>
+          </section>
+        </section>
       </div>
     </div>
 
@@ -291,14 +342,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
