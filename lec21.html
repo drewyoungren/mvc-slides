@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Flux</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script> -->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 21</h3>
+            <h1>Flux</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">HW 11 due 12/5</li>
+              <li class="fragment">
+                Quiz 8
+                <ul>
+                  <li>FTLI</li>
+                  <li>Green's Theorem</li>
+                </ul>
+              </li>
+              <li class="fragment">Regular recitation schedule</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h3 class="framelabel">Surface Area</h3>
+
+            \[ \iint\limits_\Omega f\,dS = \iint\limits_D f(\vec r(u,v)) |\vec
+            r_u \times \vec r_v|\,dA \]
+
+            <p>
+              where $\vec r: D \to \Omega \subset \RR^3$ is a parametrization of
+              surface $\Omega$.
+            </p>
+
+            <p class="fragment">If $f \equiv 1$, we get surface area.</p>
+            <!-- <img src="../img/swirlyD.png" width="33%" style="float: right; right: 100px;" /> -->
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find the moment of inertia of a cylindrical shell about its
+              central access.
+            </p>
+            <div class="fragment" style="font-size: smaller">
+              <p>
+                <strong>Solution.</strong>
+                \[ \vec r_u \times \vec r_v = \begin{vmatrix} \vec i & \vec j &
+                \vec k \\ R\cos u \cos v & R\cos u \sin v & -R\sin u \\ -R\sin u
+                \sin v & R\sin u \cos v & 0 \\ \end{vmatrix} = \bv{ R^2 \sin^2 u
+                \cos v \\ R^2 \sin^2 u \sin v \\ R^2 \sin u \cos u} \]
+              </p>
+              <p class="fragment">
+                \[= R \sin (u)\, \vec r(u,v)\] has magnitude $R^2 \sin u$.
+              </p>
+            </div>
+          </section>
+          <section>
+            <p>
+              <strong>Solution cont'd.</strong> \[I_z = \iint_{\mathcal S} (x^2
+              + y^2)\,\mu\,dS \] \[ = \mu\int_0^{2\pi}\int_0^\pi (R\sin u)^2 R^2
+              \sin u \,du\,dv \] \[ = \frac83 \pi \mu R^4 = \frac23 M R^2 \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Orientation</h1>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              A surface $\Omega$ is <strong>oriented</strong> if there is a
+              continuous choice of unit normal vector $\vec N$ at each point of
+              the surface.
+            </p>
+
+            <p class="fragment">
+              In other words, an orientation is choice of positive "side" of a
+              surface. By convention we encode this in the parametrization $\vec
+              r(u,v)$. \[ \vec N = \frac{\vec r_u \times \vec r_v}{|\vec r_u
+              \times \vec r_v | } \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Examples</h6>
+
+            <p class="fragment">
+              A
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_x=u&obj0_params_y=v&obj0_params_z=u%5E3+%2F+3+-+v%5E2+%2F+2+-+u+%2F+3&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                >graph</a
+              >
+              $\langle u, v, f(u,v) \rangle$ could be oriented <em>upward</em>.
+              <span class="fragment"
+                >\[ \vec N \sim \langle -f_x, -f_y, 1 \rangle\]</span
+              >
+            </p>
+            <p class="fragment">
+              A
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u&obj0_params_y=%28u%5E3+%2F+3++-+u+%2F+3+%2B+1%29+*+sin%28v%29&obj0_params_z=%28u%5E3+%2F+3++-+u+%2F+3+%2B+1%29+*+cos%28v%29&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                >surface of revolution</a
+              >
+              $\langle u, g(u) \sin v, g(u)\cos v \rangle $ could be oriented
+              <em>outward</em>.
+              <span class="fragment"
+                >\[ \vec N \sim g(u) \langle -g'(u), \sin v, \cos v
+                \rangle\]</span
+              >
+            </p>
+          </section>
+
+          <section>
+            <h3 class="framelabel">WARNING</h3>
+
+            <p>
+              The
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281+%2B+u%2F2*cos%28v%2F2%29%29+*+cos+%28v%29&obj0_params_y=%281+%2B+u%2F2+*cos%28v%2F2%29%29+*+sin+%28v%29&obj0_params_z=u%2F2+*sin%28v%2F2%29&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Möbius strip</a
+              >
+              is, famously, <strong>non-orientable</strong>.
+            </p>
+            <p class="fragment">
+              We will not deal with such surfaces in this class, but it should
+              be known such exist.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find a parametrization of the unit sphere
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2+pi&obj0_params_c=0&obj0_params_d=pi&obj0_params_x=sin%28v%29+cos%28u%29&obj0_params_y=sin%28v%29+sin%28u%29&obj0_params_z=cos%28v%29&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+              >
+                oriented inward</a
+              >.
+            </p>
+
+            <p class="fragment">
+              <strong>Solution.</strong>
+              \[ \vec r(u,v) = \bv{ \sin(v) \cos(u) \\ \sin(v) \sin(u) \\
+              \cos(v) \\ }\] so $v$ plays the role of $\phi$ and $u$ that of
+              $\theta$ is one (of many) ways to do this.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>
+              <span class="fragment">Net</span> Flux
+              <span class="r-stack">
+                <span class="fragment current-visible">&amp; Chill</span>
+                <span class="fragment fade" style="font-size: x-small"
+                  >sorry</span
+                >
+              </span>
+            </h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+            <p style="font-size: smaller">
+              A <strong>flux integral</strong> of a vector field $\vec F$
+              through a surface $\Omega$ (somethimes just the "surface integral
+              of a vector field") with orientation $\vec N$ corresponding to
+              parametrization $\vec r:\mathcal D \to \RR^3$ is
+            </p>
+
+            <p>
+              \[\iint_\Omega \vec F\cdot d\vec S = \iint_\Omega \vec F \cdot
+              \vec N\,dS \]
+            </p>
+            <ul style="font-size: smaller">
+              <li class="fragment">
+                <strong>Where?</strong> on a 2D surface $\Omega$ in $\RR^3$.
+              </li>
+              <li class="fragment">
+                <strong>What?</strong> a vector field $\vec F$.
+              </li>
+              <li class="fragment">
+                <strong>How?</strong> in the (positive) direction perpendicular
+                to the surface.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Formula</h6>
+
+            <p>
+              \[ \iint\limits_\Omega \vec F \cdot \vec N\,dS = \iint\limits_D
+              \vec F(\vec r(u,v))\cdot \frac{\vec r_u\times \vec r_v}{|\vec r_u
+              \times \vec r_v|} |\vec r_u \times \vec r_v|\,dA \]
+            </p>
+            <p class="fragment">
+              \[ = \iint\limits_D \vec F(\vec r(u,v))\cdot \vec r_u\times \vec
+              r_v\,dA\]
+            </p>
+            <p class="fragment">
+              That integrand $\vec F(\vec r(u,v))\cdot \vec r_u\times \vec r_v$
+              is a triple-product, or, rather, a volume of a parallelopiped, two
+              sides defined by the surface, and one by the vector field.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">First Example</h6>
+
+            <p>
+              Let $\vec F = \vec i$ (a constant) and $\Omega$ the unit square in
+              the $yz$-plane. Compute the flux $\iint_\Omega \vec F\cdot d\vec
+              S$.
+            </p>
+
+            <p>
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=1&obj0_params_x=0&obj0_params_y=u&obj0_params_z=v&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%23dc5e66&obj1_params_p=1&obj1_params_q=0&obj1_params_r=0&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Click here</a
+              >
+              and then <code>Story &rarr; Flux Integrals</code> tab to visualize
+              this.
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: "latest",
+          delimiters: [
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+          ],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
