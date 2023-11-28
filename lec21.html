@@ -330,7 +330,7 @@
               <p>If $\vec F(x,y) = \langle P(x,y),Q(x,y) \rangle $, then</p>
 
               \[\operatorname{curl} \vec F (x,y) = Q_x - P_y = \text{
-              "circulation density"}\]
+              ``circulation density''}\]
 
               <ul>
                 <li class="fragment">
@@ -343,8 +343,8 @@
               </ul>
 
               <div class="fragment">
-                \[\operatorname{div} \vec F (x,y) = P_x + Q_y = \text{ "flux
-                density"}\]
+                \[\operatorname{div} \vec F (x,y) = P_x + Q_y = \text{ ``flux
+                density''}\]
 
                 <ul>
                   <li class="fragment">positive $\leftrightarrow$ expansion</li>
@@ -357,6 +357,94 @@
                 </ul>
               </div>
             </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Div in 3D</h3>
+
+            <div>
+              \[\operatorname{div} \vec F (x,y) = P_x + Q_y + R_z = \text{
+              ``flux density''}\]
+
+              <ul>
+                <li class="fragment">positive $\leftrightarrow$ expansion</li>
+                <li class="fragment">negative $\leftrightarrow$ compression</li>
+                <li class="fragment">
+                  zero $\leftrightarrow$ incompressibility
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Curl in 3D</h3>
+            <div style="font-size: smaller">
+              \[\operatorname{curl} \vec F (x,y) = (R_y - Q_z)\,\vec i + ( P_z -
+              R_x)\,\vec j + (Q_x - P_y)\,\vec k \]
+
+              <p class="fragment">It's a little complicated</p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">"Del"</h3>
+
+            <p>
+              Consider a "vector" of operators \[ \nabla =
+              \frac{\partial}{\partial x} \,\vec i + \frac{\partial}{\partial y}
+              \,\vec j + \frac{\partial}{\partial z} \,\vec k \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              Let's ignore that $\nabla$ is not a vector and use it with vector
+              operations anyway:
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Scalar Multiplication</h6>
+
+            <p>
+              Let $f(x,y,z)$ be a scalar field. Then "vector times scalar is
+              vector" becomes
+            </p>
+            <p class="fragment">
+              \[ \nabla f = \frac{\partial f}{\partial x} \,\vec i +
+              \frac{\partial f}{\partial y} \,\vec j + \frac{\partial
+              f}{\partial z} \,\vec k \]
+            </p>
+            <p class="fragment">aka the <strong>gradient</strong></p>
+          </section>
+          <section>
+            <h6 class="framelabel">Dot Product</h6>
+
+            <p style="font-size: smaller">
+              Let $ \vec F(x,y,z) = P(x,y,z)\,\vec i + Q(x,y,z)\,\vec j +
+              R(x,y,z)\,\vec k$ be a vector field. Then "vector dot vector is
+              scalar" becomes
+            </p>
+            <p class="fragment">
+              \[ \nabla \cdot F = \frac{\partial P}{\partial x} + \frac{\partial
+              Q}{\partial y} + \frac{\partial R}{\partial z} \]
+            </p>
+            <p class="fragment">aka the <strong>divergence</strong></p>
+          </section>
+          <section>
+            <h6 class="framelabel">Cross Product</h6>
+
+            <p style="font-size: smaller">
+              Let $ \vec F(x,y,z) = P(x,y,z)\,\vec i + Q(x,y,z)\,\vec j +
+              R(x,y,z)\,\vec k$ be a vector field. Then "vector cross vector is
+              vector" becomes
+            </p>
+            <p class="fragment">
+              \[ \nabla \times F = \begin{vmatrix} \vec i & \vec j & \vec k \\
+              \frac{\partial }{\partial x} & \frac{\partial }{\partial y} &
+              \frac{\partial }{\partial z} \\ P & Q & R \end{vmatrix} \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              \[ = \left( \frac{\partial R}{\partial y} - \frac{\partial
+              Q}{\partial z} \right) \,\vec i + \left( \frac{\partial
+              P}{\partial z} - \frac{\partial R}{\partial x} \right)\,\vec j +
+              \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial
+              y} \right)\,\vec k \]
+            </p>
+            <p class="fragment">aka the <strong>curl</strong></p>
           </section>
         </section>
       </div>
