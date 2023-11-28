@@ -219,9 +219,16 @@
             <h6 class="framelabel">Definition</h6>
             <p style="font-size: smaller">
               A <strong>flux integral</strong> of a vector field $\vec F$
-              through a surface $\Omega$ (somethimes just the "surface integral
-              of a vector field") with orientation $\vec N$ corresponding to
-              parametrization $\vec r:\mathcal D \to \RR^3$ is
+              through a
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.06&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=1&obj0_params_x=u&obj0_params_y=v&obj0_params_z=1%2F2+-+u%5E2+%2F+3+-+%28v+-+1%29%5E2+%2F+2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%23dc5e66&obj1_params_p=-z+%2F+4&obj1_params_q=x+%2F+5&obj1_params_r=z+%2B+1%2F2&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >surface</a
+              >
+              $\Omega$ (somethimes just the "surface integral of a vector
+              field") with orientation $\vec N$ corresponding to parametrization
+              $\vec r:\mathcal D \to \RR^3$ is
             </p>
 
             <p>
@@ -278,6 +285,78 @@
               and then <code>Story &rarr; Flux Integrals</code> tab to visualize
               this.
             </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.4&showPanel=true&obj0_kind=surface&obj0_color=%236865ae&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%23dc5e66&obj1_params_p=0&obj1_params_q=0&obj1_params_r=z&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >flux</a
+              >
+              of the vector field $z\,\vec k$ through the piece of the cone
+              $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented upward.
+            </p>
+            <p class="fragment r-stretch"></p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Div &amp; Curl</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Differential Calc in 30 Seconds</h6>
+
+            <ul>
+              <li class="fragment">
+                One-variable calculus: $\displaystyle \frac{dy}{dx}$
+              </li>
+              <li class="fragment">curves: $\displaystyle \vec r'(t)$</li>
+              <li class="fragment">
+                scalar fields: $\displaystyle \nabla f(x,y)$
+              </li>
+              <li class="fragment">
+                vector fields:
+                <span class="fragment">$\displaystyle D \vec F?$</span>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3 class="framelabel">Curl and Div in 2D</h3>
+
+            <div style="font-size: smaller">
+              <p>If $\vec F(x,y) = \langle P(x,y),Q(x,y) \rangle $, then</p>
+
+              \[\operatorname{curl} \vec F (x,y) = Q_x - P_y = \text{
+              "circulation density"}\]
+
+              <ul>
+                <li class="fragment">
+                  positive $\leftrightarrow$ counterclockwise spin
+                </li>
+                <li class="fragment">
+                  negative $\leftrightarrow$ clockwise spin
+                </li>
+                <li class="fragment">zero $\leftrightarrow$ irrotational</li>
+              </ul>
+
+              <div class="fragment">
+                \[\operatorname{div} \vec F (x,y) = P_x + Q_y = \text{ "flux
+                density"}\]
+
+                <ul>
+                  <li class="fragment">positive $\leftrightarrow$ expansion</li>
+                  <li class="fragment">
+                    negative $\leftrightarrow$ compression
+                  </li>
+                  <li class="fragment">
+                    zero $\leftrightarrow$ incompressibility
+                  </li>
+                </ul>
+              </div>
+            </div>
           </section>
         </section>
       </div>
