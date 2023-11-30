@@ -73,149 +73,6 @@
           </section>
 
           <section>
-            <h3 class="framelabel">Surface Area</h3>
-
-            \[ \iint\limits_\Omega f\,dS = \iint\limits_D f(\vec r(u,v)) |\vec
-            r_u \times \vec r_v|\,dA \]
-
-            <p>
-              where $\vec r: D \to \Omega \subset \RR^3$ is a parametrization of
-              surface $\Omega$.
-            </p>
-
-            <p class="fragment">If $f \equiv 1$, we get surface area.</p>
-            <!-- <img src="../img/swirlyD.png" width="33%" style="float: right; right: 100px;" /> -->
-          </section>
-          <section>
-            <h6 class="framelabel">Example</h6>
-            <p>
-              Find the moment of inertia of a spherical shell about its central
-              axis.
-            </p>
-            <div class="fragment" style="font-size: smaller">
-              <p>
-                <strong>Solution.</strong>
-                \[ \vec r_u \times \vec r_v = \begin{vmatrix} \vec i & \vec j &
-                \vec k \\ R\cos u \cos v & R\cos u \sin v & -R\sin u \\ -R\sin u
-                \sin v & R\sin u \cos v & 0 \\ \end{vmatrix} = \bv{ R^2 \sin^2 u
-                \cos v \\ R^2 \sin^2 u \sin v \\ R^2 \sin u \cos u} \]
-              </p>
-              <p class="fragment">
-                \[= R \sin (u)\, \vec r(u,v)\] has magnitude $R^2 \sin u$.
-              </p>
-            </div>
-          </section>
-          <section>
-            <p>
-              <strong>Solution cont'd.</strong> \[I_z = \iint_{\mathcal S} (x^2
-              + y^2)\,\mu\,dS \] \[ = \mu\int_0^{2\pi}\int_0^\pi (R\sin u)^2 R^2
-              \sin u \,du\,dv \] \[ = \frac83 \pi \mu R^4 = \frac23 M R^2 \]
-            </p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Orientation</h1>
-          </section>
-
-          <section>
-            <h6 class="framelabel">Definition</h6>
-
-            <p>
-              A surface $\Omega$ is <strong>oriented</strong> if there is a
-              continuous choice of unit normal vector $\vec N$ at each point of
-              the surface.
-            </p>
-
-            <p class="fragment">
-              In other words, an orientation is choice of positive "side" of a
-              surface. By convention we encode this in the parametrization $\vec
-              r(u,v)$. \[ \vec N = \frac{\vec r_u \times \vec r_v}{|\vec r_u
-              \times \vec r_v | } \]
-            </p>
-          </section>
-          <section>
-            <h6 class="framelabel">Examples</h6>
-
-            <p class="fragment">
-              A
-              <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=-1&obj0_params_d=1&obj0_params_x=u&obj0_params_y=v&obj0_params_z=u%5E3+%2F+3+-+v%5E2+%2F+2+-+u+%2F+3&obj0_params_t0=0&obj0_params_t1=1"
-                target="_blank"
-                >graph</a
-              >
-              $\langle u, v, f(u,v) \rangle$ could be oriented <em>upward</em>.
-              <span class="fragment"
-                >\[ \vec N \sim \langle -f_x, -f_y, 1 \rangle\]</span
-              >
-            </p>
-            <p class="fragment">
-              A
-              <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u&obj0_params_y=%28u%5E3+%2F+3++-+u+%2F+3+%2B+1%29+*+sin%28v%29&obj0_params_z=%28u%5E3+%2F+3++-+u+%2F+3+%2B+1%29+*+cos%28v%29&obj0_params_t0=0&obj0_params_t1=1"
-                target="_blank"
-                >surface of revolution</a
-              >
-              $\langle u, g(u) \sin v, g(u)\cos v \rangle $ could be oriented
-              <em>outward</em>.
-              <span class="fragment"
-                >\[ \vec N \sim g(u) \langle -g'(u), \sin v, \cos v
-                \rangle\]</span
-              >
-            </p>
-          </section>
-
-          <section>
-            <h3 class="framelabel">WARNING</h3>
-
-            <p>
-              The
-              <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281+%2B+u%2F2*cos%28v%2F2%29%29+*+cos+%28v%29&obj0_params_y=%281+%2B+u%2F2+*cos%28v%2F2%29%29+*+sin+%28v%29&obj0_params_z=u%2F2+*sin%28v%2F2%29&obj0_params_t0=0&obj0_params_t1=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Möbius strip</a
-              >
-              is, famously, <strong>non-orientable</strong>.
-            </p>
-            <p class="fragment">
-              We will not deal with such surfaces in this class, but it should
-              be known such exist.
-            </p>
-          </section>
-          <section>
-            <h6 class="framelabel">Example</h6>
-            <p>
-              Find a parametrization of the unit sphere
-              <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2+pi&obj0_params_c=0&obj0_params_d=pi&obj0_params_x=sin%28v%29+cos%28u%29&obj0_params_y=sin%28v%29+sin%28u%29&obj0_params_z=cos%28v%29&obj0_params_t0=0&obj0_params_t1=1"
-                target="_blank"
-              >
-                oriented inward</a
-              >.
-            </p>
-
-            <p class="fragment">
-              <strong>Solution.</strong>
-              \[ \vec r(u,v) = \bv{ \sin(v) \cos(u) \\ \sin(v) \sin(u) \\
-              \cos(v) \\ }\] so $v$ plays the role of $\phi$ and $u$ that of
-              $\theta$ is one (of many) ways to do this.
-            </p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>
-              <span class="fragment">Net</span> Flux
-              <span class="r-stack">
-                <span class="fragment current-visible">&amp; Chill</span>
-                <span class="fragment fade" style="font-size: x-small"
-                  >sorry</span
-                >
-              </span>
-            </h1>
-          </section>
-          <section>
             <h6 class="framelabel">Definition</h6>
             <p style="font-size: smaller">
               A <strong>flux integral</strong> of a vector field $\vec F$
@@ -235,57 +92,12 @@
               \[\iint_\Omega \vec F\cdot d\vec S = \iint_\Omega \vec F \cdot
               \vec N\,dS \]
             </p>
-            <ul style="font-size: smaller">
-              <li class="fragment">
-                <strong>Where?</strong> on a 2D surface $\Omega$ in $\RR^3$.
-              </li>
-              <li class="fragment">
-                <strong>What?</strong> a vector field $\vec F$.
-              </li>
-              <li class="fragment">
-                <strong>How?</strong> in the (positive) direction perpendicular
-                to the surface.
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h6 class="framelabel">Formula</h6>
-
-            <p>
-              \[ \iint\limits_\Omega \vec F \cdot \vec N\,dS = \iint\limits_D
-              \vec F(\vec r(u,v))\cdot \frac{\vec r_u\times \vec r_v}{|\vec r_u
-              \times \vec r_v|} |\vec r_u \times \vec r_v|\,dA \]
-            </p>
             <p class="fragment">
-              \[ = \iint\limits_D \vec F(\vec r(u,v))\cdot \vec r_u\times \vec
-              r_v\,dA\]
-            </p>
-            <p class="fragment">
-              That integrand $\vec F(\vec r(u,v))\cdot \vec r_u\times \vec r_v$
-              is a triple-product, or, rather, a volume of a parallelopiped, two
-              sides defined by the surface, and one by the vector field.
+              \[ = \iint\limits_D \vec F(\vec r(u,v))\cdot (\vec r_u \times \vec
+              r_v) \,du\,dv \]
             </p>
           </section>
-          <section>
-            <h6 class="framelabel">First Example</h6>
 
-            <p>
-              Let $\vec F = \vec i$ (a constant) and $\Omega$ the unit square in
-              the $yz$-plane. Compute the flux $\iint_\Omega \vec F\cdot d\vec
-              S$.
-            </p>
-
-            <p>
-              <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=1&obj0_params_c=0&obj0_params_d=1&obj0_params_x=0&obj0_params_y=u&obj0_params_z=v&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%23dc5e66&obj1_params_p=1&obj1_params_q=0&obj1_params_r=0&obj1_params_nVec=6"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Click here</a
-              >
-              and then <code>Story &rarr; Flux Integrals</code> tab to visualize
-              this.
-            </p>
-          </section>
           <section>
             <h6 class="framelabel">Example</h6>
             <p>
@@ -294,8 +106,9 @@
                 href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.4&showPanel=true&obj0_kind=surface&obj0_color=%236865ae&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%23dc5e66&obj1_params_p=0&obj1_params_q=0&obj1_params_r=z&obj1_params_nVec=6"
                 target="_blank"
                 rel="noopener noreferrer"
-                >flux</a
               >
+                flux
+              </a>
               of the vector field $z\,\vec k$ through the piece of the cone
               $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented upward.
             </p>
@@ -306,83 +119,7 @@
           <section>
             <h1>Div &amp; Curl</h1>
           </section>
-          <section>
-            <h6 class="framelabel">Differential Calc in 30 Seconds</h6>
 
-            <ul>
-              <li class="fragment">
-                One-variable calculus: $\displaystyle \frac{dy}{dx}$
-              </li>
-              <li class="fragment">curves: $\displaystyle \vec r'(t)$</li>
-              <li class="fragment">
-                scalar fields: $\displaystyle \nabla f(x,y)$
-              </li>
-              <li class="fragment">
-                vector fields:
-                <span class="fragment">$\displaystyle D \vec F?$</span>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h3 class="framelabel">Curl and Div in 2D</h3>
-
-            <div style="font-size: smaller">
-              <p>If $\vec F(x,y) = \langle P(x,y),Q(x,y) \rangle $, then</p>
-
-              \[\operatorname{curl} \vec F (x,y) = Q_x - P_y = \text{
-              ``circulation density''}\]
-
-              <ul>
-                <li class="fragment">
-                  positive $\leftrightarrow$ counterclockwise spin
-                </li>
-                <li class="fragment">
-                  negative $\leftrightarrow$ clockwise spin
-                </li>
-                <li class="fragment">zero $\leftrightarrow$ irrotational</li>
-              </ul>
-
-              <div class="fragment">
-                \[\operatorname{div} \vec F (x,y) = P_x + Q_y = \text{ ``flux
-                density''}\]
-
-                <ul>
-                  <li class="fragment">positive $\leftrightarrow$ expansion</li>
-                  <li class="fragment">
-                    negative $\leftrightarrow$ compression
-                  </li>
-                  <li class="fragment">
-                    zero $\leftrightarrow$ incompressibility
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h3 class="framelabel">Div in 3D</h3>
-
-            <div>
-              \[\operatorname{div} \vec F (x, y, z) = P_x + Q_y + R_z = \text{
-              ``flux density''}\]
-
-              <ul>
-                <li class="fragment">positive $\leftrightarrow$ expansion</li>
-                <li class="fragment">negative $\leftrightarrow$ compression</li>
-                <li class="fragment">
-                  zero $\leftrightarrow$ incompressibility
-                </li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h3 class="framelabel">Curl in 3D</h3>
-            <div style="font-size: smaller">
-              \[\operatorname{curl} \vec F (x, y, z) = (R_y - Q_z)\,\vec i + (
-              P_z - R_x)\,\vec j + (Q_x - P_y)\,\vec k \]
-
-              <p class="fragment">It's a little complicated</p>
-            </div>
-          </section>
           <section>
             <h3 class="framelabel">"Del"</h3>
 
@@ -444,7 +181,156 @@
               \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial
               y} \right)\,\vec k \]
             </p>
-            <p class="fragment">aka the <strong>curl</strong></p>
+            <p class="fragment" style="font-size: smaller">
+              aka the <strong>curl</strong>. The curl measures the spin or
+              rotation of a vector field. It is a vector with the direction
+              giving the axis of rotation and the magnitude indicating the
+              strength of the rotation (as indicated by the right hand rule).
+            </p>
+          </section>
+          <section style="font-size: smaller">
+            <h6 class="framelabel">Examples</h6>
+
+            <p class="fragment">
+              Compute the curl of $\vec F(x,y,z) = -y \vec i + x z\,\vec j +
+              z^2\,\vec k$
+              <span class="fragment">
+                \[ \nabla \times F = -x\,\vec i + (z - 1)\,\vec k\]
+              </span>
+            </p>
+
+            <p class="fragment">
+              Compute the divergence of both $\vec F$ and its curl.
+              <span class="fragment">
+                \[ \nabla \cdot F = 2z \qquad \qquad \qquad \nabla \cdot \nabla
+                \times F = -1 + 1 = 0.\]
+              </span>
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Stokes' Theorem</h1>
+          </section>
+          <section>
+            <h6 class="framelabel"></h6>
+          </section>
+          <section>
+            <h3>Stokes' Theorem</h3>
+
+            <div class="container">
+              <div class="col">
+                <h6>Objectives</h6>
+                <ul>
+                  <li class="fragment">orient a surface and its boundary</li>
+                  <li class="fragment">see a brief justification</li>
+                  <li class="fragment">recognize when it applies</li>
+                </ul>
+              </div>
+              <div class="col">
+                <img
+                  src="http://mathshistory.st-andrews.ac.uk/BigPictures/Stokes_3.jpeg"
+                  alt="Portrait of Stokes"
+                  srcset=""
+                />
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Stokes' Theorem</h6>
+
+            <p>
+              Let $\Omega$ be an oriented surface in $\RR^3$ and $\partial
+              \Omega$ its
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%23251fe0&obj0_params_a=0&obj0_params_b=1%2F2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=2+u+cos%28v%29+%2B+1&obj0_params_y=u+sin+%28v%29&obj0_params_z=1+%2B+cos%283%282+u+cos%28v%29+%2B+1+%2B+u+sin%28v%29+%2F+2%29%29+%2F+%282+%2B+u%5E2+cos%28v%29%5E2%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ffc038&obj1_params_a=0&obj1_params_b=2+pi&obj1_params_x=+cos%28t%29+%2B+1&obj1_params_y=sin+%28t%29+%2F+2&obj1_params_z=1+%2B+cos%283%28+cos%28t%29+%2B+1+%2B++sin%28t%29+%2F+4%29%29+%2F+%282+%2B+1%2F4*cos%28t%29%5E2%29"
+                target="_blank"
+                rel="noopener noreferrer"
+                >positively-oriented boundary</a
+              >. If $\vec F(x,y,z)$ is a smooth vector field, then \[
+              \iint_{\Omega} \nabla \times\vec F \cdot d \vec S =
+              \oint_{\partial \Omega} \vec F\cdot d \vec r \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Faraday's Law</h6>
+
+            <div class="container">
+              <div class="col">
+                \[ \begin{align*} -\frac{\partial \Phi}{\partial t} &=
+                \iint\limits_{D} -\frac{\partial B}{\partial t} d\vec S \\ \ &=
+                \iint\limits_{D} \nabla\times \vec E\cdot d\vec S \\ \ &=
+                \oint\limits_{\partial D} \vec E\cdot d\vec r \end{align*} \]
+
+                <p class="fragment" style="font-size: small">
+                  <a
+                    href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%23000000&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=cos%283+t%29+%2F+2&obj0_params_y=sin%283+t%29+%2F+2&obj0_params_z=t+%2F+pi+-+1&obj1_kind=curve&obj1_color=%23000000&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=1&obj1_params_y=0&obj1_params_z=t&obj2_kind=curve&obj2_color=%23000000&obj2_params_a=0&obj2_params_b=1&obj2_params_x=1-t%2F2&obj2_params_y=0&obj2_params_z=-1&obj3_kind=curve&obj3_color=%23000000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=1+-+t+%2F+2&obj3_params_y=0&obj3_params_z=1&obj4_kind=surface&obj4_color=%236664dd&obj4_params_a=0&obj4_params_b=2+pi&obj4_params_c=0&obj4_params_d=1&obj4_params_x=cos%283+u%29+%2F+2+*+%281+-+v%29+%2B+v&obj4_params_y=sin%283+u%29+%2F+2+*+%281+-+v%29+&obj4_params_z=u+%2F+pi+-+1&obj4_params_t0=0&obj4_params_t1=1&obj5_kind=field&obj5_color=%230d0887&obj5_params_p=+z+x+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj5_params_q=+z+y+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj5_params_r=-log%28%28x%5E2+%2B+y%5E2%29*4%29&obj5_params_nVec=6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Demo</a
+                  >
+                </p>
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%23000000&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=cos%283+t%29+%2F+2&obj0_params_y=sin%283+t%29+%2F+2&obj0_params_z=t+%2F+pi+-+1&obj1_kind=curve&obj1_color=%23000000&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=1&obj1_params_y=0&obj1_params_z=t&obj2_kind=curve&obj2_color=%23000000&obj2_params_a=0&obj2_params_b=1&obj2_params_x=1-t%2F2&obj2_params_y=0&obj2_params_z=-1&obj3_kind=curve&obj3_color=%23000000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=1+-+t+%2F+2&obj3_params_y=0&obj3_params_z=1&obj4_kind=surface&obj4_color=%236664dd&obj4_params_a=0&obj4_params_b=2+pi&obj4_params_c=0&obj4_params_d=1&obj4_params_x=cos%283+u%29+%2F+2+*+%281+-+v%29+%2B+v&obj4_params_y=sin%283+u%29+%2F+2+*+%281+-+v%29+&obj4_params_z=u+%2F+pi+-+1&obj4_params_t0=0&obj4_params_t1=1&obj5_kind=field&obj5_color=%230d0887&obj5_params_p=+z+x+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj5_params_q=+z+y+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj5_params_r=-log%28%28x%5E2+%2B+y%5E2%29*4%29&obj5_params_nVec=6"
+                  width="400px"
+                  height="600px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Compute the line integral $\oint\limits_{\partial \Omega} \vec
+              F\cdot d\vec r $ around the ccw-oriented boundary of $\Omega$
+              given by \[z = (1 - x^2)(1-y^2)\] for $-1 \leq x \leq 1, -1 \leq y
+              \leq 1$ and \[\vec F(x,y,z) = 2y\,\vec i + 3z\, \vec j + z\, \vec
+              k.\]
+            </p>
+            <p class="fragment">
+              I call this surface the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23000000&obj0_params_a=-1&obj0_params_b=1&obj0_params_x=1&obj0_params_y=t&obj0_params_z=0&obj0_params_tau=0&obj0_params_color=%230032a8&obj1_kind=curve&obj1_color=%23000000&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=-1&obj1_params_y=t&obj1_params_z=0&obj1_params_tau=0&obj1_params_color=%230032a8&obj2_kind=curve&obj2_color=%23000000&obj2_params_a=-1&obj2_params_b=1&obj2_params_x=t&obj2_params_y=1&obj2_params_z=0&obj2_params_tau=0&obj2_params_color=%230032a8&obj3_kind=curve&obj3_color=%23000000&obj3_params_a=-1&obj3_params_b=1&obj3_params_x=t&obj3_params_y=-1&obj3_params_z=0&obj3_params_tau=0&obj3_params_color=%230032a8&obj4_kind=field&obj4_color=%230d0887&obj4_params_p=2y&obj4_params_q=3z&obj4_params_r=x&obj4_params_nVec=6&obj5_kind=surface&obj5_color=%23088710&obj5_params_a=-1&obj5_params_b=1&obj5_params_c=-1&obj5_params_d=1&obj5_params_x=u&obj5_params_y=v&obj5_params_z=%281+-+u%5E2%29+*+%281+-+v%5E2%29+*+%281+-+t%29&obj5_params_t0=0&obj5_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >raviolo</a
+              >.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              A
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.68&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=2+cos%283+u%29+%2B+108*sin%282*u%29%5E2*sin%283*u%29*cos%282*u%29%2Fsqrt%2816*%289*sin%283*u%29%5E2+%2B+49*cos%28u%29%5E2%29%5E2+%2B+11664*sin%282*u%29%5E4*sin%283*u%29%5E2*cos%282*u%29%5E2+%2B+63504*sin%282*u%29%5E4*cos%28u%29%5E2*cos%282*u%29%5E2%29*cos%28v%29+-14*cos%28u%29%2Fsqrt%2836*sin%283*u%29%5E2+%2B+196*cos%28u%29%5E2%29*sin%28v%29+&obj0_params_y=2+sin%28u%29*7+%2B+-252*sin%282*u%29%5E2*cos%28u%29*cos%282*u%29%2Fsqrt%2816*%289*sin%283*u%29%5E2+%2B+49*cos%28u%29%5E2%29%5E2+%2B+11664*sin%282*u%29%5E4*sin%283*u%29%5E2*cos%282*u%29%5E2+%2B+63504*sin%282*u%29%5E4*cos%28u%29%5E2*cos%282*u%29%5E2%29*cos%28v%29+-6*sin%283*u%29%2Fsqrt%2836*sin%283*u%29%5E2+%2B+196*cos%28u%29%5E2%29*sin%28v%29+&obj0_params_z=sin%282+u%29%5E3*3+%2B+%2836*sin%283*u%29%5E2+%2B+196*cos%28u%29%5E2%29%2Fsqrt%2816*%289*sin%283*u%29%5E2+%2B+49*cos%28u%29%5E2%29%5E2+%2B+11664*sin%282*u%29%5E4*sin%283*u%29%5E2*cos%282*u%29%5E2+%2B+63504*sin%282*u%29%5E4*cos%28u%29%5E2*cos%282*u%29%5E2%29*cos%28v%29+&obj0_params_t0=0&obj0_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >hose</a
+              >
+              connects two ports, unit circles in the $xz$-plane centered at $x
+              = \pm 2, z = 0$. Find the flux out of the hose of the
+              <em>curl</em> of the vector field \[ \vec F(x,y,z) = z\,\vec i -
+              (xy + z/2)\,\vec j - z \vec k. \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Compute the line integral $\oint_{\partial D} \vec F \cdot d\vec
+              r$ around the ccw (from above) boundary of the surface $D$. \[
+              \vec F(x,y,z) = xyz \,\vec i + y \,\vec j + z \,\vec k \] where
+              $D$ is the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23ffff00&obj0_params_a=0&obj0_params_b=pi+%2F+2&obj0_params_x=cos%28t%29&obj0_params_y=sin%28t%29&obj0_params_z=cos%28t%29%5E2&obj1_kind=curve&obj1_color=%23ffff00&obj1_params_a=0&obj1_params_b=1&obj1_params_x=t&obj1_params_y=0&obj1_params_z=t%5E2&obj2_kind=curve&obj2_color=%23ffff00&obj2_params_a=0&obj2_params_b=1&obj2_params_x=0&obj2_params_y=t&obj2_params_z=0&obj3_kind=field&obj3_color=%239310a2&obj3_params_p=0&obj3_params_q=-+x+y&obj3_params_r=-+x+z&obj3_params_nVec=6&obj4_kind=surface&obj4_color=%230d0887&obj4_params_a=0&obj4_params_b=1&obj4_params_c=0&obj4_params_d=pi+%2F+2&obj4_params_x=u+cos%28v%29&obj4_params_y=u+sin%28v%29&obj4_params_z=u%5E2+cos%28v%29%5E2&obj4_params_t0=0&obj4_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >portion of the surface
+              </a>
+              $z=x^2$ above $x^2 + y^2 \leq a^2$ in the first octant.
+            </p>
           </section>
         </section>
       </div>
