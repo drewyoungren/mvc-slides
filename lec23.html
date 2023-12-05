@@ -186,6 +186,42 @@
         </section>
         <section>
           <section>
+            <h1>Interpretations</h1>
+          </section>
+          <section data-background-image="">
+            <h6 class="framelabel">Electric Field Hockey</h6>
+
+            <p>One of Maxwell's equations is \[\nabla \cdot \vec E = \rho \]</p>
+
+            <div class="container">
+              <div class="col">
+                <p>
+                  which says the divergence of the electric field is the charge
+                  density.
+                </p>
+              </div>
+              <div class="col fragment">
+                <a
+                  href="https://phet.colorado.edu/en/simulation/electric-hockey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img
+                    src="assets/efh.png"
+                    alt="Screenshot of 'hockey' game displaying a number of charges and the associated electric field"
+                    srcset=""
+                /></a>
+                <p style="font-size: xx-small">
+                  via Ruth Chabay, et al, UC Boulder
+                </p>
+              </div>
+            </div>
+          </section>
+          <section data-background-image="assets/terry.jpeg">
+            <h6 class="framelabel">Spraying Champagne</h6>
+          </section>
+        </section>
+        <section>
+          <section>
             <h1>Examples</h1>
           </section>
           <section>
@@ -210,9 +246,92 @@
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
+
+            <p>
+              Find the flux of the vector field $(1 - x)\,\vec i - y\, \vec j$
+              through the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=true&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=1+-+x&obj1_params_q=1+-+y&obj1_params_r=0&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >piece of the cone</a
+              >
+              $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented upward.
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              <strong>Solution.</strong> Direct computation: \[\vec r(u,v) =
+              \bv{u \cos v \\ u \sin v \\ u} \qquad \begin{cases} 0 \leq u \leq
+              2 \\ 0 \leq v \leq 2 \pi \end{cases} \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              \[\iint_C \vec F\cdot d\vec S = \int_0^{2 \pi} \int_0^2 \bv{ 1 - u
+              \cos v \\ 1 - u \sin v \\ 0 } \cdot \bv{ -u \cos v \\ -u\sin v \\
+              u } du\,dv\]
+            </p>
           </section>
           <section>
-            <h6 class="framelabel">Example</h6>
+            <p style="font-size: smaller">
+              \[ = \int_0^{2 \pi} \int_0^2 u^2 \,du\,dv = \frac{16\pi}{3} \]
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              Using Gauss':
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=true&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=1+-+x&obj1_params_q=1+-+y&obj1_params_r=0&obj1_params_nVec=6&obj2_kind=surface&obj2_color=%230d0887&obj2_params_a=0&obj2_params_b=2&obj2_params_c=0&obj2_params_d=2+pi&obj2_params_x=u+cos%28v%29&obj2_params_y=u+sin%28v%29&obj2_params_z=2&obj2_params_t0=0&obj2_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Enclose the surface</a
+              >
+              by adding a flat disk $\mathcal T$ to the top, oriented up, at $z
+              = 2$. Then, by Gauss, \[ \iint_{\mathcal T} \vec F\cdot \vec N
+              \,dS - \iint_{\mathcal C} \vec F\cdot \vec N \,dS = \iiint_E
+              \nabla \cdot \vec F\,dV = \iiint_E -2\,dV \] $= -2\frac{2}{3}\pi 4
+              $. Note for $\mathcal T$ the unit normal is $\vec k$ and $\vec
+              F\cdot \vec k = 0$. Solving for the desired flux gives the answer
+              above.
+            </p>
+          </section>
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+            data-background-opacity="0.4"
+          >
+            <h6 class="framelabel">Buoyancy</h6>
+
+            <p>
+              Ηydrostatic pressure is proportional to depth. $P = \rho g d$. The
+              force on a small piece of
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >submerged surface</a
+              >
+              is $-P\, \vec N\,dS$ where $\vec N$ is the normal vector to the
+              surface. The (net) buoyant force on the hull of a watercraft is
+              the component of this force in the upward direction.
+            </p>
+            <p>
+              Use the Divergence Theorem to relate the buoyant force to the
+              volume of a submerged object.
+            </p>
+          </section>
+          <section>
+            <p style="font-size: smaller">
+              <strong>Solution.</strong> Suppose an object is modeled by a solid
+              $E$ with outward-oriented normal $\vec N$ on the boundary
+              $\partial E = \Sigma$, where the surface of the water is $z = 0$.
+            </p>
+            <p style="font-size: smaller">
+              Then the total buoyant force is \[ \iint_\Sigma \rho g (-z)(-\vec
+              N)\cdot \vec k\, dS = \rho g \iint_{\partial E} z\,\vec k \cdot
+              d\vec S \]
+            </p>
+            <p style="font-size: smaller">
+              but the vector field $z\,\vec k$ has divergence 1, so the RHS is
+              just $\rho g \operatorname{Vol}(E)$, the weight of the water
+              displaced by $E$.
+            </p>
           </section>
         </section>
       </div>
