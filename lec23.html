@@ -258,16 +258,23 @@
               >
               $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented upward.
             </p>
-
-            <p class="fragment" style="font-size: smaller">
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=1+-+x&obj1_params_q=1+-+y&obj1_params_r=0&obj1_params_nVec=6"
+              frameborder="0"
+              width="700px"
+              height="400px"
+            ></iframe>
+          </section>
+          <section>
+            <p style="font-size: smaller">
               <strong>Solution.</strong> Direct computation: \[\vec r(u,v) =
               \bv{u \cos v \\ u \sin v \\ u} \qquad \begin{cases} 0 \leq u \leq
               2 \\ 0 \leq v \leq 2 \pi \end{cases} \]
             </p>
             <p class="fragment" style="font-size: smaller">
               \[\iint_C \vec F\cdot d\vec S = \int_0^{2 \pi} \int_0^2 \bv{ 1 - u
-              \cos v \\ 1 - u \sin v \\ 0 } \cdot \bv{ -u \cos v \\ -u\sin v \\
-              u } du\,dv\]
+              \cos v \\ - u \sin v \\ 0 } \cdot \bv{ -u \cos v \\ -u\sin v \\ u
+              } du\,dv\]
             </p>
           </section>
           <section>
