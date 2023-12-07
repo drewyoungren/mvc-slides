@@ -1,0 +1,38 @@
+[
+  {
+    "uuid": "92ede3a9-asdf-458a-80f4-6650bbe2c4d6",
+    "params": {
+      "a": "0",
+      "b": "1",
+      "c": "0",
+      "d": "2*pi",
+      "x": "(1-u)*pi",
+      "y": "(pi*sqrt(u - u^2) - u*sin(pi*u)^2)*cos(v)",
+      "z": "-max((pi*sqrt(abs(u - u^2)) - u*sin(pi*u)^2) * sin(-v), max(1/2 - (u*pi - 1 )^2 - ((pi*sqrt(abs(u - u^2)) - u*sin(pi*u)^2)*cos(v))^2, 0))",
+      "t0": "0",
+      "t1": "1"
+    },
+    "kind": "surface",
+    "color": "#006614",
+    "animation": false,
+    "title": "Bottom Half"
+  },
+  {
+    "uuid": "31324-991u-458a-80f4-6650bbe2c4d6",
+    "params": {
+      "a": "0",
+      "b": "1",
+      "c": "0",
+      "d": "2*pi",
+      "x": "(1-u)*pi",
+      "y": "2 + cos(t/3)((pi*sqrt(u - u^2) - u*sin(pi*u)^2)*cos(v) - 2) + sin(t/3)*max((pi*sqrt(abs(u - u^2)) - u*sin(pi*u)^2) * sin(v), max(1/2 - (u*pi - 1 )^2 - ((pi*sqrt(abs(u - u^2)) - u*sin(pi*u)^2)*cos(v))^2, 0))",
+      "z": "-sin(t/3)((pi*sqrt(u - u^2) - u*sin(pi*u)^2)*cos(v) - 2) + cos(t/3)*max((pi*sqrt(abs(u - u^2)) - u*sin(pi*u)^2) * sin(v), max(1/2 - (u*pi - 1 )^2 - ((pi*sqrt(abs(u - u^2)) - u*sin(pi*u)^2)*cos(v))^2, 0))",
+      "t0": "0",
+      "t1": "3"
+    },
+    "kind": "surface",
+    "color": "#006614",
+    "animation": false,
+    "title": "Top Half"
+  }
+]

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Gauss' Theorem</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script> -->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">Lecture 24</h3>
+            <h1>$\sum \mathbf m_a \cdot\mathbf r_y$</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">HW 12 "due" 12/12</li>
+              <li class="fragment">
+                Quiz 9
+                <ul>
+                  <li>Surface Integrals</li>
+                  <li>Stokes' Theorem</li>
+                </ul>
+              </li>
+              <li class="fragment">Regular recitation schedule</li>
+              <li class="fragment">Review Session - 12/12 1:00PM Math 207</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h3 class="framelabel">The Divergence Theorem</h3>
+            <h5 class="framelabel">
+              aka
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=true&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=rect&obj0_params_a=0&obj0_params_b=.05&obj0_params_c=0&obj0_params_d=0.05&obj0_params_e=0&obj0_params_f=0.05&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=pi&obj1_params_c=0&obj1_params_d=2+pi&obj1_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj1_params_y=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj1_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=field&obj2_color=%235801a5&obj2_params_p=z&obj2_params_q=y&obj2_params_r=z&obj2_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Gauss' Theorem</a
+              >
+            </h5>
+
+            <p>
+              Let $E$ be a solid region in $\RR^3$ and $\partial E$ its
+              outward-oriented boundary. If $\vec F(x,y,z)$ is a smooth vector
+              field, then \[ \iint\limits_{\partial E} \vec F \cdot \vec N\,d S
+              = \iiint\limits_E \nabla \cdot \vec F\,dV \]
+            </p>
+          </section>
+
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+            data-background-opacity="0.4"
+          >
+            <h6 class="framelabel">Buoyancy</h6>
+
+            <p>
+              Ηydrostatic pressure is proportional to depth. $P = \rho g d$. The
+              force on a small piece of
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >submerged surface</a
+              >
+              is $-P\, \vec N\,dS$ where $\vec N$ is the normal vector to the
+              surface. The (net) buoyant force on the hull of a watercraft is
+              the component of this force in the upward direction.
+            </p>
+            <p>
+              Use the Divergence Theorem to relate the buoyant force to the
+              volume of a submerged object.
+            </p>
+          </section>
+          <section>
+            <p style="font-size: smaller">
+              <strong>Solution.</strong> Suppose an object is modeled by a solid
+              $E$ with outward-oriented normal $\vec N$ on the boundary
+              $\partial E = \Sigma$, where the surface of the water is $z = 0$.
+            </p>
+            <p style="font-size: smaller">
+              Then the total buoyant force is \[ \iint_\Sigma \rho g (-z)(-\vec
+              N)\cdot \vec k\, dS = \rho g \iint_{\partial E} z\,\vec k \cdot
+              d\vec S \]
+            </p>
+            <p style="font-size: smaller">
+              but the vector field $z\,\vec k$ has divergence 1, so the RHS is
+              just $\rho g \operatorname{Vol}(E)$, the weight of the water
+              displaced by $E$.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Gauss' Law</h3>
+
+            <p>
+              Coulomb's Law states that the strength of the electric field $\vec
+              E$ from a charge $q$ at the origin is given by \[ \vec E(x,y,z) =
+              \frac{q}{4\pi\varepsilon_0} \frac{\langle x, y, z
+              \rangle}{\sqrt{x^2 + y^2 + z^2}^3} \] i.e., has strength inversely
+              proportional to the distance squared. Let's compute $\nabla\cdot
+              \vec E$.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+
+            <p style="font-size: smaller">
+              \[ P_x = \frac{\partial}{\partial x} \frac{x}{(x^2 + y^2
+              +z^2)^{3/2}} \] \[ = \frac{(x^2 + y^2 +z^2)^{3/2} - 3 x^2 (x^2 +
+              y^2 +z^2)^{1/2}}{(x^2 + y^2 +z^2)^{3}} \] \[ = \frac{1}{(x^2 + y^2
+              +z^2)^{3/2}} - \frac{3 x^2 } {(x^2 + y^2 +z^2)^{5/2}} \] Repeating
+              this for $Q_y$ and $R_z$ gives \[ P_x + Q_y + R_z = \frac{3}{(x^2
+              + y^2 +z^2)^{3/2}} - \frac{3 x^2 + 3y^2 + 3z^2} {(x^2 + y^2
+              +z^2)^{5/2}} = 0 \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Gauss' Law</h3>
+            <p>
+              \[ \iint\limits_{\Sigma} \vec E\cdot d\vec S =
+              \frac{Q}{\varepsilon_0} \] where $\vec E$ is the electric field,
+              $\varepsilon$ is the permittivity, $\Sigma$ is a closed surface,
+              and $Q$ is the total charge contained therein. In other words, the
+              flux through a surface is independent of shape, but only depends
+              on the amount of surrounded charge.
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
