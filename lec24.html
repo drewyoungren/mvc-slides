@@ -99,9 +99,11 @@
           >
             <h6 class="framelabel">Buoyancy</h6>
 
-            <p>
-              Ηydrostatic pressure is proportional to depth. $P = \rho g d$. The
-              force on a small piece of
+            <p style="font-size: smaller">
+              Ηydrostatic pressure is proportional to depth. $P = \rho g d$.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              The force on a small piece of
               <a
                 href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
                 target="_blank"
@@ -109,12 +111,14 @@
                 >submerged surface</a
               >
               is $-P\, \vec N\,dS$ where $\vec N$ is the normal vector to the
-              surface. The (net) buoyant force on the hull of a watercraft is
-              the component of this force in the upward direction.
+              surface.
             </p>
-            <p>
-              Use the Divergence Theorem to relate the buoyant force to the
-              volume of a submerged object.
+            <p class="fragment" style="font-size: smaller">
+              The (net) buoyant force on the hull of a watercraft is the
+              component of this force in the upward direction.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              b What is the net buoyant force on the whole surface?
             </p>
           </section>
           <section>
@@ -163,12 +167,197 @@
             <h3 class="framelabel">Gauss' Law</h3>
             <p>
               \[ \iint\limits_{\Sigma} \vec E\cdot d\vec S =
-              \frac{Q}{\varepsilon_0} \] where $\vec E$ is the electric field,
-              $\varepsilon$ is the permittivity, $\Sigma$ is a closed surface,
-              and $Q$ is the total charge contained therein. In other words, the
-              flux through a surface is independent of shape, but only depends
-              on the amount of surrounded charge.
+              \frac{Q}{\varepsilon_0} \] where $\vec E$ is the
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.34&showPanel=false&obj0_kind=surface&obj0_color=%23005210&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=3+u+%2F+2&obj0_params_y=-%281+%2B+u%2F4%29*sqrt%281+-+u%5E2%29*cos%28v%29&obj0_params_z=%281+%2B+u%2F4%29*sqrt%281+-+u%5E2%29*sin%28v%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=surface&obj1_color=%23008a1c&obj1_params_a=0&obj1_params_b=pi&obj1_params_c=0&obj1_params_d=2+pi&obj1_params_x=1%2F3+sin%28u%29sin%28v%29+%2B+1%2F2&obj1_params_y=1%2F3+sin%28u%29+cos%28v%29&obj1_params_z=1%2F3+cos%28u%29&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=field&obj2_color=%235801a5&obj2_params_p=%28x+-+1%2F2%29+%2F+sqrt%28.1+%2B+%28x+-+1%2F2%29%5E2+%2B+y%5E2+%2B+z%5E2%29%5E3&obj2_params_q=y+%2F+sqrt%28.1+%2B+%28x+-+1%2F2%29%5E2+%2B+y%5E2+%2B+z%5E2%29%5E3&obj2_params_r=z+%2F+sqrt%28.1+%2B+%28x+-+1%2F2%29%5E2+%2B+y%5E2+%2B+z%5E2%29%5E3&obj2_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >electric field</a
+              >, $\varepsilon$ is the permittivity, $\Sigma$ is a closed
+              surface, and $Q$ is the total charge contained therein.
             </p>
+            <p class="fragment" style="font-size: smaller">
+              Why don't we
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=surface&obj0_color=%23005210&obj0_params_a=-1&obj0_params_b=1&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=3+u+%2F+2&obj0_params_y=%281+%2B+u%2F4%29*sqrt%281+-+u%5E2%29*cos%28v%29&obj0_params_z=-max%28%281+%2B+u%2F4%29*sqrt%28abs%281+-+u%5E2%29%29+*+sin%28v%29%2C+sqrt%28abs%28max%281%2F4+-+%283+u+%2F+2+-+1%2F2+%29%5E2+-+%28%281+%2B+u%2F4%29*sqrt%28abs%281+-+u%5E2%29%29*cos%28v%29%29%5E2%2C+0%29%29%29%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=surface&obj1_color=%23005210&obj1_params_a=-1&obj1_params_b=1&obj1_params_c=0&obj1_params_d=2+pi&obj1_params_x=3+u+%2F+2&obj1_params_y=2+%2B+cos%28t%2F3%29%28%281+%2B+u%2F4%29*sqrt%281+-+u%5E2%29*cos%28v%29+-+2%29+%2B+sin%28t%2F3%29*max%28%281+%2B+u%2F4%29*sqrt%28abs%281+-+u%5E2%29%29+*+sin%28-v%29%2C+sqrt%28abs%28max%281%2F4+-+%283+u+%2F+2+-+1%2F2+%29%5E2+-+%28%281+%2B+u%2F4%29*sqrt%28abs%281+-+u%5E2%29%29*cos%28v%29%29%5E2%2C+0%29%29%29%29&obj1_params_z=-sin%28t%2F3%29%28%281+%2B+u%2F4%29*sqrt%281+-+u%5E2%29*cos%28v%29+-+2%29+%2B+cos%28t%2F3%29*max%28%281+%2B+u%2F4%29*sqrt%28abs%281+-+u%5E2%29%29+*+sin%28-v%29%2C+sqrt%28abs%28max%281%2F4+-+%283+u+%2F+2+-+1%2F2+%29%5E2+-+%28%281+%2B+u%2F4%29*sqrt%28abs%281+-+u%5E2%29%29*cos%28v%29%29%5E2%2C+0%29%29%29%29&obj1_params_t0=0&obj1_params_t1=3&obj2_kind=field&obj2_color=%235801a5&obj2_params_p=%28x+-+1%2F2%29+%2F+sqrt%28.1+%2B+%28x+-+1%2F2%29%5E2+%2B+y%5E2+%2B+z%5E2%29%5E3&obj2_params_q=y+%2F+sqrt%28.1+%2B+%28x+-+1%2F2%29%5E2+%2B+y%5E2+%2B+z%5E2%29%5E3&obj2_params_r=z+%2F+sqrt%28.1+%2B+%28x+-+1%2F2%29%5E2+%2B+y%5E2+%2B+z%5E2%29%5E3&obj2_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >get zero</a
+              >?
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <p>
+              Is there a flux integral for which both Stokes and Gauss Theorems
+              apply?
+            </p>
+
+            <p>
+              <img
+                src="assets/eye_vf.png"
+                alt="Swirling vector field on surface of a sphere"
+                srcset=""
+              />
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Vector Calc Review</h1>
+          </section>
+          <section
+            data-background-opacity="0.5"
+            data-background-image="assets/FTLI.png"
+          >
+            <h6 class="framelabel">Four Big Theorems</h6>
+            <h3>FTLI</h3>
+
+            <p style="font-size: larger">
+              \[ f(C_{1}) - f(C_0) = \int_{C} \nabla f\cdot d\vec r \]
+            </p>
+          </section>
+          <section
+            data-background-opacity="0.5"
+            data-background-image="assets/greens.png"
+          >
+            <h6 class="framelabel">Four Big Theorems</h6>
+            <h3>Green's Theorem</h3>
+
+            <p style="font-size: larger">
+              \[ \oint_{\partial D} P\, dx + Q\,dy = \iint_D (Q_x - P_y)\,dA \]
+            </p>
+          </section>
+          <section
+            data-background-opacity="0.5"
+            data-background-image="assets/Stokes.png"
+          >
+            <h6 class="framelabel">Four Big Theorems</h6>
+            <h3>Stokes' Theorem</h3>
+
+            <p style="font-size: larger">
+              \[ \oint_{\partial \Omega} \vec F\cdot d\vec r = \iint_\Omega
+              \nabla\times F \cdot d\vec S \]
+            </p>
+          </section>
+          <section
+            data-background-opacity="0.5"
+            data-background-image="assets/divergence.png"
+          >
+            <h6 class="framelabel">Four Big Theorems</h6>
+            <h3>Gauss' Theorem</h3>
+
+            <p style="font-size: larger">
+              \[ \iint_{\partial E} \vec F \cdot d\vec S = \iiint_E \nabla\cdot
+              \vec F \,dV \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Vector Calculus</h2>
+            <h1>Objectives</h1>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">You should be able to...</h6>
+
+            <ul>
+              <li>
+                Parametrize curves $\vec r: [a, b] \to \RR$
+                <ul>
+                  <li class="fragment">line segment</li>
+                  <li class="fragment">circle</li>
+                  <li class="fragment">helix</li>
+                  <li class="fragment">graph $y = f(x)$</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">You should be able to...</h6>
+
+            <ul>
+              <li>
+                Parametrize surfaces $\vec r: \RR^2 \to \RR^3$
+                <ul>
+                  <li class="fragment">graph $z = f(x,y)$</li>
+                  <li class="fragment">surface of revolution</li>
+                  <li class="fragment">sphere</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">You should be able to...</h6>
+
+            <ul>
+              <li>
+                Compute path integrals
+                <ul>
+                  <li class="fragment">w/r/t arc length $\int_C f\,ds$</li>
+                  <li class="fragment">of a scalar field $\int_C g\,dx$</li>
+                  <li class="fragment">
+                    of a vector field $\int_C \vec F\cdot d\vec r = \int_C P\,dx
+                    + Q\,dy$
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">You should be able to...</h6>
+
+            <ul>
+              <li>
+                Compute surface integrals
+                <ul>
+                  <li class="fragment">
+                    w/r/t surface area $\iint_\Omega f\,dS$
+                  </li>
+                  <li class="fragment">
+                    flux of a vector field $\iint_\Omega \vec F\cdot d\vec S =
+                    \iint_\Omega \vec F\cdot \vec N\, dS$
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">You should be able to...</h6>
+
+            <ul>
+              <li>
+                Determine if a field is conservative
+                <ul>
+                  <li class="fragment">if so, find potential</li>
+                </ul>
+              </li>
+              <li class="fragment">Compute the curl of a vector field.</li>
+              <li class="fragment">Apply the Big 4 Theorems above</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>One Last Example</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+
+            <div class="fragment">
+              <p>
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-3&obj0_params_b=3&obj0_params_x=t&obj0_params_y=0&obj0_params_z=exp%28-t%5E2%29&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=3&obj1_params_c=0&obj1_params_d=1&obj1_params_x=u*cos%28t*v%29&obj1_params_y=u*sin%28t*v%29&obj1_params_z=exp%28-u%5E2%29&obj1_params_t0=0&obj1_params_t1=2+pi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Compute</a
+                >
+              </p>
+              <p style="font-size: larger">
+                \[ \int_{-\infty}^\infty e^{-x^2}\,dx \]
+              </p>
+            </div>
           </section>
         </section>
       </div>
@@ -187,14 +376,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/

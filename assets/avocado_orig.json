@@ -1,0 +1,38 @@
+[
+  {
+    "uuid": "92ede3a9-asdf-458a-80f4-61234df2c4d6",
+    "params": {
+      "a": "0",
+      "b": "1",
+      "c": "0",
+      "d": "2*pi",
+      "x": "(1-u)*pi",
+      "y": "(pi*sqrt(u - u^2) - u*sin(pi*u)^2)*cos(v)",
+      "z": "(pi*sqrt(abs(u - u^2)) - u*sin(pi*u)^2) * sin(v)",
+      "t0": "0",
+      "t1": "1"
+    },
+    "kind": "surface",
+    "color": "#006614",
+    "animation": false,
+    "title": "Rind"
+  },
+  {
+    "uuid": "31324-991u-458a-80f4-66sadfe2c4d6",
+    "params": {
+      "a": "0",
+      "b": "pi",
+      "c": "0",
+      "d": "2*pi",
+      "x": "1/2 sin(u) sin(v) + 2",
+      "y": "1/2 sin(u) cos(v)",
+      "z": "1/2 cos(u)",
+      "t0": "0",
+      "t1": "3"
+    },
+    "kind": "surface",
+    "color": "#006614",
+    "animation": false,
+    "title": "Pit"
+  }
+]
