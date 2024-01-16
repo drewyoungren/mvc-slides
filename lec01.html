@@ -122,7 +122,10 @@
               <li class="fragment">Extra resources</li>
             </ul>
           </section>
-          <section>
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=vector&obj0_color=%23002d72&obj0_params_a=0&obj0_params_b=0&obj0_params_c=sin%28.1+n+-+t%29&obj0_params_x=0.1+n&obj0_params_y=1&obj0_params_z=0&obj0_params_t0=0&obj0_params_t1=2+pi&obj0_params_n0=-54&obj0_params_n1=54&obj1_kind=vector&obj1_color=%23ff5910&obj1_params_a=0&obj1_params_b=sin%280.1+n+-+t%29&obj1_params_c=0&obj1_params_x=0.1+n&obj1_params_y=1&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=2+pi&obj1_params_n0=-54&obj1_params_n1=54&obj2_kind=vector&obj2_color=%23ff5910&obj2_params_a=0&obj2_params_b=cos%283*%280.1+n+-+t%29%29&obj2_params_c=0&obj2_params_x=0.1+n&obj2_params_y=-1&obj2_params_z=0&obj2_params_t0=0&obj2_params_t1=2+pi&obj2_params_n0=-54&obj2_params_n1=54&obj3_kind=vector&obj3_color=%23002d72&obj3_params_a=0&obj3_params_b=0&obj3_params_c=cos%283*%280.1+n+-+t%29%29&obj3_params_x=0.1+n&obj3_params_y=-1&obj3_params_z=0&obj3_params_t0=0&obj3_params_t1=2+pi&obj3_params_n0=-54&obj3_params_n1=54"
+            data-background-opacity="0.6"
+          >
             <img src="/assets/3demos-logo.svg" alt="3Demos Logo" srcset="" />
             <!-- <h2>3Demos</h2>  -->
             <p>
@@ -169,7 +172,15 @@
               <p>
                 Let $P = (p_1, \ldots, p_n)$ and $Q = (q_1, \ldots, q_n)$ be two
                 points in $\mathbb{R}^n$. The
-                <strong>distance formula</strong> is:
+                <strong>
+                  <a
+                    href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%23000000&obj0_params_a=0&obj0_params_b=1&obj0_params_x=-1+%2B+3%2F2+t&obj0_params_y=.5+%2B+.5+t&obj0_params_z=0&obj1_kind=curve&obj1_color=%23000000&obj1_params_a=0&obj1_params_b=1&obj1_params_x=-1+%2B+1.5+t&obj1_params_y=.5&obj1_params_z=0&obj2_kind=curve&obj2_color=%23000000&obj2_params_a=0&obj2_params_b=1&obj2_params_x=.5&obj2_params_y=.5+%2B+.5+t&obj2_params_z=0&obj3_kind=curve&obj3_color=%23000000&obj3_params_a=0&obj3_params_b=1&obj3_params_x=.5&obj3_params_y=1&obj3_params_z=t&obj4_kind=curve&obj4_color=%23871300&obj4_params_a=0&obj4_params_b=1&obj4_params_x=-1+%2B+3%2F2+t&obj4_params_y=.5+%2B+.5+t&obj4_params_z=t"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >distance formula</a
+                  >
+                </strong>
+                is:
               </p>
               <div class="fragment">
                 \[ d(P, Q) = \sqrt{\sum_{i = 1}^n (p_i - q_i)^2} \]
@@ -519,14 +530,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
