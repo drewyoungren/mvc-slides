@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>APMA E2000 - The Products</title>
+    <title>APMA E2000 - Lines &amp; Planes</title>
 
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
@@ -36,11 +36,6 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Set up standard LaTeX macros -->
-        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
-        $\gdef\comp{\operatorname{comp}}$
-
         <section>
           <section data-auto-animate>
             <h3 class="framelabel">Lecture 03</h3>
@@ -53,9 +48,11 @@
           </section>
           <section>
             <h2>Announcements</h2>
-
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
             <ul>
-              <li class="fragment">Recitation starts this week.</li>
               <li class="fragment">
                 Quiz 1 (HW1 topics) this week.
                 <ul>
@@ -105,7 +102,7 @@
                 <td>$\mathbf v \cdot \mathbf w$</td>
                 <td>$\sum v_i w_i$</td>
               </tr>
-              <tr>
+              <tr class="fragment">
                 <td>Cross Product</td>
                 <td>$\mathbf v \times \mathbf w$</td>
                 <td>
@@ -140,6 +137,50 @@
               </div>
             </div>
           </section>
+        </section>
+        <section>
+          <section>
+            <h1>The Cross Product</h1>
+          </section>
+          <section>
+            <p>
+              There is a special <strong>vector product</strong>, or
+              <strong>cross product</strong> in <strong>$\RR^3$ only</strong>.
+              \[\vec v \times \vec w = \vec u\] "A vector cross a vector is a
+              vector."
+            </p>
+          </section>
+          <section>
+            <div class="r-stretch"></div>
+
+            <h3 class="framelabel">Defining properties</h6>
+            <ul class="squarelist">
+              <li class="fragment">
+                bilinearity: $ \vec u \times (c\vec v + d\vec w) = c \vec u
+                \times \vec v + d \vec u \times \vec w$
+              </li>
+              <li class="fragment">
+                skew-symmetry: $\vec v \times \vec w = - \vec w \times \vec v$
+              </li>
+              <li class="fragment">
+                $\vec i \times \vec j = \vec k, \qquad \vec j \times \vec k =
+                \vec i, \qquad \vec k \times \vec i = \vec j$
+              </li>
+            </ul>
+            <div class="r-stretch"></div>
+          </section>
+          <section><h3>Formula</h3>
+          <div class="fragment">
+            \[\langle a,b,c \rangle\times \langle d,e,f \rangle = (a\vec i + b\vec j + c \vec k)\times(d\vec i + e\vec j + f \vec k) \]
+          </div>
+          <div class="fragment">
+          \[ = (bf - ce) \vec i + (cd - af) \vec j + (ae - bd) \vec k \]
+        </div>
+          <div class="fragment">
+          $ = \begin{vmatrix} \vec i & \vec j & \vec k \\a &b &c \\ d & e & f \\ \end{vmatrix}  $ <span class="fragment">$ \begin{matrix} \vec i & \vec j  \\a &b  \\ d & e \\ \end{matrix} $</span>
+        </div>
+        <div class="r-stretch"></div>
+        </section>
           <section>
             <h3 class="framelabel">Properties of $\vec v \times \vec w$</h3>
             <ul>
@@ -160,10 +201,17 @@
           <section>
             <h3 class="framelabel">Cross Products and Area</h3>
             <p>
-              If $\vec v$ and $\vec w$ define adjacent signs of a parallelogram,
+              If $\vec v$ and $\vec w$ define adjacent sides of a parallelogram,
               the area is $|\vec v \times \vec w|$.
             </p>
-            <div class="r-stretch"></div>
+            <div class="r-stretch">
+              <iframe
+                src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=vector&obj0_color=%230d0887&obj0_params_a=2&obj0_params_b=2&obj0_params_c=-1&obj0_params_x=1%2F2&obj0_params_y=1%2F2&obj0_params_z=1%2F2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_animation=true&obj1_params_a=%281+-+n%29*3+*+1+*+sin%28t%29+%2F+sqrt%285%29+%2B+n*+%280.666667+cos%28t%29+-+0.596285+sin%28t%29%29&obj1_params_b=n+*+%280.666667+cos%28t%29+%2B+0.745356+sin%28t%29%29&obj1_params_c=%281+-+n%29*3+*+2+*+sin%28t%29+%2F+sqrt%285%29++%2B+n+*+%28-0.333333+cos%28t%29+%2B+0.298142+sin%28t%29%29&obj1_params_x=1%2F2&obj1_params_y=1%2F2&obj1_params_z=1%2F2&obj1_params_t0=0&obj1_params_t1=2+pi&obj1_params_n0=0&obj1_params_n1=1&obj2_kind=surface&obj2_color=%234e4bf7&obj2_animation=true&obj2_params_a=0&obj2_params_b=1&obj2_params_c=0&obj2_params_d=1&obj2_params_x=1%2F2+%2B+2+u+%2B+%280.666667+cos%28t%29+-+0.596285+sin%28t%29%29+*+v&obj2_params_y=1%2F2+%2B+2+u+%2B+%280.666667+cos%28t%29+%2B+0.745356+sin%28t%29%29+*+v&obj2_params_z=1%2F2+-+u+%2B+%28-0.333333+cos%28t%29+%2B+0.298142+sin%28t%29%29*v&obj2_params_t0=0&obj2_params_t1=2+pi"
+                frameborder="0"
+                width="800px"
+                height="500px"
+              ></iframe>
+            </div>
           </section>
         </section>
         <section>
@@ -178,7 +226,7 @@
               has
               <strong
                 ><a
-                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=-1+%2B+t&obj0_params_y=+1%2F2+t&obj0_params_z=-1+%2B+2+t&obj1_kind=vector&obj1_color=%2308870a&obj1_params_a=-1&obj1_params_b=0&obj1_params_c=-1&obj1_params_x=0&obj1_params_y=0&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=vector&obj2_color=%23dc5e66&obj2_params_a=1&obj2_params_b=1%2F2&obj2_params_c=2&obj2_params_x=-1&obj2_params_y=0&obj2_params_z=-1&obj2_params_t0=0&obj2_params_t1=1"
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=-1+%2B+t&obj0_params_y=+1%2F2+t&obj0_params_z=-1+%2B+2+t&obj1_kind=vector&obj1_color=%2308870a&obj1_params_a=-1&obj1_params_b=0&obj1_params_c=-1&obj1_params_x=0&obj1_params_y=0&obj1_params_z=0&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=vector&obj2_color=%23dc5e66&obj2_params_a=1&obj2_params_b=1%2F2&obj2_params_c=2&obj2_params_x=-1&obj2_params_y=0&obj2_params_z=-1&obj2_params_t0=0&obj2_params_t1=1"
                   target="_blank"
                   rel="noopener noreferrer"
                   >parametric form</a
