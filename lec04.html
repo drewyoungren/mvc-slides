@@ -36,11 +36,6 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Set up standard LaTeX macros -->
-        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
-        $\gdef\comp{\operatorname{comp}}$
-
         <section>
           <section data-auto-animate>
             <h3 class="framelabel">Lecture 04</h3>
@@ -52,10 +47,13 @@
             </p>
           </section>
           <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">Recitation starts this week.</li>
               <li class="fragment">
                 Quiz 1 (HW1 topics) this week.
                 <ul>
@@ -361,14 +359,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
