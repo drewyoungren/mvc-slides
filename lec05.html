@@ -36,11 +36,6 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Set up standard LaTeX macros -->
-        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
-        $\gdef\comp{\operatorname{comp}}$
-
         <section>
           <section>
             <h3 class="framelabel">Lecture 05</h3>
@@ -52,6 +47,11 @@
             </p>
           </section>
           <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+
             <h2>Announcements</h2>
 
             <ul>
@@ -73,18 +73,31 @@
             \\\lim\limits_{t \to a} y(t) \\ \lim\limits_{t \to a} z(t)} \qquad
             \text{and} \qquad \vec r'(t) = \bv{x'(t) \\ y'(t) \\ z'(t) } \]
           </section>
-          <section>
+          <section data-auto-animate>
             <h3 class="framelabel">Properties</h3>
-            <p class="r-fit-text">
+            <div class="r-stretch">
               \[\begin{align*} &\frac{d}{dt} (c\vec r(t)) = c \vec r'(t) \\
-              &\frac{d}{dt} (\vec q(t) + \vec r(t)) = \vec q'(t) + \vec r'(t) \\
-              &\frac{d}{dt} (f(t) \vec r(t)) = f'(t)\vec r(t) + f(t) \vec r'(t)
-              \\ &\frac{d}{dt} (\vec q(t) \cdot \vec r(t)) = \vec q'(t)\cdot\vec
-              r(t) + \vec q(t) \cdot \vec r'(t) \\ &\frac{d}{dt} (\vec q(t)
-              \times \vec r(t)) = \vec q'(t)\times\vec r(t) + \vec q(t) \times
-              \vec r'(t) \\ &\frac{d}{dt} \vec r(f(t)) = f'(t)\vec r'(f(t)) \\
-              \end{align*}\]
-            </p>
+              &\frac{d}{dt} (\vec r(t) + \vec q(t)) = \vec r'(t) + \vec q'(t)
+              \\\end{align*}\]
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h3 class="framelabel">Properties</h3>
+            <div class="r-stretch">
+              \[\begin{align*} &\frac{d}{dt} (f(t) \vec r(t)) = f'(t)\vec r(t) +
+              f(t) \vec r'(t) \\ &\frac{d}{dt} (\vec q(t) \cdot \vec r(t)) =
+              \vec q'(t)\cdot\vec r(t) + \vec q(t) \cdot \vec r'(t) \\
+              &\frac{d}{dt} (\vec q(t) \times \vec r(t)) = \vec q'(t)\times\vec
+              r(t) + \vec q(t) \times \vec r'(t) \\ \end{align*}\]
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h3 class="framelabel">Properties</h3>
+            <div class="r-stretch">
+              \[\begin{align*} &\frac{d}{dt} \vec r(f(t)) = f'(t)\vec r'(f(t))
+              \\ \end{align*}\]
+            </div>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
@@ -92,7 +105,8 @@
             <p>
               Let $\vec r(t)$ parameterize a
               <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&grid=true&obj0_kind=level&obj0_color=%233232ff&obj0_params_g=x%5E2+%2B+y%5E2+%2B+z%5E2&obj0_params_k=1&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=curve&obj1_color=%23FFDD33&obj1_params_a=0&obj1_params_b=3*pi&obj1_params_x=cos%289+%2F+10+*+t%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_y=-sin%28t%29%5E2+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_z=sin%284.2*t+%2B+1+%2F+20%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_tau=0&obj1_params_color=%23e1ff00"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&scale=0&showPanel=false&grid=true&obj0_kind=level&obj0_color=%233232ff&obj0_params_g=x%5E2+%2B+y%5E2+%2B+z%5E2&obj0_params_k=1&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=curve&obj1_color=%23FFDD33&obj1_params_a=0&obj1_params_b=3*pi&obj1_params_x=cos%289+%2F+10+*+t%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_y=-sin%28t%29%5E2+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_z=sin%284.2*t+%2B+1+%2F+20%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_tau=0&obj1_params_color=%23e1ff00"
+                target="_blank"
                 >curve</a
               >
               on the surface of a sphere centered at the origin. Show that the
@@ -164,18 +178,44 @@
               </div>
             </div>
           </section>
-          <section>
+          <section data-auto-animate="">
             <h6 class="framelabel">Quick exercises</h6>
             <p class="fragment text-right">
               1. Show that a particle that changes direction has nonzero
               acceleration.
             </p>
-            <p class="fragment text-right">2. Is the converse true?</p>
-            <p class="fragment text-right">
+            <p class="fragment r-fit-text">
+              Use contradiction. Assume $\vec a (t) = \vec 0$. Then $\vec v(t) =
+              \vec c$, a constant, so the particle does not change direction.
+            </p>
+          </section>
+          <section data-auto-animate="">
+            <h6 class="framelabel">Quick exercises</h6>
+
+            <p class="text-right">2. Is the converse true?</p>
+            <p class="fragment text-right r-fit-text">
+              No. Consider the straight-line path (for $t > 0$) $ \vec r(t) =
+              \langle t^2, t^2, t^2 \rangle $. It has direction \[ \frac{\vec
+              r'(t)}{|\vec r'(t)|} = \langle 1,1,1 \rangle \] which does not
+              change but $\vec r''(t) = \langle 2,2,2 \rangle \neq \vec 0$.
+            </p>
+          </section>
+          <section data-auto-animate="">
+            <h6 class="framelabel">Quick exercises</h6>
+
+            <p class="fragment text-right r-fit-text">
               3. Find an expression for the <strong>range formula</strong>,
               i.e., the distance a projectile fired from the ground at angle
               $\alpha$ will travel before landing.
             </p>
+            <div class="r-stretch">
+              <div
+                id="box-range-form"
+                class="jxgbox"
+                style="width: 600px; height: 400px"
+              ></div>
+              <script src="js/rangeformula.js"></script>
+            </div>
           </section>
           <section>
             <h3 class="framelabel">Example</h3>
