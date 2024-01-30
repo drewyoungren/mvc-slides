@@ -67,7 +67,14 @@
             <h1>1-minute review</h1>
           </section>
           <section>
-            <h6 class="framelabel">Curves</h6>
+            <h6 class="framelabel">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=t&obj0_params_y=t%5E2&obj0_params_z=t%5E3"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Curves</a
+              >
+            </h6>
 
             \[\lim_{t \to a} \vec r(t) = \bv{\lim\limits_{t \to a} x(t)
             \\\lim\limits_{t \to a} y(t) \\ \lim\limits_{t \to a} z(t)} \qquad
@@ -102,7 +109,7 @@
           <section>
             <h6 class="framelabel">Example</h6>
 
-            <p>
+            <p class="r-fit-text">
               Let $\vec r(t)$ parameterize a
               <a
                 href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&scale=0&showPanel=false&grid=true&obj0_kind=level&obj0_color=%233232ff&obj0_params_g=x%5E2+%2B+y%5E2+%2B+z%5E2&obj0_params_k=1&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=curve&obj1_color=%23FFDD33&obj1_params_a=0&obj1_params_b=3*pi&obj1_params_x=cos%289+%2F+10+*+t%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_y=-sin%28t%29%5E2+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_z=sin%284.2*t+%2B+1+%2F+20%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_tau=0&obj1_params_color=%23e1ff00"
@@ -113,6 +120,12 @@
               tangent vector is orthogonal to the position vector at every
               point.
             </p>
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=Intro&scale=0&showPanel=false&grid=true&obj0_kind=level&obj0_color=%233232ff&obj0_params_g=x%5E2+%2B+y%5E2+%2B+z%5E2&obj0_params_k=1&obj0_params_a=-2&obj0_params_b=2&obj0_params_c=-2&obj0_params_d=2&obj0_params_e=-2&obj0_params_f=2&obj1_kind=curve&obj1_color=%23FFDD33&obj1_params_a=0&obj1_params_b=3*pi&obj1_params_x=cos%289+%2F+10+*+t%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_y=-sin%28t%29%5E2+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_z=sin%284.2*t+%2B+1+%2F+20%29+%2F+sqrt%28cos%289+%2F+10+*+t%29%5E2+%2B+sin%28t%29%5E4+%2B+sin%284.2+*+t+%2B+1+%2F+20%29%5E2%29&obj1_params_tau=0&obj1_params_color=%23e1ff00"
+              frameborder="0"
+              width="800px"
+              height="500px"
+            ></iframe>
           </section>
         </section>
         <section>
@@ -203,12 +216,12 @@
           <section data-auto-animate="">
             <h6 class="framelabel">Quick exercises</h6>
 
-            <p class="fragment text-right r-fit-text">
+            <p class="text-right r-fit-text">
               3. Find an expression for the <strong>range formula</strong>,
               i.e., the distance a projectile fired from the ground at angle
               $\alpha$ will travel before landing.
             </p>
-            <div class="r-stretch">
+            <div class="fragment r-stretch">
               <div
                 id="box-range-form"
                 class="jxgbox"
