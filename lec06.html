@@ -66,19 +66,28 @@
           <section>
             <h1>1-minute review</h1>
           </section>
-          <section data-markdown>
-            <textarea data-template>
-
+          <section>
             <h6 class="framelabel">Motion</h6>
 
-            A space curve can represent the **position** of a body at time $t$. \\[\vec r(t) = x(t)\vec i + y(t) \vec j + z(t) \vec k.\\]
-
-Its derivative \\[\vec r'(t) = x'(t)\vec i + y'(t) \vec j + z'(t) \vec k\\] is the **velocity vector**. Its magnitude is the **speed**.
-
-The second derivative $\vec r''(t)$ is the **acceleration**. 
-            </textarea>
+            <ul>
+              <li><strong>position</strong>: $\vec r(t)$</li>
+              <li><strong>velocity</strong>: $\vec r'(t)$</li>
+              <li><strong>acceleration</strong>: $\vec r''(t)$</li>
+              <li><strong>speed</strong>: $|\vec r'(t)|$</li>
+            </ul>
           </section>
 
+          <section>
+            <h3 class="framelabel">Example</h3>
+
+            <p>
+              Suppose a particle starts at the origin with initial velocity
+              $\left\langle 1, 0 \right\rangle$ and acceleration \[ \vec a(t) =
+              \begin{cases} \left\langle -t, 1 \right\rangle, \text{ if } t \leq
+              1 \\ \left\langle 1, -t-1 \right\rangle, \text{ if } t > 1 \\
+              \end{cases}. \] Find its position at $t = 2$.
+            </p>
+          </section>
           <section>
             <h6 class="framelabel">Definition</h6>
 
@@ -91,12 +100,15 @@ The second derivative $\vec r''(t)$ is the **acceleration**.
             </p>
           </section>
           <section>
-            <p>A counterexample might express this more easily.</p>
+            <p>
+              A counterexample might express this more easily. \[ \vec r(t) =
+              \left\langle t^2, t^3 \right\rangle \]
+            </p>
             <iframe
               data-src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-1&obj0_params_b=1&obj0_params_x=t%5E2&obj0_params_y=t%5E3&obj0_params_z=0"
               frameborder="0"
-              width="700px"
-              height="500px"
+              width="800px"
+              height="400px"
             ></iframe>
           </section>
         </section>
@@ -113,7 +125,231 @@ The second derivative $\vec r''(t)$ is the **acceleration**.
                 >, but this is difficult, mathematically.</span
               >
             </p>
-            <p class="r-stretch"></p>
+            <p class="fragment">
+              Instead, measure distances between sample points along the curve.
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+            <p class="r-fit-text">
+              For $\vec r(t)$ with $a \leq t \leq b$, we define $t_i = a + i
+              \frac{b - a}{N}$ and then <strong>arc length</strong> of the curve
+              is
+            </p>
+            <p>
+              \[ s = \lim\limits_{N\to\infty}\sum_{i = 1}^N |\vec r(t_i) - \vec
+              r(t_{i - 1})|\]
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Formula</h6>
+            <p class="r-fit-text">
+              For $\vec r(t)$ with $a \leq t \leq b$, we define $t_i = a + i
+              \frac{b - a}{N}$ and then <strong>arc length</strong> of the curve
+              is
+            </p>
+            <p>
+              \[ s = \lim\limits_{N\to\infty}\sum_{i = 1}^N \frac{|\vec r(t_i) -
+              \vec r(t_{i - 1})|}{\Delta t} \Delta t \]
+            </p>
+            <div class="r-stretch">\[ \to \int_a^b |\vec r'(t)|\,dt \]</div>
+          </section>
+          <section>
+            <h3 class="framelabel">Example</h3>
+
+            <p>
+              Find the arc length of one coil of a helix. \[\vec r(t)
+              =\left\langle \cos t, \sin t, t \right\rangle \]
+            </p>
+
+            <p class="fragment">
+              \[s = \int_0^{2\pi} |\left\langle -\sin t, \cos t, 1
+              \right\rangle|\,dt \] \[ = \int_0^{2\pi} \sqrt{\sin^2 t + \cos^2 t
+              + 1}\,dt = \int_0^{2\pi} \sqrt2\,dt = 2\sqrt 2 \pi \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1 class="r-fit-text">Reparametrization</h1>
+          </section>
+          <section>
+            The same path in space can be traced in any number of ways—fast,
+            slow, backwards.
+
+            <div class="fragment">
+              <h6 class="framelabel">Quick example</h6>
+              <p>
+                $\langle \cos t, \sin t\rangle$ traces out the
+                <a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=cos%28t%29&obj0_params_y=sin%28t%29&obj0_params_z=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >unit circle</a
+                >
+                over the interval $[0,2\pi]$.
+              </p>
+              <p class="fragment">
+                $\langle \cos (6\pi t), \sin (6\pi t)\rangle$ traces out the
+                unit circle much "<a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=1%2F3&obj0_params_x=cos%286+pi+t%29&obj0_params_y=sin%286+pi+t%29&obj0_params_z=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >faster</a
+                >", over the interval $[0,\frac13]$. Take the derivatives of
+                each of the above to see this.
+              </p>
+              <p class="fragment">
+                $\langle \cos (\pi \sin t), \sin (\pi \sin t)\rangle$ traces out
+                the unit circle "<a
+                  href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23dc5e66&obj0_animation=true&obj0_params_a=0&obj0_params_b=2+pi&obj0_params_x=cos%28+pi+sin%28t%29%29&obj0_params_y=sin%28pi+sin%28t%29%29&obj0_params_z=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >back and forth</a
+                >."
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Definition</h3>
+
+            <p>
+              Consider a smooth curve $r(t)$ for $a \leq t \leq b$. A smooth
+              <strong>reparametrization</strong> is a choice of function $f(s)$
+              with $f'(s) > 0$, $f(c) = a$, and $f(d) = b$ such that \[\vec q(s)
+              = \vec r(f(s))\] traces out the same path.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Theorem</h6>
+
+            <p>Arc length is independent of parametrization.</p>
+
+            <p class="fragment r-fit-text">
+              Using the notation of previous slide, \[ \int_c^d \left| \vec q
+              '(s) \right|\,ds = \int_c^d \left| \frac{d}{ds} \vec r (f(s))
+              \right|\,ds \] \[ = \int_c^d \left| \vec r '(f(s)) \right|
+              f'(s)\,ds \qquad \begin{cases} w =f(s) \\ dw = f'(s)\,ds \\
+              \end{cases} \] \[ = \int_a^b |\vec r'(t) |\,dt \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Arc Length as a Function</h6>
+
+            <p>\[ s = f(t) = \int_a^t |\vec r'(w)|\,dw. \]</p>
+
+            <video src="assets/arc_length.mp4" controls></video>
+          </section>
+          <section>
+            <h6 class="framelabel">Arc Length as a Function</h6>
+
+            <p>\[ s = f(t) = \int_a^t |\vec r'(w)|\,dw. \]</p>
+
+            <ul>
+              <li class="fragment">$\frac{ds}{dt} = |\vec r'(t)|$</li>
+              <li class="fragment">
+                For smooth $\vec r$, $f$ is invertible, $t = f^{-1}(s)$.
+              </li>
+            </ul>
+            <p class="fragment">
+              \[\frac{d}{ds} \vec r(f^{-1}(s)) = \vec r '(f^{-1}(s))
+              (f^{-1})'(s) = \vec r'(t) \frac{1}{f'(f^{-1}(s))}\]
+            </p>
+            <p class="fragment">
+              \[ = \frac{\vec r'(t)}{|\vec r'(t)|} = \vec T \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Reparametrization by arc length</h6>
+
+            <p>
+              Using the definition from the previous slide, a curve is
+              paramtrized by arc length $ \vec q(s) $ for $0 \leq s \leq L$ if
+              $|\vec q'(s)| = 1$.
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Example</h3>
+
+            <p>
+              Parametrize the
+              <a
+                href="https://3demos.surge.sh/?currentChapter=Intro&shadeUp=false&flipInfo=true&grid=false&obj0_kind=curve&obj0_params_a=0&obj0_params_b=sqrt%284*pi%29&obj0_params_x=cos%28t%5E2%29&obj0_params_y=sin%28t%5E2%29&obj0_params_z=t%5E2+%2F+%28pi%29&obj0_params_tau=0.7400756589735245&obj0_params_color=%23005aa7https://3demos.surge.sh/?currentChapter=Intro&shadeUp=false&flipInfo=true&grid=false&obj0_kind=curve&obj0_params_a=0&obj0_params_b=sqrt%284*pi%29&obj0_params_x=cos%28t%5E2%29&obj0_params_y=sin%28t%5E2%29&obj0_params_z=t%5E2+%2F+%28pi%29&obj0_params_tau=0.7400756589735245&obj0_params_color=%23005aa7"
+                >curve</a
+              >
+              \[ \langle e^{-t}, 1-2e^{-t}, 2e^{-t} \rangle \] for $t \geq 0$ by
+              arc length.
+            </p>
+            <p class="fragemnt r-stretch"></p>
+          </section>
+          <section>
+            <h1>Curvature</h1>
+          </section>
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=Intro&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%234133ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=cos%28pi*t%29+-+1&obj0_params_y=sin%28pi*t%29&obj0_params_z=t&obj0_params_tau=0&obj0_params_color=%23ff0000&obj1_kind=curve&obj1_color=%23ff3333&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=t+cos%282+pi+t%29&obj1_params_y=t+sin%282+pi+t%29&obj1_params_z=t+%2F+4&obj1_params_tau=0&obj1_params_color=%2300ff00&obj2_kind=curve&obj2_color=%2300d65d&obj2_params_a=-1&obj2_params_b=1&obj2_params_x=t&obj2_params_y=2+t&obj2_params_z=-t&obj2_params_tau=0&obj2_params_color=%230000ff"
+            data-background-opacity="0.5"
+          >
+            <p>We aim to quantify how <strong>curvy</strong> a curve can be.</p>
+          </section>
+          <section>
+            <h6 class="framelabel">Definition</h6>
+            <p>
+              Recall that $\vec T$ is the
+              <strong>unit tangent vector</strong> to a curve $\vec r(t)$. The
+              <strong>curvature</strong> $\kappa$ of $\vec r$ at a given point
+              is given by \[ \kappa = \left|\frac{d\vec T}{ds} \right|. \]
+            </p>
+            <p class="fragment">
+              That is, we measure <em>how much the direction changes</em>
+              <span class="fragment"><em>per unit arc length</em>.</span>
+              Alternatively, \[\kappa = \frac{|\vec T'(t)|}{|\vec r'(t)|}\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Alternative Formula</h6>
+            <p>\[\kappa = \frac{|\vec T'(t)|}{|\vec r'(t)|}\]</p>
+
+            <p class="fragment">
+              Because \[\left| \vec T'(t) \right| = \left|\frac{d\vec
+              T}{dt}\right| = \left|\frac{d\vec T}{ds}\frac{ds}{dt} \right|=
+              \kappa |\vec r'(t)|. \]
+            </p>
+          </section>
+          <section>
+            <h3 class="framelabel">Example</h3>
+
+            <p>
+              Find the relation between the radius $R$ of a circle and its
+              curvature.
+            </p>
+
+            <div class="fragment">
+              <p>
+                $\vec r(t) = \left\langle R\cos t, R\sin t \right\rangle$ has
+                arclength $s = Rt$. Thus we parametrize by arc length \[\vec
+                q(s) = \left\langle R\cos \frac{s}{R}, R\sin \frac{s}{R}
+                \right\rangle \]
+              </p>
+              <p class="fragment">\[\kappa = |\vec q''(s) |= \frac{1}{R} \]</p>
+            </div>
+          </section>
+          <section>
+            <h3 class="framelabel">Demo</h3>
+
+            <p>
+              Use a curve plot in
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=cos%28t%29&obj0_params_y=sin%28t%29&obj0_params_z=0.55+*+cos%285*t%29+*sin%28t++%2F+2+%29%5E2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >3Demos</a
+              >
+              to explore a cuve, its reparametrization by arc length, and the
+              so-called <strong>osculating circle</strong>, which best
+              approximates the curve at a point with a circle with a matching
+              $\kappa$ value.
+            </p>
           </section>
         </section>
       </div>
@@ -132,14 +368,14 @@ The second derivative $\vec r''(t)$ is the **acceleration**.
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
