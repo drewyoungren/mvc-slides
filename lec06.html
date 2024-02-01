@@ -36,11 +36,6 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Set up standard LaTeX macros -->
-        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
-        $\gdef\comp{\operatorname{comp}}$
-
         <section>
           <section>
             <h3 class="framelabel">Lecture 06</h3>
@@ -52,6 +47,10 @@
             </p>
           </section>
           <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
             <h2>Announcements</h2>
 
             <ul>
@@ -288,9 +287,20 @@
           </section>
           <section
             data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=Intro&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%234133ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=cos%28pi*t%29+-+1&obj0_params_y=sin%28pi*t%29&obj0_params_z=t&obj0_params_tau=0&obj0_params_color=%23ff0000&obj1_kind=curve&obj1_color=%23ff3333&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=t+cos%282+pi+t%29&obj1_params_y=t+sin%282+pi+t%29&obj1_params_z=t+%2F+4&obj1_params_tau=0&obj1_params_color=%2300ff00&obj2_kind=curve&obj2_color=%2300d65d&obj2_params_a=-1&obj2_params_b=1&obj2_params_x=t&obj2_params_y=2+t&obj2_params_z=-t&obj2_params_tau=0&obj2_params_color=%230000ff"
-            data-background-opacity="0.5"
+            data-background-opacity="0.7"
           >
             <p>We aim to quantify how <strong>curvy</strong> a curve can be.</p>
+            <div class="r-stretch"></div>
+            <p>
+              Which of these
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%234133ff&obj0_params_a=-2&obj0_params_b=2&obj0_params_x=cos%28pi*t%29+-+1&obj0_params_y=sin%28pi*t%29&obj0_params_z=t&obj0_params_tau=0&obj0_params_color=%23ff0000&obj1_kind=curve&obj1_color=%23ff3333&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=t+cos%282+pi+t%29&obj1_params_y=t+sin%282+pi+t%29&obj1_params_z=t+%2F+4&obj1_params_tau=0&obj1_params_color=%2300ff00&obj2_kind=curve&obj2_color=%2300d65d&obj2_params_a=-1&obj2_params_b=1&obj2_params_x=t&obj2_params_y=2+t&obj2_params_z=-t&obj2_params_tau=0&obj2_params_color=%230000ff"
+                target="_blank"
+                rel="noopener noreferrer"
+                >paths</a
+              >
+              is "curviest" at the origin?
+            </p>
           </section>
           <section>
             <h6 class="framelabel">Definition</h6>
@@ -368,14 +378,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
