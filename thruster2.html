@@ -22,7 +22,7 @@
 
     <script>
       const rocket = new Image();
-      rocket.src = "assets/rocket.png";
+      rocket.src = 'assets/rocket.png';
       let rocketman = false;
       const pos = [0, 0];
       const vel = [0, 0];
@@ -35,13 +35,13 @@
       let last;
       let req;
       let dt = 0;
-      const canvas = document.getElementById("canvas");
-      const div = document.getElementById("headline");
-      const ikey = document.getElementById("ikey");
-      const jkey = document.getElementById("jkey");
+      const canvas = document.getElementById('canvas');
+      const div = document.getElementById('headline');
+      const ikey = document.getElementById('ikey');
+      const jkey = document.getElementById('jkey');
 
-      const ctx = canvas.getContext("2d");
-      ctx.globalCompositeOpreation = "destination-over";
+      const ctx = canvas.getContext('2d');
+      ctx.globalCompositeOperation = 'destination-over';
 
       function reset() {
         pos[0] = 0;
@@ -56,12 +56,12 @@
         hon = false;
         uon = false;
 
-        ikey.classList.remove("active");
-        jkey.classList.remove("active");
+        ikey.classList.remove('active');
+        jkey.classList.remove('active');
 
         ctx.clearRect(0, 0, 600, 400);
-        ctx.fillStyle = "black";
-        ctx.strokeStyle = "gray";
+        ctx.fillStyle = 'black';
+        ctx.strokeStyle = 'gray';
         ctx.lineWidth = 1;
 
         ctx.strokeRect(50, 50, 500, 300);
@@ -92,7 +92,7 @@
           ctx.fill();
           ctx.restore();
         }
-        div.innerText = "";
+        div.innerText = '';
         last = null;
         t = 0;
         dt = 0;
@@ -139,8 +139,8 @@
 
         ctx.clearRect(0, 0, 600, 400);
 
-        ctx.fillStyle = "black";
-        ctx.strokeStyle = "gray";
+        ctx.fillStyle = 'black';
+        ctx.strokeStyle = 'gray';
         ctx.lineWidth = 1;
 
         ctx.strokeRect(50, 50, 500, 300);
@@ -176,8 +176,8 @@
         // i thruster
         if (ion) {
           ctx.beginPath();
-          ctx.strokeStyle = "#FFFF00";
-          ctx.fillStyle = "#FFAA00";
+          ctx.strokeStyle = '#FFFF00';
+          ctx.fillStyle = '#FFAA00';
           ctx.lineWidth = 3;
           ctx.moveTo(50 + 10 * pos[0], 350 - 10 * pos[1] - 2);
           ctx.lineTo(45 + 10 * pos[0], 350 - 10 * pos[1] - 8);
@@ -189,8 +189,8 @@
         // -i thruster
         if (uon) {
           ctx.beginPath();
-          ctx.strokeStyle = "#FFFF00";
-          ctx.fillStyle = "#FFAA00";
+          ctx.strokeStyle = '#FFFF00';
+          ctx.fillStyle = '#FFAA00';
           ctx.lineWidth = 3;
           ctx.moveTo(65 + 10 * pos[0], 350 - 10 * pos[1] - 2);
           ctx.lineTo(70 + 10 * pos[0], 350 - 10 * pos[1] - 8);
@@ -202,8 +202,8 @@
         // j thruster
         if (jon) {
           ctx.beginPath();
-          ctx.strokeStyle = "#FFFF00";
-          ctx.fillStyle = "#FFAA00";
+          ctx.strokeStyle = '#FFFF00';
+          ctx.fillStyle = '#FFAA00';
           ctx.lineWidth = 3;
           ctx.moveTo(50 + 10 * pos[0] + 2, 350 - 10 * pos[1]);
           ctx.lineTo(50 + 10 * pos[0] + 8, 350 - 10 * pos[1] + 5);
@@ -216,8 +216,8 @@
         // -j thruster
         if (hon) {
           ctx.beginPath();
-          ctx.strokeStyle = "#FFFF00";
-          ctx.fillStyle = "#FFAA00";
+          ctx.strokeStyle = '#FFFF00';
+          ctx.fillStyle = '#FFAA00';
           ctx.lineWidth = 3;
           ctx.moveTo(50 + 10 * pos[0] + 2, 335 - 10 * pos[1]);
           ctx.lineTo(50 + 10 * pos[0] + 8, 335 - 10 * pos[1] - 5);
@@ -231,7 +231,7 @@
           (pos[0] - 50) * (pos[0] - 50) + (pos[1] - 30) * (pos[1] - 30) <
           2.25
         ) {
-          div.innerText += "\nCLOSE ENOUGH!";
+          div.innerText += '\nCLOSE ENOUGH!';
           last = null;
           return;
         } else if (pos[0] > 50) {
@@ -239,7 +239,7 @@
           ion = false;
           uon = false;
           hon = false;
-          div.innerText += "\nTOO FAR";
+          div.innerText += '\nTOO FAR';
           if (pos[0] > 55) {
             return;
           }
@@ -248,7 +248,7 @@
           ion = false;
           uon = false;
           hon = false;
-          div.innerText += "\nTOO HIGH";
+          div.innerText += '\nTOO HIGH';
           if (pos[1] > 35) {
             // last = null;
             return;
@@ -257,55 +257,55 @@
         window.requestAnimationFrame(clock);
       }
 
-      ikey.addEventListener("pointerdown", (e) => {
+      ikey.addEventListener('pointerdown', (e) => {
         ion = true;
-        ikey.classList.add("active");
+        ikey.classList.add('active');
         if (!last) {
           window.requestAnimationFrame(clock);
         }
       });
-      ikey.addEventListener("pointerup", (e) => {
+      ikey.addEventListener('pointerup', (e) => {
         ion = false;
-        ikey.classList.remove("active");
+        ikey.classList.remove('active');
       });
-      jkey.addEventListener("pointerdown", (e) => {
+      jkey.addEventListener('pointerdown', (e) => {
         jon = true;
-        jkey.classList.add("active");
+        jkey.classList.add('active');
         if (!last) {
           window.requestAnimationFrame(clock);
         }
       });
-      jkey.addEventListener("pointerup", (e) => {
+      jkey.addEventListener('pointerup', (e) => {
         jon = false;
-        jkey.classList.remove("active");
+        jkey.classList.remove('active');
       });
 
-      window.addEventListener("keydown", (e) => {
-        if (e.key == "i" && !e.repeat) {
+      window.addEventListener('keydown', (e) => {
+        if (e.key == 'i' && !e.repeat) {
           ion = true;
-          ikey.classList.add("active");
+          ikey.classList.add('active');
           if (!last) {
             window.requestAnimationFrame(clock);
           }
-        } else if (e.key == "j" && !e.repeat) {
+        } else if (e.key == 'j' && !e.repeat) {
           jon = true;
-          jkey.classList.add("active");
+          jkey.classList.add('active');
           if (!last) {
             window.requestAnimationFrame(clock);
           }
-        } else if (e.key == "u" && !e.repeat) {
+        } else if (e.key == 'u' && !e.repeat) {
           uon = true;
-          jkey.classList.add("active");
+          jkey.classList.add('active');
           if (!last) {
             window.requestAnimationFrame(clock);
           }
-        } else if (e.key == "h" && !e.repeat) {
+        } else if (e.key == 'h' && !e.repeat) {
           hon = true;
-          jkey.classList.add("active");
+          jkey.classList.add('active');
           if (!last) {
             window.requestAnimationFrame(clock);
           }
-        } else if (e.key == "v") {
+        } else if (e.key == 'v') {
           rocketman = !rocketman;
           if (
             pos[0] >= 55 ||
@@ -317,19 +317,19 @@
             reset();
         }
       });
-      window.addEventListener("keyup", (e) => {
-        if (e.key == "i") {
+      window.addEventListener('keyup', (e) => {
+        if (e.key == 'i') {
           ion = false;
-          ikey.classList.remove("active");
-        } else if (e.key == "j") {
+          ikey.classList.remove('active');
+        } else if (e.key == 'j') {
           jon = false;
-          jkey.classList.remove("active");
-        } else if (e.key == "u") {
+          jkey.classList.remove('active');
+        } else if (e.key == 'u') {
           uon = false;
-          jkey.classList.remove("active");
-        } else if (e.key == "h") {
+          jkey.classList.remove('active');
+        } else if (e.key == 'h') {
           hon = false;
-          jkey.classList.remove("active");
+          jkey.classList.remove('active');
         }
       });
 
