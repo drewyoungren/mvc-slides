@@ -47,10 +47,10 @@
             </p>
           </section>
           <section>
-                    <!-- Set up standard LaTeX macros -->
-        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
-        $\gdef\comp{\operatorname{comp}}$
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
 
             <h2>Announcements</h2>
 
@@ -260,10 +260,10 @@
             <h4>Formulas</h4>
             <div class="container">
               <div class="col">
-                \[ \text{proj}_{\mathbf b} \mathbf a = \frac{\mathbf a \cdot
-                \mathbf b}{\mathbf b \cdot \mathbf b} \mathbf b \] \[
-                \text{comp}_{\mathbf b} \mathbf a = \frac{\mathbf a \cdot
-                \mathbf b}{|\mathbf b| } \]
+                \[ \text{proj}_{\mathbf w} \mathbf v = \frac{\mathbf v \cdot
+                \mathbf w}{\mathbf w \cdot \mathbf w} \mathbf w \] \[
+                \text{comp}_{\mathbf w} \mathbf v = \frac{\mathbf v \cdot
+                \mathbf w}{|\mathbf w| } \]
               </div>
               <div class="col">
                 <div
@@ -329,15 +329,16 @@
           </section>
           <section>
             <p>
-              There is a special <strong>vector product</strong>, or <strong>cross product</strong> in
-              <strong>$\RR^3$ only</strong>. \[\vec v \times \vec w = \vec u\]
-              "A vector cross a vector is a vector."
+              There is a special <strong>vector product</strong>, or
+              <strong>cross product</strong> in <strong>$\RR^3$ only</strong>.
+              \[\vec v \times \vec w = \vec u\] "A vector cross a vector is a
+              vector."
             </p>
           </section>
           <section>
             <div class="r-stretch"></div>
 
-            <h3 class="framelabel">Defining properties</h6>
+            <h3 class="framelabel">Defining properties</h3>
             <ul class="squarelist">
               <li class="fragment">
                 bilinearity: $ \vec u \times (c\vec v + d\vec w) = c \vec u
@@ -353,31 +354,51 @@
             </ul>
             <div class="r-stretch"></div>
           </section>
-          <section><h3>Formula</h3>
-          <div class="fragment">
-            \[\langle a,b,c \rangle\times \langle d,e,f \rangle = (a\vec i + b\vec j + c \vec k)\times(d\vec i + e\vec j + f \vec k) \]
-          </div>
-          <div class="fragment">
-          \[ = (bf - ce) \vec i + (cd - af) \vec j + (ae - bc) \vec k \]
-        </div>
-          <div class="fragment">
-          $ = \begin{vmatrix} \vec i & \vec j & \vec k \\a &b &c \\ d & e & f \\ \end{vmatrix}  $ <span class="fragment">$ \begin{matrix} \vec i & \vec j  \\a &b  \\ d & e \\ \end{matrix} $</span>
-        </div>
-        <div class="r-stretch"></div>
+          <section>
+            <h3>Formula</h3>
+            <div class="fragment">
+              \[\langle a,b,c \rangle\times \langle d,e,f \rangle = (a\vec i +
+              b\vec j + c \vec k)\times(d\vec i + e\vec j + f \vec k) \]
+            </div>
+            <div class="fragment">
+              \[ = (bf - ce) \vec i + (cd - af) \vec j + (ae - bc) \vec k \]
+            </div>
+            <div class="fragment">
+              $ = \begin{vmatrix} \vec i & \vec j & \vec k \\a &b &c \\ d & e &
+              f \\ \end{vmatrix} $
+              <span class="fragment"
+                >$ \begin{matrix} \vec i & \vec j \\a &b \\ d & e \\
+                \end{matrix} $</span
+              >
+            </div>
+            <div class="r-stretch"></div>
+          </section>
         </section>
-        </section>
-        <section><h3>Properties</h3>
-  
+        <section>
+          <h3>Properties</h3>
+
           <ul class="nonelist">
-            <li class="fragment">$\vec v \times \vec w \cdot \vec v = \vec v \times \vec w \cdot \vec w = \vec 0$ </li>
-            <li class="fragment">The direction of $\vec v \times \vec w$ follow the Right Hand Rule (RHR).</li>
-            <li class="fragment">$|\vec v \times \vec w| = |\vec v ||\vec w| \sin \theta$</li>
+            <li class="fragment">
+              $\vec v \times \vec w \cdot \vec v = \vec v \times \vec w \cdot
+              \vec w = \vec 0$
+            </li>
+            <li class="fragment">
+              The direction of $\vec v \times \vec w$ follow the Right Hand Rule
+              (RHR).
+            </li>
+            <li class="fragment">
+              $|\vec v \times \vec w| = |\vec v ||\vec w| \sin \theta$
+            </li>
           </ul>
-        
-          <p style="font-size: smaller;"><a href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=vector&obj0_color=%230d0887&obj0_params_a=2&obj0_params_b=2&obj0_params_c=-1&obj0_params_x=1%2F2&obj0_params_y=1%2F2&obj0_params_z=1%2F2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_animation=true&obj1_params_a=%281+-+n%29*3+*+1+*+sin%28t%29+%2F+sqrt%285%29+%2B+n*+%280.666667+cos%28t%29+-+0.596285+sin%28t%29%29&obj1_params_b=n+*+%280.666667+cos%28t%29+%2B+0.745356+sin%28t%29%29&obj1_params_c=%281+-+n%29*3+*+2+*+sin%28t%29+%2F+sqrt%285%29++%2B+n+*+%28-0.333333+cos%28t%29+%2B+0.298142+sin%28t%29%29&obj1_params_x=1%2F2&obj1_params_y=1%2F2&obj1_params_z=1%2F2&obj1_params_t0=0&obj1_params_t1=2+pi&obj1_params_n0=0&obj1_params_n1=1&obj2_kind=surface&obj2_color=%234e4bf7&obj2_animation=true&obj2_params_a=0&obj2_params_b=1&obj2_params_c=0&obj2_params_d=1&obj2_params_x=1%2F2+%2B+2+u+%2B+%280.666667+cos%28t%29+-+0.596285+sin%28t%29%29+*+v&obj2_params_y=1%2F2+%2B+2+u+%2B+%280.666667+cos%28t%29+%2B+0.745356+sin%28t%29%29+*+v&obj2_params_z=1%2F2+-+u+%2B+%28-0.333333+cos%28t%29+%2B+0.298142+sin%28t%29%29*v&obj2_params_t0=0&obj2_params_t1=2+pi" target="_blank">3Demos</a></p>
+
+          <p style="font-size: smaller">
+            <a
+              href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=vector&obj0_color=%230d0887&obj0_params_a=2&obj0_params_b=2&obj0_params_c=-1&obj0_params_x=1%2F2&obj0_params_y=1%2F2&obj0_params_z=1%2F2&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=vector&obj1_color=%23dc5e66&obj1_animation=true&obj1_params_a=%281+-+n%29*3+*+1+*+sin%28t%29+%2F+sqrt%285%29+%2B+n*+%280.666667+cos%28t%29+-+0.596285+sin%28t%29%29&obj1_params_b=n+*+%280.666667+cos%28t%29+%2B+0.745356+sin%28t%29%29&obj1_params_c=%281+-+n%29*3+*+2+*+sin%28t%29+%2F+sqrt%285%29++%2B+n+*+%28-0.333333+cos%28t%29+%2B+0.298142+sin%28t%29%29&obj1_params_x=1%2F2&obj1_params_y=1%2F2&obj1_params_z=1%2F2&obj1_params_t0=0&obj1_params_t1=2+pi&obj1_params_n0=0&obj1_params_n1=1&obj2_kind=surface&obj2_color=%234e4bf7&obj2_animation=true&obj2_params_a=0&obj2_params_b=1&obj2_params_c=0&obj2_params_d=1&obj2_params_x=1%2F2+%2B+2+u+%2B+%280.666667+cos%28t%29+-+0.596285+sin%28t%29%29+*+v&obj2_params_y=1%2F2+%2B+2+u+%2B+%280.666667+cos%28t%29+%2B+0.745356+sin%28t%29%29+*+v&obj2_params_z=1%2F2+-+u+%2B+%28-0.333333+cos%28t%29+%2B+0.298142+sin%28t%29%29*v&obj2_params_t0=0&obj2_params_t1=2+pi"
+              target="_blank"
+              >3Demos</a
+            >
+          </p>
         </section>
-
-
       </div>
     </div>
 
@@ -394,14 +415,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
