@@ -36,11 +36,6 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Set up standard LaTeX macros -->
-        $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$ $\gdef\bv#1{\begin{bmatrix}
-        #1 \end{bmatrix}}$ $\gdef\proj{\operatorname{proj}}$
-        $\gdef\comp{\operatorname{comp}}$
-
         <section>
           <section>
             <h3 class="framelabel">Lecture 09</h3>
@@ -52,13 +47,17 @@
             </p>
           </section>
           <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
             <h2>Announcements</h2>
 
             <ul>
               <li class="fragment">
-                Review Session Wednesday (see Ed Discussions)
+                Review session tonight (see Ed Discussions for link)
               </li>
-              <li class="fragment">Midterm 1 Thursday, 10/05.</li>
+              <li class="fragment">Midterm 1 Thursday, 2/15.</li>
               <li class="fragment">Recitation Optional this week</li>
               <li class="fragment">No quiz this week</li>
               <li class="fragment">HW5 (short) due next Tues</li>
@@ -73,7 +72,7 @@
           <section>
             <h6 class="framelabel">Partial $\partial$erivatives</h6>
 
-            <p>
+            <p class="r-fit-text">
               The <strong>partial derivative</strong> of a function
               $f(x_1,\ldots,x_n)$ with respect to $x_i$ is \[\frac{\partial
               f}{\partial x_i} = \lim_{h\to 0}
@@ -198,7 +197,7 @@
             <p>
               We start with the
               <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&obj0_kind=graph&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=3&obj0_params_c=0&obj0_params_d=3&obj0_params_z=log%28+x+%2B+2+y+%2B+1%29&obj0_params_t0=0&obj0_params_t1=1"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=Intro&scale=0.38&showPanel=true&obj0_kind=graph&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=3&obj0_params_c=0&obj0_params_d=3&obj0_params_z=log%28+x+%2B+2+y+%2B+1%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=point&obj1_color=%230d0887&obj1_params_a=1&obj1_params_b=2&obj1_params_c=log%286%29&obj1_params_t0=0&obj1_params_t1=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 >graph</a
@@ -287,7 +286,7 @@
             <div class="r-frame">
               <h6 class="framelabel">Definition</h6>
 
-              The lineariztion of a function $f$ at $\vec p = \langle p_1,
+              The linearization of a function $f$ at $\vec p = \langle p_1,
               \ldots, p_n \rangle$ is a linear function \[L(\vec x) = f(\vec p)
               + \sum_{i=1}^n \frac{\partial f}{\partial x_i}(\vec p)(x_i - p_i)
               \]
@@ -380,14 +379,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
