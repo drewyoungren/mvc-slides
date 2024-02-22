@@ -122,10 +122,10 @@
                 \[ \frac{d}{dx} (f\circ g)(x) = f'(g(x))g'(x) \]
               </p>
               <p class="fragment fade">
-                \[ \frac{d}{dx} f(g(x)) = \frac{df}{du} \frac{du}{dx} \]
+                \[ \frac{d}{dx} f(g(x)) = \frac{df}{du} \frac{du}{dx} \] where
+                $u = g(x)$.
               </p>
             </div>
-            <p class="fragment">where $u = g(x)$.</p>
           </section>
           <section>
             <h6 class="framelabel">Main problem</h6>
@@ -160,7 +160,7 @@
               \[ \frac{d}{dt} \Big\vert_{t_0}(f(a, b) + f_x(a,b)(x(t) - a) +
               f_y(a,b)(y(t) - b)) \]
             </p>
-            <p class="fragment">\[ = f_x(a,b) x'(t_0) + f_y(a,b) y(t_0) \]</p>
+            <p class="fragment">\[ = f_x(a,b) x'(t_0) + f_y(a,b) y'(t_0) \]</p>
           </section>
           <section>
             <div class="r-frame">
@@ -206,7 +206,7 @@
             <p>
               A particle circles the $z$-axis
               <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&obj0_kind=point&obj0_color=%23bd000d&obj0_params_a=cos%282+pi+t%29&obj0_params_b=sin%282+pi+t%29&obj0_params_c=cos%282+pi+t%29+sin%282+pi+t%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=graph&obj1_color=%23b17dde&obj1_params_a=-3%2F2&obj1_params_b=3%2F2&obj1_params_c=-3%2F2&obj1_params_d=3%2F2&obj1_params_z=x+y&obj1_params_t0=0&obj1_params_t1=1"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=point&obj0_color=%23bd000d&obj0_animation=true&obj0_params_a=cos%282+pi+t%29&obj0_params_b=sin%282+pi+t%29&obj0_params_c=cos%282+pi+t%29+sin%282+pi+t%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=graph&obj1_color=%23b17dde&obj1_params_a=-1.1&obj1_params_b=1.1&obj1_params_c=-1.1&obj1_params_d=1.1&obj1_params_z=x+y&obj1_params_t0=0&obj1_params_t1=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 >every second</a
@@ -415,14 +415,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
