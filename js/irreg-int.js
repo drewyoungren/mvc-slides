@@ -42,7 +42,7 @@
       btn.value = !btn.value;
     },
   ]);
-  btn.value = false;
+  // btn.value = true;
 
   const p = b1.create(
     "point",
@@ -63,7 +63,7 @@
   const c1 = function () {
     const a = p.X();
     const b = p.Y();
-    if (!btn.value) {
+    if (btn.value) {
       return [a - 0.04, b];
     } else {
       return [a, b - 0.04];
@@ -72,7 +72,7 @@
   const c2 = function () {
     const a = p.X();
     const b = p.Y();
-    if (!btn.value) {
+    if (btn.value) {
       return [a + 0.04, b];
     } else {
       return [a, b + 0.04];
@@ -81,7 +81,7 @@
   const c3 = function () {
     const a = p.X();
     const b = p.Y();
-    if (!btn.value) {
+    if (btn.value) {
       return [a + 0.04, f(a)];
     } else {
       return [finv(b), b + 0.04];
@@ -90,7 +90,7 @@
   const c4 = function () {
     const a = p.X();
     const b = p.Y();
-    if (!btn.value) {
+    if (btn.value) {
       return [a - 0.04, f(a)];
     } else {
       return [finv(b), b - 0.04];
@@ -107,7 +107,7 @@
       1.8,
       1.6,
       () => {
-        if (btn.value) {
+        if (!btn.value) {
           return "x = y^2";
         } else {
           return "y = \\sqrt{x}";
@@ -119,13 +119,16 @@
       useKatex: true,
     }
   );
+
+  // t1.updateRenderer();
+
   const t2 = b1.create(
     "text",
     [
       3.5,
       1,
       () => {
-        if (btn.value) {
+        if (!btn.value) {
           return "x = \\sqrt[3]{32 y}";
         } else {
           return "y = \\frac{x^3}{32}";
@@ -133,8 +136,12 @@
       },
     ],
     {
-      // display: "html",
+      display: "html",
       useKatex: true,
     }
   );
+  setTimeout(() => {
+    btn.value = true;
+    b1.update();
+  }, 1000);
 }
