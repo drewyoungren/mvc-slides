@@ -462,6 +462,23 @@
           <section>
             <h1>Work Integrals</h1>
           </section>
+          <section>
+            <h6 class="framelabel">Work = Force &times; Distance</h6>
+
+            Suppose a particle moves along a path $C$ parametrized by $\vec
+            r(t)$ for $a \leq t \leq b$, and is subject to a force field $\vec
+            F$ at each point of the curve, then the total work done by the force
+            is
+            <div class="r-stack">
+              <div class="fragment current-visible">
+                \[W =\int\limits_C \vec F\cdot d\vec r \]
+              </div>
+              <div class="fragment">
+                \[W =\int\limits_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec
+                r(t))\cdot \vec r'(t)\,dt \]
+              </div>
+            </div>
+          </section>
           <section
             data-background-image="assets/spring.gif"
             data-background-opacity="0.6"
@@ -478,6 +495,11 @@
               Compute the work done by spring moving an object from position
               $x_0$ to $x_1$.
             </p>
+            <p class="fragment r-stretch">
+              $x(t) = x_0 + (x_1 - x_0)t$ for $0\leq t \leq 1$. \[ \int_0^1 -k(
+              x_0 + (x_1 - x_0)t) (x_1 - x_0)\,dt = \frac12kx_0^2 - \frac12 k
+              x_1^2 \]
+            </p>
           </section>
           <section
             data-background-image="assets/ball_ramp.gif"
@@ -489,6 +511,11 @@
             <p>
               A ball falls down a parabolic ramp $y=x^2$ from $(-2,4)$ to the
               origin. How much work was done by gravity?
+            </p>
+            <p class="fragment r-stretch">
+              $\vec r(t) = \left\langle t, t^2 \right\rangle$ for $-2\leq t \leq
+              0$. \[ \int_{-2}^{0} \left\langle 0, -mg \right\rangle \cdot
+              \left\langle 1, 2 t \right\rangle= mg4 \]
             </p>
           </section>
         </section>
@@ -553,14 +580,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
