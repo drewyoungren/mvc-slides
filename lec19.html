@@ -120,7 +120,7 @@
           <section>
             <h3 class="framelabel">Green's Theorem</h3>
 
-            \[\oint_{\partial D} P\,dx + Q\,dy = \iint_\mathcal{D}
+            \[\oint_\limits{\partial D} P\,dx + Q\,dy = \iint\limits_{D}
             \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
             \right)\,dA \]
 
@@ -135,7 +135,7 @@
 
                 <li class="thm fragment">
                   $\partial D$ is an counterclockwise-oriented, simple, closed
-                  curve forming the boundary of $\mathcal D$, and
+                  curve forming the boundary of $D$, and
                 </li>
 
                 <li class="thm fragment">
@@ -167,21 +167,53 @@
             </div>
           </section>
           <section>
+            <h6 class="framelabel">Solution</h6>
+            <p>
+              Say, $ \langle P, Q \rangle = \langle xy - y^2 , x^2\rangle$.
+              Then, \[ \frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y} = 2x - (x - 2y) = x + 2y \]
+            </p>
+            <p class="fragment">
+              \[ \oint_T P\,dx + Q\,dy = \int_0^2 \int_{\frac32 y}^{2 + \frac12
+              y} (x + 2y)\,dx\,dy = 6 \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+
+            <p style="font-size: smaller">Check by integrating each piece.</p>
+
+            <p class="fragment" style="font-size: smaller">
+              Bot $\langle 2t, 0 \rangle$: $\displaystyle \int_0^1 ((2t)0 -
+              0^2)2\,dt + (2t)^2(0)\,dt + = 0$
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              R $\langle 2 + t, 2t \rangle $: $\displaystyle \int_0^1 (2+t)(2t)
+              - (2t)^2 + (2 + t)^2 2\,dt = 14$
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              L $\langle 3 - 3t,2 - 2t \rangle $: $\displaystyle \int_0^1 ((3 -
+              3t)(2 - 2t) - (2 - 2t)^2)(-3) + (3 - 3t)^2 (-2)\,dt = -8$
+            </p>
+          </section>
+          <section>
             <h6 class="framelabel">Justification</h6>
 
             <div class="container">
               <div class="col">
                 <p>
                   <!-- It is sufficient to show the two identities  -->
-                  \[\oint_C P\,dx = \iint_\mathcal D -\partial_y P \,dA \] \[
-                  \oint_C Q\,dy = \iint_\mathcal D \partial_x Q \,dA \]
+                  \[\oint\limits_{\partial D} P\,dx = \iint\limits_D -\partial_y
+                  P \,dA \] \[ \oint\limits_{\partial D} Q\,dy = \iint\limits_D
+                  \partial_x Q \,dA \]
                 </p>
                 <p class="fragment" style="font-size: smaller">
-                  Consider only the first case and that $\mathcal D$ is the
-                  region \[ \begin{align*} g(x) &\leq y \leq f(x) \\ a &\leq x
-                  \leq b \\ \end{align*}\]
+                  Consider only the first case and that $D$ is the region \[
+                  \begin{align*} g(x) &\leq y \leq f(x) \\ a &\leq x \leq b \\
+                  \end{align*}\]
                 </p>
               </div>
+
               <div class="col">
                 <img
                   src="assets/bounded_by_functions.png"
@@ -191,6 +223,9 @@
               </div>
             </div>
           </section>
+          <!-- <section>
+              Step through proof argument.
+          </section> -->
         </section>
         <section>
           <section>
@@ -219,18 +254,22 @@
               Consider the vector field $\vec F(x,y) = \langle 0, x \rangle$.
             </p>
             <p class="fragment">
-              \[ \oint_{\partial R} \vec F\cdot d\vec r = \oint_R x\,dy =
-              \iint_R 1\,dA = \text{Area}(R) \]
+              \[ \oint\limits_{\partial R} \vec F\cdot d\vec r =
+              \oint\limits_{\partial R} x\,dy = \iint\limits_R 1\,dA =
+              \text{Area}(R) \]
             </p>
           </section>
           <section>
             <h6 class="framelabel">Alternatives</h6>
 
-            \[\text{Area}(D) = \iint_D \,dA \]
-            <div class="fragment">\[ = \oint_{\partial D} x\,dy \]</div>
-            <div class="fragment">\[ = \oint_{\partial D} (-y)\,dx \]</div>
+            \[\text{Area}(D) = \iint\limits_D \,dA \]
+            <div class="fragment">\[ = \oint\limits_{\partial D} x\,dy \]</div>
             <div class="fragment">
-              \[ = \oint_{\partial D} \frac{x}{2}\,dy - \frac{y}{2}\,dx \]
+              \[ = \oint\limits_{\partial D} (-y)\,dx \]
+            </div>
+            <div class="fragment">
+              \[ = \oint\limits_{\partial D} \frac{x}{2}\,dy - \frac{y}{2}\,dx
+              \]
             </div>
           </section>
         </section>
@@ -251,6 +290,74 @@
             <div class="fragment">
               \[\oint_{\partial D} \nabla f\cdot d\vec r = 0 \]
             </div>
+          </section>
+          <section data-auto-animate>
+            <h3 class="framelabel">
+              What is $\frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y}$?
+            </h3>
+            <p style="font-size: smaller">
+              Let $B_r$ be a small ball of radius $r$ around a point $(a,b)$.
+              For a continuous function, \[ h(a,b) = \lim_{r\to 0}
+              \frac{\iint_{B_r} h\,dA}{\text{Area}(B_r)}\]
+            </p>
+            <p style="font-size: smaller" class="fragment">
+              That is, over smaller and smaller regions, the average value
+              converges to the value at that point.
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h3 class="framelabel">
+              What is $\frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y}$?
+            </h3>
+            <p style="font-size: smaller">
+              Let $B_r$ be a small ball of radius $r$ around a point $(a,b)$.
+              Then,
+            </p>
+            <p>
+              \[ \left(\frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y}\right)(a,b) = \lim_{r\to 0} \frac{\iint_{B_r}
+              \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial
+              y}\right)\,dA}{\text{Area}(B_r)}\]
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h3 class="framelabel">
+              What is $\frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y}$?
+            </h3>
+            <p style="font-size: smaller">
+              Let $B_r$ be a small ball of radius $r$ around a point $(a,b)$.
+              Then,
+            </p>
+            <p>
+              \[ \left(\frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y}\right)(a,b) = \lim_{r\to 0} \frac{\oint_{C_r} P\,dx
+              + Q\,dy}{\text{Area}(B_r)}\]
+            </p>
+          </section>
+          <section data-auto-animate>
+            <h3 class="framelabel">
+              What is $\frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y}$?
+            </h3>
+            <p style="font-size: smaller">
+              Let $B_r$ be a small ball of radius $r$ around a point $(a,b)$.
+              Then,
+            </p>
+            <p>
+              \[ \left(\frac{\partial Q}{\partial x} - \frac{\partial
+              P}{\partial y}\right)(a,b) = \lim_{r\to 0} \frac{\oint_{C_r} P\,dx
+              + Q\,dy}{\text{Area}(B_r)}\]
+            </p>
+            <p style="font-size: smaller" class="">
+              That is, the integrand of Green's Theorem is the "circulation
+              density" of the vector field $\langle P, Q \rangle$.
+              <span class="fragment"
+                >This is known as the <strong>scalar curl</strong>.</span
+              >
+            </p>
           </section>
           <section
             data-background-image="assets/holey_domain.png"
