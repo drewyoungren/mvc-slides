@@ -54,8 +54,14 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 11 due 11/28</li>
-              <li class="fragment">No quiz/recitation this week</li>
+              <li class="fragment">HW 12 due Tuesday</li>
+              <li class="fragment">
+                Quiz 8 this week
+                <ul class="fragment">
+                  <li>FTLI</li>
+                </ul>
+              </li>
+              <li class="fragment">Recitation as usual</li>
             </ul>
           </section>
         </section>
@@ -68,7 +74,7 @@
           <section>
             <h3 class="framelabel">Green's Theorem</h3>
 
-            \[\oint_{\partial D} P\,dx + Q\,dy = \iint_\mathcal{D}
+            \[\oint\limits_{\partial D} P\,dx + Q\,dy = \iint\limits_{D}
             \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
             \right)\,dA \]
 
@@ -83,7 +89,7 @@
 
                 <li class="thm fragment">
                   $\partial D$ is an counterclockwise-oriented, simple, closed
-                  curve forming the boundary of $\mathcal D$, and
+                  curve forming the boundary of $D$, and
                 </li>
 
                 <li class="thm fragment">
@@ -98,13 +104,52 @@
           <section>
             <h1>Parametric Surfaces</h1>
           </section>
+
+          <section data-auto-animate>
+            <h6 class="framelabel">Parametrization</h6>
+            <div class="container">
+              <div class="col r-frame">
+                <h6 class="framelabel">Curves</h6>
+                \[ \vec r: \RR \to \RR^3 \]
+                <div class="r-stretch fragment">
+                  \[ \vec r(t) = \bv{ x(t) \\ y(t) \\ z(t)} \]
+                </div>
+              </div>
+              <div class="col r-frame">
+                <h6 class="framelabel">Surfaces</h6>
+                \[ \vec r: \RR^2 \to \RR^3 \]
+                <div class="r-stretch fragment">
+                  \[ \vec r(u,v) = \bv{ x(u,v) \\ y(u,v) \\ z(u,v)} \]
+                </div>
+              </div>
+            </div>
+          </section>
           <section data-auto-animate>
             <h6 class="framelabel">Parametrization</h6>
             <div class="container">
               <div class="col r-frame">
                 <h6 class="framelabel">Curves</h6>
                 \[ \vec r: \RR \to \RR^n \]
-                <div style="width: 500px; height: 400px"></div>
+                <div style="width: 500px; height: 400px">
+                  <ul>
+                    <li class="fragment">
+                      <a
+                        href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=1&obj0_params_x=t+cos%284+pi+t%29&obj0_params_y=t+sin%284+pi+t%29&obj0_params_z=t"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Curve 1</a
+                      >
+                    </li>
+                    <li class="fragment">
+                      <a
+                        href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23c70000&obj0_params_a=0&obj0_params_b=10&obj0_params_x=exp%28-t%29+cos%284+pi+exp%28-t%29%29&obj0_params_y=exp%28-t%29+sin%284+pi+exp%28-t%29%29&obj0_params_z=exp%28-t%29+"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Curve 2</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
               <div class="col r-frame">
                 <h6 class="framelabel">Surfaces</h6>
@@ -128,25 +173,6 @@
                       >
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section data-auto-animate>
-            <h6 class="framelabel">Parametrization</h6>
-            <div class="container">
-              <div class="col r-frame">
-                <h6 class="framelabel">Curves</h6>
-                \[ \vec r: \RR \to \RR^3 \]
-                <div class="r-stretch fragment">
-                  \[ \vec r(t) = \bv{ x(t) \\ y(t) \\ z(t)} \]
-                </div>
-              </div>
-              <div class="col r-frame">
-                <h6 class="framelabel">Surfaces</h6>
-                \[ \vec r: \RR^2 \to \RR^3 \]
-                <div class="r-stretch fragment">
-                  \[ \vec r(u,v) = \bv{ x(u,v) \\ y(u,v) \\ z(u,v)} \]
                 </div>
               </div>
             </div>
@@ -491,14 +517,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
