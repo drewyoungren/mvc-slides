@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>APMA E2000 - Stokes' Theorem</title>
+    <title>APMA E2000 - Gauss' Theorem</title>
 
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
@@ -39,7 +39,7 @@
         <section>
           <section>
             <h3 class="framelabel">Lecture 22</h3>
-            <h1>Stokes' Theorem</h1>
+            <h1>Gauss' Theorem</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
             <p style="text-align: right">
@@ -54,29 +54,15 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 11 due 12/5</li>
+              <li class="fragment">HW 13 due Tuesday</li>
               <li class="fragment">
-                Quiz 8
+                Quiz 9
                 <ul>
-                  <li>FTLI</li>
                   <li>Green's Theorem</li>
+                  <li>Surface Area</li>
                 </ul>
               </li>
               <li class="fragment">Regular recitation schedule</li>
-              <li class="fragment">
-                Final Exam schedule released
-                <ul>
-                  <li>
-                    See edstem
-                    <a
-                      href="https://edstem.org/us/courses/44886/discussion/3955741"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >announcement</a
-                    >.
-                  </li>
-                </ul>
-              </li>
             </ul>
           </section>
         </section>
@@ -111,7 +97,33 @@
               r_v) \,du\,dv \]
             </p>
           </section>
+          <section>
+            <h6 class="framelabel">Flux Example</h6>
 
+            <p>
+              Consider the vector field $\vec F(x,y,z) = \vec i$. Consider the
+              surfaces
+            </p>
+            <ul style="font-size: smaller">
+              <li>
+                $\Omega_1$: piece of the plane $x=0$ for $0 \leq y,z \leq 1$
+              </li>
+              <li>
+                $\Omega_2$: piece of the surface $x= 3 y (1-y)$ for $0 \leq y,z
+                \leq 1$
+              </li>
+            </ul>
+            <p>
+              oriented in the positive $x$-direction.
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=field&obj0_color=%230d0887&obj0_animation=true&obj0_params_p=1&obj0_params_q=0&obj0_params_r=0&obj0_params_nVec=6&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=1&obj1_params_c=0&obj1_params_d=1&obj1_params_x=t+*u*%281+-+u%29*+3&obj1_params_y=u&obj1_params_z=v&obj1_params_t0=0&obj1_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Through which surface</a
+              >
+              is the flux of $\vec F$ greater?
+            </p>
+          </section>
           <section>
             <h6 class="framelabel">Example</h6>
             <p>
@@ -226,142 +238,244 @@
             <p class="fragment">
               Compute the divergence of both $\vec F$ and its curl.
               <span class="fragment">
-                \[ \nabla \cdot F = 2z \qquad \qquad \qquad \nabla \cdot \nabla
-                \times F = -1 + 1 = 0.\]
+                \[ \nabla \cdot \vec F = 2z \qquad \qquad \qquad \nabla \cdot
+                \nabla \times \vec F = -1 + 1 = 0.\]
               </span>
             </p>
           </section>
         </section>
         <section>
           <section>
-            <h1>Stokes' Theorem</h1>
+            <h1>The Divergence Theorem</h1>
           </section>
           <section>
-            <h6 class="framelabel"></h6>
-          </section>
-          <section>
-            <h3>Stokes' Theorem</h3>
-
-            <div class="container">
-              <div class="col">
-                <h6>Objectives</h6>
-                <ul>
-                  <li class="fragment">orient a surface and its boundary</li>
-                  <li class="fragment">see a brief justification</li>
-                  <li class="fragment">recognize when it applies</li>
-                </ul>
-              </div>
-              <div class="col">
-                <img
-                  src="assets/george.jpeg"
-                  alt="Portrait of Stokes"
-                  srcset=""
-                />
-                <p style="font-size: xx-small">
-                  <a
-                    href="https://mathshistory.st-andrews.ac.uk/Biographies/Stokes/Stokes_3.jpeg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Photo credit</a
-                  >
-                </p>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h6 class="framelabel">Stokes' Theorem</h6>
+            <h6 class="framelabel">Flux Example Reprise</h6>
 
             <p>
-              Let $\Omega$ be an oriented surface in $\RR^3$ and $\partial
-              \Omega$ its
+              Consider the
               <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.06&showPanel=true&obj0_kind=surface&obj0_color=%23251fe0&obj0_params_a=1%2F4&obj0_params_b=1%2F2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=2+u+cos%28v%29+%2B+1&obj0_params_y=u+sin+%28v%29&obj0_params_z=1+%2B+cos%283%282+u+cos%28v%29+%2B+1+%2B+u+sin%28v%29+%2F+2%29%29+%2F+%282+%2B+u%5E2+cos%28v%29%5E2%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ffc038&obj1_params_a=0&obj1_params_b=2+pi&obj1_params_x=+cos%28t%29+%2B+1&obj1_params_y=sin+%28t%29+%2F+2&obj1_params_z=1+%2B+cos%283%28+cos%28t%29+%2B+1+%2B++sin%28t%29+%2F+4%29%29+%2F+%282+%2B+1%2F4*cos%28t%29%5E2%29&obj2_kind=curve&obj2_color=%23ffff00&obj2_params_a=0&obj2_params_b=2*pi&obj2_params_x=+cos%28t%29%2F2+%2B+1&obj2_params_y=sin+%28-t%29+%2F+4&obj2_params_z=1+%2B+cos%283%28+cos%28t%29%2F2+%2B+1+%2B++sin%28-t%29+%2F+8%29%29+%2F+%282+%2B+1%2F16*cos%28t%29%5E2%29"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=field&obj0_color=%230d0887&obj0_animation=true&obj0_params_p=x&obj0_params_q=0&obj0_params_r=0&obj0_params_nVec=6&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=1&obj1_params_c=0&obj1_params_d=1&obj1_params_x=t+*u*%281+-+u%29*+3&obj1_params_y=u&obj1_params_z=v&obj1_params_t0=0&obj1_params_t1=1"
                 target="_blank"
                 rel="noopener noreferrer"
-                >positively-oriented boundary</a
-              >. If $\vec F(x,y,z)$ is a smooth vector field, then \[
-              \iint_{\Omega} \nabla \times\vec F \cdot d \vec S =
-              \oint_{\partial \Omega} \vec F\cdot d \vec r \]
+                >vector field</a
+              >
+              $\vec F(x,y,z) = x\,\vec i$. Consider the surfaces
+            </p>
+            <ul style="font-size: smaller">
+              <li>
+                $\Omega_1$: piece of the plane $x=0$ for $0 \leq y,z \leq 1$
+              </li>
+              <li>
+                $\Omega_2$: piece of the surface $x= 3 y (1-y)$ for $0 \leq y,z
+                \leq 1$
+              </li>
+            </ul>
+            <p>
+              oriented in the positive $x$-direction.
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=field&obj0_color=%230d0887&obj0_params_p=x&obj0_params_q=0&obj0_params_r=0&obj0_params_nVec=6&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=1&obj1_params_c=0&obj1_params_d=1&obj1_params_x=3+*+u+*+%281+-+u%29&obj1_params_y=u+&obj1_params_z=v&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=surface&obj2_color=%235801a5&obj2_params_a=0&obj2_params_b=1&obj2_params_c=0&obj2_params_d=1&obj2_params_x=0&obj2_params_y=u&obj2_params_z=v&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=surface&obj3_color=%23f68e45&obj3_params_a=0&obj3_params_b=1&obj3_params_c=0&obj3_params_d=1&obj3_params_x=3*u*%281+-+u%29*v&obj3_params_y=u&obj3_params_z=1&obj3_params_t0=0&obj3_params_t1=1&obj4_kind=surface&obj4_color=%239310a2&obj4_params_a=0&obj4_params_b=1&obj4_params_c=0&obj4_params_d=1&obj4_params_x=3*u*%281+-+u%29*v&obj4_params_y=u&obj4_params_z=0&obj4_params_t0=0&obj4_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Through which surface</a
+              >
+              is the flux of $\vec F$ greater?
             </p>
           </section>
           <section>
-            <h6 class="framelabel">Faraday's Law</h6>
+            <h3 class="framelabel">The Divergence Theorem</h3>
+            <h5 class="framelabel">
+              aka
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=true&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=rect&obj0_params_a=0&obj0_params_b=.05&obj0_params_c=0&obj0_params_d=0.05&obj0_params_e=0&obj0_params_f=0.05&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=pi&obj1_params_c=0&obj1_params_d=2+pi&obj1_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj1_params_y=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj1_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=field&obj2_color=%235801a5&obj2_params_p=z&obj2_params_q=y&obj2_params_r=z&obj2_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Gauss' Theorem</a
+              >
+            </h5>
+
+            <p>
+              Let $E$ be a solid region in $\RR^3$ and $\partial E$ its
+              outward-oriented boundary. If $\vec F(x,y,z)$ is a smooth vector
+              field, then \[ \iint\limits_{\partial E} \vec F \cdot \vec N\,d S
+              = \iiint\limits_E \nabla \cdot \vec F\,dV \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Justification</h6>
+            <p style="font-size: smaller">
+              \[\iint\limits_{\partial E} \vec F\cdot \vec N\,dS \approx
+              \sum\Delta \text{flux} \] \[ \Delta\text{flux}_{x\text{-dir}} =
+              \left(P\left(x + \frac{\Delta x}{2}, y, z\right) - P\left(x -
+              \frac{\Delta x}{2}, y, z\right)\right) \Delta y\,\Delta z \]
+              \[\approx P_x(x,y,z)\, \Delta x\,\Delta y\,\Delta z \] \[
+              \Delta\text{flux}_{y\text{-dir}} \approx Q_y(x,y,z)\, \Delta
+              x\,\Delta y\,\Delta z \] \[ \Delta\text{flux}_{z\text{-dir}}
+              \approx R_z(x,y,z)\, \Delta x\,\Delta y\,\Delta z \]
+            </p>
+          </section>
+
+          <section>
+            <p>
+              Add these together, to get \[\sum\Delta \text{flux} \approx \sum
+              (P_x + Q_y + R_z) \, \Delta x\,\Delta y\,\Delta z \] \[
+              \longrightarrow \iiint\limits_E \operatorname{div} \vec F dV \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Interpretations</h1>
+          </section>
+          <section data-background-image="">
+            <h6 class="framelabel">Electric Field Hockey</h6>
+
+            <p>One of Maxwell's equations is \[\nabla \cdot \vec E = \rho \]</p>
 
             <div class="container">
               <div class="col">
-                \[ \begin{align*} -\frac{\partial \Phi}{\partial t} &=
-                \iint\limits_{D} -\frac{\partial B}{\partial t} d\vec S \\ \ &=
-                \iint\limits_{D} \nabla\times \vec E\cdot d\vec S \\ \ &=
-                \oint\limits_{\partial D} \vec E\cdot d\vec r \end{align*} \]
-
-                <p class="fragment" style="font-size: small">
-                  <a
-                    href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23000000&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=cos%283+t%29+%2F+2&obj0_params_y=sin%283+t%29+%2F+2&obj0_params_z=t+%2F+pi+-+1&obj1_kind=curve&obj1_color=%23000000&obj1_params_a=-1.5&obj1_params_b=1.5&obj1_params_x=%28t+%3C+-1%29+%3F+t+%2B+2+%3A+%28t+%3E+1+%3F+%282+-+t%29+%3A+1%29&obj1_params_y=0&obj1_params_z=%28t+%3C+-1%29+%3F+-1+%3A+%28t+%3E+1+%3F+1+%3A+t%29&obj2_kind=surface&obj2_color=%236664dd&obj2_params_a=0&obj2_params_b=2+pi&obj2_params_c=0&obj2_params_d=1&obj2_params_x=cos%283+u%29+%2F+2+*+%281+-+v%29+%2B+v&obj2_params_y=sin%283+u%29+%2F+2+*+%281+-+v%29+&obj2_params_z=u+%2F+pi+-+1&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=field&obj3_color=%230d0887&obj3_params_p=+z+x+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj3_params_q=+z+y+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj3_params_r=-log%28%28x%5E2+%2B+y%5E2%29*4%29&obj3_params_nVec=6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Demo</a
-                  >
+                <p>
+                  which says the divergence of the electric field is the charge
+                  density.
                 </p>
               </div>
-              <div class="col">
-                <iframe
-                  src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%23000000&obj0_params_a=0&obj0_params_b=2*pi&obj0_params_x=cos%283+t%29+%2F+2&obj0_params_y=sin%283+t%29+%2F+2&obj0_params_z=t+%2F+pi+-+1&obj1_kind=curve&obj1_color=%23000000&obj1_params_a=-1.5&obj1_params_b=1.5&obj1_params_x=%28t+%3C+-1%29+%3F+t+%2B+2+%3A+%28t+%3E+1+%3F+%282+-+t%29+%3A+1%29&obj1_params_y=0&obj1_params_z=%28t+%3C+-1%29+%3F+-1+%3A+%28t+%3E+1+%3F+1+%3A+t%29&obj2_kind=surface&obj2_color=%236664dd&obj2_params_a=0&obj2_params_b=2+pi&obj2_params_c=0&obj2_params_d=1&obj2_params_x=cos%283+u%29+%2F+2+*+%281+-+v%29+%2B+v&obj2_params_y=sin%283+u%29+%2F+2+*+%281+-+v%29+&obj2_params_z=u+%2F+pi+-+1&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=field&obj3_color=%230d0887&obj3_params_p=+z+x+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj3_params_q=+z+y+%2F+sqrt%28x%5E2+%2B+y%5E2%29+%2F+2&obj3_params_r=-log%28%28x%5E2+%2B+y%5E2%29*4%29&obj3_params_nVec=6"
-                  width="400px"
-                  height="600px"
-                ></iframe>
+              <div class="col fragment">
+                <a
+                  href="https://phet.colorado.edu/en/simulation/electric-hockey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><img
+                    src="assets/efh.png"
+                    alt="Screenshot of 'hockey' game displaying a number of charges and the associated electric field"
+                    srcset=""
+                /></a>
+                <p style="font-size: xx-small">
+                  via Ruth Chabay, et al, UC Boulder
+                </p>
               </div>
             </div>
+          </section>
+          <section data-background-image="assets/terry.jpeg">
+            <h6 class="framelabel">Spraying Champagne</h6>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Examples</h1>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
+
             <p>
-              Compute the line integral $\oint\limits_{\partial \Omega} \vec
-              F\cdot d\vec r $ around the ccw-oriented boundary of $\Omega$
-              given by \[z = (1 - x^2)(1-y^2)\] for $-1 \leq x \leq 1, -1 \leq y
-              \leq 1$ and \[\vec F(x,y,z) = 2y\,\vec i + 3z\, \vec j + z\, \vec
-              k.\]
-            </p>
-            <p class="fragment">
-              I call this surface the
+              Compute the flux of the radial vector field $x\,\vec i + y\,\vec j
+              + z\,\vec k$ through the
               <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23000000&obj0_params_a=-1&obj0_params_b=1&obj0_params_x=1&obj0_params_y=t&obj0_params_z=0&obj0_params_tau=0&obj0_params_color=%230032a8&obj1_kind=curve&obj1_color=%23000000&obj1_params_a=-1&obj1_params_b=1&obj1_params_x=-1&obj1_params_y=t&obj1_params_z=0&obj1_params_tau=0&obj1_params_color=%230032a8&obj2_kind=curve&obj2_color=%23000000&obj2_params_a=-1&obj2_params_b=1&obj2_params_x=t&obj2_params_y=1&obj2_params_z=0&obj2_params_tau=0&obj2_params_color=%230032a8&obj3_kind=curve&obj3_color=%23000000&obj3_params_a=-1&obj3_params_b=1&obj3_params_x=t&obj3_params_y=-1&obj3_params_z=0&obj3_params_tau=0&obj3_params_color=%230032a8&obj4_kind=field&obj4_color=%230d0887&obj4_params_p=2y&obj4_params_q=3z&obj4_params_r=x&obj4_params_nVec=6&obj5_kind=surface&obj5_color=%23088710&obj5_params_a=-1&obj5_params_b=1&obj5_params_c=-1&obj5_params_d=1&obj5_params_x=u&obj5_params_y=v&obj5_params_z=%281+-+u%5E2%29+*+%281+-+v%5E2%29+*+%281+-+t%29&obj5_params_t0=0&obj5_params_t1=1"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=sin%28u%29+cos%28v%29&obj0_params_y=sin%28u%29+sin%28v%29&obj0_params_z=cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%23dc5e66&obj1_params_p=x&obj1_params_q=y&obj1_params_r=z&obj1_params_nVec=6"
                 target="_blank"
                 rel="noopener noreferrer"
-                >raviolo</a
+                >outward-oriented unit sphere</a
               >.
             </p>
-          </section>
-          <section>
-            <h6 class="framelabel">Example</h6>
 
-            <p>
-              A
-              <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.68&showPanel=true&obj0_kind=surface&obj0_color=%230d0887&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=2+cos%283+u%29+%2B+108*sin%282*u%29%5E2*sin%283*u%29*cos%282*u%29%2Fsqrt%2816*%289*sin%283*u%29%5E2+%2B+49*cos%28u%29%5E2%29%5E2+%2B+11664*sin%282*u%29%5E4*sin%283*u%29%5E2*cos%282*u%29%5E2+%2B+63504*sin%282*u%29%5E4*cos%28u%29%5E2*cos%282*u%29%5E2%29*cos%28v%29+-14*cos%28u%29%2Fsqrt%2836*sin%283*u%29%5E2+%2B+196*cos%28u%29%5E2%29*sin%28v%29+&obj0_params_y=2+sin%28u%29*7+%2B+-252*sin%282*u%29%5E2*cos%28u%29*cos%282*u%29%2Fsqrt%2816*%289*sin%283*u%29%5E2+%2B+49*cos%28u%29%5E2%29%5E2+%2B+11664*sin%282*u%29%5E4*sin%283*u%29%5E2*cos%282*u%29%5E2+%2B+63504*sin%282*u%29%5E4*cos%28u%29%5E2*cos%282*u%29%5E2%29*cos%28v%29+-6*sin%283*u%29%2Fsqrt%2836*sin%283*u%29%5E2+%2B+196*cos%28u%29%5E2%29*sin%28v%29+&obj0_params_z=sin%282+u%29%5E3*3+%2B+%2836*sin%283*u%29%5E2+%2B+196*cos%28u%29%5E2%29%2Fsqrt%2816*%289*sin%283*u%29%5E2+%2B+49*cos%28u%29%5E2%29%5E2+%2B+11664*sin%282*u%29%5E4*sin%283*u%29%5E2*cos%282*u%29%5E2+%2B+63504*sin%282*u%29%5E4*cos%28u%29%5E2*cos%282*u%29%5E2%29*cos%28v%29+&obj0_params_t0=0&obj0_params_t1=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                >hose</a
-              >
-              connects two ports, unit circles in the $xz$-plane centered at $x
-              = \pm 2, z = 0$. Find the flux out of the hose of the
-              <em>curl</em> of the vector field \[ \vec F(x,y,z) = z\,\vec i -
-              (xy + z/2)\,\vec j - z \vec k. \]
+            <p class="fragment">
+              <strong>Solution.</strong> $\nabla \cdot \langle x,y,z \rangle =
+              3$ \[\iint_{\partial E} \vec F\cdot dS = \iiint\limits_E 3\,dV =
+              4\pi \]
             </p>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
-            <p>
-              Compute the line integral $\oint_{\partial D} \vec F \cdot d\vec
-              r$ around the ccw (from above) boundary of the surface $D$. \[
-              \vec F(x,y,z) = xyz \,\vec i + y \,\vec j + z \,\vec k \] where
-              $D$ is the
+
+            <p style="font-size: smaller">
+              Find the flux of the vector field $(1 - x)\,\vec i - y\, \vec j$
+              through the
               <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=curve&obj0_color=%23ffff00&obj0_params_a=0&obj0_params_b=pi+%2F+2&obj0_params_x=cos%28t%29&obj0_params_y=sin%28t%29&obj0_params_z=cos%28t%29%5E2&obj1_kind=curve&obj1_color=%23ffff00&obj1_params_a=0&obj1_params_b=1&obj1_params_x=t&obj1_params_y=0&obj1_params_z=t%5E2&obj2_kind=curve&obj2_color=%23ffff00&obj2_params_a=0&obj2_params_b=1&obj2_params_x=0&obj2_params_y=t&obj2_params_z=0&obj3_kind=field&obj3_color=%239310a2&obj3_params_p=0&obj3_params_q=-+x+y&obj3_params_r=-+x+z&obj3_params_nVec=6&obj4_kind=surface&obj4_color=%230d0887&obj4_params_a=0&obj4_params_b=1&obj4_params_c=0&obj4_params_d=pi+%2F+2&obj4_params_x=u+cos%28v%29&obj4_params_y=u+sin%28v%29&obj4_params_z=u%5E2+cos%28v%29%5E2&obj4_params_t0=0&obj4_params_t1=1"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=true&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=1+-+x&obj1_params_q=1+-+y&obj1_params_r=0&obj1_params_nVec=6"
                 target="_blank"
                 rel="noopener noreferrer"
-                >portion of the surface
-              </a>
-              $z=x^2$ above $x^2 + y^2 \leq a^2$ in the first octant.
+                >piece of the cone</a
+              >
+              $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented upward.
+            </p>
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=1+-+x&obj1_params_q=1+-+y&obj1_params_r=0&obj1_params_nVec=6"
+              frameborder="0"
+              width="700px"
+              height="400px"
+            ></iframe>
+          </section>
+          <section>
+            <p style="font-size: smaller">
+              <strong>Solution.</strong> Direct computation: \[\vec r(u,v) =
+              \bv{u \cos v \\ u \sin v \\ u} \qquad \begin{cases} 0 \leq u \leq
+              2 \\ 0 \leq v \leq 2 \pi \end{cases} \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              \[\iint_C \vec F\cdot d\vec S = \int_0^{2 \pi} \int_0^2 \bv{ 1 - u
+              \cos v \\ - u \sin v \\ 0 } \cdot \bv{ -u \cos v \\ -u\sin v \\ u
+              } du\,dv\]
+            </p>
+          </section>
+          <section>
+            <p style="font-size: smaller">
+              \[ = \int_0^{2 \pi} \int_0^2 u^2 \,du\,dv = \frac{16\pi}{3} \]
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              Using Gauss':
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=true&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=1+-+x&obj1_params_q=1+-+y&obj1_params_r=0&obj1_params_nVec=6&obj2_kind=surface&obj2_color=%230d0887&obj2_params_a=0&obj2_params_b=2&obj2_params_c=0&obj2_params_d=2+pi&obj2_params_x=u+cos%28v%29&obj2_params_y=u+sin%28v%29&obj2_params_z=2&obj2_params_t0=0&obj2_params_t1=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Enclose the surface</a
+              >
+              by adding a flat disk $\mathcal T$ to the top, oriented up, at $z
+              = 2$. Then, by Gauss, \[ \iint_{\mathcal T} \vec F\cdot \vec N
+              \,dS - \iint_{\mathcal C} \vec F\cdot \vec N \,dS = \iiint_E
+              \nabla \cdot \vec F\,dV = \iiint_E -2\,dV \] $= -2\frac{2}{3}\pi 4
+              $. Note for $\mathcal T$ the unit normal is $\vec k$ and $\vec
+              F\cdot \vec k = 0$. Solving for the desired flux gives the answer
+              above.
+            </p>
+          </section>
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+            data-background-opacity="0.4"
+          >
+            <h6 class="framelabel">Buoyancy</h6>
+
+            <p>
+              Ηydrostatic pressure is proportional to depth. $P = \rho g d$. The
+              force on a small piece of
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >submerged surface</a
+              >
+              is $-P\, \vec N\,dS$ where $\vec N$ is the normal vector to the
+              surface. The (net) buoyant force on the hull of a watercraft is
+              the component of this force in the upward direction.
+            </p>
+            <p>
+              Use the Divergence Theorem to relate the buoyant force to the
+              volume of a submerged object.
+            </p>
+          </section>
+          <section>
+            <p style="font-size: smaller">
+              <strong>Solution.</strong> Suppose an object is modeled by a solid
+              $E$ with outward-oriented normal $\vec N$ on the boundary
+              $\partial E = \Sigma$, where the surface of the water is $z = 0$.
+            </p>
+            <p style="font-size: smaller">
+              Then the total buoyant force is \[ \iint_\Sigma \rho g (-z)(-\vec
+              N)\cdot \vec k\, dS = \rho g \iint_{\partial E} z\,\vec k \cdot
+              d\vec S \]
+            </p>
+            <p style="font-size: smaller">
+              but the vector field $z\,\vec k$ has divergence 1, so the RHS is
+              just $\rho g \operatorname{Vol}(E)$, the weight of the water
+              displaced by $E$.
             </p>
           </section>
         </section>
@@ -381,14 +495,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
