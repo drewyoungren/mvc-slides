@@ -59,7 +59,7 @@
               <li class="fragment">
                 Regular recitation schedule
                 <ul>
-                  <li class="fragment">I guess. 🤷‍♀️</li>
+                  <li class="fragment">for now.</li>
                 </ul>
               </li>
               <li class="fragment">
@@ -142,10 +142,64 @@
         </section>
         <section>
           <section>
-            <h1>Stokes' Theorem</h1>
+            <h1>Curl</h1>
           </section>
           <section>
-            <h6 class="framelabel"></h6>
+            <h6 class="framelabel">Cross Product</h6>
+
+            <p style="font-size: smaller">
+              Let $ \vec F(x,y,z) = P(x,y,z)\,\vec i + Q(x,y,z)\,\vec j +
+              R(x,y,z)\,\vec k$ be a vector field. Then "vector cross vector is
+              vector" becomes
+            </p>
+            <p class="fragment">
+              \[ \nabla \times \vec F = \begin{vmatrix} \vec i & \vec j & \vec k
+              \\ \frac{\partial }{\partial x} & \frac{\partial }{\partial y} &
+              \frac{\partial }{\partial z} \\ P & Q & R \end{vmatrix} \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              \[ = \left( \frac{\partial R}{\partial y} - \frac{\partial
+              Q}{\partial z} \right) \,\vec i + \left( \frac{\partial
+              P}{\partial z} - \frac{\partial R}{\partial x} \right)\,\vec j +
+              \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial
+              y} \right)\,\vec k \]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              aka the <strong>curl</strong>. The curl measures the spin or
+              rotation of a vector field. It is a vector with the direction
+              giving the axis of rotation and the magnitude indicating the
+              strength of the rotation (as indicated by the right hand rule).
+            </p>
+          </section>
+          <section style="font-size: smaller">
+            <h6 class="framelabel">Examples</h6>
+
+            <p class="fragment">
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=true&obj0_kind=field&obj0_color=%230d0887&obj0_params_p=-y&obj0_params_q=x+z&obj0_params_r=z%5E2&obj0_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Compute</a
+              >
+              the curl of $\vec F(x,y,z) = -y \vec i + x z\,\vec j + z^2\,\vec
+              k$
+              <span class="fragment">
+                \[ \nabla \times \vec F = -x\,\vec i + (z + 1)\,\vec k\]
+              </span>
+            </p>
+
+            <p class="fragment">
+              Compute the divergence of both $\vec F$ and its curl.
+              <span class="fragment">
+                \[ \nabla \cdot \vec F = 2z \qquad \qquad \qquad \nabla \cdot
+                \nabla \times \vec F = -1 + 1 = 0.\]
+              </span>
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Stokes' Theorem</h1>
           </section>
           <section>
             <h3>Stokes' Theorem</h3>
@@ -289,14 +343,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
