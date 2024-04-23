@@ -55,14 +55,16 @@
 
             <ul>
               <li class="fragment">HW 14 "due" Tues</li>
+              <li class="fragment">No quiz this week.</li>
               <li class="fragment">
-                Quiz 9
+                Regular recitation schedule
                 <ul>
-                  <li>Surface Integrals</li>
-                  <li>Stokes' Theorem</li>
+                  <li class="fragment">I guess. 🤷‍♀️</li>
                 </ul>
               </li>
-              <li class="fragment">Regular recitation schedule</li>
+              <li class="fragment">
+                Email if you would like to talk individually.
+              </li>
             </ul>
           </section>
         </section>
@@ -73,42 +75,69 @@
           </section>
 
           <section>
-            <h6 class="framelabel">Stokes' Theorem</h6>
-
-            <p>
-              Let $\Omega$ be an oriented surface in $\RR^3$ and $\partial
-              \Omega$ its
+            <h3 class="framelabel">The Divergence Theorem</h3>
+            <h5 class="framelabel">
+              aka
               <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.06&showPanel=true&obj0_kind=surface&obj0_color=%23251fe0&obj0_params_a=1%2F4&obj0_params_b=1%2F2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=2+u+cos%28v%29+%2B+1&obj0_params_y=u+sin+%28v%29&obj0_params_z=1+%2B+cos%283%282+u+cos%28v%29+%2B+1+%2B+u+sin%28v%29+%2F+2%29%29+%2F+%282+%2B+u%5E2+cos%28v%29%5E2%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23ffc038&obj1_params_a=0&obj1_params_b=2+pi&obj1_params_x=+cos%28t%29+%2B+1&obj1_params_y=sin+%28t%29+%2F+2&obj1_params_z=1+%2B+cos%283%28+cos%28t%29+%2B+1+%2B++sin%28t%29+%2F+4%29%29+%2F+%282+%2B+1%2F4*cos%28t%29%5E2%29&obj2_kind=curve&obj2_color=%23ffff00&obj2_params_a=0&obj2_params_b=2*pi&obj2_params_x=+cos%28t%29%2F2+%2B+1&obj2_params_y=sin+%28-t%29+%2F+4&obj2_params_z=1+%2B+cos%283%28+cos%28t%29%2F2+%2B+1+%2B++sin%28-t%29+%2F+8%29%29+%2F+%282+%2B+1%2F16*cos%28t%29%5E2%29"
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=true&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=rect&obj0_params_a=0&obj0_params_b=.05&obj0_params_c=0&obj0_params_d=0.05&obj0_params_e=0&obj0_params_f=0.05&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=pi&obj1_params_c=0&obj1_params_d=2+pi&obj1_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj1_params_y=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj1_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj1_params_t0=0&obj1_params_t1=1&obj2_kind=field&obj2_color=%235801a5&obj2_params_p=z&obj2_params_q=y&obj2_params_r=z&obj2_params_nVec=6"
                 target="_blank"
                 rel="noopener noreferrer"
-                >positively-oriented boundary</a
-              >. If $\vec F(x,y,z)$ is a smooth vector field, then \[
-              \iint_{\Omega} \nabla \times\vec F \cdot d \vec S =
-              \oint_{\partial \Omega} \vec F\cdot d \vec r \]
+                >Gauss' Theorem</a
+              >
+            </h5>
+
+            <p>
+              Let $E$ be a solid region in $\RR^3$ and $\partial E$ its
+              outward-oriented boundary. If $\vec F(x,y,z)$ is a smooth vector
+              field, then \[ \iint\limits_{\partial E} \vec F \cdot \vec N\,d S
+              = \iiint\limits_E \nabla \cdot \vec F\,dV \]
+            </p>
+          </section>
+
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+            data-background-opacity="0.4"
+          >
+            <h6 class="framelabel">Buoyancy</h6>
+
+            <p style="font-size: smaller">
+              Ηydrostatic pressure is proportional to depth. $P = \rho g d$.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              The force on a small piece of
+              <a
+                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >submerged surface</a
+              >
+              is $-P\, \vec N\,dS$ where $\vec N$ is the normal vector to the
+              surface.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              The (net) buoyant force on the hull of a watercraft is the
+              component of this force in the upward direction.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              What is the net buoyant force on the whole surface?
             </p>
           </section>
           <section>
-            <h3 class="framelabel">Example</h3>
-
             <p style="font-size: smaller">
-              Find the
-              <a
-                href="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=true&obj0_kind=surface&obj0_color=%23ab97f2&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23f74b4b&obj1_params_a=0&obj1_params_b=2*pi&obj1_params_x=2+cos%28t%29&obj1_params_y=2+sin%28t%29&obj1_params_z=2&obj2_kind=field&obj2_color=%239310a2&obj2_params_p=-3&obj2_params_q=-1&obj2_params_r=-2&obj2_params_nVec=6&obj3_kind=vector&obj3_color=%23f74b4b&obj3_params_a=4+sin%282+pi+%2F+12+*+n%29+%2F+10&obj3_params_b=6+%2F+10&obj3_params_c=2+cos%282+pi+%2F+12+*+n%29+%2F+10&obj3_params_x=2+cos%282+pi+%2F+12+*+n%29&obj3_params_y=2+sin%282+pi+%2F+12+*+n%29&obj3_params_z=2&obj3_params_t0=0&obj3_params_t1=1&obj3_params_n0=0&obj3_params_n1=12"
-                target="_blank"
-                rel="noopener noreferrer"
-                >flux of the curl</a
-              >
-              of the vector field $2y\,\vec i + 3z\,\vec j +x\,\vec k$ through
-              the piece of the cone $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented
-              upward.
+              <strong>Solution.</strong> Suppose an object is modeled by a solid
+              $E$ with outward-oriented normal $\vec N$ on the boundary
+              $\partial E = \Sigma$, where the surface of the water is $z = 0$.
             </p>
-            <iframe
-              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.38&showPanel=false&obj0_kind=surface&obj0_color=%23ab97f2&obj0_params_a=0&obj0_params_b=2&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=u+cos%28v%29&obj0_params_y=u+sin%28v%29&obj0_params_z=u&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=curve&obj1_color=%23f74b4b&obj1_params_a=0&obj1_params_b=2*pi&obj1_params_x=2+cos%28t%29&obj1_params_y=2+sin%28t%29&obj1_params_z=2&obj2_kind=field&obj2_color=%239310a2&obj2_params_p=-3&obj2_params_q=-1&obj2_params_r=-2&obj2_params_nVec=6&obj3_kind=vector&obj3_color=%23f74b4b&obj3_params_a=4+sin%282+pi+%2F+12+*+n%29+%2F+10&obj3_params_b=6+%2F+10&obj3_params_c=2+cos%282+pi+%2F+12+*+n%29+%2F+10&obj3_params_x=2+cos%282+pi+%2F+12+*+n%29&obj3_params_y=2+sin%282+pi+%2F+12+*+n%29&obj3_params_z=2&obj3_params_t0=0&obj3_params_t1=1&obj3_params_n0=0&obj3_params_n1=12"
-              frameborder="0"
-              height="400px"
-              width="700px"
-            ></iframe>
+            <p style="font-size: smaller">
+              Then the total buoyant force is \[ \iint_\Sigma \rho g (-z)(-\vec
+              N)\cdot \vec k\, dS = \rho g \iint_{\partial E} z\,\vec k \cdot
+              d\vec S \]
+            </p>
+            <p style="font-size: smaller">
+              but the vector field $z\,\vec k$ has divergence 1, so the RHS is
+              just $\rho g \operatorname{Vol}(E)$, the weight of the water
+              displaced by $E$.
+            </p>
           </section>
         </section>
         <section>
