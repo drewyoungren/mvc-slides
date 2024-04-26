@@ -340,6 +340,33 @@
               </p>
             </div>
           </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+
+            <iframe
+              src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0&showPanel=false&obj0_kind=curve&obj0_color=%230d0887&obj0_params_a=-3&obj0_params_b=3&obj0_params_x=t&obj0_params_y=0&obj0_params_z=exp%28-t%5E2%29&obj1_kind=surface&obj1_color=%23dc5e66&obj1_params_a=0&obj1_params_b=3&obj1_params_c=0&obj1_params_d=1&obj1_params_x=u*cos%28t*v%29&obj1_params_y=u*sin%28t*v%29&obj1_params_z=exp%28-u%5E2%29&obj1_params_t0=0&obj1_params_t1=2+pi&obj2_kind=surface&obj2_color=%23ff0000&obj2_params_a=0&obj2_params_b=1&obj2_params_c=-3&obj2_params_d=3&obj2_params_x=v&obj2_params_y=0&obj2_params_z=u+exp%28-v%5E2%29&obj2_params_t0=0&obj2_params_t1=1&obj3_kind=surface&obj3_color=%23b36800&obj3_animation=true&obj3_params_a=0&obj3_params_b=1&obj3_params_c=-3&obj3_params_d=3&obj3_params_x=t+u+-+3&obj3_params_y=v&obj3_params_z=exp%28-%28t+u+-+3%29%5E2%29+exp%28-v%5E2%29&obj3_params_t0=0&obj3_params_t1=6"
+              frameborder="0"
+              width="800"
+              height="600"
+            ></iframe>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+            <p>
+              \[ \left(\int_{-\infty}^{\infty} e^{-x^2}\,dx\right)^2 =
+              \left(\int_{-\infty}^{\infty}
+              e^{-x^2}\,dx\right)\left(\int_{-\infty}^{\infty}
+              e^{-y^2}\,dy\right) \] \[ =
+              \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{-x^2}e^{-
+              y^2}\,dy\,dx = \iint\limits_{\mathbb{R}^2} e^{-(x^2 + y^2)} \,dA
+              \] \[ = \int_{0}^{2 \pi}\int_{0}^{\infty} e^{-r^2}r\,dr\,d\theta =
+              \pi \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+            \[ \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}\]
+          </section>
         </section>
       </div>
     </div>
@@ -357,14 +384,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
