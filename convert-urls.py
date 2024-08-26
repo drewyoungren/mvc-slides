@@ -2,7 +2,13 @@ import sys, re, base64
 
 def enc(matchobj):
   attrib, base, query = matchobj.groups()
-  outpud = base64.b64encode(query.encode("utf-8")).decode("utf-8")
+  # print(query[:25])
+  if re.match(r"(([^=]+)(=([^&#]+)[&#$]))+",query):
+    outpud = base64.b64encode(query.encode("utf-8")).decode("utf-8")
+    print("converting query", query, outpud[:25])
+  else:
+    print("already did")
+    outpud = query
   print(attrib)
   return attrib + '="' + base + outpud +'"'
 
