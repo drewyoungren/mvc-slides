@@ -17,7 +17,7 @@ def convert_file(filename):
     content = fin.read()
     content_new, n = re.subn(r'(href|src)="(https://3demos.ctl.columbia.edu/\?)(.*)"', enc, content, flags=re.M)
     print(n, "times.")
-  with open("fake_lec.html", 'w') as fout:
+  with open(filename, 'w') as fout:
     fout.write(content_new)
 
 

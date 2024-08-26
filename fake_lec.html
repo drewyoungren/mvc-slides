@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>APMA E2000 - Integrals</title>
+    <title>APMA E2000 - Surfaces</title>
 
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
@@ -23,7 +23,7 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
-    <link
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       href="https://jsxgraph.org/distrib/jsxgraph.css"
@@ -31,15 +31,15 @@
     <script
       type="text/javascript"
       src="https://jsxgraph.org/distrib/jsxgraphcore.js"
-    ></script>
+    ></script> -->
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 14</h3>
-            <h1>Integrals</h1>
+            <h3 class="framelabel">Lecture 20</h3>
+            <h1>Surfaces &amp; Areas</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
             <p style="text-align: right">
@@ -54,13 +54,14 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW8 due Tues 03/19</li>
+              <li class="fragment">HW 12 due Tuesday</li>
               <li class="fragment">
-                No quiz/recitation this week
-                <ul>
-                  <li class="fragment">Happy Spring Break</li>
+                Quiz 8 this week
+                <ul class="fragment">
+                  <li>FTLI</li>
                 </ul>
               </li>
+              <li class="fragment">Recitation as usual</li>
             </ul>
           </section>
         </section>
@@ -71,32 +72,29 @@
           </section>
 
           <section>
-            <div class="r-frame">
-              <h6 class="framelabel">Theorem</h6>
+            <h3 class="framelabel">Green's Theorem</h3>
 
-              <p>
-                A
-                <a
-                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SW50cm8mb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZmYzMzMzJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTIqcGkmb2JqMF9wYXJhbXNfeD0xJTJGMislMkIrMyUyRjIlMjh0KyUzRStwaSUyRjIrJTI2K3QrJTNDK3BpKyUzRislMjgyJTJGMyUyQjElMkYzKmNvcyUyODIqdCUyOSU1RTIlMjkrJTNBKzElMjkqK2NvcyUyOHQlMjkmb2JqMF9wYXJhbXNfeT0zJTJGMiUyOHQrJTNFK3BpJTJGMislMjYrdCslM0MrcGkrJTNGKyUyODIlMkYzJTJCMSUyRjMqY29zJTI4Mip0JTI5JTVFMiUyOSslM0ErMSUyOSorc2luJTI4dCUyOSZvYmowX3BhcmFtc196PTAmb2JqMF9wYXJhbXNfdGF1PTAmb2JqMV9raW5kPWN1cnZlJm9iajFfY29sb3I9JTIzZmYzMzMzJm9iajFfcGFyYW1zX2E9MCZvYmoxX3BhcmFtc19iPTIqcGkmb2JqMV9wYXJhbXNfeD0xJTJGMislMkIrMyUyRjIqJTI4dCslM0UrcGklMkYyKyUyNit0KyUzQytwaSslM0YrJTI4MiUyRjMlMkIxJTJGMypjb3MlMjgyKnQlMjklNUUyJTI5KyUzQSsxJTI5Kitjb3MlMjh0JTI5Jm9iajFfcGFyYW1zX3k9MyUyRjIqJTI4dCslM0UrcGklMkYyKyUyNit0KyUzQytwaSslM0YrJTI4MiUyRjMlMkIxJTJGMypjb3MlMjgyKnQlMjklNUUyJTI5KyUzQSsxJTI5KitzaW4lMjh0JTI5Jm9iajFfcGFyYW1zX3o9JTI4JTI4MSUyRjIrJTJCKzMlMkYyKiUyOHQrJTNFK3BpJTJGMislMjYrdCslM0MrcGkrJTNGKyUyODIlMkYzJTJCMSUyRjMqY29zJTI4Mip0JTI5JTVFMiUyOSslM0ErMSUyOSorY29zJTI4dCUyOSUyOSU1RTQrJTJCKyUyODMlMkYyKiUyOHQrJTNFK3BpJTJGMislMjYrdCslM0MrcGkrJTNGKyUyODIlMkYzJTJCMSUyRjMqY29zJTI4Mip0JTI5JTVFMiUyOSslM0ErMSUyOSorc2luJTI4dCUyOSUyOSU1RTQrLSs0KiUyODElMkYyKyUyQiszJTJGMiolMjh0KyUzRStwaSUyRjIrJTI2K3QrJTNDK3BpKyUzRislMjgyJTJGMyUyQjElMkYzKmNvcyUyODIqdCUyOSU1RTIlMjkrJTNBKzElMjkqK2NvcyUyOHQlMjklMjkqJTI4MyUyRjIqJTI4dCslM0UrcGklMkYyKyUyNit0KyUzQytwaSslM0YrJTI4MiUyRjMlMkIxJTJGMypjb3MlMjgyKnQlMjklNUUyJTI5KyUzQSsxJTI5KitzaW4lMjh0JTI5JTI5Ky0rMSUyOSslMkYxMCslMkIrLjUmb2JqMV9wYXJhbXNfdGF1PTAmb2JqMl9raW5kPWdyYXBoJm9iajJfY29sb3I9JTIzMzIzMmZmJm9iajJfcGFyYW1zX2E9LTEmb2JqMl9wYXJhbXNfYj0yJm9iajJfcGFyYW1zX2M9LTMlMkYyJm9iajJfcGFyYW1zX2Q9MyUyRjImb2JqMl9wYXJhbXNfej0lMjh4JTVFNCslMkIreSU1RTQrLSs0KngqeSstKzElMjkrJTJGMTArJTJCKy41Jm9iajJfcGFyYW1zX3RhdT0wJm9iajJfcGFyYW1zX3QwPTAmb2JqMl9wYXJhbXNfdDE9MQ=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >continuous function</a
-                >
-                on a <em>closed and bounded</em> set $D$ must achieve its
-                absolute minimum and maximum.
-              </p>
-            </div>
-            <div class="fragment">
-              The upshot is:
+            \[\oint\limits_{\partial D} P\,dx + Q\,dy = \iint\limits_{D}
+            \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
+            \right)\,dA \]
+
+            <!-- <img src="../img/swirlyD.png" width="33%" style="float: right; right: 100px;" /> -->
+
+            <div style="font-size: smaller">
+              where:
               <ul>
-                <li class="fragment">
-                  Find critical points on interior of $D$.
+                <li class="thm fragment">
+                  $D$ is a (simply connected) region in the plane,
                 </li>
-                <li class="fragment">
-                  Find Lagrange points on boundary of $D$.
+
+                <li class="thm fragment">
+                  $\partial D$ is an counterclockwise-oriented, simple, closed
+                  curve forming the boundary of $D$, and
                 </li>
-                <li class="fragment">
-                  Choose least/greatest value of $f$ on combined list.
+
+                <li class="thm fragment">
+                  $\vec F(x,y) = \langle P(x,y),Q(x,y) \rangle$ is a
+                  continuously differentiable vector field.
                 </li>
               </ul>
             </div>
@@ -104,269 +102,403 @@
         </section>
         <section>
           <section>
-            <h1>Definite Integrals</h1>
+            <h1>Parametric Surfaces</h1>
+          </section>
+
+          <section data-auto-animate>
+            <h6 class="framelabel">Parametrization</h6>
+            <div class="container">
+              <div class="col r-frame">
+                <h6 class="framelabel">Curves</h6>
+                \[ \vec r: \RR \to \RR^3 \]
+                <div class="r-stretch fragment">
+                  \[ \vec r(t) = \bv{ x(t) \\ y(t) \\ z(t)} \]
+                </div>
+              </div>
+              <div class="col r-frame">
+                <h6 class="framelabel">Surfaces</h6>
+                \[ \vec r: \RR^2 \to \RR^3 \]
+                <div class="r-stretch fragment">
+                  \[ \vec r(u,v) = \bv{ x(u,v) \\ y(u,v) \\ z(u,v)} \]
+                </div>
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Parametrization</h6>
+            <div class="container">
+              <div class="col r-frame">
+                <h6 class="framelabel">Curves</h6>
+                \[ \vec r: \RR \to \RR^n \]
+                <div style="width: 500px; height: 400px">
+                  <ul>
+                    <li class="fragment">
+                      <a
+                        href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1jdXJ2ZSZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX3g9dCtjb3MlMjg0K3BpK3QlMjkmb2JqMF9wYXJhbXNfeT10K3NpbiUyODQrcGkrdCUyOSZvYmowX3BhcmFtc196PXQ="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Curve 1</a
+                      >
+                    </li>
+                    <li class="fragment">
+                      <a
+                        href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzYzcwMDAwJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTEwJm9iajBfcGFyYW1zX3g9ZXhwJTI4LXQlMjkrY29zJTI4NCtwaStleHAlMjgtdCUyOSUyOSZvYmowX3BhcmFtc195PWV4cCUyOC10JTI5K3NpbiUyODQrcGkrZXhwJTI4LXQlMjklMjkmb2JqMF9wYXJhbXNfej1leHAlMjgtdCUyOSs="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Curve 2</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col r-frame">
+                <h6 class="framelabel">Surfaces</h6>
+                \[ \vec r: \RR^2 \to \RR^n \]
+                <div style="width: 500px; height: 400px">
+                  <ul>
+                    <li class="fragment">
+                      <a
+                        href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9LXNxcnQlMjgxKy0rdSU1RTIlMjkmb2JqMF9wYXJhbXNfZD1zcXJ0JTI4MSstK3UlNUUyJTI5Jm9iajBfcGFyYW1zX3g9dSZvYmowX3BhcmFtc195PXYmb2JqMF9wYXJhbXNfej1zcXJ0JTI4dSU1RTIrJTJCK3YlNUUyJTI5Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MQ=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Cone 1</a
+                      >
+                    </li>
+                    <li class="fragment">
+                      <a
+                        href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzNmI3OGRiJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTEmb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MitwaSZvYmowX3BhcmFtc194PXUrY29zJTI4diUyOSZvYmowX3BhcmFtc195PXUrc2luJTI4diUyOSZvYmowX3BhcmFtc196PXUmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0x"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Cone 2</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Kinds of Surfaces</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Graphs of Functions</h6>
+
+            <p>
+              The
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9LTEmb2JqMF9wYXJhbXNfZD0xJm9iajBfcGFyYW1zX3g9dSZvYmowX3BhcmFtc195PXYmb2JqMF9wYXJhbXNfej11JTVFMiUyRjIrLSt2JTVFMislMkYrMyslMkIrdSt2KyUyRisyKyUyQisxJTJGMyZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTE="
+                  target="_blank"
+                  >graph</a
+                ></strong
+              >
+              of a function $z = f(x,y)$ over domain $D$ can be parametrized by
+            </p>
+
+            <div class="container">
+              <div class="col">
+                \[\vec r(u,v) = \bv{ u \\ v \\ f(u,v) } \] with $(u,v) \in D$.
+              </div>
+              <div class="col">
+                <iframe
+                  data-src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9LTEmb2JqMF9wYXJhbXNfZD0xJm9iajBfcGFyYW1zX3g9dSZvYmowX3BhcmFtc195PXYmb2JqMF9wYXJhbXNfej11JTVFMiUyRjIrLSt2JTVFMislMkYrMyslMkIrdSt2KyUyRisyKyUyQisxJTJGMyZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTE="
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Surfaces of Revolution</h6>
+
+            <p>
+              A
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzODhhZDAwJm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD11Jm9iajBfcGFyYW1zX3k9JTI4MSstK3UlNUUyJTJGMiUyOSpjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3o9JTI4MSstK3UlNUUyJTJGMiUyOSpzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MQ=="
+                  target="_blank"
+                  >surface of revolution</a
+                ></strong
+              >
+              of a graph $y = g(x), a \leq x \leq b,$ revolved about the
+              $x$-axis is given by
+            </p>
+
+            <div class="container">
+              <div class="col">
+                \[\vec r(u,v) = \bv{ u \\ g(u) \cos(v) \\ g(u) \sin(v) } \] with
+                $(u,v) \in [a,b]\times [0, 2\pi]$.
+              </div>
+              <div class="col">
+                <iframe
+                  data-src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzODhhZDAwJm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD11Jm9iajBfcGFyYW1zX3k9JTI4MSstK3UlNUUyJTJGMiUyOSpjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3o9JTI4MSstK3UlNUUyJTJGMiUyOSpzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MQ=="
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Piece of Sphere</h6>
+
+            <p>
+              We can use spherical coordinates to parametrize a
+              <strong
+                ><a
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGMwMGFkJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpJTJGMiZvYmowX3BhcmFtc19jPXBpKyUyRisyJm9iajBfcGFyYW1zX2Q9NytwaSslMkYrNCZvYmowX3BhcmFtc194PXNpbiUyOHUlMjkrY29zJTI4diUyOSZvYmowX3BhcmFtc195PXNpbiUyOHUlMjkrc2luJTI4diUyOSZvYmowX3BhcmFtc196PWNvcyUyOHUlMjkmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0x"
+                  target="_blank"
+                  >piece of a sphere</a
+                ></strong
+              >
+            </p>
+
+            <div class="container">
+              <div class="col" style="font-size: smaller">
+                \[\vec r(u,v) = \bv{ R \sin(u) \cos(v) \\ R \sin(u) \sin(v) \\ R
+                \cos(u) } \] with angles $u,v$ restricted appropriately.
+              </div>
+              <div class="col">
+                <iframe
+                  data-src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGMwMGFkJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpJTJGMiZvYmowX3BhcmFtc19jPXBpKyUyRisyJm9iajBfcGFyYW1zX2Q9NytwaSslMkYrNCZvYmowX3BhcmFtc194PXNpbiUyOHUlMjkrY29zJTI4diUyOSZvYmowX3BhcmFtc195PXNpbiUyOHUlMjkrc2luJTI4diUyOSZvYmowX3BhcmFtc196PWNvcyUyOHUlMjkmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0x"
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+
+            <p>Find a parametrization to model a chocolate kiss.</p>
+            <div class="container">
+              <div class="col" style="font-size: smaller">
+                <img
+                  src="https://economycandy.com/wp-content/uploads/2022/03/1fde8a48-823a-4133-a68f-2e5550af2e42.jpeg"
+                  alt="Heshey's Kiss"
+                  srcset=""
+                  width="500px"
+                  height="400px"
+                />
+              </div>
+              <div class="col">
+                <iframe
+                  data-src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNDYmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2E9LXBpKyUyRis0Jm9iajBfcGFyYW1zX2I9cGkmb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MitwaSZvYmowX3BhcmFtc194PSUyOGNvcyUyOHUlMjkrJTJCKzElMjkrc2luJTI4diUyOSZvYmowX3BhcmFtc195PSUyOGNvcyUyOHUlMjkrJTJCKzElMjkrY29zJTI4diUyOSZvYmowX3BhcmFtc196PXUmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0x"
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+
+            <p>Find a parametrization to model a corrugated roof.</p>
+            <div class="container">
+              <div class="col" style="font-size: smaller">
+                <img
+                  src="assets/Corrugated_iron_cottage.jpg"
+                  alt="Hut with corrugated roof"
+                  srcset=""
+                  width="500px"
+                  height="400px"
+                />
+              </div>
+              <div class="col">
+                <iframe
+                  data-src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9LTEmb2JqMF9wYXJhbXNfZD0xJm9iajBfcGFyYW1zX3g9dSZvYmowX3BhcmFtc195PXYmb2JqMF9wYXJhbXNfej0lMjgxKy0rYWJzJTI4dSUyOSUyOSslMkIrMSUyRjIwKyorc2luJTI4MjArKit2JTI5Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MQ=="
+                  frameborder="0"
+                  width="500px"
+                  height="400px"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Surface Area</h1>
           </section>
           <section>
             <h6 class="framelabel">Recall</h6>
-            <p class="smaller">
-              \[\int_a^b f(x)\,dx = \lim_{N\to \infty} \sum_{i=1}^{N}
-              f(x_i^*)\,\Delta x \] where $x_i^*$ is a sample point in the $i$th
-              interval and $\Delta x = \frac{b - a}{N}$.
+
+            <p>
+              We defined $ds$ to measure arc length for curves. \[ ds = |\vec
+              r'(t)| \,dt \]
+            </p>
+
+            <p class="fragment">
+              We look for an analogous way to measure area along surfaces.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Piece of tangent</h6>
+
+            <p style="font-size: smaller">
+              We can use a parametrization $\vec r(u,v)$ to approximate the
+              surface with a piece of the tangent plane.
+            </p>
+            <div class="container">
+              <div class="col">
+                <p class="fragment" style="font-size: smaller">
+                  Tangent vectors \[\begin{align*}\vec r_u\,\Delta u &=
+                  \left\langle x_u, y_u, z_u \right\rangle\Delta u \\ \vec
+                  r_v\,\Delta v &= \left\langle x_v, y_v, z_v
+                  \right\rangle\Delta v \\ \end{align*} \]
+                </p>
+              </div>
+              <div class="col">
+                <p class="fragment">
+                  The area of a parallelogram defined by these is \[\Delta S =
+                  |\vec r_u \times \vec r_v| \, \Delta u \,\Delta v \]
+                </p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Surface Area</h6>
+
+            <p>
+              If $D\subset \RR^2$ is a domain in $uv$-space and $\vec r: D \to
+              \RR^3$ a parametrization of a smooth surface $\Omega$, then
+              \[\text{SA} = \iint\limits_\Omega dS = \iint\limits_D |\vec r_u
+              \times \vec r_v|\,du\,dv \]
             </p>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
 
-            <div
-              id="box-def-int"
-              class="jxgbox"
-              style="width: 600px; height: 600px"
-            ></div>
+            <p>
+              Find the surface area of a
+              <a
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNCZzaG93UGFuZWw9ZmFsc2Umb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MitwaSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yJm9iajBfcGFyYW1zX3g9Y29zJTI4dSUyOSZvYmowX3BhcmFtc195PXNpbiUyOHUlMjkmb2JqMF9wYXJhbXNfej12Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MQ=="
+                target="_blank"
+                >cylinder</a
+              >
+              with height $h$ and radius $R$.
+            </p>
 
-            <script type="text/javascript" src="./js/def-int.js"></script>
+            <p class="fragment" style="font-size: smaller">
+              <strong>Solution.</strong> $\vec r(u,v) = \langle R\cos u, R \sin
+              u, v\rangle$ for $0\leq u \leq 2\pi, 0\leq v\leq h$. \[ \vec r_u
+              \times \vec r_v = \begin{bmatrix} \vec i & \vec j & \vec k \\ -R
+              \sin u & R \cos u & 0 \\ 0 & 0 & 1 \\ \end{bmatrix} = \bv{ R\cos
+              u\\ R\sin u \\ 0}\]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              \[ \iint_\Omega dS = \int_0^{2\pi} \int_0^h R\,dv\,du = 2\pi R h
+              \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Find the surface area of the
+              <a
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNCZzaG93UGFuZWw9ZmFsc2Umb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9dStjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3k9dStzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3o9dStjb3MlMjh2JTI5KyUyQisxJm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MQ=="
+                target="_blank"
+                >piece of the plane</a
+              >
+              $z = x + 1$ inside the cylinder $x^2 + y^2 = 1$.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              <strong>Solution.</strong> $\vec r(u,v) = \langle u\cos v, u \sin
+              v, u \cos v + 1\rangle$ for $0\leq u \leq 1, 0\leq v\leq 2\pi $.
+              \[ \vec r_u \times \vec r_v = \begin{bmatrix} \vec i & \vec j &
+              \vec k \\ \cos v & \sin v & \cos v \\ -u \sin v & u \cos v & -u
+              \sin v \\ \end{bmatrix} = \bv{ -u \\ 0 \\ u}\]
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              \[ \iint_\Omega dS = \int_0^{2\pi} \int_0^1 u\sqrt2\,du\,dv =
+              \pi\sqrt2 \]
+            </p>
           </section>
         </section>
         <section>
-          <section>
-            <h1>Multiple Integration</h1>
+          <section id="section-surface-integrals">
+            <h1>Surface Integrals</h1>
           </section>
           <section>
-            <h6 class="framelabel">What questions can integrals answer?</h6>
+            <h3 class="framelabel">Other Questions</h3>
+
+            <p>Besides area, what might we ask about surfaces?</p>
+
             <ul>
               <li class="fragment">
-                What is the volume of air in a circus tent?
+                What is the average temperature on the earth's surface?
               </li>
               <li class="fragment">
-                What are the chances a dart thrown at a bullseye lands on
-                triple-20?
+                What is the probability that a raindrop in Spain falls (mainly)
+                on the plain?
               </li>
               <li class="fragment">
-                What is the average temperature in this room?
+                What is the moment of inertia of a
+                <a
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNCZzaG93UGFuZWw9ZmFsc2Umb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9hbmltYXRpb249dHJ1ZSZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0yJTJGMyZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpKyZvYmowX3BhcmFtc194PTQqc3FydCUyOHUlMjkrY29zJTI4diUyOStjb3MlMjh0JTI5Ky0rdStzaW4lMjh0JTI5Jm9iajBfcGFyYW1zX3k9NCpzcXJ0JTI4dSUyOStjb3MlMjh2JTI5K3NpbiUyOHQlMjkrJTJCK3UrY29zJTI4dCUyOSZvYmowX3BhcmFtc196PTQqc3FydCUyOHUlMjkrc2luJTI4diUyOSslMkIrMSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTIrcGk="
+                  target="_blank"
+                  >radar dish</a
+                >
+                spinning on its axis?
               </li>
             </ul>
+
+            <p class="fragment">
+              All of these require integrating a scalar function over a surface.
+            </p>
           </section>
-          <!-- <section>
-            <h6 class="framelabel">Poll</h6>
-            <div class="container">
-              <div class="col">
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSfsEyemJZJI5KmdNEaNWLQAt1CbggmU5QJNRBWDosmsnj9Vmg/viewform?embedded=true"
-                  width="640"
-                  height="419"
-                  frameborder="0"
-                  marginheight="0"
-                  marginwidth="0"
-                  >Loading…</iframe
-                >
-              </div>
-              <div class="col">
-                <a
-                  href="https://docs.google.com/spreadsheets/d/190ZhRwvX1B3okGpxVq5sUn6o6uTbrQE6WYtNb4S9rQ8/edit?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="assets/temp_poll.png"
-                    alt="QR code for temperature poll."
-                    srcset=""
-                /></a>
-              </div>
-            </div>
-          </section> -->
           <section>
             <h6 class="framelabel">Definition</h6>
             <p>
-              A <strong>double integral</strong> over a region $\mathcal R
-              \subset \RR^2$ of a scalar field $f(x,y)$ is a limit of Riemann
-              sums \[\iint\limits_{\mathcal R} f\,dA = \lim\limits_{M,N \to
-              \infty} \sum_{i = 1}^M \sum_{j=1}^N f(x_{ij}^*, y_{ij}^*)\,\Delta
-              A_{ij} \] where $(x_{ij}^*, y_{ij}^*)$ is a sample point in, and $
-              \Delta A_{ij}$ the area of, the $(i,j)$th subrectangle inside
-              $\mathcal R$.
+              A <strong>surface integral</strong> of a function $f$ over a
+              parametric surface $\Omega$ with respect to surface area is
+              written \[ \iint\limits_\Omega f\,dS\]
             </p>
-          </section>
-          <section>
-            <p class="smaller">
-              Graphically, this is the signed volume under the graph of the
-              function.
-            </p>
-            <a
-              href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1ncmFwaCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPS0yJm9iajBfcGFyYW1zX2I9MiZvYmowX3BhcmFtc19jPS0yJm9iajBfcGFyYW1zX2Q9MiZvYmowX3BhcmFtc196PTIrJTJGKzQrKitjb3MlMjgzKngrJTJCKzIqeSUyOSUyRiUyODErJTJCK3glNUUyKyUyQit5JTVFMiUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTE="
-              target="_blank"
-              rel="noopener noreferrer"
-              ><img
-                src="assets/int-boxes.png"
-                alt="Cuboids approximating volume under a graph."
-                srcset=""
-                width="852px"
-                height="462px"
-            /></a>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Iterated Integrals</h1>
-          </section>
-          <section>
-            <h6 class="framelabel">Poll</h6>
-            <iframe
-              src="https://embed.polleverywhere.com/multiple_choice_polls/VPhMfFgnG9NEmb7rdTce6?controls=none&short_poll=true"
-              width="800px"
-              height="600px"
-            ></iframe>
-          </section>
-          <section>
-            <h6 class="framelabel">Iterated Integrals</h6>
 
-            <p>
-              Over a rectangle $[a,b]\times [c,d] \subset \RR^2$, we define the
-              <strong>iterated integral</strong> \[ \int_a^b \int_c^d
-              f(x,y)\,dy\,dx = \int_a^b \left(\int_c^d f(x,y)\,dy\right)\,dx\]
-            </p>
+            <ul>
+              <li class="fragment">
+                <strong>Where?</strong> on a parametric surface $\Omega$
+              </li>
+              <li class="fragment">
+                <strong>What?</strong> scalar field $f$
+                <span class="fragment">
+                  with $\Omega \subset \text{dom }f$</span
+                >
+              </li>
+              <li class="fragment">
+                <strong>How?</strong> w/r/t surface area $dS$
+              </li>
+            </ul>
           </section>
           <section>
-            <h6 class="framelabel">
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWdyYXBoJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2E9LTImb2JqMF9wYXJhbXNfYj0yJm9iajBfcGFyYW1zX2M9LTImb2JqMF9wYXJhbXNfZD0yJm9iajBfcGFyYW1zX3o9Y29zJTI4eCslMkIreSUyOSUyRiUyODErJTJCK3glNUUyKyUyQit5JTVFMiUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPXN1cmZhY2Umb2JqMV9jb2xvcj0lMjM1ODAxYTUmb2JqMV9hbmltYXRpb249dHJ1ZSZvYmoxX3BhcmFtc19hPS0yJm9iajFfcGFyYW1zX2I9MiZvYmoxX3BhcmFtc19jPTAmb2JqMV9wYXJhbXNfZD0xJm9iajFfcGFyYW1zX3g9dCZvYmoxX3BhcmFtc195PXUmb2JqMV9wYXJhbXNfej1jb3MlMjh1KyUyQit0JTI5JTJGJTI4MSslMkIrdCU1RTIrJTJCK3UlNUUyJTI5KnYmb2JqMV9wYXJhbXNfdDA9LTImb2JqMV9wYXJhbXNfdDE9Mg=="
-                target="_blank"
-                rel="noopener noreferrer"
-                >Iterated Integrals</a
-              >
-            </h6>
-            <iframe
-              src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1ncmFwaCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPS0yJm9iajBfcGFyYW1zX2I9MiZvYmowX3BhcmFtc19jPS0yJm9iajBfcGFyYW1zX2Q9MiZvYmowX3BhcmFtc196PWNvcyUyOHgrJTJCK3klMjklMkYlMjgxKyUyQit4JTVFMislMkIreSU1RTIlMjkmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1zdXJmYWNlJm9iajFfY29sb3I9JTIzNTgwMWE1Jm9iajFfYW5pbWF0aW9uPXRydWUmb2JqMV9wYXJhbXNfYT0tMiZvYmoxX3BhcmFtc19iPTImb2JqMV9wYXJhbXNfYz0wJm9iajFfcGFyYW1zX2Q9MSZvYmoxX3BhcmFtc194PXQmb2JqMV9wYXJhbXNfeT11Jm9iajFfcGFyYW1zX3o9Y29zJTI4dSslMkIrdCUyOSUyRiUyODErJTJCK3QlNUUyKyUyQit1JTVFMiUyOSp2Jm9iajFfcGFyYW1zX3QwPS0yJm9iajFfcGFyYW1zX3QxPTI="
-              width="900px"
-              height="600px"
-            ></iframe>
-          </section>
-          <section>
-            <h6 class="framelabel">Fubini's Theorem</h6>
-
+            <h3 class="framelabel">Formula</h3>
             <p>
-              If $f$ is continuous on rectangle $\mathcal R = [a,b]\times
-              [c,d]$, then \[ \iint\limits_{\mathcal R} f\,dA =\int_a^b \int_c^d
-              f(x,y)\,dy\,dx = \int_c^d \int_a^b f(x,y)\,dx\,dy. \]
+              \[ \iint\limits_\Omega f\,dS = \iint\limits_D f(\vec
+              r(u,v))\,|\vec r_u \times \vec r_v|\,du\,dv \] where $\vec r(u,v)$
+              is a parametrization of $\Omega$ over domain $D\subset \RR^2$.
             </p>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
             <p>
-              Let $\mathcal{R} = [0,\pi]\times[0,2\pi]$. Evaluate
-              \[\iint_\mathcal{R} x \cos(xy)\,dA\] as an iterated integral.
+              Find the moment of inertia of a
+              <a
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkrJm9iajBfcGFyYW1zX3g9c2luJTI4dSUyOStjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4dSUyOStzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3o9Y29zJTI4dSUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTIrcGk="
+                target="_blank"
+                >hollow sphere</a
+              >
+              of radius $R$ with mass $M$ and constant density about a central
+              axis.
             </p>
-            <div class="fragment">
-              \[\int_0^{2\pi} x \cos (xy)\,dy = \sin (xy)\Big\vert_{0}^{2\pi} =
-              \sin 2\pi x \] \[\int_0^{\pi} \sin 2\pi x \,dx = \frac{1}{2\pi}
-              \left( 1 - \cos (2\pi^2) \right) \]
-            </div>
-          </section>
-          <section>
-            <h6 class="framelabel">Non-rectangular domains</h6>
-            <p>
-              A region in $\RR^2$ that is bounded by graphs of functions (of one
-              variable) can be integrated over as interated integrals.
-            </p>
-            <p>
-              Suppose $\mathcal{D} = \{(x,y) \mid g(x) \leq y \leq h(x) \}$.
-              Then
-            </p>
+
             <p class="fragment">
-              \[\iint_\mathcal{R} f(x,y) \,dA = \int_a^b \int_{g(x)}^{h(x)}
-              f(x,y)\,dy\,dx\]
+              <strong>Answer.</strong>
+              <span class="fragment">$\frac23 M R^2$.</span>
             </p>
-          </section>
-          <section>
-            <h6 class="framelabel">Example</h6>
-            <p>
-              Let $\mathcal D$ be the region bounded by the curves $y =
-              \frac{x^3}{32}$ and $y = \sqrt{x}$. Write $\iint\limits_{\mathcal
-              D} f\,dA$ as an iterated integral.
-            </p>
-            <div
-              id="box-irreg"
-              class="jxgbox"
-              style="width: 500px; height: 300px"
-            ></div>
-
-            <script type="text/javascript" src="./js/irreg-int.js"></script>
-          </section>
-
-          <section>
-            <h6 class="framelabel">Example</h6>
-            <p>
-              Find the volume of the
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyM2M5NjRkZCZvYmowX3BhcmFtc19jb29yZHM9cmVjdCZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MSstK3gmb2JqMF9wYXJhbXNfZD0xKy0reCslNUUrMiZvYmowX3BhcmFtc19lPTAmb2JqMF9wYXJhbXNfZj0lMjgxMCstK3grJTJCKzIreSUyOSslMkYrMTA="
-                target="_blank"
-                rel="noopener noreferrer"
-                >solid region</a
-              >
-              under the plane $x-2y+z=10$ and above the region bounded by
-              $x+y=1$ and $x^2+y=1$.
-            </p>
-
-            <ol>
-              <li class="fragment">Sketch region of integration.</li>
-              <li class="fragment">Select order of integration.</li>
-              <li class="fragment">Set up iterated integral.</li>
-            </ol>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Triple Integrals</h1>
-          </section>
-          <section>
-            <h6 class="framelable">Definition</h6>
-            <p>
-              Integrating in three dimensions presents no theoretical challenge.
-              \[\iiint_E f(x,y,z)\,dV = \]\[\lim_{M,N,P\to\infty}
-              \sum_{i=1}^M\sum_{j=1}^N\sum_{k=1}^P f(x_i^*,y_j^*,z_k^*)\,\Delta
-              V_{ijk}\]
-            </p>
-          </section>
-          <section>
-            <h6 class="framelabel">Triple Integrals</h6>
-            <p class="fragment smaller">
-              Fubini's Theorem applies directly to this case; thus, we can
-              compute using (3) iterated integrals. \[ \iiint_E f(x,y,z)\,dV =
-              \]\[ \int_a^b \int_{g(x)}^{h(x)} \int_{j(x,y)}^{k(x,y)}
-              f(x,y,z)\,dz\,dy\,dx \]
-            </p>
-          </section>
-
-          <section id="first-volume-example">
-            <h6 class="framelabel">Example</h6>
-            <p>
-              Set up an iterated integral to find the volume of the
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNSZzaG93UGFuZWw9ZmFsc2Umb2JqMF9raW5kPXNvbGlkJm9iajBfY29sb3I9JTIzZGQ2NDY0Jm9iajBfcGFyYW1zX2Nvb3Jkcz1yZWN0Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTImb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9c3FydCUyODQrLSt4KyU1RSsyJTI5Jm9iajBfcGFyYW1zX2U9eCslNUUrMislMkIreSslNUUrMiZvYmowX3BhcmFtc19mPTQ="
-                target="_blank"
-                rel="noopener noreferrer"
-                >solid region</a
-              >
-              $E$ in the first octant with \[x^2 + y^2 \leq z \leq 4.\]
-            </p>
-          </section>
-          <section>
-            <h6 class="framelabel">Bonus</h6>
-            <p>
-              Suppose a point $(x,y,z)$ is selected randomly from $E$ above.
-              What is the probability that $x > 1$?
-            </p>
-            <div class="fragment">
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyM2RkNjQ2NCZvYmowX3BhcmFtc19jb29yZHM9cmVjdCZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPXNxcnQlMjg0Ky0reCslNUUrMiUyOSZvYmowX3BhcmFtc19lPXgrJTVFKzIrJTJCK3krJTVFKzImb2JqMF9wYXJhbXNfZj00Jm9iajFfa2luZD1zb2xpZCZvYmoxX2NvbG9yPSUyMzBkMDg4NyZvYmoxX3BhcmFtc19jb29yZHM9cmVjdCZvYmoxX3BhcmFtc19hPTEmb2JqMV9wYXJhbXNfYj0yJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc19kPXNxcnQlMjg0Ky0reCslNUUrMiUyOSZvYmoxX3BhcmFtc19lPXgrJTVFKzIrJTJCK3krJTVFKzImb2JqMV9wYXJhbXNfZj00"
-                target="_blank"
-              >
-                <img
-                  src="assets/rand_pts_vol.png"
-                  alt="Portion of a solid."
-                  srcset=""
-                  width="714px"
-                  height="404px"
-              /></a>
-            </div>
           </section>
         </section>
       </div>
