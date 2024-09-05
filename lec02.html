@@ -46,6 +46,7 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -80,12 +81,7 @@
             <ul>
               <li class="fragment">HW 0 due Friday at noon.</li>
               <li class="fragment">HW 1 due Tuesday at 8am on Gradescope.</li>
-              <li class="fragment">
-                Recitations start today
-                <ul>
-                  <li>Bring laptop (if you have access to one)</li>
-                </ul>
-              </li>
+              <li class="fragment">Recitations start today</li>
             </ul>
           </section>
         </section>
@@ -475,6 +471,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -493,12 +490,17 @@
           ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
+        drawer: {
+          pathSize: 2,
+        },
+
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
