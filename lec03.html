@@ -23,6 +23,8 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -320,7 +322,8 @@
             <h6 class="framelabel">Exercises</h6>
             <ol>
               <li class="fragment">
-                Find an equation of the plane through $(1,0,0)$, $(0,1,0)$, and
+                Find an equation of the <a href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1wb2ludCZvYmowX2NvbG9yPSUyM2ZlZmIwMCZvYmowX3BhcmFtc19hPTEmb2JqMF9wYXJhbXNfYj0wJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPXBvaW50Jm9iajFfY29sb3I9JTIzZmVmYjAwJm9iajFfcGFyYW1zX2E9MCZvYmoxX3BhcmFtc19iPTEmb2JqMV9wYXJhbXNfYz0wJm9iajFfcGFyYW1zX3QwPTAmb2JqMV9wYXJhbXNfdDE9MSZvYmoyX2tpbmQ9cG9pbnQmb2JqMl9jb2xvcj0lMjNmZWZiMDAmb2JqMl9wYXJhbXNfYT0wJm9iajJfcGFyYW1zX2I9MCZvYmoyX3BhcmFtc19jPTEmb2JqMl9wYXJhbXNfdDA9MCZvYmoyX3BhcmFtc190MT0xJm9iajNfa2luZD1sZXZlbCZvYmozX2NvbG9yPSUyMzAwZmNmZiZvYmozX3BhcmFtc19nPXgrJTJCK3krJTJCK3omb2JqM19wYXJhbXNfaz0xJm9iajNfcGFyYW1zX2E9LTImb2JqM19wYXJhbXNfYj0yJm9iajNfcGFyYW1zX2M9LTImb2JqM19wYXJhbXNfZD0yJm9iajNfcGFyYW1zX2U9LTImb2JqM19wYXJhbXNfZj01" target="_blank" rel="noopener noreferrer">
+                  plane through</a> $(1,0,0)$, $(0,1,0)$, and
                 $(0,0,1)$.
                 <div class="fragment">\[x + y + z = 1\]</div>
               </li>
@@ -379,6 +382,8 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
+
 
     <script>
       // More info about initialization & config:
@@ -397,12 +402,17 @@
           ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
+        drawer: {
+          pathSize: 2,
+        },
+
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
