@@ -23,6 +23,8 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -152,7 +154,9 @@
               \[ s = \lim\limits_{N\to\infty}\sum_{i = 1}^N \frac{|\vec r(t_i) -
               \vec r(t_{i - 1})|}{\Delta t} \Delta t \]
             </p>
-            <div class="r-stretch">\[ \to \int_a^b |\vec r'(t)|\,dt \]</div>
+            <div class="r-stretch fragment">
+              \[ \to \int_a^b |\vec r'(t)|\,dt \]
+            </div>
           </section>
           <section>
             <h3 class="framelabel">Example</h3>
@@ -182,7 +186,7 @@
               <p>
                 $\langle \cos t, \sin t\rangle$ traces out the
                 <a
-                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTIqcGkmb2JqMF9wYXJhbXNfeD1jb3MlMjh0JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4dCUyOSZvYmowX3BhcmFtc196PTA="
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1jdXJ2ZSZvYmowX2NvbG9yPSUyM2RjNWU2NiZvYmowX2FuaW1hdGlvbj10cnVlJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTIqcGkmb2JqMF9wYXJhbXNfeD1jb3MlMjh0JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4dCUyOSZvYmowX3BhcmFtc196PTAmb2JqMF9wYXJhbXNfYTA9MCZvYmowX3BhcmFtc19hMT0x"
                   target="_blank"
                   rel="noopener noreferrer"
                   >unit circle</a
@@ -192,7 +196,7 @@
               <p class="fragment">
                 $\langle \cos (6\pi t), \sin (6\pi t)\rangle$ traces out the
                 unit circle much "<a
-                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTElMkYzJm9iajBfcGFyYW1zX3g9Y29zJTI4NitwaSt0JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4NitwaSt0JTI5Jm9iajBfcGFyYW1zX3o9MA=="
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1jdXJ2ZSZvYmowX2NvbG9yPSUyM2RjNWU2NiZvYmowX2FuaW1hdGlvbj10cnVlJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTElMkYzJm9iajBfcGFyYW1zX3g9Y29zJTI4NitwaSt0JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4NitwaSt0JTI5Jm9iajBfcGFyYW1zX3o9MCZvYmowX3BhcmFtc19hMD0wJm9iajBfcGFyYW1zX2ExPTE="
                   target="_blank"
                   rel="noopener noreferrer"
                   >faster</a
@@ -202,7 +206,7 @@
               <p class="fragment">
                 $\langle \cos (\pi \sin t), \sin (\pi \sin t)\rangle$ traces out
                 the unit circle "<a
-                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfYW5pbWF0aW9uPXRydWUmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MitwaSZvYmowX3BhcmFtc194PWNvcyUyOCtwaStzaW4lMjh0JTI5JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4cGkrc2luJTI4dCUyOSUyOSZvYmowX3BhcmFtc196PTA="
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1jdXJ2ZSZvYmowX2NvbG9yPSUyM2RjNWU2NiZvYmowX2FuaW1hdGlvbj10cnVlJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTIrcGkmb2JqMF9wYXJhbXNfeD1jb3MlMjhwaStzaW4lMjh0JTI5JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4cGkrc2luJTI4dCUyOSUyOSZvYmowX3BhcmFtc196PTAmb2JqMF9wYXJhbXNfYTA9MCZvYmowX3BhcmFtc19hMT0x"
                   target="_blank"
                   rel="noopener noreferrer"
                   >back and forth</a
@@ -224,14 +228,17 @@
           <section>
             <h6 class="framelabel">Theorem</h6>
 
-            <p>Arc length is independent of parametrization.</p>
+            <p style="font-size: smaller">
+              Arc length is independent of parametrization. Using the notation
+              of previous slide,
+            </p>
 
             <p class="fragment r-fit-text">
-              Using the notation of previous slide, \[ \int_c^d \left| \vec q
-              '(s) \right|\,ds = \int_c^d \left| \frac{d}{ds} \vec r (f(s))
-              \right|\,ds \] \[ = \int_c^d \left| \vec r '(f(s)) \right|
-              f'(s)\,ds \qquad \begin{cases} w =f(s) \\ dw = f'(s)\,ds \\
-              \end{cases} \] \[ = \int_a^b |\vec r'(t) |\,dt \]
+              \[ \int_c^d \left| \vec q '(s) \right|\,ds = \int_c^d \left|
+              \frac{d}{ds} \vec r (f(s)) \right|\,ds \] \[ = \int_c^d \left|
+              \vec r '(f(s)) \right| f'(s)\,ds \qquad \begin{cases} w =f(s) \\
+              dw = f'(s)\,ds \\ \end{cases} \] \[ = \int_a^b |\vec r'(t) |\,dt
+              \]
             </p>
           </section>
           <section>
@@ -314,7 +321,9 @@
             <p class="fragment">
               That is, we measure <em>how much the direction changes</em>
               <span class="fragment"><em>per unit arc length</em>.</span>
-              Alternatively, \[\kappa = \frac{|\vec T'(t)|}{|\vec r'(t)|}\]
+              <span class="fragment">
+                Alternatively, \[\kappa = \frac{|\vec T'(t)|}{|\vec r'(t)|}\]
+              </span>
             </p>
           </section>
           <section>
@@ -331,8 +340,14 @@
             <h3 class="framelabel">Example</h3>
 
             <p>
-              Find the relation between the radius $R$ of a circle and its
-              curvature.
+              Find the relation between the radius $R$ of a
+              <a
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMzYmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfYW5pbWF0aW9uPXRydWUmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MitwaSZvYmowX3BhcmFtc194PWErY29zJTI4dCUyOSZvYmowX3BhcmFtc195PWErc2luJTI4dCUyOSZvYmowX3BhcmFtc196PTAmb2JqMF9wYXJhbXNfYTA9MSUyRjImb2JqMF9wYXJhbXNfYTE9Mw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                >circle</a
+              >
+              and its curvature.
             </p>
 
             <div class="fragment">
@@ -356,7 +371,7 @@
                 rel="noopener noreferrer"
                 >3Demos</a
               >
-              to explore a cuve, its reparametrization by arc length, and the
+              to explore a curve, its reparametrization by arc length, and the
               so-called <strong>osculating circle</strong>, which best
               approximates the curve at a point with a circle with a matching
               $\kappa$ value.
@@ -371,6 +386,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -395,6 +411,7 @@
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
