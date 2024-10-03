@@ -54,8 +54,8 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">Quiz 4 (on HW 5) this week</li>
-              <li class="fragment">HW6 due next Tuesday</li>
+              <li class="fragment">Quiz 3 (on HW 4) this week</li>
+              <li class="fragment">HW5 due next Tuesday</li>
             </ul>
           </section>
         </section>
@@ -74,6 +74,28 @@
               graph is tangent to the graph of $f$.
             </p>
           </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Error</h6>
+            <p>\[ f(x,y) \approx f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b) \]</p>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Error</h6>
+            <p>\[ f(x,y) - f(a,b) \approx f_x(a,b)(x-a) + f_y(a,b)(y-b) \]</p>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Error</h6>
+            <p>\[ \Delta f \approx f_x(a,b)\Delta x + f_y(a,b)\Delta y \]</p>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Error</h6>
+            <p>\[ df = f_x(a,b) dx + f_y(a,b)dy \]</p>
+
+            <p class="fragment">
+              This <strong>differential</strong> of $f$ estimates the error of
+              $f$. That is, it approximates how much the output will change for
+              given changes of the input.
+            </p>
+          </section>
           <section>
             <h3 class="framelabel">Theorem</h3>
 
@@ -83,11 +105,17 @@
               $\vec a$, then $f(\vec x)$ is differentiable at $\vec a$.
             </p>
           </section>
-          <section
-            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&showPanel=false&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2.1&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x+y+%2F+%28sqrt%28x%5E2+%2B+y%5E2%29%29+&obj0_params_t0=0&obj0_params_t1=1"
-          >
+          <section>
             <h6 class="framelabel">Non-example</h6>
             <p>\[ f(x,y) = \frac{xy}{\sqrt{x^2 + y^2}} \]</p>
+            <div class="r-stretch">
+              <iframe
+                src="https://3demos.ctl.columbia.edu/?currentChapter=How+To&showPanel=false&obj0_kind=graph&obj0_color=%230d0887&obj0_params_a=-2&obj0_params_b=2.1&obj0_params_c=-2&obj0_params_d=2&obj0_params_z=x+y+%2F+%28sqrt%28x%5E2+%2B+y%5E2%29%29+&obj0_params_t0=0&obj0_params_t1=1"
+                frameborder="0"
+                width="100%"
+                height="100%"
+              ></iframe>
+            </div>
           </section>
         </section>
         <section>
@@ -206,7 +234,7 @@
             <p>
               A particle circles the $z$-axis
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1wb2ludCZvYmowX2NvbG9yPSUyM2JkMDAwZCZvYmowX2FuaW1hdGlvbj10cnVlJm9iajBfcGFyYW1zX2E9Y29zJTI4MitwaSt0JTI5Jm9iajBfcGFyYW1zX2I9c2luJTI4MitwaSt0JTI5Jm9iajBfcGFyYW1zX2M9Y29zJTI4MitwaSt0JTI5K3NpbiUyODIrcGkrdCUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPWdyYXBoJm9iajFfY29sb3I9JTIzYjE3ZGRlJm9iajFfcGFyYW1zX2E9LTEuMSZvYmoxX3BhcmFtc19iPTEuMSZvYmoxX3BhcmFtc19jPS0xLjEmb2JqMV9wYXJhbXNfZD0xLjEmb2JqMV9wYXJhbXNfej14K3kmb2JqMV9wYXJhbXNfdDA9MCZvYmoxX3BhcmFtc190MT0x"
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1wb2ludCZvYmowX2NvbG9yPSUyMzAwMDAwMCZvYmowX2FuaW1hdGlvbj10cnVlJm9iajBfcGFyYW1zX2E9Y29zJTI4K3BpK3QlMjkmb2JqMF9wYXJhbXNfYj1zaW4lMjgrcGkrdCUyOSZvYmowX3BhcmFtc19jPWNvcyUyOCtwaSt0JTI5K3NpbiUyOCtwaSt0JTI5Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MiZvYmoxX2tpbmQ9Z3JhcGgmb2JqMV9jb2xvcj0lMjNiMTdkZGUmb2JqMV9wYXJhbXNfYT0tMS4xJm9iajFfcGFyYW1zX2I9MS4xJm9iajFfcGFyYW1zX2M9LTEuMSZvYmoxX3BhcmFtc19kPTEuMSZvYmoxX3BhcmFtc196PXgreSZvYmoxX3BhcmFtc190MD0wJm9iajFfcGFyYW1zX3QxPTE="
                 target="_blank"
                 rel="noopener noreferrer"
                 >every second</a
@@ -415,14 +443,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
