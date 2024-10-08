@@ -32,6 +32,11 @@
       type="text/javascript"
       src="https://jsxgraph.org/distrib/jsxgraphcore.js"
     ></script>
+    <style>
+      .smaller {
+        font-size: smaller;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
@@ -230,7 +235,6 @@
           </section>
           <section>
             <h6 class="framelabel">Elevation change</h6>
-
             <p>
               A particle circles the $z$-axis
               <a
@@ -247,7 +251,7 @@
             <strong>Solution</strong>.
             <p class="fragment">
               $z = xy$ and $\left\langle x(t), y(t) \right\rangle = \left\langle
-              \cos(2 \pi t, \sin (2 \pi t)) \right\rangle $. \[\frac{dz}{dt} =
+              \cos(2 \pi t), \sin (2 \pi t) \right\rangle $. \[\frac{dz}{dt} =
               \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial
               z}{\partial y} \frac{dy}{dt} \]
             </p>
@@ -260,10 +264,10 @@
           <section>
             <h6 class="framelabel">Related Rates</h6>
 
-            <p>
+            <p class="smaller">
               The base radius of a
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNob3dQYW5lbD1mYWxzZSZvYmowX2tpbmQ9c3VyZmFjZSZvYmowX2NvbG9yPSUyMzJjMjdkMyZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD0lMjguNCslMkIrLjErdCUyOSt1K2NvcyUyOHYlMjkmb2JqMF9wYXJhbXNfeT0lMjguNCslMkIrLjErdCUyOSt1K3NpbiUyOHYlMjkrJm9iajBfcGFyYW1zX3o9JTI4LjgrLSsyK3QrJTJGKzEwJTI5KyUyODErLSt1JTI5Jm9iajBfcGFyYW1zX3QwPS0xJm9iajBfcGFyYW1zX3QxPTE="
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNjQmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMmMyN2QzJm9iajBfYW5pbWF0aW9uPXRydWUmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9JTI4NCslMkIrMSt0JTI5K3UrY29zJTI4diUyOSZvYmowX3BhcmFtc195PSUyODQrJTJCKzErdCUyOSt1K3NpbiUyOHYlMjkrJm9iajBfcGFyYW1zX3o9JTI4OCstKzIrdCslMjkrJTI4MSstK3UlMjkmb2JqMF9wYXJhbXNfdDA9LTEmb2JqMF9wYXJhbXNfdDE9MQ=="
                 target="_blank"
                 rel="noopener noreferrer"
                 >right cone</a
@@ -272,12 +276,14 @@
               at 2cm/min. When the base has radius 4 cm and the height is 8 cm,
               is the volume increasing or decreasing?
             </p>
-            <iframe
-              src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNob3dQYW5lbD1mYWxzZSZvYmowX2tpbmQ9c3VyZmFjZSZvYmowX2NvbG9yPSUyMzJjMjdkMyZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD0lMjguNCslMkIrLjErdCUyOSt1K2NvcyUyOHYlMjkmb2JqMF9wYXJhbXNfeT0lMjguNCslMkIrLjErdCUyOSt1K3NpbiUyOHYlMjkrJm9iajBfcGFyYW1zX3o9JTI4LjgrLSsyK3QrJTJGKzEwJTI5KyUyODErLSt1JTI5Jm9iajBfcGFyYW1zX3QwPS0xJm9iajBfcGFyYW1zX3QxPTE="
-              frameborder="0"
-              width="600px"
-              height="400px"
-            ></iframe>
+            <div class="r-stretch">
+              <iframe
+                src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNjQmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMmMyN2QzJm9iajBfYW5pbWF0aW9uPXRydWUmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9JTI4NCslMkIrMSt0JTI5K3UrY29zJTI4diUyOSZvYmowX3BhcmFtc195PSUyODQrJTJCKzErdCUyOSt1K3NpbiUyOHYlMjkrJm9iajBfcGFyYW1zX3o9JTI4OCstKzIrdCslMjkrJTI4MSstK3UlMjkmb2JqMF9wYXJhbXNfdDA9LTEmb2JqMF9wYXJhbXNfdDE9MQ=="
+                frameborder="0"
+                width="100%"
+                height="100%"
+              ></iframe>
+            </div>
           </section>
           <section>
             <strong>Solution</strong>.
