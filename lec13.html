@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <link
       rel="stylesheet"
@@ -32,6 +33,16 @@
       type="text/javascript"
       src="https://jsxgraph.org/distrib/jsxgraphcore.js"
     ></script>
+    <style>
+      #lagframe {
+        width: auto;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        border: 0;
+        max-width: 100vw;
+        max-height: 100vh;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
@@ -57,7 +68,7 @@
               <li class="fragment">
                 Quiz 5 (on HW 6) this week
                 <ul>
-                  <li class="fragment">Chain Rule</li>
+                  <li class="fragment"><strike>Chain Rule</strike></li>
                   <li class="fragment">Directional Derivative</li>
                   <li class="fragment">Properties of the Gradient</li>
                 </ul>
@@ -183,9 +194,19 @@
             </p>
 
             <p class="fragment">
-              We will choose $x$ and $y$ freely (so $D = \RR^2$, open) and
-              minimize the distance to $(x,y,x - 2y + 3)$. \[f(x,y) = x^2 + y^2
-              + (x - 2y + 3)^2\]
+              <strong>Solution.</strong> We will choose $x$ and $y$ freely (so
+              $D = \RR^2$, open) and minimize the distance to $(x,y,x - 2y +
+              3)$. \[f(x,y) = x^2 + y^2 + (x - 2y + 3)^2\]
+            </p>
+          </section>
+          <section>
+            <p>
+              \[\nabla f = \bv{2x + 2(x - 2y + 3) \\ 2y - 4(x - 2y + 3)} = \bv{0
+              \\ 0}\] \[ = \bv{4x - 4y + 6 \\ - 4x + 10y - 12} = \bv{0 \\ 0}\]
+            </p>
+            <p class="fragment">\[ \implies y = 1, x = -\frac12 \]</p>
+            <p class="fragment">
+              which means the closest point is $(-1/2, 1, 1/2)$
             </p>
           </section>
         </section>
@@ -230,12 +251,13 @@
               restricted to the drawn "orbit".
             </p>
 
-            <iframe
-              src="./lagrange-2d.html"
-              height="600px"
-              width="600px"
-              frameborder="0"
-            ></iframe>
+            <div class="r-stretch">
+              <iframe
+                src="./lagrange-2d.html"
+                id="lagframe"
+                frameborder="0"
+              ></iframe>
+            </div>
 
             <!-- <div
               id="lagbox"
@@ -362,6 +384,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -370,14 +393,18 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+
+        drawer: {
+          pathSize: 2,
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
@@ -386,6 +413,7 @@
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
