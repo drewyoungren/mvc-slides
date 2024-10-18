@@ -108,36 +108,6 @@
             <h1>Preliminaries</h1>
           </section>
           <section>
-            <h6 class="framelabel">Some Topology</h6>
-
-            <p>
-              An <strong>open set</strong> $U\subset \RR^n$ is one where each
-              element can be surrounded by a (small) ball of elements in the
-              set.
-            </p>
-
-            <p class="fragment">
-              A <strong>closed set</strong> contains all its boundary points.
-            </p>
-
-            <div class="fragment container">
-              <div class="col r-stretch">
-                <img
-                  src="assets/Interior_Boundary.png"
-                  alt="Illustration of niterior point and boundary point"
-                  srcset=""
-                />
-              </div>
-              <div class="col r-stretch">
-                <img
-                  src="assets/Open_Closed.png"
-                  alt="Illustration of sets that are closed, open, and neither."
-                  srcset=""
-                />
-              </div>
-            </div>
-          </section>
-          <section>
             <h3>Kinds of Optimization</h3>
             <h6 class="framelabel fragment">Unconstrained</h6>
             <p class="fragment">
@@ -237,11 +207,14 @@
               sets?
             </p>
 
-            <iframe
-              src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SW50cm8mc2NhbGU9MCZzaG93UGFuZWw9ZmFsc2Umb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZmY0MDAwJm9iajBfcGFyYW1zX2E9LTImb2JqMF9wYXJhbXNfYj0yJm9iajBfcGFyYW1zX3g9dCUyRjIlMkJzaW4lMjgyKnQlMjkmb2JqMF9wYXJhbXNfeT0uMiUyQi45KnQrJTJCKy4yKmNvcyUyODcqdCUyOSstKyUyOGFicyUyOHQlMjkrLSt0JTI5JTVFMiUyRjQ4Jm9iajBfcGFyYW1zX3o9MSpleHAlMjgtMiolMjglMjh0JTJGMiUyQnNpbiUyODIqdCUyOSUyOSU1RTIlMkIlMjguMiUyQi45KnQrJTJCKy4yKmNvcyUyODcqdCUyOSstKyUyOGFicyUyOHQlMjkrLSt0JTI5JTVFMiUyRjQ4JTI5JTVFMiUyOSUyOSslMkIrMy4yJTJGMipleHAlMjgtMSolMjglMjglMjh0JTJGMiUyQnNpbiUyODIqdCUyOSUyOS0xJTI5JTVFMiUyQiUyOCUyOC4yJTJCLjkqdCslMkIrLjIqY29zJTI4Nyp0JTI5Ky0rJTI4YWJzJTI4dCUyOSstK3QlMjklNUUyJTJGNDglMjktMS4yJTI5JTVFMiUyOSUyOSZvYmowX3BhcmFtc190YXU9MCZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjNmZjQwMDAmb2JqMV9wYXJhbXNfYT0tMiZvYmoxX3BhcmFtc19iPTImb2JqMV9wYXJhbXNfeD10JTJGMiUyQnNpbiUyODIqdCUyOSZvYmoxX3BhcmFtc195PS4yJTJCLjkqdCslMkIrLjIqY29zJTI4Nyp0JTI5Ky0rJTI4YWJzJTI4dCUyOSstK3QlMjklNUUyJTJGNDgmb2JqMV9wYXJhbXNfej0wJm9iajFfcGFyYW1zX3RhdT0wJm9iajJfa2luZD1ncmFwaCZvYmoyX2NvbG9yPSUyMzMyMzJmZiZvYmoyX3BhcmFtc19hPS0yJm9iajJfcGFyYW1zX2I9MiZvYmoyX3BhcmFtc19jPS0yJm9iajJfcGFyYW1zX2Q9MiZvYmoyX3BhcmFtc196PTEqZXhwJTI4LTIqJTI4eCU1RTIlMkJ5JTVFMiUyOSUyOSslMkIrMy4yJTJGMipleHAlMjgtMSolMjglMjh4LTElMjklNUUyJTJCJTI4eS0xLjIlMjklNUUyJTI5JTI5Jm9iajJfcGFyYW1zX3RhdT0wJm9iajJfcGFyYW1zX3QwPTAmb2JqMl9wYXJhbXNfdDE9MQ=="
-              frameborder="0"
-              class="r-stretch"
-            ></iframe>
+            <div class="r-stretch">
+              <iframe
+                src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SW50cm8mc2NhbGU9MCZzaG93UGFuZWw9ZmFsc2Umb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZmY0MDAwJm9iajBfcGFyYW1zX2E9LTImb2JqMF9wYXJhbXNfYj0yJm9iajBfcGFyYW1zX3g9dCUyRjIlMkJzaW4lMjgyKnQlMjkmb2JqMF9wYXJhbXNfeT0uMiUyQi45KnQrJTJCKy4yKmNvcyUyODcqdCUyOSstKyUyOGFicyUyOHQlMjkrLSt0JTI5JTVFMiUyRjQ4Jm9iajBfcGFyYW1zX3o9MSpleHAlMjgtMiolMjglMjh0JTJGMiUyQnNpbiUyODIqdCUyOSUyOSU1RTIlMkIlMjguMiUyQi45KnQrJTJCKy4yKmNvcyUyODcqdCUyOSstKyUyOGFicyUyOHQlMjkrLSt0JTI5JTVFMiUyRjQ4JTI5JTVFMiUyOSUyOSslMkIrMy4yJTJGMipleHAlMjgtMSolMjglMjglMjh0JTJGMiUyQnNpbiUyODIqdCUyOSUyOS0xJTI5JTVFMiUyQiUyOCUyOC4yJTJCLjkqdCslMkIrLjIqY29zJTI4Nyp0JTI5Ky0rJTI4YWJzJTI4dCUyOSstK3QlMjklNUUyJTJGNDglMjktMS4yJTI5JTVFMiUyOSUyOSZvYmowX3BhcmFtc190YXU9MCZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjNmZjQwMDAmb2JqMV9wYXJhbXNfYT0tMiZvYmoxX3BhcmFtc19iPTImb2JqMV9wYXJhbXNfeD10JTJGMiUyQnNpbiUyODIqdCUyOSZvYmoxX3BhcmFtc195PS4yJTJCLjkqdCslMkIrLjIqY29zJTI4Nyp0JTI5Ky0rJTI4YWJzJTI4dCUyOSstK3QlMjklNUUyJTJGNDgmb2JqMV9wYXJhbXNfej0wJm9iajFfcGFyYW1zX3RhdT0wJm9iajJfa2luZD1ncmFwaCZvYmoyX2NvbG9yPSUyMzMyMzJmZiZvYmoyX3BhcmFtc19hPS0yJm9iajJfcGFyYW1zX2I9MiZvYmoyX3BhcmFtc19jPS0yJm9iajJfcGFyYW1zX2Q9MiZvYmoyX3BhcmFtc196PTEqZXhwJTI4LTIqJTI4eCU1RTIlMkJ5JTVFMiUyOSUyOSslMkIrMy4yJTJGMipleHAlMjgtMSolMjglMjh4LTElMjklNUUyJTJCJTI4eS0xLjIlMjklNUUyJTI5JTI5Jm9iajJfcGFyYW1zX3RhdT0wJm9iajJfcGFyYW1zX3QwPTAmb2JqMl9wYXJhbXNfdDE9MQ=="
+                frameborder="0"
+                height="100%"
+                width="100%"
+              ></iframe>
+            </div>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
@@ -265,7 +238,7 @@
               style="width: 600px; height: 600px"
             ></div> -->
 
-            <script type="text/javascript" src="./js/attractor.js"></script>
+            <!-- <script type="text/javascript" src="./js/attractor.js"></script> -->
           </section>
           <section>
             <h6 class="framelabel">Theorem - Lagrange Multipliers</h6>
@@ -288,6 +261,26 @@
                 >plane</a
               >
               \[z = x - 2y + 3.\]
+            </p>
+            <p class="r-stretch"></p>
+          </section>
+          <section>
+            <h6 class="framelabel">Solution</h6>
+            <p>
+              Viewed as a
+              <a
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1sZXZlbCZvYmowX2NvbG9yPSUyM2Q2NmI3MiZvYmowX3BhcmFtc19nPXorLSt4KyUyQisyK3kmb2JqMF9wYXJhbXNfaz0zJm9iajBfcGFyYW1zX2E9LTImb2JqMF9wYXJhbXNfYj0yJm9iajBfcGFyYW1zX2M9LTImb2JqMF9wYXJhbXNfZD0yJm9iajBfcGFyYW1zX2U9LTImb2JqMF9wYXJhbXNfZj0yJm9iajFfa2luZD1sZXZlbCZvYmoxX2NvbG9yPSUyMzdkN2Q3ZCZvYmoxX3BhcmFtc19nPXglNUUyKyUyQit5JTVFMislMkIreiU1RTImb2JqMV9wYXJhbXNfaz0yJm9iajFfcGFyYW1zX2E9LTImb2JqMV9wYXJhbXNfYj0wJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc19kPTImb2JqMV9wYXJhbXNfZT0wJm9iajFfcGFyYW1zX2Y9MiZvYmoyX2tpbmQ9bGV2ZWwmb2JqMl9jb2xvcj0lMjM3ZDdkN2Qmb2JqMl9wYXJhbXNfZz14JTVFMislMkIreSU1RTIrJTJCK3olNUUyJm9iajJfcGFyYW1zX2s9MSZvYmoyX3BhcmFtc19hPS0yJm9iajJfcGFyYW1zX2I9MCZvYmoyX3BhcmFtc19jPTAmb2JqMl9wYXJhbXNfZD0yJm9iajJfcGFyYW1zX2U9MCZvYmoyX3BhcmFtc19mPTImb2JqM19raW5kPWxldmVsJm9iajNfY29sb3I9JTIzN2Q3ZDdkJm9iajNfcGFyYW1zX2c9eCU1RTIrJTJCK3klNUUyKyUyQit6JTVFMiZvYmozX3BhcmFtc19rPTMlMkYyJm9iajNfcGFyYW1zX2E9LTImb2JqM19wYXJhbXNfYj0wJm9iajNfcGFyYW1zX2M9MCZvYmozX3BhcmFtc19kPTImb2JqM19wYXJhbXNfZT0wJm9iajNfcGFyYW1zX2Y9Mg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                >constrained problem</a
+              >
+              in $\mathbb{R}^3$, we target distance$^2$ and use the plane
+              equation as the constraint. \[ f(x,y,z) = x^2 + y^2 + z^2,\
+              g(x,y,z) = x - 2y - z + 3 = 0 \]
+            </p>
+            <p class="fragment">
+              \[ \nabla f = 2\bv{x \\ y \\ z} = \lambda \bv{1 \\ -2 \\ -1} =
+              \lambda \nabla g\]
             </p>
           </section>
           <section>
