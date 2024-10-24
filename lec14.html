@@ -354,6 +354,12 @@
               >
               $S$ in the first octant with \[x^2 + y^2 \leq z \leq 4.\]
             </p>
+            <p class="fragment r-stretch">
+              <strong>Solution</strong>
+
+              \[ \operatorname{Vol}(S) = \iiint\limits_S 1\, dV = \int_0^2
+              \int_0^{\sqrt{4 - x^2}} \int_{x^2 + y^2}^4 \,dz\,dy\,dx \]
+            </p>
           </section>
           <section>
             <h6 class="framelabel">Bonus</h6>
@@ -361,19 +367,26 @@
               Suppose a point $(x,y,z)$ is selected randomly from $S$ above.
               What is the probability that $x > 1$?
             </p>
-            <div class="fragment">
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyM2RkNjQ2NCZvYmowX3BhcmFtc19jb29yZHM9cmVjdCZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPXNxcnQlMjg0Ky0reCslNUUrMiUyOSZvYmowX3BhcmFtc19lPXgrJTVFKzIrJTJCK3krJTVFKzImb2JqMF9wYXJhbXNfZj00Jm9iajFfa2luZD1zb2xpZCZvYmoxX2NvbG9yPSUyMzBkMDg4NyZvYmoxX3BhcmFtc19jb29yZHM9cmVjdCZvYmoxX3BhcmFtc19hPTEmb2JqMV9wYXJhbXNfYj0yJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc19kPXNxcnQlMjg0Ky0reCslNUUrMiUyOSZvYmoxX3BhcmFtc19lPXgrJTVFKzIrJTJCK3krJTVFKzImb2JqMV9wYXJhbXNfZj00"
-                target="_blank"
-              >
-                <img
-                  src="assets/rand_pts_vol.png"
-                  alt="Portion of a solid."
-                  srcset=""
-                  width="714px"
-                  height="404px"
-              /></a>
+            <div class="r-stretch">
+              <div class="fragment" style="width: 100%; height: 100%">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNSZzaG93UGFuZWw9ZmFsc2Umb2JqMF9raW5kPXNvbGlkJm9iajBfY29sb3I9JTIzZGQ2NDY0Jm9iajBfcGFyYW1zX2Nvb3Jkcz1yZWN0Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTEmb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9c3FydCUyODQrLSt4KyU1RSsyJTI5Jm9iajBfcGFyYW1zX2U9eCslNUUrMislMkIreSslNUUrMiZvYmowX3BhcmFtc19mPTQmb2JqMV9raW5kPXNvbGlkJm9iajFfY29sb3I9JTIzMGQwODg3Jm9iajFfcGFyYW1zX2Nvb3Jkcz1yZWN0Jm9iajFfcGFyYW1zX2E9MSZvYmoxX3BhcmFtc19iPTImb2JqMV9wYXJhbXNfYz0wJm9iajFfcGFyYW1zX2Q9c3FydCUyODQrLSt4KyU1RSsyJTI5Jm9iajFfcGFyYW1zX2U9eCslNUUrMislMkIreSslNUUrMiZvYmoxX3BhcmFtc19mPTQ="
+                  height="100%"
+                  width="100%"
+                ></iframe>
+              </div>
             </div>
+          </section>
+          <section>
+            <p><strong>Solution</strong></p>
+            <p>
+              Simply find the proportion of the region (by volume) that has the
+              property $x > 1$.
+            </p>
+            <p>
+              \[ P(x > 1) = \frac{\int_1^2 \int_0^{\sqrt{4 - x^2}} \int_{x^2 +
+              y^2}^4 \,dz\,dy\,dx}{\operatorname{Vol}(S)} \approx 0.253 \]
+            </p>
           </section>
         </section>
       </div>
@@ -392,14 +405,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
