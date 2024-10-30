@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <link
       rel="stylesheet"
@@ -54,7 +55,7 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 9 this week.</li>
+              <li class="fragment">HW 9 due <strong>Thurs</strong> 11/7.</li>
               <li class="fragment">
                 Quiz 6 this week.
                 <ul>
@@ -131,10 +132,10 @@
           <section>
             <h6 class="framelabel">Example</h6>
 
-            <p>
-              Find the volume of the "stadium" defined as the region outside a
-              sphere of radius 2, inside a cylinder of radius 4, and under the
-              cone $x^2 + y^2 = z^2$.
+            <p style="font-size: smaller">
+              Find the volume of the "stadium" defined as the region above the
+              $xy$-plane bound by a sphere of radius 2, a cylinder of radius 4,
+              and the cone $x^2 + y^2 = z^2$, cut as shown.
             </p>
 
             <div class="r-stretch">
@@ -362,7 +363,7 @@
           <section>
             <h6 class="framelabel">Example</h6>
 
-            <p>
+            <p style="font-size: smaller">
               Find the center of mass and the
               <a
                 href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfYW5pbWF0aW9uPXRydWUmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0xJm9iajBfcGFyYW1zX3g9dSZvYmowX3BhcmFtc195PWNvcyUyOHQrJTJGKzAuNTY2JTI5K3Ymb2JqMF9wYXJhbXNfej1zaW4lMjh0KyUyRiswLjU2NiUyOSt2Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MitwaSsqKzAuNTY2Jm9iajFfa2luZD1zdXJmYWNlJm9iajFfY29sb3I9JTIzZGM1ZTY2Jm9iajFfYW5pbWF0aW9uPXRydWUmb2JqMV9wYXJhbXNfYT0wJm9iajFfcGFyYW1zX2I9MSZvYmoxX3BhcmFtc19jPTAmb2JqMV9wYXJhbXNfZD0xJm9iajFfcGFyYW1zX3g9Y29zJTI4dCslMkYrMS4wMzklMjkrKit1KyUyQitzaW4lMjh0KyUyRisxLjAzOSUyOSsqK3Ymb2JqMV9wYXJhbXNfeT0tc2luJTI4dCslMkYrMS4wMzklMjkrKit1KyUyQitjb3MlMjh0KyUyRisxLjAzOSUyOSsqK3Ymb2JqMV9wYXJhbXNfej0wJm9iajFfcGFyYW1zX3QwPTAmb2JqMV9wYXJhbXNfdDE9MitwaSsqKzEuMDM5Jm9iajJfa2luZD1zdXJmYWNlJm9iajJfY29sb3I9JTIzMmE4NzA4Jm9iajJfYW5pbWF0aW9uPXRydWUmb2JqMl9wYXJhbXNfYT0wJm9iajJfcGFyYW1zX2I9MSZvYmoyX3BhcmFtc19jPTAmb2JqMl9wYXJhbXNfZD0xJm9iajJfcGFyYW1zX3g9Y29zJTI4dCslMkYrLjQ3MiUyOSsqK3UrJm9iajJfcGFyYW1zX3k9diZvYmoyX3BhcmFtc196PXNpbiUyOCt0KyUyRisuNDcyKyUyOSsqK3Umb2JqMl9wYXJhbXNfdDA9MCZvYmoyX3BhcmFtc190MT0yK3BpKyorLjQ3Mg=="
@@ -460,6 +461,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -468,22 +470,25 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
-
+        drawer: {
+          pathSize: 2,
+        },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
