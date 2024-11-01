@@ -42,9 +42,23 @@
             <h1>Vector Fields & Path Integrals</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
-            <p style="text-align: right">
-              Drew Youngren <code>dcy2@columbia.edu</code>
-            </p>
+            <div class="container">
+              <div class="col">
+                <p style="text-align: left; font-size: x-small">
+                  <a
+                    href="https://onlineboard.eu/b/9WfDbISX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >bbd</a
+                  >
+                </p>
+              </div>
+              <div class="col">
+                <p style="text-align: right">
+                  Drew Youngren <code>dcy2@columbia.edu</code>
+                </p>
+              </div>
+            </div>
           </section>
           <section>
             <!-- Set up standard LaTeX macros -->
@@ -54,10 +68,26 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">Review session tonight, 8pm, on zoom</li>
-              <li class="fragment">Exam 2 Thursday</li>
-              <li class="fragment">No quiz this week.</li>
-              <li class="fragment">Recitation optional</li>
+              <li class="fragment">HW 9 due <strong>Thurs</strong> 11/7.</li>
+              <li class="fragment">
+                Quiz 6 this week.
+                <ul>
+                  <li>Double/triple integrals</li>
+                  <li>Coordinate systems</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                Exam 2 Tues, 11/12
+                <ul>
+                  <li>Through HW9.</li>
+                  <li>Same format as last time</li>
+                  <li>New seat assignments</li>
+                  <li>
+                    Not cumulative in the narrow sense
+                    <span class="fragment"> but all math is cumulative.</span>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </section>
         </section>
@@ -313,15 +343,15 @@
             <h6 class="framelabel">Solution</h6>
 
             <p class="fragment">
-              \[ \int_C f\,dx = \int_0^3 (1 + (t - 1)^2)\,dt = 7.5\]
+              \[ \int_C f\,dx = \int_0^3 (t + (t - 1)^2)\,dt = 7.5\]
             </p>
 
             <p class="fragment">
-              \[ \int_C f\,dy = \int_0^3 (1 + (t - 1)^2) 2(t-1)\,dt = 16.5\]
+              \[ \int_C f\,dy = \int_0^3 (t + (t - 1)^2) 2(t-1)\,dt = 16.5\]
             </p>
 
             <p class="fragment">
-              \[ \int_C f\,ds = \int_0^3 (1 + (t - 1)^2)\sqrt{1 + 4(t-1)^2}\,dt
+              \[ \int_C f\,ds = \int_0^3 (t + (t - 1)^2)\sqrt{1 + 4(t-1)^2}\,dt
               \approx 20.1 \]
             </p>
           </section>
@@ -580,14 +610,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
