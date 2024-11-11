@@ -426,6 +426,10 @@
           <p><strong>Stewart:</strong> §14.8</p>
           <p>
             <strong>Resources:</strong>
+            <button class="objectives-btn" onclick="showObjectives(13)">
+              Learning Objectives
+            </button>
+
             <a
               href="https://drew.youngren.nyc/mvc-slides/lec13.html"
               target="_blank"
@@ -442,6 +446,16 @@
               Lagrange Example
             </a>
           </p>
+        </div>
+        <!-- Modal Structure -->
+        <div id="objectivesModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Learning Objectives</h2>
+            <ul id="objectivesList">
+              <!-- Objectives will be populated here -->
+            </ul>
+          </div>
         </div>
       </div>
       <div class="card" style="background-image: url('DefaultThumbnail.png')">
@@ -900,4 +914,37 @@
       </div>
     </div>
   </body>
+  <script>
+    // Sample data for learning objectives (replace with actual data or fetch from API)
+    const objectivesData = {
+      13: [
+        "Understand the concept of Lagrange multipliers",
+        "Apply Lagrange multipliers to find local extrema",
+        "Solve real-world problems using constraint optimization",
+      ],
+      // Add more lecture objectives here
+    };
+
+    // Function to show objectives modal
+    function showObjectives(lectureId) {
+      const objectivesList = document.getElementById("objectivesList");
+      objectivesList.innerHTML = ""; // Clear existing objectives
+
+      // Populate objectives list
+      const objectives = objectivesData[lectureId] || [];
+      objectives.forEach((obj) => {
+        const li = document.createElement("li");
+        li.textContent = obj;
+        objectivesList.appendChild(li);
+      });
+
+      // Show modal
+      document.getElementById("objectivesModal").style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById("objectivesModal").style.display = "none";
+    }
+  </script>
 </html>
