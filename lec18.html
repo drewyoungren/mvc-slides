@@ -156,9 +156,9 @@
           <section>
             <h3 class="framelabel">Definition</h3>
             <p>
-              A vector field $F$ is <strong>conservative</strong> if there is a
-              scalar field $f$ (called a <em>potential</em>) where \[\vec F =
-              \nabla f.\]
+              A vector field $\vec F$ is <strong>conservative</strong> if there
+              is a scalar field $f$ (called a <em>potential</em>) where \[\vec F
+              = \nabla f.\]
             </p>
           </section>
           <section>
@@ -370,8 +370,10 @@
               mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
             </p>
 
-            \[ \text{W} = \int_a^b m\vec r''(t)\cdot \vec r'(t)\,dt = \frac12 m
-            |\vec r'(b)|^2 - \frac12 m |\vec r'(a)|^2\]
+            \[ \begin{align*}\text{W} &= \int_a^b m\vec r''(t)\cdot \vec
+            r'(t)\,dt \\ &= \int_a^b \frac{d}{dt}\left(\frac12 m \vec r'(t)
+            \cdot \vec r'(t) \right)\,dt \\ &= \frac12 m |\vec r'(b)|^2 -
+            \frac12 m |\vec r'(a)|^2 \end{align*}\]
           </section>
           <section data-auto-animate>
             <h6 class="framelabel">Conservation of Energy</h6>
@@ -421,14 +423,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
