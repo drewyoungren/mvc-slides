@@ -354,8 +354,22 @@
               </div>
             </div>
           </section>
-          <section data-background-image="assets/terry.jpeg">
-            <h6 class="framelabel">Spraying Champagne</h6>
+          <section data-auto-animate data-background-image="assets/terry.jpeg">
+            <h6 class="framelabel" data-id="title">
+              Spraying Champagne <span class="fragment">(2015)</span>
+            </h6>
+          </section>
+          <section
+            data-auto-animate
+            data-background-image="assets/polar-bear-spray.jpg"
+          >
+            <h6 class="framelabel" data-id="title">
+              Spraying Champagne (2024)
+            </h6>
+            <div class="r-stretch"></div>
+            <p style="text-align: right; font-size: x-small">
+              photo credit: Charles Wenzelberg / New York Post
+            </p>
           </section>
         </section>
         <section>
@@ -515,14 +529,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
