@@ -358,7 +358,7 @@
               </div>
             </div>
           </section>
-          <section>
+          <section id="stokes-example">
             <h6 class="framelabel">Example</h6>
             <p>
               Compute the line integral $\oint\limits_{\partial \Omega} \vec
@@ -376,6 +376,20 @@
                 >raviolo</a
               >.
             </p>
+          </section>
+          <section>
+            <p>
+              <strong>Solution.</strong> The secret is, per Stokes', we can use
+              <em>any</em> surface $\Omega'$ with the same boundary $\partial
+              \Omega' = \partial \Omega$. Easiest is $z=0$ with same footprint.
+              The normal vector is constant $\mathbf N = \mathbf k$. $\nabla
+              \times \mathbf F = \langle -3, 0, -2\rangle$ so
+            </p>
+            <p class="fragment">
+              \[ \oint_{\partial \Omega} \mathbf F\cdot d\mathbf r =
+              \iint_{\Omega'} (-3\mathbf i - 2\mathbf k) \cdot \mathbf k\, dS \]
+            </p>
+            <p class="fragment">\[ = -2\text{Area}(\Omega') = -8. \]</p>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
