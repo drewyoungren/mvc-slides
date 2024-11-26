@@ -55,16 +55,9 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 14 "due" Tues</li>
-              <li class="fragment">No quiz this week.</li>
+              <li class="fragment">HW 13 "due" Tues</li>
+              <li class="fragment">Quiz 8 this week.</li>
               <li class="fragment">Regular recitation schedule</li>
-              <li class="fragment">
-                Review Session
-                <ul>
-                  <li>Tues 04/30 11am&ndash;1pm</li>
-                  <li>Mathematics 203</li>
-                </ul>
-              </li>
             </ul>
           </section>
         </section>
@@ -73,56 +66,83 @@
           <section>
             <h1>1-minute review</h1>
           </section>
-
           <section>
-            <h6 class="framelabel">Stokes' Theorem</h6>
-
-            <p>
-              Let $\Omega$ be an oriented surface in $\RR^3$ and $\partial
-              \Omega$ its
+            <h3 class="framelabel">The Divergence Theorem</h3>
+            <h5 class="framelabel">
+              aka
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMDYmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMyNTFmZTAmb2JqMF9wYXJhbXNfYT0xJTJGNCZvYmowX3BhcmFtc19iPTElMkYyJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD0yK3UrY29zJTI4diUyOSslMkIrMSZvYmowX3BhcmFtc195PXUrc2luKyUyOHYlMjkmb2JqMF9wYXJhbXNfej0xKyUyQitjb3MlMjgzJTI4Mit1K2NvcyUyOHYlMjkrJTJCKzErJTJCK3Urc2luJTI4diUyOSslMkYrMiUyOSUyOSslMkYrJTI4MislMkIrdSU1RTIrY29zJTI4diUyOSU1RTIlMjkmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1jdXJ2ZSZvYmoxX2NvbG9yPSUyM2ZmYzAzOCZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj0yK3BpJm9iajFfcGFyYW1zX3g9K2NvcyUyOHQlMjkrJTJCKzEmb2JqMV9wYXJhbXNfeT1zaW4rJTI4dCUyOSslMkYrMiZvYmoxX3BhcmFtc196PTErJTJCK2NvcyUyODMlMjgrY29zJTI4dCUyOSslMkIrMSslMkIrK3NpbiUyOHQlMjkrJTJGKzQlMjklMjkrJTJGKyUyODIrJTJCKzElMkY0KmNvcyUyOHQlMjklNUUyJTI5Jm9iajJfa2luZD1jdXJ2ZSZvYmoyX2NvbG9yPSUyM2ZmZmYwMCZvYmoyX3BhcmFtc19hPTAmb2JqMl9wYXJhbXNfYj0yKnBpJm9iajJfcGFyYW1zX3g9K2NvcyUyOHQlMjklMkYyKyUyQisxJm9iajJfcGFyYW1zX3k9c2luKyUyOC10JTI5KyUyRis0Jm9iajJfcGFyYW1zX3o9MSslMkIrY29zJTI4MyUyOCtjb3MlMjh0JTI5JTJGMislMkIrMSslMkIrK3NpbiUyOC10JTI5KyUyRis4JTI5JTI5KyUyRislMjgyKyUyQisxJTJGMTYqY29zJTI4dCUyOSU1RTIlMjk="
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMTQmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXNvbGlkJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2Nvb3Jkcz1yZWN0Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPS4wNSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0wLjA1Jm9iajBfcGFyYW1zX2U9MCZvYmowX3BhcmFtc19mPTAuMDUmb2JqMV9raW5kPXN1cmZhY2Umb2JqMV9jb2xvcj0lMjNkYzVlNjYmb2JqMV9wYXJhbXNfYT0wJm9iajFfcGFyYW1zX2I9cGkmb2JqMV9wYXJhbXNfYz0wJm9iajFfcGFyYW1zX2Q9MitwaSZvYmoxX3BhcmFtc194PSUyODElMkIxJTJGMypzaW4lMjh1KjIlMjklNUUyKnNpbiUyOHYqMyUyOSU1RTIlMjkqc2luJTI4dSUyOSpjb3MlMjh2JTI5Jm9iajFfcGFyYW1zX3k9JTI4MSUyQjElMkYzKnNpbiUyOHUqMiUyOSU1RTIqc2luJTI4diozJTI5JTVFMiUyOSpzaW4lMjh1JTI5KnNpbiUyOHYlMjkmb2JqMV9wYXJhbXNfej0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KmNvcyUyOHUlMjkmb2JqMV9wYXJhbXNfdDA9MCZvYmoxX3BhcmFtc190MT0xJm9iajJfa2luZD1maWVsZCZvYmoyX2NvbG9yPSUyMzU4MDFhNSZvYmoyX3BhcmFtc19wPXomb2JqMl9wYXJhbXNfcT15Jm9iajJfcGFyYW1zX3I9eiZvYmoyX3BhcmFtc19uVmVjPTY="
                 target="_blank"
                 rel="noopener noreferrer"
-                >positively-oriented boundary</a
-              >. If $\vec F(x,y,z)$ is a smooth vector field, then \[
-              \iint_{\Omega} \nabla \times\vec F \cdot d \vec S =
-              \oint_{\partial \Omega} \vec F\cdot d \vec r \]
+                >Gauss' Theorem</a
+              >
+            </h5>
+
+            <p>
+              Let $E$ be a solid region in $\RR^3$ and $\partial E$ its
+              outward-oriented boundary. If $\vec F(x,y,z)$ is a smooth vector
+              field, then \[ \iint\limits_{\partial E} \vec F \cdot \vec N\,d S
+              = \iiint\limits_E \nabla \cdot \vec F\,dV \]
             </p>
           </section>
-          <section>
-            <h3 class="framelabel">Example</h3>
+
+          <section
+            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+            data-background-opacity="0.4"
+          >
+            <h6 class="framelabel">Buoyancy</h6>
 
             <p style="font-size: smaller">
-              Find the
+              Ηydrostatic pressure is proportional to depth. $P = \rho g d$.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              The force on a small piece of
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMzgmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjNhYjk3ZjImb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MiZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9dStjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3k9dStzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3o9dSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPWN1cnZlJm9iajFfY29sb3I9JTIzZjc0YjRiJm9iajFfcGFyYW1zX2E9MCZvYmoxX3BhcmFtc19iPTIqcGkmb2JqMV9wYXJhbXNfeD0yK2NvcyUyOHQlMjkmb2JqMV9wYXJhbXNfeT0yK3NpbiUyOHQlMjkmb2JqMV9wYXJhbXNfej0yJm9iajJfa2luZD1maWVsZCZvYmoyX2NvbG9yPSUyMzkzMTBhMiZvYmoyX3BhcmFtc19wPS0zJm9iajJfcGFyYW1zX3E9LTEmb2JqMl9wYXJhbXNfcj0tMiZvYmoyX3BhcmFtc19uVmVjPTYmb2JqM19raW5kPXZlY3RvciZvYmozX2NvbG9yPSUyM2Y3NGI0YiZvYmozX3BhcmFtc19hPTQrc2luJTI4MitwaSslMkYrMTIrKituJTI5KyUyRisxMCZvYmozX3BhcmFtc19iPTYrJTJGKzEwJm9iajNfcGFyYW1zX2M9Mitjb3MlMjgyK3BpKyUyRisxMisqK24lMjkrJTJGKzEwJm9iajNfcGFyYW1zX3g9Mitjb3MlMjgyK3BpKyUyRisxMisqK24lMjkmb2JqM19wYXJhbXNfeT0yK3NpbiUyODIrcGkrJTJGKzEyKyorbiUyOSZvYmozX3BhcmFtc196PTImb2JqM19wYXJhbXNfdDA9MCZvYmozX3BhcmFtc190MT0xJm9iajNfcGFyYW1zX24wPTAmb2JqM19wYXJhbXNfbjE9MTI="
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMTQmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KnNpbiUyOHUlMjkqY29zJTI4diUyOSZvYmowX3BhcmFtc195PS0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KnNpbiUyOHUlMjkqc2luJTI4diUyOSZvYmowX3BhcmFtc196PSUyODElMkIxJTJGMypzaW4lMjh1KjIlMjklNUUyKnNpbiUyOHYqMyUyOSU1RTIlMjkqY29zJTI4dSUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPWZpZWxkJm9iajFfY29sb3I9JTIzNTgwMWE1Jm9iajFfcGFyYW1zX3A9MCZvYmoxX3BhcmFtc19xPTAmb2JqMV9wYXJhbXNfcj0xJm9iajFfcGFyYW1zX25WZWM9Ng=="
                 target="_blank"
                 rel="noopener noreferrer"
-                >flux of the curl</a
+                >submerged surface</a
               >
-              of the vector field $2y\,\vec i + 3z\,\vec j +x\,\vec k$ through
-              the piece of the cone $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented
-              upward.
+              is $-P\, \vec N\,dS$ where $\vec N$ is the normal vector to the
+              surface.
             </p>
-            <iframe
-              src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMzgmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzYWI5N2YyJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTImb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MitwaSZvYmowX3BhcmFtc194PXUrY29zJTI4diUyOSZvYmowX3BhcmFtc195PXUrc2luJTI4diUyOSZvYmowX3BhcmFtc196PXUmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1jdXJ2ZSZvYmoxX2NvbG9yPSUyM2Y3NGI0YiZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj0yKnBpJm9iajFfcGFyYW1zX3g9Mitjb3MlMjh0JTI5Jm9iajFfcGFyYW1zX3k9MitzaW4lMjh0JTI5Jm9iajFfcGFyYW1zX3o9MiZvYmoyX2tpbmQ9ZmllbGQmb2JqMl9jb2xvcj0lMjM5MzEwYTImb2JqMl9wYXJhbXNfcD0tMyZvYmoyX3BhcmFtc19xPS0xJm9iajJfcGFyYW1zX3I9LTImb2JqMl9wYXJhbXNfblZlYz02Jm9iajNfa2luZD12ZWN0b3Imb2JqM19jb2xvcj0lMjNmNzRiNGImb2JqM19wYXJhbXNfYT00K3NpbiUyODIrcGkrJTJGKzEyKyorbiUyOSslMkYrMTAmb2JqM19wYXJhbXNfYj02KyUyRisxMCZvYmozX3BhcmFtc19jPTIrY29zJTI4MitwaSslMkYrMTIrKituJTI5KyUyRisxMCZvYmozX3BhcmFtc194PTIrY29zJTI4MitwaSslMkYrMTIrKituJTI5Jm9iajNfcGFyYW1zX3k9MitzaW4lMjgyK3BpKyUyRisxMisqK24lMjkmb2JqM19wYXJhbXNfej0yJm9iajNfcGFyYW1zX3QwPTAmb2JqM19wYXJhbXNfdDE9MSZvYmozX3BhcmFtc19uMD0wJm9iajNfcGFyYW1zX24xPTEy"
-              frameborder="0"
-              height="400px"
-              width="700px"
-            ></iframe>
+            <p class="fragment" style="font-size: smaller">
+              The (net) buoyant force on the hull of a watercraft is the
+              component of this force in the upward direction.
+            </p>
+            <p class="fragment" style="font-size: smaller">
+              What is the net buoyant force on the whole surface?
+            </p>
+          </section>
+          <section>
+            <p style="font-size: smaller">
+              <strong>Solution.</strong> Suppose an object is modeled by a solid
+              $E$ with outward-oriented normal $\vec N$ on the boundary
+              $\partial E = \Sigma$, where the surface of the water is $z = 0$.
+            </p>
+            <p style="font-size: smaller">
+              Then the total buoyant force is \[ \iint_\Sigma \rho g (-z)(-\vec
+              N)\cdot \vec k\, dS = \rho g \iint_{\partial E} z\,\vec k \cdot
+              d\vec S \]
+            </p>
+            <p style="font-size: smaller">
+              but the vector field $z\,\vec k$ has divergence 1, so the RHS is
+              just $\rho g \operatorname{Vol}(E)$, the weight of the water
+              displaced by $E$.
+            </p>
           </section>
 
           <section>
-            <h3 class="framelabel">Gauss' Law</h3>
-
+            <h1>Gauss' Law</h1>
+          </section>
+          <section>
             <p>
-              Coulomb's Law states that the strength of the electric field $\vec
-              E$ from a charge $q$ at the origin is given by \[ \vec E(x,y,z) =
-              \frac{q}{4\pi\varepsilon_0} \frac{\langle x, y, z
-              \rangle}{\sqrt{x^2 + y^2 + z^2}^3} \] i.e., has strength inversely
-              proportional to the distance squared. Let's compute $\nabla\cdot
-              \vec E$.
+              <strong>Coulomb's Law</strong> states that the strength of the
+              electric field $\vec E$ from a charge $q$ at the origin is given
+              by \[ \vec E(x,y,z) = \frac{q}{4\pi\varepsilon_0} \frac{\langle x,
+              y, z \rangle}{\sqrt{x^2 + y^2 + z^2}^3} \] i.e., has strength
+              inversely proportional to the distance squared. Let's compute
+              $\nabla\cdot \vec E$.
             </p>
           </section>
           <section>
@@ -384,14 +404,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/

@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>APMA E2000 - Gauss' Theorem</title>
+    <title>APMA E2000 - Stokes' Theorem</title>
 
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
@@ -39,7 +39,7 @@
         <section>
           <section>
             <h3 class="framelabel">Lecture 22</h3>
-            <h1>Gauss' Theorem</h1>
+            <h1>Stokes' Theorem</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
             <p style="text-align: right">
@@ -251,260 +251,134 @@
             </p>
           </section>
         </section>
+
         <section>
           <section>
-            <h1>The Divergence Theorem</h1>
+            <h1>Stokes' Theorem</h1>
           </section>
           <section>
-            <h6 class="framelabel">Flux Example Reprise</h6>
-
-            <p>
-              Consider the
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1maWVsZCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX2FuaW1hdGlvbj10cnVlJm9iajBfcGFyYW1zX3A9eCZvYmowX3BhcmFtc19xPTAmb2JqMF9wYXJhbXNfcj0wJm9iajBfcGFyYW1zX25WZWM9NiZvYmoxX2tpbmQ9c3VyZmFjZSZvYmoxX2NvbG9yPSUyM2RjNWU2NiZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj0xJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc19kPTEmb2JqMV9wYXJhbXNfeD10Kyp1KiUyODErLSt1JTI5KiszJm9iajFfcGFyYW1zX3k9dSZvYmoxX3BhcmFtc196PXYmb2JqMV9wYXJhbXNfdDA9MCZvYmoxX3BhcmFtc190MT0x"
-                target="_blank"
-                rel="noopener noreferrer"
-                >vector field</a
-              >
-              $\vec F(x,y,z) = x\,\vec i$. Consider the surfaces
-            </p>
-            <ul style="font-size: smaller">
-              <li>
-                $\Omega_1$: piece of the plane $x=0$ for $0 \leq y,z \leq 1$
-              </li>
-              <li>
-                $\Omega_2$: piece of the surface $x= 3 y (1-y)$ for $0 \leq y,z
-                \leq 1$
-              </li>
-            </ul>
-            <p>
-              oriented in the positive $x$-direction.
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWZpZWxkJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX3A9eCZvYmowX3BhcmFtc19xPTAmb2JqMF9wYXJhbXNfcj0wJm9iajBfcGFyYW1zX25WZWM9NiZvYmoxX2tpbmQ9c3VyZmFjZSZvYmoxX2NvbG9yPSUyM2RjNWU2NiZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj0xJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc19kPTEmb2JqMV9wYXJhbXNfeD0zKyordSsqKyUyODErLSt1JTI5Jm9iajFfcGFyYW1zX3k9dSsmb2JqMV9wYXJhbXNfej12Jm9iajFfcGFyYW1zX3QwPTAmb2JqMV9wYXJhbXNfdDE9MSZvYmoyX2tpbmQ9c3VyZmFjZSZvYmoyX2NvbG9yPSUyMzU4MDFhNSZvYmoyX3BhcmFtc19hPTAmb2JqMl9wYXJhbXNfYj0xJm9iajJfcGFyYW1zX2M9MCZvYmoyX3BhcmFtc19kPTEmb2JqMl9wYXJhbXNfeD0wJm9iajJfcGFyYW1zX3k9dSZvYmoyX3BhcmFtc196PXYmb2JqMl9wYXJhbXNfdDA9MCZvYmoyX3BhcmFtc190MT0xJm9iajNfa2luZD1zdXJmYWNlJm9iajNfY29sb3I9JTIzZjY4ZTQ1Jm9iajNfcGFyYW1zX2E9MCZvYmozX3BhcmFtc19iPTEmb2JqM19wYXJhbXNfYz0wJm9iajNfcGFyYW1zX2Q9MSZvYmozX3BhcmFtc194PTMqdSolMjgxKy0rdSUyOSp2Jm9iajNfcGFyYW1zX3k9dSZvYmozX3BhcmFtc196PTEmb2JqM19wYXJhbXNfdDA9MCZvYmozX3BhcmFtc190MT0xJm9iajRfa2luZD1zdXJmYWNlJm9iajRfY29sb3I9JTIzOTMxMGEyJm9iajRfcGFyYW1zX2E9MCZvYmo0X3BhcmFtc19iPTEmb2JqNF9wYXJhbXNfYz0wJm9iajRfcGFyYW1zX2Q9MSZvYmo0X3BhcmFtc194PTMqdSolMjgxKy0rdSUyOSp2Jm9iajRfcGFyYW1zX3k9dSZvYmo0X3BhcmFtc196PTAmb2JqNF9wYXJhbXNfdDA9MCZvYmo0X3BhcmFtc190MT0x"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Through which surface</a
-              >
-              is the flux of $\vec F$ greater?
-            </p>
-          </section>
-          <section>
-            <h3 class="framelabel">The Divergence Theorem</h3>
-            <h5 class="framelabel">
-              aka
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMTQmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXNvbGlkJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2Nvb3Jkcz1yZWN0Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPS4wNSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0wLjA1Jm9iajBfcGFyYW1zX2U9MCZvYmowX3BhcmFtc19mPTAuMDUmb2JqMV9raW5kPXN1cmZhY2Umb2JqMV9jb2xvcj0lMjNkYzVlNjYmb2JqMV9wYXJhbXNfYT0wJm9iajFfcGFyYW1zX2I9cGkmb2JqMV9wYXJhbXNfYz0wJm9iajFfcGFyYW1zX2Q9MitwaSZvYmoxX3BhcmFtc194PSUyODElMkIxJTJGMypzaW4lMjh1KjIlMjklNUUyKnNpbiUyOHYqMyUyOSU1RTIlMjkqc2luJTI4dSUyOSpjb3MlMjh2JTI5Jm9iajFfcGFyYW1zX3k9JTI4MSUyQjElMkYzKnNpbiUyOHUqMiUyOSU1RTIqc2luJTI4diozJTI5JTVFMiUyOSpzaW4lMjh1JTI5KnNpbiUyOHYlMjkmb2JqMV9wYXJhbXNfej0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KmNvcyUyOHUlMjkmb2JqMV9wYXJhbXNfdDA9MCZvYmoxX3BhcmFtc190MT0xJm9iajJfa2luZD1maWVsZCZvYmoyX2NvbG9yPSUyMzU4MDFhNSZvYmoyX3BhcmFtc19wPXomb2JqMl9wYXJhbXNfcT15Jm9iajJfcGFyYW1zX3I9eiZvYmoyX3BhcmFtc19uVmVjPTY="
-                target="_blank"
-                rel="noopener noreferrer"
-                >Gauss' Theorem</a
-              >
-            </h5>
-
-            <p>
-              Let $E$ be a solid region in $\RR^3$ and $\partial E$ its
-              outward-oriented boundary. If $\vec F(x,y,z)$ is a smooth vector
-              field, then \[ \iint\limits_{\partial E} \vec F \cdot \vec N\,d S
-              = \iiint\limits_E \nabla \cdot \vec F\,dV \]
-            </p>
-          </section>
-          <section>
-            <h6 class="framelabel">
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPS0xLjI4JnNob3dQYW5lbD1mYWxzZSZvYmowX2tpbmQ9c29saWQmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfY29vcmRzPXJlY3Qmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9LjA1Jm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTAuMDUmb2JqMF9wYXJhbXNfZT0wJm9iajBfcGFyYW1zX2Y9MC4wNSZvYmoxX2tpbmQ9c3VyZmFjZSZvYmoxX2NvbG9yPSUyM2RjNWU2NiZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj1waSZvYmoxX3BhcmFtc19jPTAmb2JqMV9wYXJhbXNfZD0yK3BpJm9iajFfcGFyYW1zX3g9JTI4MSUyQjElMkYzKnNpbiUyOHUqMiUyOSU1RTIqc2luJTI4diozJTI5JTVFMiUyOSpzaW4lMjh1JTI5KmNvcyUyOHYlMjkmb2JqMV9wYXJhbXNfeT0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KnNpbiUyOHUlMjkqc2luJTI4diUyOSZvYmoxX3BhcmFtc196PSUyODElMkIxJTJGMypzaW4lMjh1KjIlMjklNUUyKnNpbiUyOHYqMyUyOSU1RTIlMjkqY29zJTI4dSUyOSZvYmoxX3BhcmFtc190MD0wJm9iajFfcGFyYW1zX3QxPTEmb2JqMl9raW5kPWZpZWxkJm9iajJfY29sb3I9JTIzZmY3OWFhJm9iajJfcGFyYW1zX3A9eiZvYmoyX3BhcmFtc19xPXkmb2JqMl9wYXJhbXNfcj16Jm9iajJfcGFyYW1zX25WZWM9NiZvYmozX2tpbmQ9dmVjdG9yJm9iajNfY29sb3I9JTIzZmZmMzAwJm9iajNfcGFyYW1zX2E9MSUyRjEwMCsqJTI4LTElMjklNUVuJm9iajNfcGFyYW1zX2I9MCZvYmozX3BhcmFtc19jPTAmb2JqM19wYXJhbXNfeD0wLjA0OSolMjgxLW4lMjkrJm9iajNfcGFyYW1zX3k9MC4wMjUmb2JqM19wYXJhbXNfej0wLjAyNSZvYmozX3BhcmFtc190MD0wJm9iajNfcGFyYW1zX3QxPTEmb2JqM19wYXJhbXNfbjA9MCZvYmozX3BhcmFtc19uMT0xJm9iajRfa2luZD12ZWN0b3Imb2JqNF9jb2xvcj0lMjNmZGYzNTEmb2JqNF9wYXJhbXNfYT0wJm9iajRfcGFyYW1zX2I9MSUyRjEwMCsqJTI4LTElMjklNUVuJm9iajRfcGFyYW1zX2M9MCZvYmo0X3BhcmFtc194PTAuMDI1Jm9iajRfcGFyYW1zX3k9MC4wNDkqJTI4MS1uJTI5KyZvYmo0X3BhcmFtc196PTAuMDI1Jm9iajRfcGFyYW1zX3QwPTAmb2JqNF9wYXJhbXNfdDE9MSZvYmo0X3BhcmFtc19uMD0wJm9iajRfcGFyYW1zX24xPTEmb2JqNV9raW5kPXZlY3RvciZvYmo1X2NvbG9yPSUyM2ZiZjM2ZCZvYmo1X3BhcmFtc19hPTAmb2JqNV9wYXJhbXNfYj0wJm9iajVfcGFyYW1zX2M9MSUyRjEwMCsqJTI4LTElMjklNUVuJm9iajVfcGFyYW1zX3g9MC4wMjUmb2JqNV9wYXJhbXNfeT0wLjAyNSZvYmo1X3BhcmFtc196PTAuMDQ5KiUyODEtbiUyOSsmb2JqNV9wYXJhbXNfdDA9MCZvYmo1X3BhcmFtc190MT0xJm9iajVfcGFyYW1zX24wPTAmb2JqNV9wYXJhbXNfbjE9MQ=="
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Justification
-              </a>
-            </h6>
-            <p style="font-size: smaller">
-              \[\iint\limits_{\partial E} \vec F\cdot \vec N\,dS \approx
-              \sum\Delta \text{flux} \] \[ \Delta\text{flux}_{x\text{-dir}} =
-              \left(P\left(x + \frac{\Delta x}{2}, y, z\right) - P\left(x -
-              \frac{\Delta x}{2}, y, z\right)\right) \Delta y\,\Delta z \]
-              \[\approx P_x(x,y,z)\, \Delta x\,\Delta y\,\Delta z \] \[
-              \Delta\text{flux}_{y\text{-dir}} \approx Q_y(x,y,z)\, \Delta
-              x\,\Delta y\,\Delta z \] \[ \Delta\text{flux}_{z\text{-dir}}
-              \approx R_z(x,y,z)\, \Delta x\,\Delta y\,\Delta z \]
-            </p>
-          </section>
-
-          <section>
-            <p>
-              Add these together, to get \[\sum\Delta \text{flux} \approx \sum
-              (P_x + Q_y + R_z) \, \Delta x\,\Delta y\,\Delta z \] \[
-              \longrightarrow \iiint\limits_E \operatorname{div} \vec F dV \]
-            </p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h1>Interpretations</h1>
-          </section>
-          <section data-background-image="">
-            <h6 class="framelabel">Electric Field Hockey</h6>
-
-            <p>One of Maxwell's equations is \[\nabla \cdot \vec E = \rho \]</p>
+            <h3>Stokes' Theorem</h3>
 
             <div class="container">
               <div class="col">
-                <p>
-                  which says the divergence of the electric field is the charge
-                  density.
-                </p>
+                <h6>Objectives</h6>
+                <ul>
+                  <li class="fragment">orient a surface and its boundary</li>
+                  <li class="fragment">see a brief justification</li>
+                  <li class="fragment">recognize when it applies</li>
+                </ul>
               </div>
-              <div class="col fragment">
-                <a
-                  href="https://phet.colorado.edu/en/simulation/electric-hockey"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  ><img
-                    src="assets/efh.png"
-                    alt="Screenshot of 'hockey' game displaying a number of charges and the associated electric field"
-                    srcset=""
-                /></a>
+              <div class="col">
+                <img
+                  src="assets/george.jpeg"
+                  alt="Portrait of Stokes"
+                  srcset=""
+                />
                 <p style="font-size: xx-small">
-                  via Ruth Chabay, et al, UC Boulder
+                  <a
+                    href="https://mathshistory.st-andrews.ac.uk/Biographies/Stokes/Stokes_3.jpeg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Photo credit</a
+                  >
                 </p>
               </div>
             </div>
           </section>
-          <section data-auto-animate data-background-image="assets/terry.jpeg">
-            <h6 class="framelabel" data-id="title">
-              Spraying Champagne <span class="fragment">(2015)</span>
-            </h6>
-          </section>
-          <section
-            data-auto-animate
-            data-background-image="assets/polar-bear-spray.jpg"
-          >
-            <h6 class="framelabel" data-id="title">
-              Spraying Champagne (2024)
-            </h6>
-            <div class="r-stretch"></div>
-            <p style="text-align: right; font-size: x-small">
-              photo credit: Charles Wenzelberg / New York Post
+          <section>
+            <h6 class="framelabel">Stokes' Theorem</h6>
+
+            <p>
+              Let $\Omega$ be an oriented surface in $\RR^3$ and $\partial
+              \Omega$ its
+              <a
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMDYmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMyNTFmZTAmb2JqMF9wYXJhbXNfYT0xJTJGNCZvYmowX3BhcmFtc19iPTElMkYyJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD0yK3UrY29zJTI4diUyOSslMkIrMSZvYmowX3BhcmFtc195PXUrc2luKyUyOHYlMjkmb2JqMF9wYXJhbXNfej0xKyUyQitjb3MlMjgzJTI4Mit1K2NvcyUyOHYlMjkrJTJCKzErJTJCK3Urc2luJTI4diUyOSslMkYrMiUyOSUyOSslMkYrJTI4MislMkIrdSU1RTIrY29zJTI4diUyOSU1RTIlMjkmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1jdXJ2ZSZvYmoxX2NvbG9yPSUyM2ZmYzAzOCZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj0yK3BpJm9iajFfcGFyYW1zX3g9K2NvcyUyOHQlMjkrJTJCKzEmb2JqMV9wYXJhbXNfeT1zaW4rJTI4dCUyOSslMkYrMiZvYmoxX3BhcmFtc196PTErJTJCK2NvcyUyODMlMjgrY29zJTI4dCUyOSslMkIrMSslMkIrK3NpbiUyOHQlMjkrJTJGKzQlMjklMjkrJTJGKyUyODIrJTJCKzElMkY0KmNvcyUyOHQlMjklNUUyJTI5Jm9iajJfa2luZD1jdXJ2ZSZvYmoyX2NvbG9yPSUyM2ZmZmYwMCZvYmoyX3BhcmFtc19hPTAmb2JqMl9wYXJhbXNfYj0yKnBpJm9iajJfcGFyYW1zX3g9K2NvcyUyOHQlMjklMkYyKyUyQisxJm9iajJfcGFyYW1zX3k9c2luKyUyOC10JTI5KyUyRis0Jm9iajJfcGFyYW1zX3o9MSslMkIrY29zJTI4MyUyOCtjb3MlMjh0JTI5JTJGMislMkIrMSslMkIrK3NpbiUyOC10JTI5KyUyRis4JTI5JTI5KyUyRislMjgyKyUyQisxJTJGMTYqY29zJTI4dCUyOSU1RTIlMjk="
+                target="_blank"
+                rel="noopener noreferrer"
+                >positively-oriented boundary</a
+              >. If $\vec F(x,y,z)$ is a smooth vector field, then \[
+              \iint_{\Omega} \nabla \times\vec F \cdot d \vec S =
+              \oint_{\partial \Omega} \vec F\cdot d \vec r \]
             </p>
           </section>
-        </section>
-        <section>
           <section>
-            <h1>Examples</h1>
+            <h6 class="framelabel">Faraday's Law</h6>
+
+            <div class="container">
+              <div class="col">
+                \[ \begin{align*} -\frac{\partial \Phi}{\partial t} &=
+                \iint\limits_{D} -\frac{\partial B}{\partial t} d\vec S \\ \ &=
+                \iint\limits_{D} \nabla\times \vec E\cdot d\vec S \\ \ &=
+                \oint\limits_{\partial D} \vec E\cdot d\vec r \end{align*} \]
+
+                <p class="fragment" style="font-size: small">
+                  <a
+                    href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzMDAwMDAwJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTIqcGkmb2JqMF9wYXJhbXNfeD1jb3MlMjgzK3QlMjkrJTJGKzImb2JqMF9wYXJhbXNfeT1zaW4lMjgzK3QlMjkrJTJGKzImb2JqMF9wYXJhbXNfej10KyUyRitwaSstKzEmb2JqMV9raW5kPWN1cnZlJm9iajFfY29sb3I9JTIzMDAwMDAwJm9iajFfcGFyYW1zX2E9LTEuNSZvYmoxX3BhcmFtc19iPTEuNSZvYmoxX3BhcmFtc194PSUyOHQrJTNDKy0xJTI5KyUzRit0KyUyQisyKyUzQSslMjh0KyUzRSsxKyUzRislMjgyKy0rdCUyOSslM0ErMSUyOSZvYmoxX3BhcmFtc195PTAmb2JqMV9wYXJhbXNfej0lMjh0KyUzQystMSUyOSslM0YrLTErJTNBKyUyOHQrJTNFKzErJTNGKzErJTNBK3QlMjkmb2JqMl9raW5kPXN1cmZhY2Umb2JqMl9jb2xvcj0lMjM2NjY0ZGQmb2JqMl9wYXJhbXNfYT0wJm9iajJfcGFyYW1zX2I9MitwaSZvYmoyX3BhcmFtc19jPTAmb2JqMl9wYXJhbXNfZD0xJm9iajJfcGFyYW1zX3g9Y29zJTI4Myt1JTI5KyUyRisyKyorJTI4MSstK3YlMjkrJTJCK3Ymb2JqMl9wYXJhbXNfeT1zaW4lMjgzK3UlMjkrJTJGKzIrKislMjgxKy0rdiUyOSsmb2JqMl9wYXJhbXNfej11KyUyRitwaSstKzEmb2JqMl9wYXJhbXNfdDA9MCZvYmoyX3BhcmFtc190MT0xJm9iajNfa2luZD1maWVsZCZvYmozX2NvbG9yPSUyMzBkMDg4NyZvYmozX3BhcmFtc19wPSt6K3grJTJGK3NxcnQlMjh4JTVFMislMkIreSU1RTIlMjkrJTJGKzImb2JqM19wYXJhbXNfcT0reit5KyUyRitzcXJ0JTI4eCU1RTIrJTJCK3klNUUyJTI5KyUyRisyJm9iajNfcGFyYW1zX3I9LWxvZyUyOCUyOHglNUUyKyUyQit5JTVFMiUyOSo0JTI5Jm9iajNfcGFyYW1zX25WZWM9Ng=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Demo</a
+                  >
+                </p>
+              </div>
+              <div class="col">
+                <iframe
+                  src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1jdXJ2ZSZvYmowX2NvbG9yPSUyMzAwMDAwMCZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0yKnBpJm9iajBfcGFyYW1zX3g9Y29zJTI4Myt0JTI5KyUyRisyJm9iajBfcGFyYW1zX3k9c2luJTI4Myt0JTI5KyUyRisyJm9iajBfcGFyYW1zX3o9dCslMkYrcGkrLSsxJm9iajFfa2luZD1jdXJ2ZSZvYmoxX2NvbG9yPSUyMzAwMDAwMCZvYmoxX3BhcmFtc19hPS0xLjUmb2JqMV9wYXJhbXNfYj0xLjUmb2JqMV9wYXJhbXNfeD0lMjh0KyUzQystMSUyOSslM0YrdCslMkIrMislM0ErJTI4dCslM0UrMSslM0YrJTI4MistK3QlMjkrJTNBKzElMjkmb2JqMV9wYXJhbXNfeT0wJm9iajFfcGFyYW1zX3o9JTI4dCslM0MrLTElMjkrJTNGKy0xKyUzQSslMjh0KyUzRSsxKyUzRisxKyUzQSt0JTI5Jm9iajJfa2luZD1zdXJmYWNlJm9iajJfY29sb3I9JTIzNjY2NGRkJm9iajJfcGFyYW1zX2E9MCZvYmoyX3BhcmFtc19iPTIrcGkmb2JqMl9wYXJhbXNfYz0wJm9iajJfcGFyYW1zX2Q9MSZvYmoyX3BhcmFtc194PWNvcyUyODMrdSUyOSslMkYrMisqKyUyODErLSt2JTI5KyUyQit2Jm9iajJfcGFyYW1zX3k9c2luJTI4Myt1JTI5KyUyRisyKyorJTI4MSstK3YlMjkrJm9iajJfcGFyYW1zX3o9dSslMkYrcGkrLSsxJm9iajJfcGFyYW1zX3QwPTAmb2JqMl9wYXJhbXNfdDE9MSZvYmozX2tpbmQ9ZmllbGQmb2JqM19jb2xvcj0lMjMwZDA4ODcmb2JqM19wYXJhbXNfcD0reit4KyUyRitzcXJ0JTI4eCU1RTIrJTJCK3klNUUyJTI5KyUyRisyJm9iajNfcGFyYW1zX3E9K3oreSslMkYrc3FydCUyOHglNUUyKyUyQit5JTVFMiUyOSslMkYrMiZvYmozX3BhcmFtc19yPS1sb2clMjglMjh4JTVFMislMkIreSU1RTIlMjkqNCUyOSZvYmozX3BhcmFtc19uVmVjPTY="
+                  width="400px"
+                  height="600px"
+                ></iframe>
+              </div>
+            </div>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
-
             <p>
-              Compute the flux of the radial vector field $x\,\vec i + y\,\vec j
-              + z\,\vec k$ through the
+              Compute the line integral $\oint\limits_{\partial \Omega} \vec
+              F\cdot d\vec r $ around the ccw-oriented boundary of $\Omega$
+              given by \[z = (1 - x^2)(1-y^2)\] for $-1 \leq x \leq 1, -1 \leq y
+              \leq 1$ and \[\vec F(x,y,z) = 2y\,\vec i + 3z\, \vec j + z\, \vec
+              k.\]
+            </p>
+            <p class="fragment">
+              I call this surface the
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9cGkmb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MitwaSZvYmowX3BhcmFtc194PXNpbiUyOHUlMjkrY29zJTI4diUyOSZvYmowX3BhcmFtc195PXNpbiUyOHUlMjkrc2luJTI4diUyOSZvYmowX3BhcmFtc196PWNvcyUyOHUlMjkmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1maWVsZCZvYmoxX2NvbG9yPSUyM2RjNWU2NiZvYmoxX3BhcmFtc19wPXgmb2JqMV9wYXJhbXNfcT15Jm9iajFfcGFyYW1zX3I9eiZvYmoxX3BhcmFtc19uVmVjPTY="
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzMDAwMDAwJm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX3g9MSZvYmowX3BhcmFtc195PXQmb2JqMF9wYXJhbXNfej0wJm9iajBfcGFyYW1zX3RhdT0wJm9iajBfcGFyYW1zX2NvbG9yPSUyMzAwMzJhOCZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjMwMDAwMDAmb2JqMV9wYXJhbXNfYT0tMSZvYmoxX3BhcmFtc19iPTEmb2JqMV9wYXJhbXNfeD0tMSZvYmoxX3BhcmFtc195PXQmb2JqMV9wYXJhbXNfej0wJm9iajFfcGFyYW1zX3RhdT0wJm9iajFfcGFyYW1zX2NvbG9yPSUyMzAwMzJhOCZvYmoyX2tpbmQ9Y3VydmUmb2JqMl9jb2xvcj0lMjMwMDAwMDAmb2JqMl9wYXJhbXNfYT0tMSZvYmoyX3BhcmFtc19iPTEmb2JqMl9wYXJhbXNfeD10Jm9iajJfcGFyYW1zX3k9MSZvYmoyX3BhcmFtc196PTAmb2JqMl9wYXJhbXNfdGF1PTAmb2JqMl9wYXJhbXNfY29sb3I9JTIzMDAzMmE4Jm9iajNfa2luZD1jdXJ2ZSZvYmozX2NvbG9yPSUyMzAwMDAwMCZvYmozX3BhcmFtc19hPS0xJm9iajNfcGFyYW1zX2I9MSZvYmozX3BhcmFtc194PXQmb2JqM19wYXJhbXNfeT0tMSZvYmozX3BhcmFtc196PTAmb2JqM19wYXJhbXNfdGF1PTAmb2JqM19wYXJhbXNfY29sb3I9JTIzMDAzMmE4Jm9iajRfa2luZD1maWVsZCZvYmo0X2NvbG9yPSUyMzBkMDg4NyZvYmo0X3BhcmFtc19wPTJ5Jm9iajRfcGFyYW1zX3E9M3omb2JqNF9wYXJhbXNfcj14Jm9iajRfcGFyYW1zX25WZWM9NiZvYmo1X2tpbmQ9c3VyZmFjZSZvYmo1X2NvbG9yPSUyMzA4ODcxMCZvYmo1X3BhcmFtc19hPS0xJm9iajVfcGFyYW1zX2I9MSZvYmo1X3BhcmFtc19jPS0xJm9iajVfcGFyYW1zX2Q9MSZvYmo1X3BhcmFtc194PXUmb2JqNV9wYXJhbXNfeT12Jm9iajVfcGFyYW1zX3o9JTI4MSstK3UlNUUyJTI5KyorJTI4MSstK3YlNUUyJTI5KyorJTI4MSstK3QlMjkmb2JqNV9wYXJhbXNfdDA9MCZvYmo1X3BhcmFtc190MT0x"
                 target="_blank"
                 rel="noopener noreferrer"
-                >outward-oriented unit sphere</a
+                >raviolo</a
               >.
             </p>
-
-            <p class="fragment">
-              <strong>Solution.</strong> $\nabla \cdot \langle x,y,z \rangle =
-              3$ \[\iint_{\partial E} \vec F\cdot dS = \iiint\limits_E 3\,dV =
-              4\pi \]
-            </p>
           </section>
           <section>
             <h6 class="framelabel">Example</h6>
 
-            <p style="font-size: smaller">
-              Find the flux of the vector field $(1 - x)\,\vec i - y\, \vec j$
-              through the
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMzgmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjNkYzVlNjYmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MiZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9dStjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3k9dStzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3o9dSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPWZpZWxkJm9iajFfY29sb3I9JTIzNTgwMWE1Jm9iajFfcGFyYW1zX3A9MSstK3gmb2JqMV9wYXJhbXNfcT0xKy0reSZvYmoxX3BhcmFtc19yPTAmb2JqMV9wYXJhbXNfblZlYz02"
-                target="_blank"
-                rel="noopener noreferrer"
-                >piece of the cone</a
-              >
-              $z=\sqrt{x^2 + y^2}$ below $z=2$, oriented upward.
-            </p>
-            <iframe
-              src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMzgmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTImb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MitwaSZvYmowX3BhcmFtc194PXUrY29zJTI4diUyOSZvYmowX3BhcmFtc195PXUrc2luJTI4diUyOSZvYmowX3BhcmFtc196PXUmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1maWVsZCZvYmoxX2NvbG9yPSUyMzU4MDFhNSZvYmoxX3BhcmFtc19wPTErLSt4Jm9iajFfcGFyYW1zX3E9MSstK3kmb2JqMV9wYXJhbXNfcj0wJm9iajFfcGFyYW1zX25WZWM9Ng=="
-              frameborder="0"
-              width="700px"
-              height="400px"
-            ></iframe>
-          </section>
-          <section>
-            <p style="font-size: smaller">
-              <strong>Solution.</strong> Direct computation: \[\vec r(u,v) =
-              \bv{u \cos v \\ u \sin v \\ u} \qquad \begin{cases} 0 \leq u \leq
-              2 \\ 0 \leq v \leq 2 \pi \end{cases} \]
-            </p>
-            <p class="fragment" style="font-size: smaller">
-              \[\iint_C \vec F\cdot d\vec S = \int_0^{2 \pi} \int_0^2 \bv{ 1 - u
-              \cos v \\ - u \sin v \\ 0 } \cdot \bv{ -u \cos v \\ -u\sin v \\ u
-              } du\,dv\]
-            </p>
-          </section>
-          <section>
-            <p style="font-size: smaller">
-              \[ = \int_0^{2 \pi} \int_0^2 u^2 \,du\,dv = \frac{16\pi}{3} \]
-            </p>
-
-            <p class="fragment" style="font-size: smaller">
-              Using Gauss':
-              <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMzgmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjNkYzVlNjYmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9MiZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9dStjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3k9dStzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3o9dSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPWZpZWxkJm9iajFfY29sb3I9JTIzNTgwMWE1Jm9iajFfcGFyYW1zX3A9MSstK3gmb2JqMV9wYXJhbXNfcT0xKy0reSZvYmoxX3BhcmFtc19yPTAmb2JqMV9wYXJhbXNfblZlYz02Jm9iajJfa2luZD1zdXJmYWNlJm9iajJfY29sb3I9JTIzMGQwODg3Jm9iajJfcGFyYW1zX2E9MCZvYmoyX3BhcmFtc19iPTImb2JqMl9wYXJhbXNfYz0wJm9iajJfcGFyYW1zX2Q9MitwaSZvYmoyX3BhcmFtc194PXUrY29zJTI4diUyOSZvYmoyX3BhcmFtc195PXUrc2luJTI4diUyOSZvYmoyX3BhcmFtc196PTImb2JqMl9wYXJhbXNfdDA9MCZvYmoyX3BhcmFtc190MT0x"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Enclose the surface</a
-              >
-              by adding a flat disk $\mathcal T$ to the top, oriented up, at $z
-              = 2$. Then, by Gauss, \[ \iint_{\mathcal T} \vec F\cdot \vec N
-              \,dS - \iint_{\mathcal C} \vec F\cdot \vec N \,dS = \iiint_E
-              \nabla \cdot \vec F\,dV = \iiint_E -2\,dV \] $= -2\frac{2}{3}\pi 4
-              $. Note for $\mathcal T$ the unit normal is $\vec k$ and $\vec
-              F\cdot \vec k = 0$. Solving for the desired flux gives the answer
-              above.
-            </p>
-          </section>
-          <section
-            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
-            data-background-opacity="0.4"
-          >
-            <h6 class="framelabel">Buoyancy</h6>
-
             <p>
-              Ηydrostatic pressure is proportional to depth. $P = \rho g d$. The
-              force on a small piece of
+              A
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuMTQmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzZGM1ZTY2Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KnNpbiUyOHUlMjkqY29zJTI4diUyOSZvYmowX3BhcmFtc195PS0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KnNpbiUyOHUlMjkqc2luJTI4diUyOSZvYmowX3BhcmFtc196PSUyODElMkIxJTJGMypzaW4lMjh1KjIlMjklNUUyKnNpbiUyOHYqMyUyOSU1RTIlMjkqY29zJTI4dSUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPWZpZWxkJm9iajFfY29sb3I9JTIzNTgwMWE1Jm9iajFfcGFyYW1zX3A9MCZvYmoxX3BhcmFtc19xPTAmb2JqMV9wYXJhbXNfcj0xJm9iajFfcGFyYW1zX25WZWM9Ng=="
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNjgmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9cGkmb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MitwaSZvYmowX3BhcmFtc194PTIrY29zJTI4Myt1JTI5KyUyQisxMDgqc2luJTI4Mip1JTI5JTVFMipzaW4lMjgzKnUlMjkqY29zJTI4Mip1JTI5JTJGc3FydCUyODE2KiUyODkqc2luJTI4Myp1JTI5JTVFMislMkIrNDkqY29zJTI4dSUyOSU1RTIlMjklNUUyKyUyQisxMTY2NCpzaW4lMjgyKnUlMjklNUU0KnNpbiUyODMqdSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMislMkIrNjM1MDQqc2luJTI4Mip1JTI5JTVFNCpjb3MlMjh1JTI5JTVFMipjb3MlMjgyKnUlMjklNUUyJTI5KmNvcyUyOHYlMjkrLTE0KmNvcyUyOHUlMjklMkZzcXJ0JTI4MzYqc2luJTI4Myp1JTI5JTVFMislMkIrMTk2KmNvcyUyOHUlMjklNUUyJTI5KnNpbiUyOHYlMjkrJm9iajBfcGFyYW1zX3k9MitzaW4lMjh1JTI5KjcrJTJCKy0yNTIqc2luJTI4Mip1JTI5JTVFMipjb3MlMjh1JTI5KmNvcyUyODIqdSUyOSUyRnNxcnQlMjgxNiolMjg5KnNpbiUyODMqdSUyOSU1RTIrJTJCKzQ5KmNvcyUyOHUlMjklNUUyJTI5JTVFMislMkIrMTE2NjQqc2luJTI4Mip1JTI5JTVFNCpzaW4lMjgzKnUlMjklNUUyKmNvcyUyODIqdSUyOSU1RTIrJTJCKzYzNTA0KnNpbiUyODIqdSUyOSU1RTQqY29zJTI4dSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMiUyOSpjb3MlMjh2JTI5Ky02KnNpbiUyODMqdSUyOSUyRnNxcnQlMjgzNipzaW4lMjgzKnUlMjklNUUyKyUyQisxOTYqY29zJTI4dSUyOSU1RTIlMjkqc2luJTI4diUyOSsmb2JqMF9wYXJhbXNfej1zaW4lMjgyK3UlMjklNUUzKjMrJTJCKyUyODM2KnNpbiUyODMqdSUyOSU1RTIrJTJCKzE5Nipjb3MlMjh1JTI5JTVFMiUyOSUyRnNxcnQlMjgxNiolMjg5KnNpbiUyODMqdSUyOSU1RTIrJTJCKzQ5KmNvcyUyOHUlMjklNUUyJTI5JTVFMislMkIrMTE2NjQqc2luJTI4Mip1JTI5JTVFNCpzaW4lMjgzKnUlMjklNUUyKmNvcyUyODIqdSUyOSU1RTIrJTJCKzYzNTA0KnNpbiUyODIqdSUyOSU1RTQqY29zJTI4dSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMiUyOSpjb3MlMjh2JTI5KyZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTE="
                 target="_blank"
                 rel="noopener noreferrer"
-                >submerged surface</a
+                >hose</a
               >
-              is $-P\, \vec N\,dS$ where $\vec N$ is the normal vector to the
-              surface. The (net) buoyant force on the hull of a watercraft is
-              the component of this force in the upward direction.
-            </p>
-            <p>
-              Use the Divergence Theorem to relate the buoyant force to the
-              volume of a submerged object.
+              connects two ports, unit circles in the $xz$-plane centered at $x
+              = \pm 2, z = 0$. Find the flux out of the hose of the
+              <em>curl</em> of the vector field \[ \vec F(x,y,z) = z\,\vec i -
+              (xy + z/2)\,\vec j - z \vec k. \]
             </p>
           </section>
           <section>
-            <p style="font-size: smaller">
-              <strong>Solution.</strong> Suppose an object is modeled by a solid
-              $E$ with outward-oriented normal $\vec N$ on the boundary
-              $\partial E = \Sigma$, where the surface of the water is $z = 0$.
-            </p>
-            <p style="font-size: smaller">
-              Then the total buoyant force is \[ \iint_\Sigma \rho g (-z)(-\vec
-              N)\cdot \vec k\, dS = \rho g \iint_{\partial E} z\,\vec k \cdot
-              d\vec S \]
-            </p>
-            <p style="font-size: smaller">
-              but the vector field $z\,\vec k$ has divergence 1, so the RHS is
-              just $\rho g \operatorname{Vol}(E)$, the weight of the water
-              displaced by $E$.
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Compute the line integral $\oint_{\partial D} \vec F \cdot d\vec
+              r$ around the ccw (from above) boundary of the surface $D$. \[
+              \vec F(x,y,z) = xyz \,\vec i + y \,\vec j + z \,\vec k \] where
+              $D$ is the
+              <a
+                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZmZmZjAwJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpKyUyRisyJm9iajBfcGFyYW1zX3g9Y29zJTI4dCUyOSZvYmowX3BhcmFtc195PXNpbiUyOHQlMjkmb2JqMF9wYXJhbXNfej1jb3MlMjh0JTI5JTVFMiZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjNmZmZmMDAmb2JqMV9wYXJhbXNfYT0wJm9iajFfcGFyYW1zX2I9MSZvYmoxX3BhcmFtc194PXQmb2JqMV9wYXJhbXNfeT0wJm9iajFfcGFyYW1zX3o9dCU1RTImb2JqMl9raW5kPWN1cnZlJm9iajJfY29sb3I9JTIzZmZmZjAwJm9iajJfcGFyYW1zX2E9MCZvYmoyX3BhcmFtc19iPTEmb2JqMl9wYXJhbXNfeD0wJm9iajJfcGFyYW1zX3k9dCZvYmoyX3BhcmFtc196PTAmb2JqM19raW5kPWZpZWxkJm9iajNfY29sb3I9JTIzOTMxMGEyJm9iajNfcGFyYW1zX3A9MCZvYmozX3BhcmFtc19xPS0reCt5Jm9iajNfcGFyYW1zX3I9LSt4K3omb2JqM19wYXJhbXNfblZlYz02Jm9iajRfa2luZD1zdXJmYWNlJm9iajRfY29sb3I9JTIzMGQwODg3Jm9iajRfcGFyYW1zX2E9MCZvYmo0X3BhcmFtc19iPTEmb2JqNF9wYXJhbXNfYz0wJm9iajRfcGFyYW1zX2Q9cGkrJTJGKzImb2JqNF9wYXJhbXNfeD11K2NvcyUyOHYlMjkmb2JqNF9wYXJhbXNfeT11K3NpbiUyOHYlMjkmb2JqNF9wYXJhbXNfej11JTVFMitjb3MlMjh2JTI5JTVFMiZvYmo0X3BhcmFtc190MD0wJm9iajRfcGFyYW1zX3QxPTE="
+                target="_blank"
+                rel="noopener noreferrer"
+                >portion of the surface
+              </a>
+              $z=x^2$ above $x^2 + y^2 \leq a^2$ in the first octant.
             </p>
           </section>
         </section>
@@ -514,16 +388,18 @@
             <h6 class="framelabel">You should be able to...</h6>
             <ul>
               <li>
-                State the Divergence Theorem and identify its necessary
-                components.
+                Combine the "del" operations as is well-defined and establish
+                which yield zero.
               </li>
               <li>
-                Verify both sides of the equality in the Div Thm in basic
-                examples.
+                Determine if a boundary curve is oriented positively relative to
+                an oriented surface and vice versa.
               </li>
               <li>
-                Exploit the Divergence Theorem to compute flux through a
-                not-necessarily closed surface.
+                State Stokes' Theorem and identify its necessary components.
+              </li>
+              <li>
+                Verify both sides of the equality in Stokes' in basic examples.
               </li>
             </ul>
           </section>
