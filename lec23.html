@@ -20,6 +20,7 @@
 
     <!-- local styles -->
     <link rel="stylesheet" href="css/mvc-slides.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
@@ -455,6 +456,8 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -473,12 +476,16 @@
           ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
+        drawer: {
+          pathSize: 2,
+        },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
