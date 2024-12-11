@@ -242,7 +242,7 @@
 
             <p style="font-size: larger">
               \[ \oint_{\partial \Omega} \vec F\cdot d\vec r = \iint_\Omega
-              \nabla\times F \cdot d\vec S \]
+              \nabla\times \vec F \cdot d\vec S \]
             </p>
           </section>
           <section
@@ -415,14 +415,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
