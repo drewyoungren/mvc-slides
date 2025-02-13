@@ -23,7 +23,9 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
-    <link
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
+
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       href="https://jsxgraph.org/distrib/jsxgraph.css"
@@ -31,7 +33,7 @@
     <script
       type="text/javascript"
       src="https://jsxgraph.org/distrib/jsxgraphcore.js"
-    ></script>
+    ></script> -->
   </head>
   <body>
     <div class="reveal">
@@ -351,6 +353,9 @@
               Compute the partial derivative $g_{zzxw}$ for \[g(w,x,y,z) =
               w^2x^3yz^2 + \sin\left(\frac{xy}{z^2}\right).\]
             </p>
+            <div class="fragment">
+              <p>\[ g_{zzxw} = g_{wxzz} = 2w(3x^2)(2y)\]</p>
+            </div>
             <div class="r-stretch"></div>
           </section>
         </section>
@@ -415,6 +420,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -423,14 +429,17 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+        drawer: {
+          pathSize: 2,
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
@@ -439,6 +448,7 @@
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
