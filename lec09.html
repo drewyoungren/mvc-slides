@@ -310,17 +310,24 @@
             </div>
           </section>
           <section>
-            <p>
+            <p class="smaller">
               Use linearization to estimate values of a function nearby known
               points.
             </p>
             <div class="fragment">
               <h6 class="framelabel">Example</h6>
               <p>
-                \[f(x,y,z) = e^{-x^2 + 3y + 3z}\] Estimate $f(3.01, 2.03,
+                \[f(x,y,z) = e^{-x^2 + 3y + 3z}\] Estimate $f(3.01, 2.02,
                 0.99)$.
               </p>
-              <div class="r-stretch">$\ $</div>
+              <div class="r-stretch fragment">
+                <iframe
+                  src="https://drew.youngren.nyc/jupyter-xeus/repl/index.html?kernel=xpython&theme=JupyterLab%20Dark&code=from numpy import exp"
+                  frameborder="0"
+                  width="100%"
+                  height="100%"
+                ></iframe>
+              </div>
             </div>
           </section>
           <section>
@@ -449,6 +456,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -457,14 +465,17 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+        drawer: {
+          pathSize: 2,
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
@@ -473,6 +484,7 @@
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
