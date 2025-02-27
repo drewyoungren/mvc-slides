@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>APMA E2000 - Chain Rule</title>
+    <title>APMA E2000 - The Gradient</title>
 
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
@@ -23,7 +23,8 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
-    <link
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       href="https://jsxgraph.org/distrib/jsxgraph.css"
@@ -31,14 +32,22 @@
     <script
       type="text/javascript"
       src="https://jsxgraph.org/distrib/jsxgraphcore.js"
-    ></script>
+    ></script> -->
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 11</h3>
+            <h3 class="framelabel">
+              Lecture 11
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/4KYVfynDKtm"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;</a
+              >
+            </h3>
             <h1>The Gradient</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
@@ -54,18 +63,9 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">
-                Recitation converted to (optional) office hours
-              </li>
-              <li class="fragment">(Short) HW6 due Tuesday</li>
-              <li class="fragment">
-                Review sessions
-                <ul>
-                  <li>Tues night 9pm&ndash;10pm</li>
-                  <li>Wed morn 9am&ndash;10am</li>
-                </ul>
-                See edstem for zoom links.
-              </li>
+              <li class="fragment">No quiz this week</li>
+              <li class="fragment">Recitation 6 this week</li>
+              <li class="fragment">HW6 due next Tuesday</li>
             </ul>
           </section>
         </section>
@@ -407,6 +407,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -415,14 +416,17 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+        drawer: {
+          pathSize: 2,
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
@@ -431,6 +435,7 @@
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
