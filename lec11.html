@@ -110,8 +110,8 @@
             <p class="fragment">
               $x = r\cos \theta, y = r\sin \theta$. So, \[\frac{\partial
               f}{\partial \theta} = \frac{\partial f}{\partial x}\frac{\partial
-              x}{\partial \theta} + \frac{\partial f}{\partial x}\frac{\partial
-              x}{\partial \theta} \] \[ = g'(x^2 + y^2)2x (-r\sin\theta) +
+              x}{\partial \theta} + \frac{\partial f}{\partial y}\frac{\partial
+              y}{\partial \theta} \] \[ = g'(x^2 + y^2)2x (-r\sin\theta) +
               g'(x^2 + y^2)2y (r\cos\theta)\] \[ = g'(r^2)2r^2
               (-\sin\theta\cos\theta + \cos\theta\sin\theta) = 0\]
             </p>
@@ -416,14 +416,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
         drawer: {
           pathSize: 2,
