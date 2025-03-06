@@ -49,7 +49,16 @@
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 13</h3>
+            <h3 class="framelabel">
+              Lecture 13
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/9wWOSs8BAz5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              </a>
+            </h3>
             <h1>Optimization</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
@@ -68,7 +77,7 @@
               <li class="fragment">
                 Quiz 4 (on HW 6) this week
                 <ul>
-                  <li class="fragment"><strike>Chain Rule</strike></li>
+                  <li class="fragment">Chain Rule</li>
                   <li class="fragment">Directional Derivative</li>
                   <li class="fragment">Properties of the Gradient</li>
                 </ul>
@@ -84,23 +93,26 @@
           </section>
 
           <section>
-            <p>
-              <em>Critical points</em> of a function $f$ are those where $f$ is
-              not differentiable or $\nabla f = 0$.
-            </p>
-            <p class="fragment">
-              Local mins and maxes (on open sets) only occur at critical points.
-            </p>
-            <p class="fragment">
-              The
-              <a
-                href="https://drew.youngren.nyc/mvc-slides/lec12.html#/3/2/1"
-                target="_blank"
-                rel="noopener noreferrer"
-                >second derivative</a
-              >
-              test can classify some critical points of $f(x,y)$.
-            </p>
+            <ul>
+              <li>
+                <em>Critical points</em> of a function $f$ are those where $f$
+                is not differentiable or $\nabla f = 0$.
+              </li>
+              <li class="fragment">
+                Local mins and maxes (on open sets) only occur at critical
+                points.
+              </li>
+              <li class="fragment">
+                The
+                <a
+                  href="https://drew.youngren.nyc/mvc-slides/lec12.html#/3/2/1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >second derivative</a
+                >
+                test can classify some critical points of $f(x,y)$.
+              </li>
+            </ul>
           </section>
         </section>
         <section>
@@ -415,14 +427,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         drawer: {
