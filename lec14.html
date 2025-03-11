@@ -32,13 +32,30 @@
       type="text/javascript"
       src="https://jsxgraph.org/distrib/jsxgraphcore.js"
     ></script>
+    <style>
+      #jxcontain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 14</h3>
+            <h3 class="framelabel">
+              Lecture 14
+              <a
+                target="_blank"
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/RPC4jKOX6r"
+              >
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              </a>
+            </h3>
             <h1>Integrals</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
@@ -54,9 +71,9 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW8 due Tues</li>
+              <li class="fragment">HW8 due after break</li>
               <li class="fragment">
-                Quiz 5 this week
+                Quiz 5 this week (opens Wednesday)
                 <ul class="fragment">
                   <li>Local min/max</li>
                   <li>Optimization</li>
@@ -81,8 +98,9 @@
                   href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SW50cm8mb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZmYzMzMzJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPTIqcGkmb2JqMF9wYXJhbXNfeD0xJTJGMislMkIrMyUyRjIlMjh0KyUzRStwaSUyRjIrJTI2K3QrJTNDK3BpKyUzRislMjgyJTJGMyUyQjElMkYzKmNvcyUyODIqdCUyOSU1RTIlMjkrJTNBKzElMjkqK2NvcyUyOHQlMjkmb2JqMF9wYXJhbXNfeT0zJTJGMiUyOHQrJTNFK3BpJTJGMislMjYrdCslM0MrcGkrJTNGKyUyODIlMkYzJTJCMSUyRjMqY29zJTI4Mip0JTI5JTVFMiUyOSslM0ErMSUyOSorc2luJTI4dCUyOSZvYmowX3BhcmFtc196PTAmb2JqMF9wYXJhbXNfdGF1PTAmb2JqMV9raW5kPWN1cnZlJm9iajFfY29sb3I9JTIzZmYzMzMzJm9iajFfcGFyYW1zX2E9MCZvYmoxX3BhcmFtc19iPTIqcGkmb2JqMV9wYXJhbXNfeD0xJTJGMislMkIrMyUyRjIqJTI4dCslM0UrcGklMkYyKyUyNit0KyUzQytwaSslM0YrJTI4MiUyRjMlMkIxJTJGMypjb3MlMjgyKnQlMjklNUUyJTI5KyUzQSsxJTI5Kitjb3MlMjh0JTI5Jm9iajFfcGFyYW1zX3k9MyUyRjIqJTI4dCslM0UrcGklMkYyKyUyNit0KyUzQytwaSslM0YrJTI4MiUyRjMlMkIxJTJGMypjb3MlMjgyKnQlMjklNUUyJTI5KyUzQSsxJTI5KitzaW4lMjh0JTI5Jm9iajFfcGFyYW1zX3o9JTI4JTI4MSUyRjIrJTJCKzMlMkYyKiUyOHQrJTNFK3BpJTJGMislMjYrdCslM0MrcGkrJTNGKyUyODIlMkYzJTJCMSUyRjMqY29zJTI4Mip0JTI5JTVFMiUyOSslM0ErMSUyOSorY29zJTI4dCUyOSUyOSU1RTQrJTJCKyUyODMlMkYyKiUyOHQrJTNFK3BpJTJGMislMjYrdCslM0MrcGkrJTNGKyUyODIlMkYzJTJCMSUyRjMqY29zJTI4Mip0JTI5JTVFMiUyOSslM0ErMSUyOSorc2luJTI4dCUyOSUyOSU1RTQrLSs0KiUyODElMkYyKyUyQiszJTJGMiolMjh0KyUzRStwaSUyRjIrJTI2K3QrJTNDK3BpKyUzRislMjgyJTJGMyUyQjElMkYzKmNvcyUyODIqdCUyOSU1RTIlMjkrJTNBKzElMjkqK2NvcyUyOHQlMjklMjkqJTI4MyUyRjIqJTI4dCslM0UrcGklMkYyKyUyNit0KyUzQytwaSslM0YrJTI4MiUyRjMlMkIxJTJGMypjb3MlMjgyKnQlMjklNUUyJTI5KyUzQSsxJTI5KitzaW4lMjh0JTI5JTI5Ky0rMSUyOSslMkYxMCslMkIrLjUmb2JqMV9wYXJhbXNfdGF1PTAmb2JqMl9raW5kPWdyYXBoJm9iajJfY29sb3I9JTIzMzIzMmZmJm9iajJfcGFyYW1zX2E9LTEmb2JqMl9wYXJhbXNfYj0yJm9iajJfcGFyYW1zX2M9LTMlMkYyJm9iajJfcGFyYW1zX2Q9MyUyRjImb2JqMl9wYXJhbXNfej0lMjh4JTVFNCslMkIreSU1RTQrLSs0KngqeSstKzElMjkrJTJGMTArJTJCKy41Jm9iajJfcGFyYW1zX3RhdT0wJm9iajJfcGFyYW1zX3QwPTAmb2JqMl9wYXJhbXNfdDE9MQ=="
                   target="_blank"
                   rel="noopener noreferrer"
-                  >continuous function</a
                 >
+                  continuous function
+                </a>
                 on a <em>closed and bounded</em> set $D$ must achieve its
                 absolute minimum and maximum.
               </p>
@@ -285,11 +303,13 @@
               \frac{x^3}{32}$ and $y = \sqrt{x}$. Write $\iint\limits_{\mathcal
               D} f\,dA$ as an iterated integral.
             </p>
-            <div
-              id="box-irreg"
-              class="jxgbox"
-              style="width: 500px; height: 300px"
-            ></div>
+            <div class="r-stretch" id="jxcontain">
+              <div
+                id="box-irreg"
+                class="jxgbox"
+                style="width: 600px; height: 360px"
+              ></div>
+            </div>
 
             <script type="text/javascript" src="./js/irreg-int.js"></script>
           </section>
@@ -306,10 +326,12 @@
                 href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyM2M5NjRkZCZvYmowX3BhcmFtc19jb29yZHM9cmVjdCZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MSstK3gmb2JqMF9wYXJhbXNfZD0xKy0reCslNUUrMiZvYmowX3BhcmFtc19lPTAmb2JqMF9wYXJhbXNfZj0lMjgxMCstK3grJTJCKzIreSUyOSslMkYrMTA="
                 target="_blank"
                 rel="noopener noreferrer"
-                >solid region</a
               >
-              under the plane $x-2y+z=10$ and above the region bounded by
-              $x+y=1$ and $x^2+y=1$.
+                solid region
+              </a>
+              under the plane <br />
+              $x-2y+z=10$ and above the region bounded by <br />$x+y=1$ and
+              $x^2+y=1$.
             </p>
 
             <ol>
@@ -389,23 +411,31 @@
             </p>
           </section>
         </section>
-        <section><h1>Learning Outcomes</h1></section>
-        <section id="learning-outcomes">
-          <h6 class="framelabel">You should be able to...</h6>
-          <ul>
-            <li>Express a multiple integral as a limit of Riemann sums.</li>
-            <li>Detect syntactic errors in expressions of iterated integrals.</li>
-            <li>
-              Set up iterated integrals (in 2 and 3 dimensions) for regions bounded by graphs of functions. 
-            </li>
-            <li>Given an iterated integral in 2 variables, sketch the region of integration and change the order.</li>
-            <li>Change the order of integration for iterated integrals in 3 dimensions for select cases.</li>
-            <li>
-              Compute volumes and areas via multiple integration.
-            </li>
-          </ul>
+        <section>
+          <section><h1>Learning Outcomes</h1></section>
+          <section id="learning-outcomes">
+            <h6 class="framelabel">You should be able to...</h6>
+            <ul>
+              <li>Express a multiple integral as a limit of Riemann sums.</li>
+              <li>
+                Detect syntactic errors in expressions of iterated integrals.
+              </li>
+              <li>
+                Set up iterated integrals (in 2 and 3 dimensions) for regions
+                bounded by graphs of functions.
+              </li>
+              <li>
+                Given an iterated integral in 2 variables, sketch the region of
+                integration and change the order.
+              </li>
+              <li>
+                Change the order of integration for iterated integrals in 3
+                dimensions for select cases.
+              </li>
+              <li>Compute volumes and areas via multiple integration.</li>
+            </ul>
+          </section>
         </section>
-      </section>
       </div>
     </div>
 
