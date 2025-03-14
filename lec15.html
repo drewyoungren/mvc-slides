@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <link
       rel="stylesheet"
@@ -23,7 +24,7 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
-    <link
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       href="https://jsxgraph.org/distrib/jsxgraph.css"
@@ -31,14 +32,22 @@
     <script
       type="text/javascript"
       src="https://jsxgraph.org/distrib/jsxgraphcore.js"
-    ></script>
+    ></script> -->
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 15</h3>
+            <h3 class="framelabel">
+              Lecture 15
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/Apl6HXeGgvW"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+              >
+            </h3>
             <h1>Changing Coordinates</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
@@ -54,7 +63,7 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW8 due Tues</li>
+              <li class="fragment">HW8 due after break</li>
               <li class="fragment">
                 Quiz 5 this week
                 <ul class="fragment">
@@ -143,6 +152,12 @@
               and $y = x^2$. Write the triple integral \[\iiint\limits_{\mathcal
               E} f\,dV\] as an iterated integral at least 2 ways.
             </p>
+          </section>
+          <section>
+            <p><strong>Solution</strong>.</p>
+            \[ \int_{0}^{1} \int_{0}^{x^2}\int_{0}^{1-x} f(x,y,z)\,dz\,dy\,dx \]
+            \[ \int_{0}^{1} \int_{\sqrt y}^{1}\int_{0}^{1-x}
+            f(x,y,z)\,dz\,dx\,dy \]
           </section>
         </section>
         <section>
@@ -477,6 +492,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -485,22 +501,25 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
-
+        drawer: {
+          pathSize: 2,
+        },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
