@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Applications of Integration</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">
+              Lecture 16.5
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/8Gh2velLaB0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </a>
+            </h3>
+            <h1>More Applications</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <li class="fragment">HW 9 due Tues.</li>
+              <li class="fragment">
+                Quiz 6 this week.
+                <ul>
+                  <li>Double/triple integrals</li>
+                  <li>Coordinate systems</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                Exam 2 Thurs, 04/03
+                <ul>
+                  <li>Same format as last time</li>
+                  <li>New seat assignments</li>
+                  <li>
+                    Not cumulative in the narrow sense
+                    <span class="fragment"> but all math is cumulative.</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>1-minute review</h1>
+          </section>
+
+          <section>
+            <h6 class="framelabel">Total Mass</h6>
+
+            <p style="font-size: smaller">
+              \[M = \iiint_\mathcal E \mu(x,y,z)\,dV.\]
+            </p>
+
+            <div class="fragment">
+              <h6 class="framelabel">Center of Mass</h6>
+              <p style="font-size: smaller">
+                \[\bv{\bar{x} \\ \bar{y} \\ \bar{z}} = \frac1M
+                \bv{\iiint_\mathcal E x \mu(x,y, z)\,dV \\ \iiint_\mathcal E y
+                \mu(x,y, z)\,dV \\ \iiint_\mathcal E z \mu(x,y, z)\,dV}\]
+              </p>
+            </div>
+            <div class="fragment">
+              <h6 class="framelabel">Moment of Inertia</h6>
+              <p style="font-size: smaller">
+                \[ I = \iiint\limits_{\mathcal E} (\text{distance to axis})^2
+                \mu(x,y,z)\,dV \]
+              </p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Practice</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              The nose of a race car is modeled by half of a right cone with
+              height $h$ and radius $R$. Assuming uniform density, how high is
+              the center of mass from the bottom.
+            </p>
+
+            <div class="r-stretch">
+              <iframe
+                src="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNob3dQYW5lbD1mYWxzZSZvYmowX2tpbmQ9c3VyZmFjZSZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPS0xJm9iajBfcGFyYW1zX2I9MSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD1waSZvYmowX3BhcmFtc194PXUmb2JqMF9wYXJhbXNfeT1jb3MlMjh2JTI5KyorJTI4MSstK3UlMjkrJTJGKzMmb2JqMF9wYXJhbXNfej1zaW4lMjh2JTI5KyorJTI4MSstK3UlMjkrJTJGKzMmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1zdXJmYWNlJm9iajFfY29sb3I9JTIzMGQwODg3Jm9iajFfcGFyYW1zX2E9MCZvYmoxX3BhcmFtc19iPTEmb2JqMV9wYXJhbXNfYz0wJm9iajFfcGFyYW1zX2Q9cGkmb2JqMV9wYXJhbXNfeD0tMSZvYmoxX3BhcmFtc195PWNvcyUyOHYlMjkqdSslMkYrMysqKzImb2JqMV9wYXJhbXNfej1zaW4lMjh2JTI5KnUrJTJGKzMrKisyJm9iajFfcGFyYW1zX3QwPTAmb2JqMV9wYXJhbXNfdDE9MQ=="
+                frameborder="0"
+                height="100%"
+                width="100%"
+              ></iframe>
+            </div>
+          </section>
+
+          <section>
+            <h6 class="framelabel">MoI Examples</h6>
+            <p>
+              Find an expression for the moment of inertia $I$ (about a central
+              axis) in terms of the total mass $M$ (with uniform density) for
+              the following shapes:
+            </p>
+
+            <ul>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19jb29yZHM9cmVjdCZvYmowX3BhcmFtc19hPS0xJm9iajBfcGFyYW1zX2I9MSZvYmowX3BhcmFtc19jPS0xJm9iajBfcGFyYW1zX2Q9MSZvYmowX3BhcmFtc19lPS0xJm9iajBfcGFyYW1zX2Y9MQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Cube</a
+                >
+                with side $2R$.
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19jb29yZHM9Y3lsJm9iajBfcGFyYW1zX2E9LXBpJm9iajBfcGFyYW1zX2I9cGkmb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MSZvYmowX3BhcmFtc19lPTAmb2JqMF9wYXJhbXNfZj0yKy0rMity"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Right cone</a
+                >
+                with base radius $R$ and height $h$.
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19jb29yZHM9c3BoZXImb2JqMF9wYXJhbXNfYT0tcGkmb2JqMF9wYXJhbXNfYj1waSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD1waSslMkYrMiZvYmowX3BhcmFtc19lPTAmb2JqMF9wYXJhbXNfZj0x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Half-ball</a
+                >
+                with radius $R$.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section><h1>Probability</h1></section>
+          <section id="learning-outcomes">
+            <h6 class="framelabel">Definition</h6>
+
+            <p>
+              A <strong>probability density</strong> on a sample space $S
+              \subset \RR^2$ is a scalar field $\mu(x,y) \geq 0$ such that<br />
+              \[\iint_S \mu(x,y)\,dA = 1.\]
+            </p>
+
+            <p class="fragment">
+              The <strong>probability</strong> of an event $E \subset S$ is
+              \[P(E) = \iint_E \mu\,dA.\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              What is the probability 2 numbers chosen randomly from $[0,1]$
+              have a product bigger than $\frac12$?
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <p>
+              <strong>Solution.</strong> For uniform probability on 2 variable,
+              $\mu(x,y) = 1$ on $[0,1]^2$. We just integrate over the region $xy
+              \geq \frac12$.
+            </p>
+            <p class="fragment">
+              \[\int_{1/2}^1 \int_{1/(2x)}^1 \,dy\,dx = \left(x - \frac{1}{2}
+              \ln |x|\right)\Big\vert_{1/2}^1 \approx 0.153 \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              What is the probability 2 numbers chosen randomly from $[0,1]$ are
+              more than $\frac13$ apart?
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <p>
+              <strong>Solution.</strong> We can argue from the areas in the
+              picture. $P(3) = \frac23 \times \frac 23 = \frac 49$.
+            </p>
+            <p class="fragment">
+              But an alternative is to reduce the sample space to <br />$x < y$.
+              Then $\mu(x,y) = 2$. \[ P(E) = \int_0^{2/3} \int_{x + 1/3}^1
+              2\,dy\,dx = \frac49 \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              What is the expected value of the smaller of 2 random numbers in
+              $[0,1]$?
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <p>
+              <strong>Solution</strong>. Expected value of random variables are
+              exactly like centers of mass.
+            </p>
+            <p>
+              \[ \bar{x} = \iint_S x \mu\,dA = \int_0^1 \int_x^1 2x\,dy\,dx =
+              \frac13 \]
+            </p>
+          </section>
+        </section>
+        <!-- <section>
+          <section>
+            <h1>Probability</h1>
+          </section>
+        </section> -->
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+        drawer: {
+          pathSize: 2,
+        },
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+          RevealDrawer,
+        ],
+      });
+    </script>
+  </body>
+</html>
