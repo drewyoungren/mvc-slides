@@ -207,6 +207,8 @@
               $\mu(x,y) = 1$ on $[0,1]^2$. We just integrate over the region $xy
               \geq \frac12$.
             </p>
+            <div class="r-stretch"><img src="assets/prob-xy.png" /></div>
+
             <p class="fragment">
               \[\int_{1/2}^1 \int_{1/(2x)}^1 \,dy\,dx = \left(x - \frac{1}{2}
               \ln |x|\right)\Big\vert_{1/2}^1 \approx 0.153 \]
@@ -225,7 +227,14 @@
               <strong>Solution.</strong> We can argue from the areas in the
               picture. $P(3) = \frac23 \times \frac 23 = \frac 49$.
             </p>
-            <p class="fragment">
+            <div class="r-stretch">
+              <img
+                src="assets/prob-13.png"
+                alt="Event marked on unit square sample space"
+                srcset=""
+              />
+            </div>
+            <p class="fragment smaller">
               But an alternative is to reduce the sample space to <br />$x < y$.
               Then $\mu(x,y) = 2$. \[ P(E) = \int_0^{2/3} \int_{x + 1/3}^1
               2\,dy\,dx = \frac49 \]
@@ -249,12 +258,107 @@
               \frac13 \]
             </p>
           </section>
-        </section>
-        <!-- <section>
           <section>
-            <h1>Probability</h1>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Three random numbers between $0$ and $1$ are chosen consecutively.
+              What is the probabilty the third is greater than the sum of the
+              first two?
+            </p>
+            <div class="r-stretch"></div>
           </section>
-        </section> -->
+          <section>
+            <p>
+              <strong>Solution</strong>. Call the consecutive numbers $x,y,z$.
+              The sample space is the unit cube. We just need the portion with
+              $z > x + y$.
+            </p>
+
+            <p>
+              <a
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9dHJ1ZSZncmlkPWZhbHNlJm9ydGhvPWZhbHNlJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyMzg2ZDg3NiZvYmowX3BhcmFtc19jb29yZHM9cmVjdCZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTErLSt4Jm9iajBfcGFyYW1zX2U9eCslMkIreSZvYmowX3BhcmFtc19mPTEmb2JqMF9wYXJhbXNfbXU9MSZvYmoxX2tpbmQ9c29saWQmb2JqMV9jb2xvcj0lMjMxNjAwZGMmb2JqMV9wYXJhbXNfY29vcmRzPXJlY3Qmb2JqMV9wYXJhbXNfYT0wJm9iajFfcGFyYW1zX2I9MSZvYmoxX3BhcmFtc19jPTAmb2JqMV9wYXJhbXNfZD0xJm9iajFfcGFyYW1zX2U9MCZvYmoxX3BhcmFtc19mPW1pbiUyOHgrJTJCK3klMkMrMSUyOSZvYmoxX3BhcmFtc19tdT0x"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Plot of event and sample space.</a
+              >
+            </p>
+
+            <p class="smaller">
+              The only tricky bit is remembering $x + y < 1$ in this event
+              \[P(E) = \int_{0}^{1} \int_0^{1 - x} \int_{x + y}^1 dz\,dy\,dx =
+              \frac16\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Suppose a point is chosen at random from the unit square
+              $[0,1]^2$. What is the probability that $r < \frac{2\theta}{\pi}$
+              where $r$ and $\theta$ are the usual polar coordinates?
+            </p>
+            <div class="r-stretch"></div>
+          </section>
+          <section>
+            <p>
+              <strong>Solution</strong>. We can integrate the region easily in
+              polar coords.
+            </p>
+            <div class="r-stretch">
+              <img
+                src="assets/prob-rtheta.png"
+                alt="Polar region reflecting the event"
+                srcset=""
+              />
+            </div>
+            <p>
+              \[ P(E) = \int_0^{\pi/2} \int_0^{2\theta / \pi} r\,dr\,d\theta =
+              \int_0^{\pi/2} \frac{2\theta^2}{\pi^2} d\theta = \frac{\pi}{12} \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              Suppose a number $x$ is selected randomly from $[0,1]$ and then a
+              number $y$ is chosen randomly from the interval $[x,1]$. What is
+              the expected value of $y$?
+            </p>
+            <div class="r-stretch"></div>
+            <p class="fragment">
+              <strong>Warning</strong>. This is a bit tricky.
+            </p>
+          </section>
+          <section>
+            <p class="smaller">
+              <strong>Solution</strong>. The sample space is clearly $0 \leq x
+              \leq y \leq 1$. Since $y$ is chosen uniformly, the probability
+              densiity can't depend on $y$ and thus has the form $\mu(x)$, but
+              the marginal density for $x$, <em>must</em> be uniform. That is,
+              \[ \int_x^1 \mu(x)\,dy = 1\] for all $x$, or $\mu(x) = \frac{1}{1
+              - x}$.
+            </p>
+
+            <p>
+              \[ \bar y = \int_0^{1} \int_x^{1} \frac{y}{1-x}\,dy\,dx =
+              \frac12\int_0^1 \frac{1 - x^2}{1 - x} \,dx = \frac34\]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">The Straw Problem</h6>
+
+            <div class="r-stretch">
+              <iframe
+                width="660"
+                height="378"
+                src="https://www.youtube.com/embed/iQ2_OUpGtwY?si=f_z2A3kp0Bx3bNEp"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </section>
+        </section>
       </div>
     </div>
 
