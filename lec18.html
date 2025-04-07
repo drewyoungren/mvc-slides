@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <link
       rel="stylesheet"
@@ -62,9 +63,14 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 10 due Tues (after exam)</li>
-              <li class="fragment">No quiz this week</li>
+              <li class="fragment">HW 11 due Tues</li>
               <li class="fragment">Recitation as usual</li>
+              <li class="fragment">
+                Quiz 7 this week
+                <ul>
+                  <li>Basic line integrals</li>
+                </ul>
+              </li>
             </ul>
           </section>
         </section>
@@ -82,12 +88,13 @@
               P(x,y), Q(x,y) \rangle$.
             </p>
 
-            <div class="fragment">
-              \[ \int\limits_C \vec F\cdot d\vec r = \int\limits_C P\,dx + Q\,dy
-              = \int\limits_C \vec F\cdot\vec T\,ds \]
-            </div>
+            <div class="fragment">\[ \int\limits_C \vec F\cdot d\vec r \]</div>
             <div class="fragment">
               \[ = \int_a^b (P(x(t), y(t)) x'(t)+ Q(x(t), y(t)) y'(t))\,dt \]
+            </div>
+            <div class="fragment">
+              \[ = \int\limits_C P\,dx + Q\,dy = \int\limits_C \vec F\cdot\vec
+              T\,ds \]
             </div>
           </section>
           <section>
@@ -434,6 +441,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="/plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -442,14 +450,17 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+        drawer: {
+          pathSize: 2,
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
@@ -458,6 +469,7 @@
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
