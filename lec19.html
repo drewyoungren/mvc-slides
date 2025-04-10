@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <link
       rel="stylesheet"
@@ -38,20 +39,20 @@
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 19</h3>
+            <h3 class="framelabel">
+              Lecture 19
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/8pguTjyRie5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+              >
+            </h3>
             <h1>Green's Theorem</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
             <p style="text-align: right">
               Drew Youngren <code>dcy2@columbia.edu</code>
-              <span style="font-size: xx-small"
-                ><a
-                  href="https://onlineboard.eu/b/eOtbAEk4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >bd</a
-                ></span
-              >
             </p>
           </section>
           <section>
@@ -62,9 +63,15 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 10 due Tuesday</li>
-              <li class="fragment">No quiz this week</li>
-              <li class="fragment">Recitation (11) as usual</li>
+              <li class="fragment">HW 11 due Tues</li>
+              <li class="fragment">Recitation as usual</li>
+              <li class="fragment">
+                Quiz 7 this week
+                <ul>
+                  <li>Identify vector fields</li>
+                  <li>Basic line integrals</li>
+                </ul>
+              </li>
             </ul>
           </section>
         </section>
@@ -455,6 +462,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -472,13 +480,16 @@
           ],
           ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
-
+        drawer: {
+          pathSize: 2,
+        },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
