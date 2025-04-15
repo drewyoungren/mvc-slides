@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <link
       rel="stylesheet"
@@ -38,7 +39,15 @@
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 20</h3>
+            <h3 class="framelabel">
+              Lecture 20
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/4s4NABcnn9t"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+              >
+            </h3>
             <h1>Surfaces &amp; Areas</h1>
             <h2>APMA E2000</h2>
             <div class="r-stretch"></div>
@@ -62,12 +71,19 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 11 due Tuesday</li>
               <li class="fragment">
-                Quiz 7 this week
+                <strong>No lecture</strong> Thursday 4/17
+                <ul>
+                  <li>Recording in Video Library</li>
+                  <li>Q&amp;A zoom to follow (see EdStem)</li>
+                </ul>
+              </li>
+              <li class="fragment">HW 12 due Tuesday</li>
+              <li class="fragment">
+                Quiz 8 this week
                 <ul class="fragment">
-                  <li>Path Integrals</li>
                   <li>FTLI</li>
+                  <li>Green's Theorem</li>
                 </ul>
               </li>
               <li class="fragment">Recitation as usual</li>
@@ -544,6 +560,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -561,13 +578,16 @@
           ],
           ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
-
+        drawer: {
+          pathSize: 2,
+        },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
