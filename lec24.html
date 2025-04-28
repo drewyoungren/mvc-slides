@@ -23,6 +23,7 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
     <!-- <link
       rel="stylesheet"
       type="text/css"
@@ -38,11 +39,19 @@
       <div class="slides">
         <section>
           <section>
-            <h3 class="framelabel">Lecture 24</h3>
-            <h1>$\sum \mathbf m_a \cdot\mathbf r_y$</h1>
-            <h3 class="fragment">[ sum&prime;&middot;ma&middot;ry ]</h3>
+            <h3 class="framelabel">
+              Lecture 24
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/49kX8er3Som"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+              >
+            </h3>
+            <h1>Vector Calc Wrap-up</h1>
+            <!-- <h3 class="fragment">[ sum&prime;&middot;ma&middot;ry ]</h3> -->
             <h2>APMA E2000</h2>
-            <div class="r-stretch"></div>
+
             <p style="text-align: right">
               Drew Youngren <code>dcy2@columbia.edu</code>
             </p>
@@ -55,8 +64,13 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 13 "due" Tues</li>
-              <li class="fragment">Quiz 8 this week.</li>
+              <li class="fragment">HW 14 "due" Tues</li>
+              <li class="fragment">
+                Quiz 10 this week
+                <ul>
+                  <li>Gauss' and Stokes'</li>
+                </ul>
+              </li>
               <li class="fragment">Regular recitation schedule</li>
             </ul>
           </section>
@@ -87,7 +101,7 @@
           </section>
 
           <section
-            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.14&showPanel=false&obj0_kind=surface&obj0_color=%23dc5e66&obj0_params_a=0&obj0_params_b=pi&obj0_params_c=0&obj0_params_d=2+pi&obj0_params_x=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*cos%28v%29&obj0_params_y=-%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*sin%28u%29*sin%28v%29&obj0_params_z=%281%2B1%2F3*sin%28u*2%29%5E2*sin%28v*3%29%5E2%29*cos%28u%29&obj0_params_t0=0&obj0_params_t1=1&obj1_kind=field&obj1_color=%235801a5&obj1_params_p=0&obj1_params_q=0&obj1_params_r=1&obj1_params_nVec=6"
+            data-background-iframe="https://3demos.ctl.columbia.edu/?c2NhbGU9MC4xNCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9c3VyZmFjZSZvYmowX2NvbG9yPSUyM2E1OWI3NCZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj1waSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9JTI4MSUyQjElMkYzKnNpbiUyOHUqMiUyOSU1RTIqc2luJTI4diozJTI5JTVFMiUyOSpzaW4lMjh1JTI5KmNvcyUyOHYlMjkmb2JqMF9wYXJhbXNfeT0tJTI4MSUyQjElMkYzKnNpbiUyOHUqMiUyOSU1RTIqc2luJTI4diozJTI5JTVFMiUyOSpzaW4lMjh1JTI5KnNpbiUyOHYlMjkmb2JqMF9wYXJhbXNfej0lMjgxJTJCMSUyRjMqc2luJTI4dSoyJTI5JTVFMipzaW4lMjh2KjMlMjklNUUyJTI5KmNvcyUyOHUlMjkmb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajBfcGFyYW1zX211PTEmb2JqMV9raW5kPWZpZWxkJm9iajFfY29sb3I9JTIzNTgwMWE1Jm9iajFfcGFyYW1zX3A9MCZvYmoxX3BhcmFtc19xPTAmb2JqMV9wYXJhbXNfcj0xJm9iajFfcGFyYW1zX25WZWM9Ng=="
             data-background-opacity="0.4"
           >
             <h6 class="framelabel">Buoyancy</h6>
@@ -187,7 +201,7 @@
             <p>
               Is there a flux integral for which
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJm9iajBfa2luZD1zdXJmYWNlJm9iajBfY29sb3I9JTIzMGQwODg3Jm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTIrcGkmb2JqMF9wYXJhbXNfeD1zaW4lMjh1JTI5K2NvcyUyOHYlMjkmb2JqMF9wYXJhbXNfeT1zaW4lMjh1JTI5K3NpbiUyOHYlMjkmb2JqMF9wYXJhbXNfej1jb3MlMjh1JTI5Jm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MSZvYmoxX2tpbmQ9dmVjdG9yJm9iajFfY29sb3I9JTIzZGM1ZTY2Jm9iajFfcGFyYW1zX2E9LXNpbiUyOGZsb29yJTI4bislMkYrMTAlMjkrJTJGKzEwKyorMitwaSUyOSsqKyUyODEuMistKyUyOG4rJTI1KzEwJTI5KyUyRisxMCslMjklNUUzKyorJTI4JTI4bislMjUrMTAlMjkrJTJGKzEwKyUyQisuMislMjklNUUlMjgxJTJGMiUyOSslMkYrMyZvYmoxX3BhcmFtc19iPWNvcyUyOGZsb29yJTI4bislMkYrMTAlMjkrJTJGKzEwKyorMitwaSUyOSorJTI4MS4yKy0rJTI4bislMjUrMTAlMjkrJTJGKzEwKyUyOSU1RTMrKislMjglMjhuKyUyNSsxMCUyOSslMkYrMTArJTJCKy4yKyUyOSU1RSUyODElMkYyJTI5KyUyRiszJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc194PXNpbiUyOCslMjhuKyUyNSsxMCUyOSslMkYrMTArKitwaSslMkIrLjIlMjkrY29zJTI4Zmxvb3IlMjhuKyUyRisxMCUyOSslMkYrMTArKisyK3BpJTI5Jm9iajFfcGFyYW1zX3k9c2luJTI4KyUyOG4rJTI1KzEwJTI5KyUyRisxMCsqK3BpKyUyQisuMiUyOStzaW4lMjhmbG9vciUyOG4rJTJGKzEwJTI5KyUyRisxMCsqKzIrcGklMjkmb2JqMV9wYXJhbXNfej1jb3MlMjgrJTI4bislMjUrMTAlMjkrJTJGKzEwKyorcGkrJTJCKy4yJTI5Jm9iajFfcGFyYW1zX3QwPTAmb2JqMV9wYXJhbXNfdDE9MSZvYmoxX3BhcmFtc19uMD0wJm9iajFfcGFyYW1zX24xPTk5"
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9c3VyZmFjZSZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj1waSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9c2luJTI4dSUyOStjb3MlMjh2JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4dSUyOStzaW4lMjh2JTI5Jm9iajBfcGFyYW1zX3o9Y29zJTI4dSUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMF9wYXJhbXNfbXU9MSZvYmoxX2tpbmQ9dmVjdG9yJm9iajFfY29sb3I9JTIzZGM1ZTY2Jm9iajFfYW5pbWF0aW9uPXRydWUmb2JqMV9wYXJhbXNfYT0tc2luJTI4Zmxvb3IlMjhuKyUyRisxMCUyOSslMkYrMTArKisyK3BpKyUyQislMjgxLjIrLSslMjhuKyUyNSsxMCUyOSslMkYrMTArJTI5JTVFMysqK3QlMjkrKislMjgxLjIrLSslMjhuKyUyNSsxMCUyOSslMkYrMTArJTI5JTVFMysqKyUyOCUyOG4rJTI1KzEwJTI5KyUyRisxMCslMkIrLjIrJTI5JTVFJTI4MSUyRjIlMjkrJTJGKzMmb2JqMV9wYXJhbXNfYj1jb3MlMjhmbG9vciUyOG4rJTJGKzEwJTI5KyUyRisxMCsqKzIrcGkrJTJCKyUyODEuMistKyUyOG4rJTI1KzEwJTI5KyUyRisxMCslMjklNUUzKyordCUyOSorJTI4MS4yKy0rJTI4bislMjUrMTAlMjkrJTJGKzEwKyUyOSU1RTMrKislMjglMjhuKyUyNSsxMCUyOSslMkYrMTArJTJCKy4yKyUyOSU1RSUyODElMkYyJTI5KyUyRiszJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc194PXNpbiUyOCslMjhuKyUyNSsxMCUyOSslMkYrMTArKitwaSslMkIrLjIlMjkrY29zJTI4Zmxvb3IlMjhuKyUyRisxMCUyOSslMkYrMTArKisyK3BpKyUyQislMjgxLjIrLSslMjhuKyUyNSsxMCUyOSslMkYrMTArJTI5JTVFMysqK3QlMjkmb2JqMV9wYXJhbXNfeT1zaW4lMjgrJTI4bislMjUrMTAlMjkrJTJGKzEwKyorcGkrJTJCKy4yJTI5K3NpbiUyOGZsb29yJTI4bislMkYrMTAlMjkrJTJGKzEwKyorMitwaSslMkIrJTI4MS4yKy0rJTI4bislMjUrMTAlMjkrJTJGKzEwKyUyOSU1RTMrKit0JTI5Jm9iajFfcGFyYW1zX3o9Y29zJTI4KyUyOG4rJTI1KzEwJTI5KyUyRisxMCsqK3BpKyUyQisuMiUyOSZvYmoxX3BhcmFtc190MD0wJm9iajFfcGFyYW1zX3QxPTEwK3BpJm9iajFfcGFyYW1zX24wPTAmb2JqMV9wYXJhbXNfbjE9OTk="
                 target="_blank"
                 rel="noopener noreferrer"
                 >both</a
@@ -407,6 +421,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -415,16 +430,16 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
-
+        drawer: { pathSize: 2 },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
