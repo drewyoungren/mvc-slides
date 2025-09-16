@@ -157,16 +157,16 @@
             </div>
 
             <script>
-              const slider = document.getElementById('slider');
-              const image1 = document.getElementById('image1');
-              const image2 = document.getElementById('image2');
+              const slider = document.getElementById("slider");
+              const image1 = document.getElementById("image1");
+              const image2 = document.getElementById("image2");
 
-              slider.addEventListener('input', function () {
+              slider.addEventListener("input", function () {
                 const value = this.value / 100;
                 image1.style.opacity = 1 - value;
                 image2.style.opacity = value;
 
-                const el = document.querySelector('#tvalue');
+                const el = document.querySelector("#tvalue");
                 el.innerHTML = `<code> t = ${this.value / 100}</code>`;
               });
             </script>
@@ -433,7 +433,7 @@
               b\vec j + c \vec k)\times(d\vec i + e\vec j + f \vec k) \]
             </div>
             <div class="fragment">
-              \[ = (bf - ce) \vec i + (cd - af) \vec j + (ae - bc) \vec k \]
+              \[ = (bf - ce) \vec i + (cd - af) \vec j + (ae - bd) \vec k \]
             </div>
             <div class="fragment">
               $ = \begin{vmatrix} \vec i & \vec j & \vec k \\a &b &c \\ d & e &
@@ -513,14 +513,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
 
         drawer: {
