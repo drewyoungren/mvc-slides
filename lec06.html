@@ -110,7 +110,7 @@
             <p>
               \[ \vec x(t) = \begin{cases} \left\langle -\frac16 t^3 + t,
               \frac12 t^2 \right\rangle, \text{ if } t \leq 1 \\ \left\langle
-              \frac12 t^2 - \frac12 t + \frac56, \frac12 t^2 - \frac16 t^3 +
+              \frac12 t^2 - \frac12 t + \frac56, -\frac12 t^2 - \frac16 t^3 +
               \frac52 t - \frac43 \right\rangle, \text{ if } t > 1 \\
               \end{cases}. \]
             </p>
@@ -455,14 +455,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
         },
 
         drawer: {
