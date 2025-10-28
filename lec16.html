@@ -344,6 +344,25 @@
               ></iframe>
             </div>
           </section>
+          <section>
+            <h6 class="framelabel">Solution.</h6>
+            <p>
+              <a
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9dHJ1ZSZncmlkPWZhbHNlJm9ydGhvPWZhbHNlJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyMzg3MDAwZSZvYmowX3BhcmFtc19jb29yZHM9Y3lsJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpJm9iajBfcGFyYW1zX2M9MCZvYmowX3BhcmFtc19kPTEmb2JqMF9wYXJhbXNfZT0wJm9iajBfcGFyYW1zX2Y9MistKzIrciZvYmowX3BhcmFtc19tdT0x"
+                target="_blank"
+                >Reorient</a
+              >
+              with cylindrical coords so that <br />
+              $0 \leq \theta \leq \pi$, $0 \leq r \leq R$, $0 \leq z \leq h -
+              \frac{h}{R} r$ <br />
+              and $y$ is then the "height" coordinate.
+            </p>
+            <p>\[ \bar{y} = \frac1V \iiint\limits_{\mathcal C} y\,dV \]</p>
+            <p>
+              \[ = \frac{1}{\pi R^2 h / 6} \int_0^\pi \int_0^R \int_0^{h -
+              \frac{h}{R}r} r^2 \sin\theta\,dz\,dr\,d\theta \] \[ = R / \pi \]
+            </p>
+          </section>
         </section>
 
         <section>
@@ -502,14 +521,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
         drawer: {
           pathSize: 2,
