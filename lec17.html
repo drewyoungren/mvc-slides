@@ -100,10 +100,7 @@
             <h1>1-minute review</h1>
           </section>
 
-          <section
-            data-background-iframe="https://3demos.ctl.columbia.edu/?currentChapter=How+To&scale=0.5&showPanel=false&obj0_kind=solid&obj0_color=%230d0887&obj0_params_coords=spher&obj0_params_a=0&obj0_params_b=2+pi&obj0_params_c=0&obj0_params_d=pi&obj0_params_e=0&obj0_params_f=1&obj1_kind=curve&obj1_color=%230ca701&obj1_params_a=0&obj1_params_b=2*pi&obj1_params_x=cos%28t%29&obj1_params_y=sin%28t%29&obj1_params_z=3&obj2_kind=level&obj2_color=%23870808&obj2_params_g=x%5E2+%2B+y%5E2+%2B+%28z+%2B+3%29%5E2&obj2_params_k=1&obj2_params_a=-1&obj2_params_b=1&obj2_params_c=-1&obj2_params_d=1&obj2_params_e=-4&obj2_params_f=-2"
-            data-background-opacity="0.5"
-          >
+          <section>
             <h6 class="framelabel">MoI Integrals</h6>
 
             <p>
@@ -126,6 +123,35 @@
                 moments of inertia
               </a>
               around a central axis from least to greatest.
+            </p>
+          </section>
+          <section>
+            <p>For the ball $\mathcal B$:</p>
+            <p>
+              \[ I_z = \iiint\limits_{\mathcal B} (x^2 + y^2) \mu\, dV = \] \[
+              \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{R} \mu (\rho^2 \sin^2
+              \phi) \rho^2 \sin \phi\,d\rho\,d\phi\,d\theta \] \[ = \frac{8}{15}
+              \mu \pi R^5 = \frac25 M R^2 \]
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">We Need a New Integral</h6>
+            <p class="fragment" style="font-size: smaller">
+              Let $C$ be the (1-dimensional) ring object above \[\iiint_C f\,dV
+              = 0\] for <em>any</em> $f$.
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              Assume a constant
+              <em>linear density</em> of $\frac{M}{2\pi R} \frac{\text{unit of
+              mass}}{\text{unit of length}}$.
+            </p>
+
+            <p class="fragment" style="font-size: smaller">
+              \[ \int_C (\text{distance to axis})^2 \times (\text{linear
+              density})\,d(\text{length}). \] This requires a new integral
+              called a <strong>line integral</strong> or
+              <strong>path integral</strong>.
             </p>
           </section>
         </section>
@@ -158,26 +184,6 @@
               you can keep yourself oriented by thinking about each of these for
               every integral we encounter.
             </p> -->
-          </section>
-          <section>
-            <h6 class="framelabel">We Need a New Integral</h6>
-            <p class="fragment" style="font-size: smaller">
-              Let $C$ be the (1-dimensional) ring object above \[\iiint_C f\,dV
-              = 0\] for <em>any</em> $f$.
-            </p>
-
-            <p class="fragment" style="font-size: smaller">
-              Assume a constant
-              <em>linear density</em> of $\frac{M}{2\pi R} \frac{\text{unit of
-              mass}}{\text{unit of length}}$.
-            </p>
-
-            <p class="fragment" style="font-size: smaller">
-              \[ \int_C (\text{distance to axis})^2 \times (\text{linear
-              density})\,d(\text{length}). \] This requires a new integral
-              called a <strong>line integral</strong> or
-              <strong>path integral</strong>.
-            </p>
           </section>
         </section>
         <section>
