@@ -394,6 +394,15 @@
               Green's Theorem works for non-simply-connected domains, provided
               the boundary components are oriented correctly.
             </p>
+            <p class="fragment">
+              Related:
+              <a
+                href="https://en.wikipedia.org/wiki/Recursive_islands_and_lakes"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Recursive lakes and islandss</a
+              >
+            </p>
             <div class="r-stretch"></div>
           </section>
           <section>
@@ -425,7 +434,7 @@
                   \oint\limits_C \left \langle 3, - \frac{x^2}{2} \right \rangle
                   \cdot d\vec r \] around the boundary of the
                   <a
-                    href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPWZhbHNlJmdyaWQ9dHJ1ZSZvYmowX2tpbmQ9ZmllbGQmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9hbmltYXRpb249dHJ1ZSZvYmowX3BhcmFtc19wPS4zJm9iajBfcGFyYW1zX3E9LXglNUUyJTJGMiZvYmowX3BhcmFtc19yPTAmb2JqMF9wYXJhbXNfblZlYz02Jm9iajFfa2luZD1ncmFwaCZvYmoxX2NvbG9yPSUyM2RjNWU2NiZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj0xJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc19kPTEmb2JqMV9wYXJhbXNfej0wJm9iajFfcGFyYW1zX3QwPTAmb2JqMV9wYXJhbXNfdDE9MQ=="
+                    href="https://3demos.ctl.columbia.edu/?c2NhbGU9MC4wNCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz10cnVlJm9iajBfa2luZD1maWVsZCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19wPS4zJm9iajBfcGFyYW1zX3E9LXglNUUyJTJGMiZvYmowX3BhcmFtc19yPTAmb2JqMF9wYXJhbXNfblZlYz04Jm9iajFfa2luZD1zdXJmYWNlJm9iajFfY29sb3I9JTIzMGQwODg3Jm9iajFfcGFyYW1zX2E9MCZvYmoxX3BhcmFtc19iPTEmb2JqMV9wYXJhbXNfYz0wJm9iajFfcGFyYW1zX2Q9MSZvYmoxX3BhcmFtc194PXUmb2JqMV9wYXJhbXNfeT12Jm9iajFfcGFyYW1zX3o9MCZvYmoxX3BhcmFtc19tdT0teCZvYmoxX3BhcmFtc190MD0wJm9iajFfcGFyYW1zX3QxPTE="
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -472,14 +481,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
         drawer: {
           pathSize: 2,
