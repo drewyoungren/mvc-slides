@@ -71,17 +71,11 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">HW 13 due Tuesday</li>
+              <li class="fragment">HW B due Tuesday</li>
               <li class="fragment">
-                Quiz 9
+                Quiz 6 next Thursday
                 <ul>
                   <li>Surface &amp; Flux Integrals</li>
-                </ul>
-              </li>
-              <li class="fragment">
-                Final exam schedule released
-                <ul>
-                  <li>See edstem announcement</li>
                 </ul>
               </li>
             </ul>
@@ -334,9 +328,9 @@
             <div class="container">
               <div class="col">
                 \[ \begin{align*} -\frac{\partial \Phi}{\partial t} &=
-                \iint\limits_{D} -\frac{\partial B}{\partial t} d\vec S \\ \ &=
-                \iint\limits_{D} \nabla\times \vec E\cdot d\vec S \\ \ &=
-                \oint\limits_{\partial D} \vec E\cdot d\vec r \end{align*} \]
+                \iint\limits_{D} -\frac{\partial \vec B}{\partial t} \cdot d\vec
+                S \\ \ &= \iint\limits_{D} \nabla\times \vec E\cdot d\vec S \\ \
+                &= \oint\limits_{\partial D} \vec E\cdot d\vec r \end{align*} \]
 
                 <p class="fragment" style="font-size: small">
                   <a
@@ -382,9 +376,9 @@
               $\int_{\partial \mathcal \Omega} (-yz)\,dz$
             </p>
             <p class="fragment">
-              $\vec r(t) = \langle \cos t, \sin t, 1 + \cos t$ matches the
-              orientation. \[\int_0^{2\pi} -(\sin t)(1 + \cos t)(-\sin t)\,dt =
-              \int_0^{2\pi} \sin^2 t\,dt \]
+              $\vec r(t) = \langle \cos t, \sin t, 1 + \cos t \rangle$ matches
+              the orientation. \[\int_0^{2\pi} -(\sin t)(1 + \cos t)(-\sin
+              t)\,dt = \int_0^{2\pi} \sin^2 t\,dt \]
             </p>
             <p class="fragment">\[ = \pi \]</p>
           </section>
@@ -394,13 +388,13 @@
               Compute the line integral $\oint\limits_{\partial \Omega} \vec
               F\cdot d\vec r $ around the ccw-oriented boundary of $\Omega$
               given by \[z = (1 - x^2)(1-y^2)\] for $-1 \leq x \leq 1, -1 \leq y
-              \leq 1$ and \[\vec F(x,y,z) = 2y\,\vec i + 3z\, \vec j + z\, \vec
-              k.\]
+              \leq 1$ and \[\vec F(x,y,z) = \frac y2\,\vec i + \frac{z}{3}\,
+              \vec j + x\, \vec k.\]
             </p>
             <p class="fragment">
               I call this surface the
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzMDAwMDAwJm9iajBfcGFyYW1zX2E9LTEmb2JqMF9wYXJhbXNfYj0xJm9iajBfcGFyYW1zX3g9MSZvYmowX3BhcmFtc195PXQmb2JqMF9wYXJhbXNfej0wJm9iajBfcGFyYW1zX3RhdT0wJm9iajBfcGFyYW1zX2NvbG9yPSUyMzAwMzJhOCZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjMwMDAwMDAmb2JqMV9wYXJhbXNfYT0tMSZvYmoxX3BhcmFtc19iPTEmb2JqMV9wYXJhbXNfeD0tMSZvYmoxX3BhcmFtc195PXQmb2JqMV9wYXJhbXNfej0wJm9iajFfcGFyYW1zX3RhdT0wJm9iajFfcGFyYW1zX2NvbG9yPSUyMzAwMzJhOCZvYmoyX2tpbmQ9Y3VydmUmb2JqMl9jb2xvcj0lMjMwMDAwMDAmb2JqMl9wYXJhbXNfYT0tMSZvYmoyX3BhcmFtc19iPTEmb2JqMl9wYXJhbXNfeD10Jm9iajJfcGFyYW1zX3k9MSZvYmoyX3BhcmFtc196PTAmb2JqMl9wYXJhbXNfdGF1PTAmb2JqMl9wYXJhbXNfY29sb3I9JTIzMDAzMmE4Jm9iajNfa2luZD1jdXJ2ZSZvYmozX2NvbG9yPSUyMzAwMDAwMCZvYmozX3BhcmFtc19hPS0xJm9iajNfcGFyYW1zX2I9MSZvYmozX3BhcmFtc194PXQmb2JqM19wYXJhbXNfeT0tMSZvYmozX3BhcmFtc196PTAmb2JqM19wYXJhbXNfdGF1PTAmb2JqM19wYXJhbXNfY29sb3I9JTIzMDAzMmE4Jm9iajRfa2luZD1maWVsZCZvYmo0X2NvbG9yPSUyMzBkMDg4NyZvYmo0X3BhcmFtc19wPTJ5Jm9iajRfcGFyYW1zX3E9M3omb2JqNF9wYXJhbXNfcj14Jm9iajRfcGFyYW1zX25WZWM9NiZvYmo1X2tpbmQ9c3VyZmFjZSZvYmo1X2NvbG9yPSUyMzA4ODcxMCZvYmo1X3BhcmFtc19hPS0xJm9iajVfcGFyYW1zX2I9MSZvYmo1X3BhcmFtc19jPS0xJm9iajVfcGFyYW1zX2Q9MSZvYmo1X3BhcmFtc194PXUmb2JqNV9wYXJhbXNfeT12Jm9iajVfcGFyYW1zX3o9JTI4MSstK3UlNUUyJTI5KyorJTI4MSstK3YlNUUyJTI5KyorJTI4MSstK3QlMjkmb2JqNV9wYXJhbXNfdDA9MCZvYmo1X3BhcmFtc190MT0x"
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9Y3VydmUmb2JqMF9jb2xvcj0lMjMwMDAwMDAmb2JqMF9wYXJhbXNfYT0tMSZvYmowX3BhcmFtc19iPTcmb2JqMF9wYXJhbXNfeD10KyUzQysxKyUzRit0KyUzQSt0KyUzQyszKyUzRisxKyUzQSt0KyUzQys1KyUzRis0Ky0rdCsrJTNBKy0xJm9iajBfcGFyYW1zX3k9dCslM0MrMSslM0YrLTErJTNBK3QrJTNDKzMrJTNGKy0yKyUyQit0KyUzQSt0KyUzQys1KyUzRisxKyUzQSs2Ky0rdCZvYmowX3BhcmFtc196PTAmb2JqMF9wYXJhbXNfdGF1PTAmb2JqMF9wYXJhbXNfY29sb3I9JTIzMDAzMmE4Jm9iajBfcGFyYW1zX2EwPTAmb2JqMF9wYXJhbXNfYTE9MSZvYmoxX2tpbmQ9ZmllbGQmb2JqMV9jb2xvcj0lMjMwZDA4ODcmb2JqMV9hbmltYXRpb249dHJ1ZSZvYmoxX3BhcmFtc194MD0tMSZvYmoxX3BhcmFtc194MT0xJm9iajFfcGFyYW1zX3kwPS0xJm9iajFfcGFyYW1zX3kxPTEmb2JqMV9wYXJhbXNfejA9MCZvYmoxX3BhcmFtc196MT0wJm9iajFfcGFyYW1zX3A9eSslMkYrMiZvYmoxX3BhcmFtc19xPXorJTJGKzMmb2JqMV9wYXJhbXNfcj14Jm9iajFfcGFyYW1zX25WZWM9NiZvYmoyX2tpbmQ9c3VyZmFjZSZvYmoyX2NvbG9yPSUyMzA4ODcxMCZvYmoyX3BhcmFtc19hPS0xJm9iajJfcGFyYW1zX2I9MSZvYmoyX3BhcmFtc19jPS0xJm9iajJfcGFyYW1zX2Q9MSZvYmoyX3BhcmFtc194PXUmb2JqMl9wYXJhbXNfeT12Jm9iajJfcGFyYW1zX3o9JTI4MSstK3UlNUUyJTI5KyorJTI4MSstK3YlNUUyJTI5KyorJTI4MSstK3QlMjkmb2JqMl9wYXJhbXNfdDA9MCZvYmoyX3BhcmFtc190MT0xJm9iajJfcGFyYW1zX211PTE="
                 target="_blank"
                 rel="noopener noreferrer"
                 >raviolo</a
@@ -413,13 +407,16 @@
               <em>any</em> surface $\Omega'$ with the same boundary $\partial
               \Omega' = \partial \Omega$. Easiest is $z=0$ with same footprint.
               The normal vector is constant $\mathbf N = \mathbf k$. $\nabla
-              \times \mathbf F = \langle -3, 0, -2\rangle$ so
+              \times \mathbf F = \langle -\frac13, -1, -\frac12\rangle$ so
             </p>
             <p class="fragment">
               \[ \oint_{\partial \Omega} \mathbf F\cdot d\mathbf r =
-              \iint_{\Omega'} (-3\mathbf i - 2\mathbf k) \cdot \mathbf k\, dS \]
+              \iint_{\Omega'} (-\frac13\mathbf i - \mathbf j - \frac12\mathbf k)
+              \cdot \mathbf k\, dS \]
             </p>
-            <p class="fragment">\[ = -2\text{Area}(\Omega') = -8. \]</p>
+            <p class="fragment">
+              \[ = -\frac{\text{Area}(\Omega')}{2} = -2. \]
+            </p>
             <p class="fragment smaller" style="text-align: right">
               <a href="./assets/stokes-example.nb" target="_blank"
                 ><em>Mathematica</em> solution</a
@@ -432,7 +429,7 @@
             <p>
               A
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAuNjgmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPXN1cmZhY2Umb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9cGkmb2JqMF9wYXJhbXNfYz0wJm9iajBfcGFyYW1zX2Q9MitwaSZvYmowX3BhcmFtc194PTIrY29zJTI4Myt1JTI5KyUyQisxMDgqc2luJTI4Mip1JTI5JTVFMipzaW4lMjgzKnUlMjkqY29zJTI4Mip1JTI5JTJGc3FydCUyODE2KiUyODkqc2luJTI4Myp1JTI5JTVFMislMkIrNDkqY29zJTI4dSUyOSU1RTIlMjklNUUyKyUyQisxMTY2NCpzaW4lMjgyKnUlMjklNUU0KnNpbiUyODMqdSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMislMkIrNjM1MDQqc2luJTI4Mip1JTI5JTVFNCpjb3MlMjh1JTI5JTVFMipjb3MlMjgyKnUlMjklNUUyJTI5KmNvcyUyOHYlMjkrLTE0KmNvcyUyOHUlMjklMkZzcXJ0JTI4MzYqc2luJTI4Myp1JTI5JTVFMislMkIrMTk2KmNvcyUyOHUlMjklNUUyJTI5KnNpbiUyOHYlMjkrJm9iajBfcGFyYW1zX3k9MitzaW4lMjh1JTI5KjcrJTJCKy0yNTIqc2luJTI4Mip1JTI5JTVFMipjb3MlMjh1JTI5KmNvcyUyODIqdSUyOSUyRnNxcnQlMjgxNiolMjg5KnNpbiUyODMqdSUyOSU1RTIrJTJCKzQ5KmNvcyUyOHUlMjklNUUyJTI5JTVFMislMkIrMTE2NjQqc2luJTI4Mip1JTI5JTVFNCpzaW4lMjgzKnUlMjklNUUyKmNvcyUyODIqdSUyOSU1RTIrJTJCKzYzNTA0KnNpbiUyODIqdSUyOSU1RTQqY29zJTI4dSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMiUyOSpjb3MlMjh2JTI5Ky02KnNpbiUyODMqdSUyOSUyRnNxcnQlMjgzNipzaW4lMjgzKnUlMjklNUUyKyUyQisxOTYqY29zJTI4dSUyOSU1RTIlMjkqc2luJTI4diUyOSsmb2JqMF9wYXJhbXNfej1zaW4lMjgyK3UlMjklNUUzKjMrJTJCKyUyODM2KnNpbiUyODMqdSUyOSU1RTIrJTJCKzE5Nipjb3MlMjh1JTI5JTVFMiUyOSUyRnNxcnQlMjgxNiolMjg5KnNpbiUyODMqdSUyOSU1RTIrJTJCKzQ5KmNvcyUyOHUlMjklNUUyJTI5JTVFMislMkIrMTE2NjQqc2luJTI4Mip1JTI5JTVFNCpzaW4lMjgzKnUlMjklNUUyKmNvcyUyODIqdSUyOSU1RTIrJTJCKzYzNTA0KnNpbiUyODIqdSUyOSU1RTQqY29zJTI4dSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMiUyOSpjb3MlMjh2JTI5KyZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTE="
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MC42OCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9c3VyZmFjZSZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPTAmb2JqMF9wYXJhbXNfYj1waSZvYmowX3BhcmFtc19jPTAmb2JqMF9wYXJhbXNfZD0yK3BpJm9iajBfcGFyYW1zX3g9Mitjb3MlMjgzK3UlMjkrJTJCKzEwOCpzaW4lMjgyKnUlMjklNUUyKnNpbiUyODMqdSUyOSpjb3MlMjgyKnUlMjklMkZzcXJ0JTI4MTYqJTI4OSpzaW4lMjgzKnUlMjklNUUyKyUyQis0OSpjb3MlMjh1JTI5JTVFMiUyOSU1RTIrJTJCKzExNjY0KnNpbiUyODIqdSUyOSU1RTQqc2luJTI4Myp1JTI5JTVFMipjb3MlMjgyKnUlMjklNUUyKyUyQis2MzUwNCpzaW4lMjgyKnUlMjklNUU0KmNvcyUyOHUlMjklNUUyKmNvcyUyODIqdSUyOSU1RTIlMjkqY29zJTI4diUyOSstMTQqY29zJTI4dSUyOSUyRnNxcnQlMjgzNipzaW4lMjgzKnUlMjklNUUyKyUyQisxOTYqY29zJTI4dSUyOSU1RTIlMjkqc2luJTI4diUyOSsmb2JqMF9wYXJhbXNfeT0yK3NpbiUyOHUlMjkqNyslMkIrLTI1MipzaW4lMjgyKnUlMjklNUUyKmNvcyUyOHUlMjkqY29zJTI4Mip1JTI5JTJGc3FydCUyODE2KiUyODkqc2luJTI4Myp1JTI5JTVFMislMkIrNDkqY29zJTI4dSUyOSU1RTIlMjklNUUyKyUyQisxMTY2NCpzaW4lMjgyKnUlMjklNUU0KnNpbiUyODMqdSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMislMkIrNjM1MDQqc2luJTI4Mip1JTI5JTVFNCpjb3MlMjh1JTI5JTVFMipjb3MlMjgyKnUlMjklNUUyJTI5KmNvcyUyOHYlMjkrLTYqc2luJTI4Myp1JTI5JTJGc3FydCUyODM2KnNpbiUyODMqdSUyOSU1RTIrJTJCKzE5Nipjb3MlMjh1JTI5JTVFMiUyOSpzaW4lMjh2JTI5KyZvYmowX3BhcmFtc196PXNpbiUyODIrdSUyOSU1RTMqMyslMkIrJTI4MzYqc2luJTI4Myp1JTI5JTVFMislMkIrMTk2KmNvcyUyOHUlMjklNUUyJTI5JTJGc3FydCUyODE2KiUyODkqc2luJTI4Myp1JTI5JTVFMislMkIrNDkqY29zJTI4dSUyOSU1RTIlMjklNUUyKyUyQisxMTY2NCpzaW4lMjgyKnUlMjklNUU0KnNpbiUyODMqdSUyOSU1RTIqY29zJTI4Mip1JTI5JTVFMislMkIrNjM1MDQqc2luJTI4Mip1JTI5JTVFNCpjb3MlMjh1JTI5JTVFMipjb3MlMjgyKnUlMjklNUUyJTI5KmNvcyUyOHYlMjkrJm9iajBfcGFyYW1zX3QwPTAmb2JqMF9wYXJhbXNfdDE9MSZvYmowX3BhcmFtc19tdT0xJm9iajFfa2luZD1maWVsZCZvYmoxX2NvbG9yPSUyMzBkMDg4NyZvYmoxX2FuaW1hdGlvbj10cnVlJm9iajFfcGFyYW1zX3gwPS0zJm9iajFfcGFyYW1zX3gxPTMmb2JqMV9wYXJhbXNfeTA9MCZvYmoxX3BhcmFtc195MT0wJm9iajFfcGFyYW1zX3owPS0yJm9iajFfcGFyYW1zX3oxPTImb2JqMV9wYXJhbXNfcD16Jm9iajFfcGFyYW1zX3E9LSt4K3krLSt6KyUyRisyJm9iajFfcGFyYW1zX3I9eiZvYmoxX3BhcmFtc19uVmVjPTY="
                 target="_blank"
                 rel="noopener noreferrer"
                 >hose</a
@@ -451,7 +448,7 @@
               \vec F(x,y,z) = xyz \,\vec i + y \,\vec j + z \,\vec k \] where
               $D$ is the
               <a
-                href="https://3demos.ctl.columbia.edu/?Y3VycmVudENoYXB0ZXI9SG93K1RvJnNjYWxlPTAmc2hvd1BhbmVsPXRydWUmb2JqMF9raW5kPWN1cnZlJm9iajBfY29sb3I9JTIzZmZmZjAwJm9iajBfcGFyYW1zX2E9MCZvYmowX3BhcmFtc19iPXBpKyUyRisyJm9iajBfcGFyYW1zX3g9Y29zJTI4dCUyOSZvYmowX3BhcmFtc195PXNpbiUyOHQlMjkmb2JqMF9wYXJhbXNfej1jb3MlMjh0JTI5JTVFMiZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjNmZmZmMDAmb2JqMV9wYXJhbXNfYT0wJm9iajFfcGFyYW1zX2I9MSZvYmoxX3BhcmFtc194PXQmb2JqMV9wYXJhbXNfeT0wJm9iajFfcGFyYW1zX3o9dCU1RTImb2JqMl9raW5kPWN1cnZlJm9iajJfY29sb3I9JTIzZmZmZjAwJm9iajJfcGFyYW1zX2E9MCZvYmoyX3BhcmFtc19iPTEmb2JqMl9wYXJhbXNfeD0wJm9iajJfcGFyYW1zX3k9dCZvYmoyX3BhcmFtc196PTAmb2JqM19raW5kPWZpZWxkJm9iajNfY29sb3I9JTIzOTMxMGEyJm9iajNfcGFyYW1zX3A9MCZvYmozX3BhcmFtc19xPS0reCt5Jm9iajNfcGFyYW1zX3I9LSt4K3omb2JqM19wYXJhbXNfblZlYz02Jm9iajRfa2luZD1zdXJmYWNlJm9iajRfY29sb3I9JTIzMGQwODg3Jm9iajRfcGFyYW1zX2E9MCZvYmo0X3BhcmFtc19iPTEmb2JqNF9wYXJhbXNfYz0wJm9iajRfcGFyYW1zX2Q9cGkrJTJGKzImb2JqNF9wYXJhbXNfeD11K2NvcyUyOHYlMjkmb2JqNF9wYXJhbXNfeT11K3NpbiUyOHYlMjkmb2JqNF9wYXJhbXNfej11JTVFMitjb3MlMjh2JTI5JTVFMiZvYmo0X3BhcmFtc190MD0wJm9iajRfcGFyYW1zX3QxPTE="
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9Y3VydmUmb2JqMF9jb2xvcj0lMjNmZmZmMDAmb2JqMF9wYXJhbXNfYT0wJm9iajBfcGFyYW1zX2I9cGkrJTJGKzImb2JqMF9wYXJhbXNfeD1jb3MlMjh0JTI5Jm9iajBfcGFyYW1zX3k9c2luJTI4dCUyOSZvYmowX3BhcmFtc196PWNvcyUyOHQlMjklNUUyJm9iajBfcGFyYW1zX2EwPTAmb2JqMF9wYXJhbXNfYTE9MSZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjNmZmZmMDAmb2JqMV9wYXJhbXNfYT0wJm9iajFfcGFyYW1zX2I9MSZvYmoxX3BhcmFtc194PXQmb2JqMV9wYXJhbXNfeT0wJm9iajFfcGFyYW1zX3o9dCU1RTImb2JqMV9wYXJhbXNfYTA9MCZvYmoxX3BhcmFtc19hMT0xJm9iajJfa2luZD1jdXJ2ZSZvYmoyX2NvbG9yPSUyM2ZmZmYwMCZvYmoyX3BhcmFtc19hPTAmb2JqMl9wYXJhbXNfYj0xJm9iajJfcGFyYW1zX3g9MCZvYmoyX3BhcmFtc195PXQmb2JqMl9wYXJhbXNfej0wJm9iajJfcGFyYW1zX2EwPTAmb2JqMl9wYXJhbXNfYTE9MSZvYmozX2tpbmQ9ZmllbGQmb2JqM19jb2xvcj0lMjM5MzEwYTImb2JqM19hbmltYXRpb249dHJ1ZSZvYmozX3BhcmFtc194MD0tMC4xJm9iajNfcGFyYW1zX3gxPTEmb2JqM19wYXJhbXNfeTA9LTAuMSZvYmozX3BhcmFtc195MT0xJm9iajNfcGFyYW1zX3owPS0wLjEmb2JqM19wYXJhbXNfejE9MSZvYmozX3BhcmFtc19wPTAmb2JqM19wYXJhbXNfcT0tK3greSZvYmozX3BhcmFtc19yPS0reCt6Jm9iajNfcGFyYW1zX25WZWM9NiZvYmo0X2tpbmQ9c3VyZmFjZSZvYmo0X2NvbG9yPSUyMzBkMDg4NyZvYmo0X3BhcmFtc19hPTAmb2JqNF9wYXJhbXNfYj0xJm9iajRfcGFyYW1zX2M9MCZvYmo0X3BhcmFtc19kPXBpKyUyRisyJm9iajRfcGFyYW1zX3g9dStjb3MlMjh2JTI5Jm9iajRfcGFyYW1zX3k9dStzaW4lMjh2JTI5Jm9iajRfcGFyYW1zX3o9dSU1RTIrY29zJTI4diUyOSU1RTImb2JqNF9wYXJhbXNfdDA9MCZvYmo0X3BhcmFtc190MT0xJm9iajRfcGFyYW1zX211PTE="
                 target="_blank"
                 rel="noopener noreferrer"
                 >portion of the surface
@@ -499,14 +496,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
         drawer: {
           pathSize: 2,
