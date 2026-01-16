@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>The Color of Air</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script>
+
+    <!-- Add this once (e.g., in your main HTML <head>, or a global CSS file) -->
+    <!-- <style>
+      /* Simple, readable footnote anchored to the slide bottom */
+      .reveal .slides section {
+        position: relative;
+      }
+
+      .reveal .slides section .footnote {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0.75rem;
+        padding: 0 1.25rem;
+        font-size: 0.55em; /* adjust to taste */
+        line-height: 1.2;
+        opacity: 0.85;
+        text-align: left;
+      }
+
+      .reveal .slides section .footnote a {
+        text-decoration: underline;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h4 class="framelabel">
+              SSG Proposal
+              <!-- <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/4KYVfynDKtm"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;</a
+              > -->
+            </h4>
+            <h1>The Color of Air</h1>
+            <h3 class="fragment">
+              The Role Of Visualization In Estimating Triple Integrals
+            </h3>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Background</h6>
+            <ul>
+              <li class="fragment">
+                PI
+                <ul>
+                  <li>Senior Lecturer in Applied Mathematics</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                Class
+                <ul>
+                  <li>
+                    APMA E2000: Multivariable Calculus
+                    <span class="fragment">for Engineers</span
+                    ><span class="fragment"> &amp; Applied Scientists</span>
+                  </li>
+                  <li class="fragment">Required of all SEAS undergraduates</li>
+                  <li class="fragment">~500 students per year</li>
+                  <li class="fragment">Fall '25: 3 lectures; 12 recitations</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">1D Integral</h6>
+            <p class="smaller">\[\int_a^b f(x)\,dx \]</p>
+
+            <div class="r-stretch" style="display: flex; justify-items: center">
+              <div
+                id="box-def-int"
+                class="jxgbox"
+                style="width: 400px; height: 400px"
+              ></div>
+            </div>
+
+            <script type="text/javascript" src="./js/def-int.js"></script>
+          </section>
+          <section>
+            <h6 class="framelabel">2D Integral</h6>
+            <p class="smaller">\[\iint_{\mathcal R} f(x,y)\,dA \]</p>
+            <div class="r-stretch">
+              <iframe
+                src="https://3demos.ctl.columbia.edu/?c2NhbGU9MC40MiZzaG93UGFuZWw9dHJ1ZSZncmlkPWZhbHNlJm9ydGhvPWZhbHNlJm9iajBfa2luZD1ncmFwaCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPS0yJm9iajBfcGFyYW1zX2I9MiZvYmowX3BhcmFtc19jPS0yJm9iajBfcGFyYW1zX2Q9MiZvYmowX3BhcmFtc196PTMrJTJGKzQrKitjb3MlMjgxKngrJTJCKzEqeSUyOSUyRiUyODErJTJCK3glNUUyKyUyQit5JTVFMiUyOSZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTE="
+                frameborder="0"
+                width="100%"
+                height="100%"
+              ></iframe>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Question</h6>
+
+            <p>
+              <em
+                >Does providing a manipulable 3D Model of a solid region and
+                density plot improve students ability to estimate, analyze, and
+                compare triple integrals of scalar fields?</em
+              >
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">3Demos</h6>
+
+            <div class="r-stretch">
+              <iframe
+                src="hhttps://3demos.ctl.columbia.edu/?c2NhbGU9MC4yNiZzaG93UGFuZWw9dHJ1ZSZncmlkPWZhbHNlJm9ydGhvPWZhbHNlJm9iajBfa2luZD1zb2xpZCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19jb29yZHM9c3BoZXImb2JqMF9wYXJhbXNfYT0tcGklMkYyJm9iajBfcGFyYW1zX2I9cGklMkYyJm9iajBfcGFyYW1zX2M9cGkrJTJGKzYmb2JqMF9wYXJhbXNfZD01KyorcGkrJTJGKzYmb2JqMF9wYXJhbXNfZT1jc2MlMjhwaGklMjkrJTJGKzImb2JqMF9wYXJhbXNfZj0xJm9iajBfcGFyYW1zX211PTE="
+                frameborder="0"
+                width="100%"
+                height="100%"
+              ></iframe>
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Framing</h6>
+
+            <p class="smaller">
+              <em
+                >Mathematical objects must never be confused with the semiotic
+                representations used, although there is no access to them other
+                than using semiotic representation.</em
+              >
+            </p>
+
+            <p style="font-size: small">
+              Duval, R. (2006). A Cognitive Analysis of Problems of
+              Comprehension in a Learning of Mathematics. Educational Studies in
+              Mathematics, 61(1/2), 103–131.
+              <a href="https://doi-org/10.1007/s10649-006-0400-z"
+                >https://doi-org/10.1007/s10649-006-0400-z</a
+              >
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">Framing</h6>
+
+            <h3>The Differential Case</h3>
+
+            <div class="r-stretch">
+              <img
+                src="mcgee.png"
+                alt="A directional derivative question with a table of results for control and treatment groups."
+                srcset=""
+                height="100%"
+              />
+            </div>
+
+            <hr />
+            <div style="text-align: left; font-size: x-small">
+              McGee &amp; Moore-Russo (2015),
+              <em>Int. J. Sci. Math. Educ.</em> 13(S2), 357–384; DOI
+              <a
+                href="https://doi.org/10.1007/s10763-014-9542-0"
+                target="_blank"
+                rel="noopener noreferrer"
+                >10.1007/s10763-014-9542-0</a
+              >
+            </div>
+          </section>
+        </section>
+        <section>
+          <section><h1>Intervention</h1></section>
+          <section>
+            <h6 class="framelabel">Embedded Assessments</h6>
+            <ul>
+              <li class="fragment">Weekly Recitation - Effort/Participation</li>
+              <li class="fragment">Problem Sets</li>
+              <li class="fragment">Weekly Asynchronous Quizzes</li>
+              <li class="fragment">2 In-class Midterms</li>
+              <li class="fragment">Final Exam</li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Assessment</h6>
+            <ul>
+              <li class="fragment">
+                Quizzes - easy to randomize with extra prompt to graph
+              </li>
+              <li class="fragment">Ethical/IRB issues</li>
+              <li class="fragment">Limited impact</li>
+            </ul>
+          </section>
+          <section>
+            <h6 class="framelabel">Extension</h6>
+
+            <p>
+              The real hope is that for still more complex (abstract) integals
+              to come, students will "make their own registers."
+            </p>
+
+            <ul>
+              <li class="fragment">
+                Line integrals $\int_C \mathbf F \cdot d\mathbf r$
+              </li>
+              <li class="fragment">Surface integrals $\iint_\Omega f\,dS$</li>
+              <li class="fragment">
+                Flux integrals $\iint_\Omega \mathbf F\cdot d\mathbf S$
+              </li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+        drawer: {
+          pathSize: 2,
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+          RevealDrawer,
+        ],
+      });
+    </script>
+  </body>
+</html>
