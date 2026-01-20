@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
     <link rel="stylesheet" href="reveal.js/dist/theme/dracula.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
@@ -49,7 +50,15 @@
             <h1>Welcome to</h1>
             <h2>APMA E2000</h2>
             <h3>Multi</h3>
-            <p>Drew Youngren <code>dcy2@columbia.edu</code></p>
+            <p>
+              Drew Youngren <code>dcy2@columbia.edu</code>
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/2gvWrDp1MDj"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+              >
+            </p>
           </section>
         </section>
         <section>
@@ -57,55 +66,46 @@
             <h1>Logistics</h1>
           </section>
           <section>
-            <h2>Courseworks</h2>
-            <p>aka Canvas</p>
-            <p>
-              <a
-                href="https://courseworks2.columbia.edu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><code>courseworks2.columbia.edu</code></a
-              >
-            </p>
             <ul>
-              <li class="fragment">Syllabus</li>
-              <li class="fragment">Assignments</li>
-              <li class="fragment">Links</li>
-              <li class="fragment">Grades</li>
+              <li class="fragment">
+                <a
+                  href="https://courseworks2.columbia.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Courseworks</a
+                >
+                (Canvas)
+                <ul>
+                  <li>Syllabus, Assignments, Gradebook</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://gradescope.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Gradescope
+                </a>
+                <ul>
+                  <li>Submit HW, remote Quizzes</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                <a
+                  href="https://edstem.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >EdStem</a
+                >
+                <ul>
+                  <li>Announcement, Discussions</li>
+                </ul>
+              </li>
+              <li class="fragment">See Homework 0, due Friday</li>
             </ul>
           </section>
-          <section>
-            <h2>Gradescope</h2>
-            <p>
-              <a
-                href="https://gradescope.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <code>gradescope.com</code>
-              </a>
-            </p>
-            <ul>
-              <li class="fragment">Submit HW</li>
-              <li class="fragment"><strike>Take quizzes</strike></li>
-            </ul>
-          </section>
-          <section>
-            <h2>Ed Discussions</h2>
-            <p>
-              <a
-                href="https://edstem.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><code>edstem.org</code></a
-              >
-            </p>
-            <ul>
-              <li class="fragment">Announcements</li>
-              <li class="fragment">Discussion</li>
-              <li class="fragment">Q&amp;A</li>
-            </ul>
-          </section>
+
           <section>
             <h2>
               <a
@@ -163,14 +163,21 @@
           <section>
             <h3>$\mathbb{R}$ &nbsp;&nbsp; The Real Numbers</h3>
 
-            <p>aka "scalars". The complete, ordered field.</p>
+            <p>aka <strong>scalars</strong>. The complete, ordered field.</p>
           </section>
           <section>
             <h3>$\mathbb{R}^2$ &nbsp;&nbsp; The Cartesian Plane</h3>
             \[ \mathbb{R}^2 = \{ (x,y) \mid x,y \in \mathbb{R} \} \]
           </section>
           <section>
-            <h3>$\mathbb{R}^3$ &nbsp;&nbsp; 3-space</h3>
+            <h3>
+              $\mathbb{R}^3$ &nbsp;&nbsp;
+              <a
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZQ=="
+                target="_blank"
+                >3-space</a
+              >
+            </h3>
             \[ \mathbb{R}^3 = \{ (x,y,z) \mid x,y,z \in \mathbb{R} \} \]
           </section>
           <section>
@@ -578,6 +585,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/math/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
 
     <script>
       // More info about initialization & config:
@@ -586,14 +594,17 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: "latest",
+          version: 'latest',
           delimiters: [
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
           ],
-          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+        drawer: {
+          pathSize: 2,
         },
 
         // Learn about plugins: https://revealjs.com/plugins/
@@ -602,6 +613,7 @@
           RevealHighlight,
           RevealNotes,
           RevealMath.KaTeX,
+          RevealDrawer,
         ],
       });
     </script>
