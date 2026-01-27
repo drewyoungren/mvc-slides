@@ -283,7 +283,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{808, 816},
-WindowMargins->{{Automatic, -1054}, {Automatic, -71}},
+WindowMargins->{{Automatic, -1001}, {Automatic, -77}},
 Magnification->2.,
 FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
 StyleDefinitions->"ReverseColor.nb",
@@ -322,7 +322,7 @@ Cell[6845, 229, 509, 15, 84, "Output",ExpressionUUID->"030e7497-fcba-48e9-b81f-e
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[7391, 249, 953, 26, 86, "Input",ExpressionUUID->"7ead11e0-7d86-4e91-a72a-5d2edb3a1da2"],
-Cell[8347, 277, 238, 4, 73, "Output",ExpressionUUID->"1e99a27c-2d66-483f-858b-71c52bb79ec4"]
+Cell[8347, 277, 238, 4, 66, "Output",ExpressionUUID->"1e99a27c-2d66-483f-858b-71c52bb79ec4"]
 }, Open  ]]
 }
 ]
