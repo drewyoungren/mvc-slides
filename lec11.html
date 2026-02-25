@@ -63,17 +63,9 @@
             <h2>Announcements</h2>
 
             <ul>
-              <li class="fragment">
-                Exam Thursday
-                <ul>
-                  <li>Review session Wednesday 10am–12pm</li>
-                  <li>See email for seat assignment</li>
-                </ul>
-              </li>
-              <li class="fragment">
-                Recitation optional (office hours) this week
-              </li>
-              <li class="fragment">HW6 due 10/21</li>
+              <li class="fragment">Recitation 5/6 this week</li>
+              <li class="fragment">No quiz this week</li>
+              <li class="fragment">HW6 due next Tues</li>
             </ul>
           </section>
         </section>
@@ -104,25 +96,36 @@
             </p>
           </section>
           <section>
-            <h6 class="framelabel">Quick Example</h6>
+            <h6 class="framelabel">Example</h6>
 
             <p>
-              Show that any function of the form $f(x,y) = g(x^2 + y^2)$ where
-              $g$ is a differentiable function is symmetric in $\theta$ (the
-              usual polar coordinate). That is, \[ \frac{\partial f}{\partial
-              \theta} = 0.\]
+              Suppose $f(0,0) = g(0,0) = 0$ for differentiable functions $f$ and
+              $g$ and \[ \nabla f(0,0) = \langle 1, 2 \rangle \qquad \nabla
+              g(0,0) = \langle 3, 4 \rangle.\]
             </p>
+            <p>
+              Compute \[ \frac{\partial}{\partial y} \left(g(2x - y,
+              f(x,y))\right) \Big\vert_{x=0, y=0} \]
+            </p>
+            <div class="fragment">
+              \[ = \frac{\partial g}{\partial x} \frac{\partial (2x -
+              y)}{\partial y} + \frac{\partial g}{\partial y} \frac{\partial
+              f}{\partial y} = 3(-1) + 4(2) = 5\]
+            </div>
           </section>
           <section>
-            <p><strong>Solution</strong>.</p>
-            <p class="fragment">
-              $x = r\cos \theta, y = r\sin \theta$. So, \[\frac{\partial
-              f}{\partial \theta} = \frac{\partial f}{\partial x}\frac{\partial
-              x}{\partial \theta} + \frac{\partial f}{\partial y}\frac{\partial
-              y}{\partial \theta} \] \[ = g'(x^2 + y^2)2x (-r\sin\theta) +
-              g'(x^2 + y^2)2y (r\cos\theta)\] \[ = g'(r^2)2r^2
-              (-\sin\theta\cos\theta + \cos\theta\sin\theta) = 0\]
+            <h6 class="framelabel">Follow-up</h6>
+
+            <p>
+              Suppose $f(0,0) = g(0,0) = 0$ for differentiable functions $f$ and
+              $g$ and \[ \nabla f(0,0) = \langle 1, 2 \rangle \qquad \nabla
+              g(0,0) = \langle 3, 4 \rangle.\]
             </p>
+            <p>
+              \[ \frac{\partial g}{\partial y} (2x - y, f(x,y)) \Big\vert_{x=0,
+              y=0} = 4\]
+            </p>
+            <div class="r-stretch"></div>
           </section>
         </section>
         <section>
@@ -430,14 +433,14 @@
       Reveal.initialize({
         hash: true,
         katex: {
-          version: 'latest',
+          version: "latest",
           delimiters: [
-            { left: '$', right: '$', display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
           ],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre"],
         },
         drawer: {
           pathSize: 2,
