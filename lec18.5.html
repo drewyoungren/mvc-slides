@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>APMA E2000 - Conservative Vector Fields &amp; FTLI</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/league.css" />
+    <link rel="stylesheet" href="plugin/drawer/drawer.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- local styles -->
+    <link rel="stylesheet" href="css/mvc-slides.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://jsxgraph.org/distrib/jsxgraph.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://jsxgraph.org/distrib/jsxgraphcore.js"
+    ></script> -->
+    <style>
+      .griddy {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: space-around;
+      }
+      .item {
+        flex: 0 0 calc((100% - 2 * 16px) / 3);
+        text-align: center;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h3 class="framelabel">
+              Lecture 18.5
+              <a
+                href="https://link.excalidraw.com/l/2VYuQqjhg2J/2udowbmhK4z"
+                target="_blank"
+                rel="noopener noreferrer"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+              >
+            </h3>
+            <h1>More Line Integrals</h1>
+            <h2>APMA E2000</h2>
+            <div class="r-stretch"></div>
+            <p style="text-align: right">
+              Drew Youngren <code>dcy2@columbia.edu</code>
+              <!-- <span style="font-size: xx-small"
+                ><a
+                  href="https://onlineboard.eu/b/VjSxXeGk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >bb</a
+                ></span
+              > -->
+            </p>
+          </section>
+          <section>
+            <!-- Set up standard LaTeX macros -->
+            $\gdef\RR{\mathbb{R}}$ $\gdef\vec{\mathbf}$
+            $\gdef\bv#1{\begin{bmatrix} #1 \end{bmatrix}}$
+            $\gdef\proj{\operatorname{proj}}$ $\gdef\comp{\operatorname{comp}}$
+            <h2>Announcements</h2>
+
+            <ul>
+              <ul>
+                <li class="fragment">No quiz this week</li>
+                <li class="fragment">HW 11 due next Tues</li>
+                <li class="fragment">Recitation as usual</li>
+              </ul>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Alternate Forms</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">In Components</h6>
+
+            <div class="fragment" style="font-size: smaller">
+              $\vec F(x,y) = \left\langle P(x,y), Q(x,y) \right\rangle$ <br />
+              and $\vec r(t) = \langle x(t), y(t) \rangle, a \leq t \leq b$
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[\int\limits_{\mathcal C} \vec F\cdot d\vec r = \int_a^b \langle
+              P(x(t),y(t)), Q(x(t),y(t)) \rangle\cdot \langle x'(t),
+              y'(t)\rangle \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[ = \int_a^b P(x(t),y(t)) \, x'(t)\,dt + Q(x(t),y(t))\, y'(t)
+              \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[ = \int\limits_{\mathcal C} P\,dx + Q\,dy\]
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Per Arc Length</h6>
+
+            <div class="fragment" style="font-size: smaller">
+              \[\int\limits_{\mathcal C} \vec F\cdot d\vec r = \int_a^b \vec
+              F(\vec r(t))\cdot \vec r'(t) \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[= \int_a^b \vec F(\vec r(t))\cdot \frac{ \vec r'(t) }{|\vec
+              r'(t)|} |\vec r'(t)| \,dt\]
+            </div>
+
+            <div class="fragment" style="font-size: smaller">
+              \[ = \int\limits_{\mathcal C} \vec F \cdot \vec T\,ds \]
+            </div>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <p>
+              $C$ is the triangle connecting $(-1, 0)$, $(1,1)$, and $(1,0)$.<br />
+              Order the following line integrals from least to greatest.
+            </p>
+            <div class="griddy">
+              <div class="item r-frame">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz10cnVlJm9iajBfa2luZD1maWVsZCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc194MD0tMSZvYmowX3BhcmFtc194MT0xJm9iajBfcGFyYW1zX3kwPS0xJm9iajBfcGFyYW1zX3kxPTEmb2JqMF9wYXJhbXNfejA9MCZvYmowX3BhcmFtc196MT0wJm9iajBfcGFyYW1zX3A9eSZvYmowX3BhcmFtc19xPTAmb2JqMF9wYXJhbXNfcj0wJm9iajBfcGFyYW1zX25WZWM9MTAmb2JqMV9raW5kPWN1cnZlJm9iajFfY29sb3I9JTIzYWE3OTQyJm9iajFfcGFyYW1zX2E9LTEmb2JqMV9wYXJhbXNfYj00Jm9iajFfcGFyYW1zX3g9dCslM0MrMSslM0YrdCslM0ErdCslM0MrMislM0YrMSslM0ErMystK3Qmb2JqMV9wYXJhbXNfeT10KyUzQysxKyUzRit0KyUyRisyKyUyQisxJTJGMislM0ErdCslM0MrMislM0YrMistK3QrJTNBKzAmb2JqMV9wYXJhbXNfej0wJm9iajFfcGFyYW1zX2EwPTAmb2JqMV9wYXJhbXNfYTE9MQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  $\int_C y\,dx$
+                </a>
+              </div>
+              <div class="item r-frame">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9ZmllbGQmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfeDA9LTEmb2JqMF9wYXJhbXNfeDE9MSZvYmowX3BhcmFtc195MD0tMSZvYmowX3BhcmFtc195MT0xJm9iajBfcGFyYW1zX3owPTAmb2JqMF9wYXJhbXNfejE9MCZvYmowX3BhcmFtc19wPXgmb2JqMF9wYXJhbXNfcT0wJm9iajBfcGFyYW1zX3I9MCZvYmowX3BhcmFtc19uVmVjPTEwJm9iajFfa2luZD1jdXJ2ZSZvYmoxX2NvbG9yPSUyM2FhNzk0MiZvYmoxX3BhcmFtc19hPS0xJm9iajFfcGFyYW1zX2I9NCZvYmoxX3BhcmFtc194PXQrJTNDKzErJTNGK3QrJTNBK3QrJTNDKzIrJTNGKzErJTNBKzMrLSt0Jm9iajFfcGFyYW1zX3k9dCslM0MrMSslM0YrdCslMkYrMislMkIrMSUyRjIrJTNBK3QrJTNDKzIrJTNGKzIrLSt0KyUzQSswJm9iajFfcGFyYW1zX3o9MCZvYmoxX3BhcmFtc19hMD0wJm9iajFfcGFyYW1zX2ExPTE="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  $\int_C x\,dx$
+                </a>
+              </div>
+              <div class="item r-frame">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9ZmllbGQmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfeDA9LTEmb2JqMF9wYXJhbXNfeDE9MSZvYmowX3BhcmFtc195MD0tMSZvYmowX3BhcmFtc195MT0xJm9iajBfcGFyYW1zX3owPTAmb2JqMF9wYXJhbXNfejE9MCZvYmowX3BhcmFtc19wPTAmb2JqMF9wYXJhbXNfcT14Jm9iajBfcGFyYW1zX3I9MCZvYmowX3BhcmFtc19uVmVjPTEwJm9iajFfa2luZD1jdXJ2ZSZvYmoxX2NvbG9yPSUyM2FhNzk0MiZvYmoxX3BhcmFtc19hPS0xJm9iajFfcGFyYW1zX2I9NCZvYmoxX3BhcmFtc194PXQrJTNDKzErJTNGK3QrJTNBK3QrJTNDKzIrJTNGKzErJTNBKzMrLSt0Jm9iajFfcGFyYW1zX3k9dCslM0MrMSslM0YrdCslMkYrMislMkIrMSUyRjIrJTNBK3QrJTNDKzIrJTNGKzIrLSt0KyUzQSswJm9iajFfcGFyYW1zX3o9MCZvYmoxX3BhcmFtc19hMD0wJm9iajFfcGFyYW1zX2ExPTE="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  $\int_C x\,dy$
+                </a>
+              </div>
+              <div class="item r-frame">
+                <a
+                  href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9ZmllbGQmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfeDA9LTEmb2JqMF9wYXJhbXNfeDE9MSZvYmowX3BhcmFtc195MD0tMSZvYmowX3BhcmFtc195MT0xJm9iajBfcGFyYW1zX3owPTAmb2JqMF9wYXJhbXNfejE9MCZvYmowX3BhcmFtc19wPXkmb2JqMF9wYXJhbXNfcT0teCZvYmowX3BhcmFtc19yPTAmb2JqMF9wYXJhbXNfblZlYz0xMCZvYmoxX2tpbmQ9Y3VydmUmb2JqMV9jb2xvcj0lMjNhYTc5NDImb2JqMV9wYXJhbXNfYT0tMSZvYmoxX3BhcmFtc19iPTQmb2JqMV9wYXJhbXNfeD10KyUzQysxKyUzRit0KyUzQSt0KyUzQysyKyUzRisxKyUzQSszKy0rdCZvYmoxX3BhcmFtc195PXQrJTNDKzErJTNGK3QrJTJGKzIrJTJCKzElMkYyKyUzQSt0KyUzQysyKyUzRisyKy0rdCslM0ErMCZvYmoxX3BhcmFtc196PTAmb2JqMV9wYXJhbXNfYTA9MCZvYmoxX3BhcmFtc19hMT0x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  $\int_C y\,dx - x\,dy$
+                </a>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Conservative Fields</h1>
+          </section>
+          <section>
+            <h6 class="framelabel">Exercise</h6>
+
+            <p>Which vector field below is conservative?</p>
+
+            <ol style="list-style-type: upper-alpha">
+              <li>
+                <a
+                  href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9ZmllbGQmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfeDA9LTEmb2JqMF9wYXJhbXNfeDE9MSZvYmowX3BhcmFtc195MD0tMSZvYmowX3BhcmFtc195MT0xJm9iajBfcGFyYW1zX3owPTAmb2JqMF9wYXJhbXNfejE9MCZvYmowX3BhcmFtc19wPXgmb2JqMF9wYXJhbXNfcT0wJm9iajBfcGFyYW1zX3I9MCZvYmowX3BhcmFtc19uVmVjPTEw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >$x\,\mathbf i$</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9ZmllbGQmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfeDA9LTEmb2JqMF9wYXJhbXNfeDE9MSZvYmowX3BhcmFtc195MD0tMSZvYmowX3BhcmFtc195MT0xJm9iajBfcGFyYW1zX3owPTAmb2JqMF9wYXJhbXNfejE9MCZvYmowX3BhcmFtc19wPTAmb2JqMF9wYXJhbXNfcT14Jm9iajBfcGFyYW1zX3I9MCZvYmowX3BhcmFtc19uVmVjPTEw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  $x\,\mathbf j$
+                </a>
+              </li>
+              <li>both of these</li>
+              <li>neither of these</li>
+            </ol>
+          </section>
+          <section>
+            <h6 class="framelabel">Example</h6>
+            <div class="container">
+              <div class="col">
+                <p style="font-size: smaller">
+                  Compute the line integral \[\int_C (x^2 - xy)\,dx + (y-
+                  \frac{x^2}{2} + 2)\,dy \] where $C$ is the polygonal path from
+                  $(2,0)$ to $(0,0)$ to $(2,1)$ to $(0,1)$.
+                </p>
+              </div>
+              <div class="col">
+                <img
+                  src="assets/zpath.png"
+                  alt="Z-shaped path in a vector field"
+                  srcset=""
+                  class="r-stretch"
+                />
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \text{W} = \int\limits_C \vec F\cdot d\vec r\]
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \text{W} = \int\limits_C \vec F\cdot d\vec r = f(\vec r(a)) -
+            f(\vec r(b))\]
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \begin{align*}\text{W} &= \int_a^b m\vec r''(t)\cdot \vec
+            r'(t)\,dt \\ &= \int_a^b \frac{d}{dt}\left(\frac12 m \vec r'(t)
+            \cdot \vec r'(t) \right)\,dt \\ &= \frac12 m |\vec r'(b)|^2 -
+            \frac12 m |\vec r'(a)|^2 \end{align*}\]
+          </section>
+          <section data-auto-animate>
+            <h6 class="framelabel">Conservation of Energy</h6>
+
+            <p style="font-size: smaller">
+              Suppose a force is given by $\vec F = -\nabla f$ and a particle of
+              mass $m$ traverses a path $\vec r(t), a \leq t \leq b$.
+            </p>
+
+            \[ \frac12 m |\vec r'(b)|^2 + f(\vec r(b)) = \frac12 m |\vec
+            r'(a)|^2 + f(\vec r(a)) \]
+          </section>
+          <section>
+            <h6 class="framelabel">Escape Velocity</h6>
+
+            <p style="font-size: smaller">
+              The Gravitational force from a mass $M$ at the origin on a mass
+              $m$ at position $\vec x$ is \[ \vec G = -\frac{GMm \vec x}{|\vec
+              x|^3}. \] Find the work done moving an object from the
+              <a
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MC40MiZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9ZmllbGQmb2JqMF9jb2xvcj0lMjMwMDAwMDAmb2JqMF9hbmltYXRpb249dHJ1ZSZvYmowX3BhcmFtc194MD0tMyZvYmowX3BhcmFtc194MT0zJm9iajBfcGFyYW1zX3kwPS0zJm9iajBfcGFyYW1zX3kxPTMmb2JqMF9wYXJhbXNfejA9LTMmb2JqMF9wYXJhbXNfejE9MyZvYmowX3BhcmFtc19wPXglNUUyKyUyQit5JTVFMislMkIreiU1RTIrJTNDKzErJTNGKy14KyUzQSsteCslMkYrc3FydCUyOHglNUUyKyUyQit5JTVFMislMkIreiU1RTIlMjklNUUzJm9iajBfcGFyYW1zX3E9eCU1RTIrJTJCK3klNUUyKyUyQit6JTVFMislM0MrMSslM0YrLXkrJTNBKy15KyUyRitzcXJ0JTI4eCU1RTIrJTJCK3klNUUyKyUyQit6JTVFMiUyOSU1RTMmb2JqMF9wYXJhbXNfcj14JTVFMislMkIreSU1RTIrJTJCK3olNUUyKyUzQysxKyUzRisteislM0ErLXorJTJGK3NxcnQlMjh4JTVFMislMkIreSU1RTIrJTJCK3olNUUyJTI5JTVFMyZvYmowX3BhcmFtc19uVmVjPTgmb2JqMV9raW5kPXNvbGlkJm9iajFfY29sb3I9JTIzMGQwODg3Jm9iajFfcGFyYW1zX2Nvb3Jkcz1zcGhlciZvYmoxX3BhcmFtc19hPTAmb2JqMV9wYXJhbXNfYj0yK3BpJm9iajFfcGFyYW1zX2M9MCZvYmoxX3BhcmFtc19kPXBpJm9iajFfcGFyYW1zX2U9MCZvYmoxX3BhcmFtc19mPTEmb2JqMV9wYXJhbXNfbXU9YXRhbjIlMjh6JTJDK3NxcnQlMjh4JTVFMislMkIreSU1RTIlMjklMjkqc2luJTI4YXRhbjIlMjh5JTJDK3glMjklMjk="
+                target="_blank"
+                rel="noopener noreferrer"
+                >surface of the earth</a
+              >
+              to the end of the universe.
+            </p>
+          </section>
+          <section>
+            <h6 class="framelabel">On Earth</h6>
+            <div class="fragment" style="font-size: smaller">
+              \[\begin{align*}G &= 6.674 \times 10^{-11}
+              \frac{\text{N}\text{m}^2}{\text{kg}^2} \\ M &= 5.97\times10^{24}
+              \text{kg} \\ R &= 6.371\times 10^{6} \text{m} \end{align*}\]
+              Escape velocity is $\sqrt{\frac{2GM}{R}} = 11183.9
+              \frac{\text{m}}{\text{s}}$.
+            </div>
+          </section>
+        </section>
+        <section>
+          <section><h1>Learning Outcomes</h1></section>
+          <section id="learning-outcomes">
+            <h6 class="framelabel">You should be able to...</h6>
+            <ul>
+              <li>
+                Interpret a line integral of a vector field as sum of line
+                integrals of scalar fields.
+              </li>
+              <li>
+                Determine if a vector field is conservative and find a potential
+                if so.
+              </li>
+              <li>Recognize when and how to apply FTLI.</li>
+              <li>Equate path-independence with closed loops yielding 0.</li>
+              <li>Solve mechanical problems with conservative forces.</li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/dist/plugin/notes.js"></script>
+    <script src="reveal.js/dist/plugin/markdown.js"></script>
+    <script src="reveal.js/dist/plugin/highlight.js"></script>
+    <script src="reveal.js/dist/plugin/math.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        katex: {
+          version: 'latest',
+          delimiters: [
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        },
+        drawer: {
+          pathSize: 2,
+        },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+          RevealDrawer,
+        ],
+      });
+    </script>
+  </body>
+</html>
