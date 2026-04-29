@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ephemeral WebRTC Chat Prototype</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #111827;
+      --panel: #1f2937;
+      --panel-2: #111827;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --accent: #60a5fa;
+      --ok: #34d399;
+      --warn: #fbbf24;
+      --err: #f87171;
+      --border: #374151;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0b1020, #111827);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1, h2, h3 { margin: 0 0 12px; }
+    p { color: var(--muted); line-height: 1.5; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+    .card {
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+    button, input, textarea, select {
+      font: inherit;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0f172a;
+      color: var(--text);
+      padding: 10px 12px;
+    }
+    button {
+      cursor: pointer;
+      background: #1d4ed8;
+      border-color: #2563eb;
+    }
+    button.secondary { background: #1f2937; }
+    button.good { background: #065f46; border-color: #10b981; }
+    button.warn { background: #78350f; border-color: #f59e0b; }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+    input, textarea, select { width: 100%; }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .status.ok { color: var(--ok); border-color: rgba(52, 211, 153, 0.35); }
+    .status.warn { color: var(--warn); border-color: rgba(251, 191, 36, 0.35); }
+    .status.err { color: var(--err); border-color: rgba(248, 113, 113, 0.35); }
+    .log {
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      min-height: 220px;
+      max-height: 380px;
+      overflow: auto;
+    }
+    .msg {
+      padding: 8px 10px;
+      margin: 8px 0;
+      border-radius: 10px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(71, 85, 105, 0.5);
+    }
+    .msg.me {
+      border-color: rgba(96, 165, 250, 0.4);
+      background: rgba(30, 64, 175, 0.25);
+    }
+    .tiny {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    code.inline {
+      background: rgba(255,255,255,0.06);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    .steps li { margin: 8px 0; color: var(--muted); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Ephemeral WebRTC Chat Prototype</h1>
+    <p>
+      One static file. No application backend. STUN only. Manual out-of-band signaling.
+      This first cut supports <strong>one presenter</strong> and <strong>one attendee connection at a time</strong>.
+      It is intentionally dumb so we can verify the handshake.
+    </p>
+
+    <div class="card">
+      <h2>How to test</h2>
+      <ol class="steps">
+        <li>Open this file in two separate browsers or devices. Use Presenter mode on one side and Attendee mode on the other.</li>
+        <li>Presenter clicks <span class="mono">Create invite</span> and copies the blob into the attendee's <span class="mono">Presenter invite blob</span> field.</li>
+        <li>Attendee clicks <span class="mono">Create answer</span> and copies the returned blob back into the presenter's <span class="mono">Attendee answer blob</span> field.</li>
+        <li>Wait a few seconds for ICE to finish. If the data channel opens, chat should work.</li>
+      </ol>
+      <p class="tiny">
+        This prototype uses the public STUN server <code class="inline">stun:stun.l.google.com:19302</code>. There is no TURN fallback, so some networks will fail.
+      </p>
+    </div>
+
+    <div class="grid" style="margin-top: 16px;">
+      <section class="card">
+        <h2>Presenter</h2>
+        <div id="presenterStatus" class="status">Idle</div>
+        <div class="row">
+          <button id="presenterCreate" class="good">Create invite</button>
+          <button id="presenterReset" class="secondary">Reset presenter</button>
+        </div>
+
+        <label for="presenterOffer">Invite blob</label>
+        <textarea id="presenterOffer" placeholder="Presenter offer JSON appears here"></textarea>
+        <div class="row">
+          <button id="copyPresenterOffer" class="secondary">Copy invite</button>
+        </div>
+
+        <label for="presenterAnswer">Attendee answer blob</label>
+        <textarea id="presenterAnswer" placeholder="Paste attendee answer JSON here"></textarea>
+        <div class="row">
+          <button id="presenterAcceptAnswer">Accept answer</button>
+        </div>
+
+        <h3 style="margin-top: 16px;">Send chat</h3>
+        <input id="presenterChatInput" placeholder="Message from presenter" />
+        <div class="row">
+          <button id="presenterSend" disabled>Send</button>
+        </div>
+
+        <div id="presenterLog" class="log" aria-live="polite"></div>
+      </section>
+
+      <section class="card">
+        <h2>Attendee</h2>
+        <div id="attendeeStatus" class="status">Idle</div>
+        <div class="row">
+          <button id="attendeeReset" class="secondary">Reset attendee</button>
+        </div>
+
+        <label for="attendeeOffer">Presenter invite blob</label>
+        <textarea id="attendeeOffer" placeholder="Paste presenter invite JSON here"></textarea>
+        <div class="row">
+          <button id="attendeeCreateAnswer" class="good">Create answer</button>
+        </div>
+
+        <label for="attendeeAnswer">Answer blob</label>
+        <textarea id="attendeeAnswer" placeholder="Attendee answer JSON appears here"></textarea>
+        <div class="row">
+          <button id="copyAttendeeAnswer" class="secondary">Copy answer</button>
+        </div>
+
+        <h3 style="margin-top: 16px;">Send chat</h3>
+        <input id="attendeeChatInput" placeholder="Message from attendee" />
+        <div class="row">
+          <button id="attendeeSend" disabled>Send</button>
+        </div>
+
+        <div id="attendeeLog" class="log" aria-live="polite"></div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const ICE_SERVERS = [{ urls: 'stun:stun.l.google.com:19302' }];
+
+    const presenter = {
+      pc: null,
+      dc: null,
+      gatheringComplete: null,
+    };
+
+    const attendee = {
+      pc: null,
+      dc: null,
+      gatheringComplete: null,
+    };
+
+    const els = {
+      presenterStatus: document.getElementById('presenterStatus'),
+      attendeeStatus: document.getElementById('attendeeStatus'),
+      presenterOffer: document.getElementById('presenterOffer'),
+      presenterAnswer: document.getElementById('presenterAnswer'),
+      attendeeOffer: document.getElementById('attendeeOffer'),
+      attendeeAnswer: document.getElementById('attendeeAnswer'),
+      presenterLog: document.getElementById('presenterLog'),
+      attendeeLog: document.getElementById('attendeeLog'),
+      presenterChatInput: document.getElementById('presenterChatInput'),
+      attendeeChatInput: document.getElementById('attendeeChatInput'),
+      presenterSend: document.getElementById('presenterSend'),
+      attendeeSend: document.getElementById('attendeeSend'),
+    };
+
+    function setStatus(el, text, cls = '') {
+      el.textContent = text;
+      el.className = `status ${cls}`.trim();
+    }
+
+    function log(which, text, cls = '') {
+      const box = which === 'presenter' ? els.presenterLog : els.attendeeLog;
+      const div = document.createElement('div');
+      div.className = `msg ${cls}`.trim();
+      div.textContent = text;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function safeParseJson(text) {
+      try {
+        return JSON.parse(text);
+      } catch {
+        return null;
+      }
+    }
+
+    function waitForIceComplete(pc) {
+      return new Promise((resolve) => {
+        if (pc.iceGatheringState === 'complete') {
+          resolve();
+          return;
+        }
+        function checkState() {
+          if (pc.iceGatheringState === 'complete') {
+            pc.removeEventListener('icegatheringstatechange', checkState);
+            resolve();
+          }
+        }
+        pc.addEventListener('icegatheringstatechange', checkState);
+      });
+    }
+
+    function snapshotDescription(pc) {
+      return {
+        type: pc.localDescription?.type,
+        sdp: pc.localDescription?.sdp,
+      };
+    }
+
+    function buildPeerConnection(role) {
+      const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS });
+
+      pc.addEventListener('iceconnectionstatechange', () => {
+        const text = `ICE ${pc.iceConnectionState}`;
+        if (role === 'presenter') {
+          setStatus(els.presenterStatus, text, pc.iceConnectionState === 'connected' || pc.iceConnectionState === 'completed' ? 'ok' : pc.iceConnectionState === 'failed' ? 'err' : 'warn');
+        } else {
+          setStatus(els.attendeeStatus, text, pc.iceConnectionState === 'connected' || pc.iceConnectionState === 'completed' ? 'ok' : pc.iceConnectionState === 'failed' ? 'err' : 'warn');
+        }
+        log(role, `ICE state: ${pc.iceConnectionState}`);
+      });
+
+      pc.addEventListener('connectionstatechange', () => {
+        log(role, `Peer connection state: ${pc.connectionState}`);
+      });
+
+      return pc;
+    }
+
+    function attachDataChannel(role, dc) {
+      const sendButton = role === 'presenter' ? els.presenterSend : els.attendeeSend;
+      const input = role === 'presenter' ? els.presenterChatInput : els.attendeeChatInput;
+
+      dc.addEventListener('open', () => {
+        sendButton.disabled = false;
+        if (role === 'presenter') {
+          setStatus(els.presenterStatus, 'Data channel open', 'ok');
+        } else {
+          setStatus(els.attendeeStatus, 'Data channel open', 'ok');
+        }
+        log(role, 'Data channel opened.');
+      });
+
+      dc.addEventListener('close', () => {
+        sendButton.disabled = true;
+        log(role, 'Data channel closed.');
+      });
+
+      dc.addEventListener('message', (event) => {
+        let payload;
+        try {
+          payload = JSON.parse(event.data);
+        } catch {
+          payload = { from: 'remote', text: String(event.data) };
+        }
+        log(role, `${payload.from}: ${payload.text}`);
+      });
+
+      input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          sendChat(role);
+        }
+      });
+    }
+
+    function sendChat(role) {
+      const state = role === 'presenter' ? presenter : attendee;
+      const input = role === 'presenter' ? els.presenterChatInput : els.attendeeChatInput;
+      if (!state.dc || state.dc.readyState !== 'open') return;
+      const text = input.value.trim();
+      if (!text) return;
+      state.dc.send(JSON.stringify({ from: role, text, ts: Date.now() }));
+      log(role, `${role}: ${text}`, 'me');
+      input.value = '';
+    }
+
+    function resetPresenter() {
+      if (presenter.dc) presenter.dc.close();
+      if (presenter.pc) presenter.pc.close();
+      presenter.pc = null;
+      presenter.dc = null;
+      els.presenterOffer.value = '';
+      els.presenterAnswer.value = '';
+      els.presenterSend.disabled = true;
+      els.presenterLog.innerHTML = '';
+      setStatus(els.presenterStatus, 'Idle');
+      log('presenter', 'Presenter reset.');
+    }
+
+    function resetAttendee() {
+      if (attendee.dc) attendee.dc.close();
+      if (attendee.pc) attendee.pc.close();
+      attendee.pc = null;
+      attendee.dc = null;
+      els.attendeeOffer.value = '';
+      els.attendeeAnswer.value = '';
+      els.attendeeSend.disabled = true;
+      els.attendeeLog.innerHTML = '';
+      setStatus(els.attendeeStatus, 'Idle');
+      log('attendee', 'Attendee reset.');
+    }
+
+    async function createPresenterInvite() {
+      resetPresenter();
+      presenter.pc = buildPeerConnection('presenter');
+      presenter.dc = presenter.pc.createDataChannel('chat');
+      attachDataChannel('presenter', presenter.dc);
+
+      const offer = await presenter.pc.createOffer();
+      await presenter.pc.setLocalDescription(offer);
+      setStatus(els.presenterStatus, 'Gathering ICE candidates…', 'warn');
+      await waitForIceComplete(presenter.pc);
+
+      const payload = {
+        version: 1,
+        role: 'presenter-offer',
+        description: snapshotDescription(presenter.pc),
+      };
+      els.presenterOffer.value = JSON.stringify(payload, null, 2);
+      log('presenter', 'Presenter invite created. Copy this blob to the attendee.');
+    }
+
+    async function acceptPresenterAnswer() {
+      if (!presenter.pc) {
+        alert('Create the presenter invite first.');
+        return;
+      }
+      const payload = safeParseJson(els.presenterAnswer.value.trim());
+      if (!payload || !payload.description) {
+        alert('Invalid attendee answer JSON.');
+        return;
+      }
+      await presenter.pc.setRemoteDescription(payload.description);
+      log('presenter', 'Applied attendee answer. Waiting for connection…');
+    }
+
+    async function createAttendeeAnswer() {
+      resetAttendee();
+      const payload = safeParseJson(els.attendeeOffer.value.trim());
+      if (!payload || !payload.description) {
+        alert('Invalid presenter invite JSON.');
+        return;
+      }
+
+      attendee.pc = buildPeerConnection('attendee');
+      attendee.pc.addEventListener('datachannel', (event) => {
+        attendee.dc = event.channel;
+        attachDataChannel('attendee', attendee.dc);
+        log('attendee', 'Received data channel from presenter.');
+      });
+
+      await attendee.pc.setRemoteDescription(payload.description);
+      const answer = await attendee.pc.createAnswer();
+      await attendee.pc.setLocalDescription(answer);
+      setStatus(els.attendeeStatus, 'Gathering ICE candidates…', 'warn');
+      await waitForIceComplete(attendee.pc);
+
+      const answerPayload = {
+        version: 1,
+        role: 'attendee-answer',
+        description: snapshotDescription(attendee.pc),
+      };
+      els.attendeeAnswer.value = JSON.stringify(answerPayload, null, 2);
+      log('attendee', 'Attendee answer created. Copy this blob back to the presenter.');
+    }
+
+    async function copyText(value) {
+      try {
+        await navigator.clipboard.writeText(value);
+      } catch {
+        alert('Clipboard write failed. Copy manually.');
+      }
+    }
+
+    document.getElementById('presenterCreate').addEventListener('click', () => {
+      createPresenterInvite().catch((err) => {
+        console.error(err);
+        setStatus(els.presenterStatus, 'Presenter error', 'err');
+        log('presenter', `Error: ${err.message || err}`);
+      });
+    });
+
+    document.getElementById('presenterAcceptAnswer').addEventListener('click', () => {
+      acceptPresenterAnswer().catch((err) => {
+        console.error(err);
+        setStatus(els.presenterStatus, 'Presenter error', 'err');
+        log('presenter', `Error: ${err.message || err}`);
+      });
+    });
+
+    document.getElementById('attendeeCreateAnswer').addEventListener('click', () => {
+      createAttendeeAnswer().catch((err) => {
+        console.error(err);
+        setStatus(els.attendeeStatus, 'Attendee error', 'err');
+        log('attendee', `Error: ${err.message || err}`);
+      });
+    });
+
+    document.getElementById('copyPresenterOffer').addEventListener('click', () => copyText(els.presenterOffer.value));
+    document.getElementById('copyAttendeeAnswer').addEventListener('click', () => copyText(els.attendeeAnswer.value));
+    document.getElementById('presenterReset').addEventListener('click', resetPresenter);
+    document.getElementById('attendeeReset').addEventListener('click', resetAttendee);
+    document.getElementById('presenterSend').addEventListener('click', () => sendChat('presenter'));
+    document.getElementById('attendeeSend').addEventListener('click', () => sendChat('attendee'));
+
+    log('presenter', 'Ready.');
+    log('attendee', 'Ready.');
+  </script>
+</body>
+</html>
