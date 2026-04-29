@@ -407,8 +407,10 @@
     }
 
     async function createAttendeeAnswer() {
+      const offerText = els.attendeeOffer.value.trim();
       resetAttendee();
-      const payload = safeParseJson(els.attendeeOffer.value.trim());
+      els.attendeeOffer.value = offerText;
+      const payload = safeParseJson(offerText);
       if (!payload || !payload.description) {
         alert('Invalid presenter invite JSON.');
         return;
