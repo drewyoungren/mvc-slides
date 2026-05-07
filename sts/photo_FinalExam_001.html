@@ -1,0 +1,590 @@
+
+<html>
+  <head>
+    <meta name="robots" content="noindex" />
+  </head>
+  <style>
+    div#mia_info {
+      background-color: lightgray;
+      font-family: mono;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      /* height: 40px; */
+      overflow-x: scroll;
+    }
+  </style>
+  <script>
+    const mia = {};
+
+    function checkChild(element) {
+      const el = element.parentElement.querySelector('input');
+      el.checked = !el.checked;
+      clickMe(el);
+    }
+
+    function copyText() {
+      const bank = document.querySelector('#mia_bank');
+      navigator.clipboard.writeText(bank.innerText);
+    }
+
+    function clickMe(element) {
+      const uni = element.id;
+      const bank = document.querySelector('#mia_bank');
+
+      // console.log(element.id)
+      mia[uni] = element.checked;
+
+      if (element.checked) {
+        element.parentElement.parentElement.style.background = 'pink';
+      } else {
+        element.parentElement.parentElement.style.background = 'lightgreen';
+      }
+
+      bank.innerText = Object.keys(mia)
+        .filter((k) => mia[k])
+        .join('|');
+    }
+  </script>
+  <body>
+    <div id="mia_info">
+      <strong>MIAs</strong>
+      <div id="mia_bank"></div>
+      <button onclick="copyText()">Copy to clipboard</button>
+    </div>
+    <table border="1">
+
+<tr id="tr_cap2297">
+	<td>Puscalau, Calin-Andrei</td>
+	<td>cap2297</td>
+	<td>101.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/cap2297.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="cap2297" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_kh3430">
+	<td>Huang, Kim</td>
+	<td>kh3430</td>
+	<td>107.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/kh3430.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="kh3430" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_nlp2144">
+	<td>Purdy, Nicholas</td>
+	<td>nlp2144</td>
+	<td>111.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/nlp2144.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="nlp2144" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_ccp2169">
+	<td>Pierson, Catherine</td>
+	<td>ccp2169</td>
+	<td>117.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/ccp2169.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="ccp2169" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_lr3167">
+	<td>Raghavan, Lola</td>
+	<td>lr3167</td>
+	<td>203.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/lr3167.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="lr3167" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_mdp2190">
+	<td>Patrick, Madeleine</td>
+	<td>mdp2190</td>
+	<td>207.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/mdp2190.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="mdp2190" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_lle2111">
+	<td>Erbay, Lale</td>
+	<td>lle2111</td>
+	<td>215.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/lle2111.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="lle2111" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_cap2310">
+	<td>Patrick, Cami</td>
+	<td>cap2310</td>
+	<td>217.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/cap2310.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="cap2310" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_zmm2118">
+	<td>Malinowska, Zuzanna</td>
+	<td>zmm2118</td>
+	<td>303.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/zmm2118.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="zmm2118" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_teb2138">
+	<td>Barankay, Tibor</td>
+	<td>teb2138</td>
+	<td>305.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/teb2138.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="teb2138" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_asm2340">
+	<td>Maruenda, Aya</td>
+	<td>asm2340</td>
+	<td>307.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/asm2340.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="asm2340" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_vn2374">
+	<td>Nemec, Vitek</td>
+	<td>vn2374</td>
+	<td>309.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/vn2374.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="vn2374" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_am7060">
+	<td>Malhotra, Ananya</td>
+	<td>am7060</td>
+	<td>311.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/am7060.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="am7060" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_boy2103">
+	<td>Yip, Brandon</td>
+	<td>boy2103</td>
+	<td>315.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/boy2103.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="boy2103" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_hlc2139">
+	<td>Campagnolo, Henri</td>
+	<td>hlc2139</td>
+	<td>401.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/hlc2139.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="hlc2139" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_cyy2113">
+	<td>Yu, Chloe</td>
+	<td>cyy2113</td>
+	<td>403.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/cyy2113.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="cyy2113" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_rtv2110">
+	<td>Vo, Raymond</td>
+	<td>rtv2110</td>
+	<td>405.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/rtv2110.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="rtv2110" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_zl3691">
+	<td>Li, Ziyu</td>
+	<td>zl3691</td>
+	<td>407.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/zl3691.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="zl3691" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_hat2126">
+	<td>Tabler, Hunter</td>
+	<td>hat2126</td>
+	<td>409.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/hat2126.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="hat2126" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_kte2118">
+	<td>Ebie, Kikachukwu</td>
+	<td>kte2118</td>
+	<td>411.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/kte2118.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="kte2118" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_ug2153">
+	<td>Gupta, Utsav</td>
+	<td>ug2153</td>
+	<td>413.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/ug2153.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="ug2153" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_ef2822">
+	<td>Fernandez, Edgar</td>
+	<td>ef2822</td>
+	<td>501.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/ef2822.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="ef2822" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_aw3766">
+	<td>Waliuzzaman, Abukhayer</td>
+	<td>aw3766</td>
+	<td>503.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/aw3766.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="aw3766" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_ph2740">
+	<td>Hedesiu, Petra</td>
+	<td>ph2740</td>
+	<td>505.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/ph2740.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="ph2740" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_aaw2193">
+	<td>White, Archie</td>
+	<td>aaw2193</td>
+	<td>507.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/aaw2193.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="aaw2193" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_tg2834">
+	<td>Ghoniem, Tasnim</td>
+	<td>tg2834</td>
+	<td>511.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/tg2834.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="tg2834" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_eo2572">
+	<td>Ozer, Elif</td>
+	<td>eo2572</td>
+	<td>513.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/eo2572.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="eo2572" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_rhm2154">
+	<td>Mimoso, Renzo</td>
+	<td>rhm2154</td>
+	<td>517.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/rhm2154.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="rhm2154" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_ly2671">
+	<td>Yaqouti, Lina</td>
+	<td>ly2671</td>
+	<td>601.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/ly2671.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="ly2671" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_bjz2112">
+	<td>Zhang, Briley</td>
+	<td>bjz2112</td>
+	<td>605.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/bjz2112.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="bjz2112" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_ega2124">
+	<td>Abebe, Eden</td>
+	<td>ega2124</td>
+	<td>607.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/ega2124.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="ega2124" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_jbp2168">
+	<td>Palanca, James</td>
+	<td>jbp2168</td>
+	<td>609.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/jbp2168.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="jbp2168" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_fe2234">
+	<td>Escobedo-Cantu, Filiberto</td>
+	<td>fe2234</td>
+	<td>615.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/fe2234.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="fe2234" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_jap2340">
+	<td>Pruitt, Joaquin</td>
+	<td>jap2340</td>
+	<td>701.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/jap2340.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="jap2340" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_sh4809">
+	<td>Hall, Sarah</td>
+	<td>sh4809</td>
+	<td>703.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/sh4809.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="sh4809" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_sbs2248">
+	<td>Srikanth, Shreya</td>
+	<td>sbs2248</td>
+	<td>709.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/sbs2248.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="sbs2248" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_aag2211">
+	<td>Goenka, Aradhitta</td>
+	<td>aag2211</td>
+	<td>711.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/aag2211.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="aag2211" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_nam2263">
+	<td>Matejka, Nicolas</td>
+	<td>nam2263</td>
+	<td>715.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/nam2263.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="nam2263" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_no2440">
+	<td>Oueslati, Nouha</td>
+	<td>no2440</td>
+	<td>803.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/no2440.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="no2440" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_kc3961">
+	<td>Chao, Kaitlyn</td>
+	<td>kc3961</td>
+	<td>805.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/kc3961.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="kc3961" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_trs2176">
+	<td>Sonone, Tanish</td>
+	<td>trs2176</td>
+	<td>807.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/trs2176.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="trs2176" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_thp2117">
+	<td>Park, Tyler</td>
+	<td>thp2117</td>
+	<td>809.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/thp2117.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="thp2117" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_ahh2163">
+	<td>Herrera, Andriy</td>
+	<td>ahh2163</td>
+	<td>815.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/ahh2163.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="ahh2163" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_gg3033">
+	<td>Garcia Mendez, Giselle</td>
+	<td>gg3033</td>
+	<td>817.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/gg3033.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="gg3033" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_vhy2101">
+	<td>Yang, Vivian</td>
+	<td>vhy2101</td>
+	<td>901.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/vhy2101.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="vhy2101" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_esd2155">
+	<td>Domanski, Edith</td>
+	<td>esd2155</td>
+	<td>903.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/esd2155.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="esd2155" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_kgj2117">
+	<td>Jensen, Keira</td>
+	<td>kgj2117</td>
+	<td>905.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/kgj2117.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="kgj2117" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_yfs2103">
+	<td>Stechert, Yuna</td>
+	<td>yfs2103</td>
+	<td>907.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/yfs2103.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="yfs2103" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_kd2949">
+	<td>Dordi, Kyra</td>
+	<td>kd2949</td>
+	<td>911.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/kd2949.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="kd2949" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_am6951">
+	<td>Maheshwari, Aarushi</td>
+	<td>am6951</td>
+	<td>1007.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/am6951.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="am6951" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_pnm2121">
+	<td>Mahindrakar, Pranay</td>
+	<td>pnm2121</td>
+	<td>1011.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/pnm2121.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="pnm2121" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_asb2326">
+	<td>Bahugudumbi, Akshaya</td>
+	<td>asb2326</td>
+	<td>1015.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/asb2326.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="asb2326" oninput="clickMe(this)"></td>
+</tr>
+<tr id="tr_sc5850">
+	<td>Chalermthanakom, Venice</td>
+	<td>sc5850</td>
+	<td>1017.0</td>
+
+	<td onclick="checkChild(this);">
+		<img src="jpg/sc5850.jpg" width="300">
+	</td>
+<td><input type="checkbox" id="sc5850" oninput="clickMe(this)"></td>
+</tr>
+</table>
+</body>
+</html>
