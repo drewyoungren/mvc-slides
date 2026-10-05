@@ -183,12 +183,11 @@
             <h6 class="framelabel">Definition</h6>
 
             <p>
-              A scalar field $f(x_1, \ldots, x_n)$ is
-              <strong>differentiable</strong> at $(p_1, \ldots, p_n)$ provided
-              there is a linear function $L(x_1, \ldots, x_n)$ such that
-              \[f(x_1, \ldots, x_n) - L(x_1, \ldots, x_n) = \sum_{i=1}^n
-              \epsilon_i (x_i - p_i)\] where each $\epsilon_i \to 0$ as $\vec x
-              \to \vec p$.
+              A scalar field $f(\vec x)$ is
+              <strong>differentiable</strong> at $\vec p$ provided there is a
+              linear function $L(\vec x)$ such that \[f(\vec x) - L(\vec x) =
+              \sum_{i=1}^n \epsilon_i(\vec x) (x_i - p_i)\] where each
+              $\epsilon_i \to 0$ as $\vec x \to \vec p$.
             </p>
           </section>
           <section>
@@ -201,7 +200,9 @@
               <span class="fragment">
                 Then, \[ f(x) - L(x) = x^3 - 3x + 2 \]
               </span>
-              <span class="fragment">\[ = (x^2 + x - 2)(x - 1) \] </span>
+              <span class="fragment"
+                >\[ = \overbrace{(x^2 + x - 2)}^{\epsilon(x)}(x - 1) \]
+              </span>
             </p>
           </section>
         </section>
@@ -224,7 +225,7 @@
             </p>
           </section>
           <section>
-            <h6 class="framelabel">Program for Tangent Plane</h6>
+            <p class="framelabel"><strong>Program for Tangent Plane</strong></p>
             <ol>
               <li class="fragment">
                 Construct curve in $x$-direction $\langle t, 2, \ln(t + 5)
@@ -255,7 +256,9 @@
             </ol>
           </section>
           <section>
-            <h6 class="framelabel">Tangent Plane at $(a, b, f(a,b))$.</h6>
+            <p class="framelabel">
+              <strong>Tangent Plane at $(a, b, f(a,b))$.</strong>
+            </p>
             <ol>
               <li class="fragment">
                 Construct curve in $x$-direction $\langle t, b, f(t,b) \rangle$
