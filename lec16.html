@@ -339,8 +339,8 @@
             <h6 class="framelabel">Example</h6>
             <p>
               The nose of a race car is modeled by half of a right cone with
-              height $h$ and radius $R$. Assuming uniform density, how high is
-              the center of mass from the bottom.
+              length $\ell$ from tip to base and base radius $R$. Assuming
+              uniform density, how high is the center of mass from the bottom.
             </p>
 
             <div class="r-stretch">
@@ -361,14 +361,15 @@
                 >Reorient</a
               >
               with cylindrical coords so that <br />
-              $0 \leq \theta \leq \pi$, $0 \leq r \leq R$, $0 \leq z \leq h -
-              \frac{h}{R} r$ <br />
+              $0 \leq \theta \leq \pi$, $0 \leq r \leq R$, $0 \leq z \leq \ell -
+              \frac{\ell}{R} r$ <br />
               and $y$ is then the "height" coordinate.
             </p>
             <p>\[ \bar{y} = \frac1V \iiint\limits_{\mathcal C} y\,dV \]</p>
             <p>
-              \[ = \frac{1}{\pi R^2 h / 6} \int_0^\pi \int_0^R \int_0^{h -
-              \frac{h}{R}r} r^2 \sin\theta\,dz\,dr\,d\theta \] \[ = R / \pi \]
+              \[ = \frac{1}{\pi R^2 \ell / 6} \int_0^\pi \int_0^R \int_0^{\ell -
+              \frac{\ell}{R}r} r^2 \sin\theta\,dz\,dr\,d\theta \] \[ = R / \pi
+              \]
             </p>
           </section>
         </section>
