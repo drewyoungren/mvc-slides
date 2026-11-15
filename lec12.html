@@ -173,28 +173,26 @@
           <section>
             <h6 class="framelabel">Example</h6>
             <p class="smaller">
-              Identify the critical points from the contour plot below. Do they
-              correspond with a local min or max or neither?
-            </p>
-
-            <p>
-              <img
-                src="./assets/contour_extrema.png"
-                width="500px"
-                height="500px"
-                srcset=""
-              />
-            </p>
-            <p>
+              Identify the critical points from the
               <a
-                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9Z3JhcGgmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfYT0tMiZvYmowX3BhcmFtc19iPTImb2JqMF9wYXJhbXNfYz0tMiZvYmowX3BhcmFtc19kPTImb2JqMF9wYXJhbXNfej0lMjgyKmV4cCUyOC0lMjh4JTVFMislMkIreSU1RTIlMjklMjkrLSsxKitleHAlMjgtMisqJTI4JTI4eCstKzElMjklNUUyKyUyQislMjh5Ky0rMyUyRjQlMjklNUUyJTI5JTI5Ky0rMS4zKypleHAlMjgtMisqJTI4JTI4eCstKzElMjklNUUyKyUyQislMjh5KyUyQisxJTJGMiUyOSU1RTIlMjklMjklMjkrJTJGKzImb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1maWVsZCZvYmoxX2NvbG9yPSUyMzAwMDAwMCZvYmoxX3BhcmFtc194MD0tMS41Jm9iajFfcGFyYW1zX3gxPTEuNSZvYmoxX3BhcmFtc195MD0tMS41Jm9iajFfcGFyYW1zX3kxPTEuNSZvYmoxX3BhcmFtc196MD0wJm9iajFfcGFyYW1zX3oxPTAmb2JqMV9wYXJhbXNfcD0tJTI4LTQqeCpleHAlMjgtJTI4eCU1RTIrJTJCK3klNUUyJTI5JTI5KyUyQis0KiUyOHgrLSsxJTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSstKzMlMkY0JTI5JTVFMiUyOSUyOSslMkIrNS4yKiUyOHgrLSsxJTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSslMkIrMSUyRjIlMjklNUUyJTI5JTI5JTI5JTJGMiZvYmoxX3BhcmFtc19xPS0lMjgtNCp5KmV4cCUyOC0lMjh4JTVFMislMkIreSU1RTIlMjklMjkrJTJCKzQqJTI4eSstKzMlMkY0JTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSstKzMlMkY0JTI5JTVFMiUyOSUyOSslMkIrNS4yKiUyOHkrJTJCKzElMkYyJTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSslMkIrMSUyRjIlMjklNUUyJTI5JTI5JTI5JTJGMiZvYmoxX3BhcmFtc19yPTAmb2JqMV9wYXJhbXNfblZlYz0xMA=="
+                href="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz10cnVlJm9iajBfa2luZD1ncmFwaCZvYmowX2NvbG9yPSUyMzBkMDg4NyZvYmowX3BhcmFtc19hPS0yJm9iajBfcGFyYW1zX2I9MiZvYmowX3BhcmFtc19jPS0yJm9iajBfcGFyYW1zX2Q9MiZvYmowX3BhcmFtc196PSUyODIqZXhwJTI4LSUyOHglNUUyKyUyQit5JTVFMiUyOSUyOSstKzEqK2V4cCUyOC0yKyolMjglMjh4Ky0rMSUyOSU1RTIrJTJCKyUyOHkrLSszJTJGNCUyOSU1RTIlMjklMjkrLSsxLjMrKmV4cCUyOC0yKyolMjglMjh4Ky0rMSUyOSU1RTIrJTJCKyUyOHkrJTJCKzElMkYyJTI5JTVFMiUyOSUyOSUyOSslMkYrMiZvYmowX3BhcmFtc190MD0wJm9iajBfcGFyYW1zX3QxPTEmb2JqMV9raW5kPWZpZWxkJm9iajFfY29sb3I9JTIzMDAwMDAwJm9iajFfcGFyYW1zX3gwPS0xLjUmb2JqMV9wYXJhbXNfeDE9MS41Jm9iajFfcGFyYW1zX3kwPS0xLjUmb2JqMV9wYXJhbXNfeTE9MS41Jm9iajFfcGFyYW1zX3owPTAmb2JqMV9wYXJhbXNfejE9MCZvYmoxX3BhcmFtc19wPSUyOC00KngqZXhwJTI4LSUyOHglNUUyKyUyQit5JTVFMiUyOSUyOSslMkIrNColMjh4Ky0rMSUyOSpleHAlMjgtMiolMjglMjh4Ky0rMSUyOSU1RTIrJTJCKyUyOHkrLSszJTJGNCUyOSU1RTIlMjklMjkrJTJCKzUuMiolMjh4Ky0rMSUyOSpleHAlMjgtMiolMjglMjh4Ky0rMSUyOSU1RTIrJTJCKyUyOHkrJTJCKzElMkYyJTI5JTVFMiUyOSUyOSUyOSUyRjImb2JqMV9wYXJhbXNfcT0lMjgtNCp5KmV4cCUyOC0lMjh4JTVFMislMkIreSU1RTIlMjklMjkrJTJCKzQqJTI4eSstKzMlMkY0JTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSstKzMlMkY0JTI5JTVFMiUyOSUyOSslMkIrNS4yKiUyOHkrJTJCKzElMkYyJTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSslMkIrMSUyRjIlMjklNUUyJTI5JTI5JTI5JTJGMiZvYmoxX3BhcmFtc19yPTAmb2JqMV9wYXJhbXNfblZlYz0xMA=="
                 target="_blank"
               >
-                graph
+                contour plot
               </a>
+              below. Do they correspond with a local min or max or neither?
             </p>
+
+            <div class="r-stretch">
+              <img
+                src="./assets/contour_extrema.png"
+                width="auto"
+                height="100%"
+                srcset=""
+              />
+            </div>
           </section>
-          <section>
+          <!-- <section>
             <div class="r-stretch">
               <iframe
                 src="https://3demos.ctl.columbia.edu/?c2NhbGU9MCZzaG93UGFuZWw9ZmFsc2UmZ3JpZD1mYWxzZSZvcnRobz1mYWxzZSZvYmowX2tpbmQ9Z3JhcGgmb2JqMF9jb2xvcj0lMjMwZDA4ODcmb2JqMF9wYXJhbXNfYT0tMiZvYmowX3BhcmFtc19iPTImb2JqMF9wYXJhbXNfYz0tMiZvYmowX3BhcmFtc19kPTImb2JqMF9wYXJhbXNfej0lMjgyKmV4cCUyOC0lMjh4JTVFMislMkIreSU1RTIlMjklMjkrLSsxKitleHAlMjgtMisqJTI4JTI4eCstKzElMjklNUUyKyUyQislMjh5Ky0rMyUyRjQlMjklNUUyJTI5JTI5Ky0rMS4zKypleHAlMjgtMisqJTI4JTI4eCstKzElMjklNUUyKyUyQislMjh5KyUyQisxJTJGMiUyOSU1RTIlMjklMjklMjkrJTJGKzImb2JqMF9wYXJhbXNfdDA9MCZvYmowX3BhcmFtc190MT0xJm9iajFfa2luZD1maWVsZCZvYmoxX2NvbG9yPSUyMzAwMDAwMCZvYmoxX3BhcmFtc194MD0tMS41Jm9iajFfcGFyYW1zX3gxPTEuNSZvYmoxX3BhcmFtc195MD0tMS41Jm9iajFfcGFyYW1zX3kxPTEuNSZvYmoxX3BhcmFtc196MD0wJm9iajFfcGFyYW1zX3oxPTAmb2JqMV9wYXJhbXNfcD0tJTI4LTQqeCpleHAlMjgtJTI4eCU1RTIrJTJCK3klNUUyJTI5JTI5KyUyQis0KiUyOHgrLSsxJTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSstKzMlMkY0JTI5JTVFMiUyOSUyOSslMkIrNS4yKiUyOHgrLSsxJTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSslMkIrMSUyRjIlMjklNUUyJTI5JTI5JTI5JTJGMiZvYmoxX3BhcmFtc19xPS0lMjgtNCp5KmV4cCUyOC0lMjh4JTVFMislMkIreSU1RTIlMjklMjkrJTJCKzQqJTI4eSstKzMlMkY0JTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSstKzMlMkY0JTI5JTVFMiUyOSUyOSslMkIrNS4yKiUyOHkrJTJCKzElMkYyJTI5KmV4cCUyOC0yKiUyOCUyOHgrLSsxJTI5JTVFMislMkIrJTI4eSslMkIrMSUyRjIlMjklNUUyJTI5JTI5JTI5JTJGMiZvYmoxX3BhcmFtc19yPTAmb2JqMV9wYXJhbXNfblZlYz0xMA=="
@@ -203,7 +201,7 @@
                 height="100%"
               ></iframe>
             </div>
-          </section>
+          </section> -->
           <section>
             <h6 class="framelabel">Example</h6>
             <p>
